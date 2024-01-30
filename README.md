@@ -39,26 +39,27 @@ Discuss what you need to develop this project. This includes background informat
 <table>
 <tr>
     <td align="center">
-        <a href="https://github.com/ApplebaumIan">
-            <img src="https://avatars.githubusercontent.com/u/9451941?v=4" width="100;" alt="ApplebaumIan"/>
-            <br />
-            <sub><b>Ian Tyler Applebaum</b></sub>
-        </a>
+        Eddy Pike
     </td>
     <td align="center">
-        <a href="https://github.com/leekd99">
-            <img src="https://avatars.githubusercontent.com/u/32583417?v=4" width="100;" alt="leekd99"/>
-            <br />
-            <sub><b>Kyle Dragon Lee</b></sub>
-        </a>
+        Alex McGinn
     </td>
     <td align="center">
-        <a href="https://github.com/thanhnguyen46">
-            <img src="https://avatars.githubusercontent.com/u/60533187?v=4" width="100;" alt="thanhnguyen46"/>
-            <br />
-            <sub><b>Thanh Nguyen</b></sub>
-        </a>
+        Brandon Cuevas
     </td>
+    <td align="center">
+        Theron Halsey
+    </td>
+    <td align="center">
+        Luigi Mazzocchi
+    </td>
+    <td align="center">
+        Brian Barnefiher
+    </td>
+    <td align="center">
+        Andrew Tran
+    </td>
+
    </tr>
 </table>
 
