@@ -33,17 +33,16 @@ A mock-up of what the game is planned to look like is shown here:
 
 The group as a whole has a “level” that starts at 1, but as the players defeat more enemies, they can increase the level, allowing the characters to improve their attributes and learn new attacks that they can add or remove from their moveset. The players can even improve the attacks themselves to be stronger and more efficient. Below is an illustration to demonstrate how leveling up works:
 
-![image](https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/assets/97611396/04158bb0-21c0-4f86-aa0b-cbb6be403646)
+![image](https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/assets/97611396/79b814bd-7111-4000-8ccc-04526e08cbf8)
+
 
 
 As depicted in the illustration, a new attack was learned when leveling up. These attacks can be equipped and unequipped in a menu, like the one illustrated below:
 
-![image](https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/assets/97611396/2dc4c3b7-106f-4f3d-85ba-9efb998d740d)
-
+![image](https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/assets/97611396/23fa6c75-710d-425a-a3dd-093402444613)
 
 As the group progresses through the game, they gain more levels and become stronger. Overall, the game can be described as combining elements from platform fighters like Super Smash Bros. with RPG elements from games like Pokémon.
 
- 
 
 ## High Level Requirements
 Upon booting up the game, the player can join or create a lobby. The game will use Alteruna Multiplayer, which is a free package in Unity, to connect to other user’s lobbies. After joining the lobby, the player should be taken to a menu to select their character, even if the game itself is already in progress. Each character starts off at level 1 with a default list of moves and a default distribution of stats. Once in the game, each player can input their character’s attacks by combining different directions with the designated attack button. Players shouldn’t be able to hurt other players, but every player can hurt the game’s enemies. When enough enemies have been defeated, every character levels up, increasing their stats as well as potentially unlocking new attacks (demonstrated in the second illustration in the Project Abstract). When a new attack has been learnt, a player can open a menu to decide which attacks are in their moveset, as well as what input is needed to perform these attacks (demonstrated in the third illustration in the Project Abstract). When a player is in a menu, it shouldn’t interrupt the gameplay of the other players, though the game should still indicate when a player is in a menu. Each player is free to roam and explore the levels at their own pace, but if a player feels like they’ve gotten too far away from the rest of the party, they can warp to the other players whenever they like. Finally, if the player wants to rebind their controls, they can do so at any time.
