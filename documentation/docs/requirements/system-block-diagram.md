@@ -5,7 +5,7 @@ sidebar_position: 2
 # System Block Diagram
 
 
-![System Block Diagram](https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/blob/amcginn92-doc/documentation/src/components/Figure/img/SystemBlockDiagram.jpg)
+![System Block Diagram](https://raw.githubusercontent.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/amcginn92-doc/documentation/src/components/Figure/img/SystemBlockDiagram.jpg)
 
 ### Figure 1. High level design of the Wildlife Odyssey architecture
 
