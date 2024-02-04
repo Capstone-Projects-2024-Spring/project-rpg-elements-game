@@ -11,6 +11,7 @@ sidebar_position: 2
 
 
 import Figure from "../../src/components/Figure";
+
 <Figure caption={"Figure 1. High level design of the Wildlife Odyssey architecture"}>
 
 ![System Block Diagram](/img/SystemBlockDiagram.jpg)
