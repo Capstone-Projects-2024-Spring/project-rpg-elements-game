@@ -7,7 +7,7 @@ sidebar_position: 3
 <ul>Computer running Windows or macOS</ul> 
 <ul>Internet Connection</ul>
 </list>
-Minimum requirements:
+# Minimum requirements:
 <list>
 <ul>OS: Windows 10 (64bit) or OSX 10.13</ul>
 <ul>Processor: 1.5Ghz or better (x86-64)</ul>
