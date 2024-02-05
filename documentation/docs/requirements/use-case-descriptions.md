@@ -3,7 +3,7 @@ sidebar_position: 5
 ---
 
 # Use-case descriptions
-Use Case 1 
+## Use Case 1 
 
 Single-Player Game: A new user wants to play through the game. 
 1. The user opens the game and is treated by the home screen. 
@@ -15,7 +15,7 @@ Single-Player Game: A new user wants to play through the game.
 7. The user eventually finds the final boss and is strong enough to defeat it 
 8. Once the final boss is defeated, the credits roll and the game is cleared. 
 
-Use Case 2 
+## Use Case 2 
 
 Two-Player Game: A user wants to play through the game with a friend 
 1. Both users open the game and are treated by the home screen 
@@ -26,7 +26,7 @@ Two-Player Game: A user wants to play through the game with a friend
 6. Eventually, at least one of them will find the final boss. They fight and defeat the final boss together. 
 7. Upon defeating the final boss, the credits roll, and the game is cleared. 
 
-Use Case 3 
+## Use Case 3 
 
 A user wants to challenge themselves and increase the difficulty scale. 
 1. Users open the game and are greeted by the home screen.  
@@ -43,7 +43,7 @@ A user wants to challenge themselves and increase the difficulty scale.
 
  
 
-Use Case 4 
+## Use Case 4 
 
 A user wants to play the game with multiple friends  
 
@@ -56,7 +56,7 @@ A user wants to play the game with multiple friends
 7. Once at least one user beats the final boss, a way to exit the game will appear 
 8. After all users go to the exit, the game will end 
 
-Use Case 5 
+## Use Case 5 
 
 A user wants to attempt to speedrun the game with friends as fast as possible. 
 
@@ -73,7 +73,7 @@ A user wants to attempt to speedrun the game with friends as fast as possible.
 
  
 
-Use Case 6 
+## Use Case 6 
 
 A user wants to find a game that can be replayed multiple times with a different feel.  
 
