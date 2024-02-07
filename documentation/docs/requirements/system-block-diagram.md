@@ -4,22 +4,10 @@ sidebar_position: 2
 
 # System Block Diagram
 
-<!-- 1 -->
+
 ![SystemBlockDiagram](https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/assets/95385730/c63ab5bb-de77-4f10-8ac3-dac1dd45a01d)
 
-<!-- 2 -->
-<!-- import Figure from "../../src/components/Figure";  
-
-<!-- <Figure caption={"Figure 1.1 A dinosaur that helps users write great documentation websites."}>
-
-![System Block Diagram](/img/system-block-diagram.md)
-
-</Figure> --> -->
-
-<!-- 3 -->
-<!-- ![System Block Diagram](https://raw.githubusercontent.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/amcginn92-doc/documentation/src/components/Figure/img/SystemBlockDiagram.jpg) -->
-
-### Figure 1. High level design of the Wildlife Odyssey architecture  
+*Figure 1. High level design of the Wildlife Odyssey architecture*
 
 
 
