@@ -1,3 +1,6 @@
+# wildlife-odyssey
+GitHub Repo for a 2D platformer with RPG elements
+=======
 <div align="center">
 
 # Wildlife Odyssey
@@ -98,3 +101,4 @@ The inspiration for this game came from the idea of taking games like Super Smas
 </table>
 
 [//]: # ( readme: collaborators -end )
+
