@@ -7,24 +7,24 @@ sidebar_position: 5
 
 Single-Player Game: A new user wants to play through the game. 
 1. The user opens the game and is treated by the home screen. 
-2. The home screen has a “tutorial”, “create lobby”, and “join lobby” button. Since this is the user’s first time playing the game, the user chooses “tutorial”.
+2. The home screen has a “tutorial”, “create lobby”, and “join lobby” buttons. Since this is the user’s first time playing the game, the user chooses “tutorial”.
 3. The game teaches the user about all of the main mechanics and how to play.
 4. After clearing the tutorial, the user is sent back to the title screen and clicks “create lobby”.
-5. The user selects their character. Since this is a single player game, there is no need for them to share the lobby code, so they just select start. They load into the map and play through the game. 
-6. The user traverses through the various environments, enemies, and bosses.
-7. The user eventually finds the final boss and is strong enough to defeat it.
-8. Once the final boss is defeated, the credits roll and the game is cleared. 
+5. The user selects their character. Since this is a single-player game, there is no need for them to share the lobby code, so they just select start.
+7. The user traverses through the various environments, enemies, and bosses.
+8. As the user runs through the map, they have gained experience and new move sets.
+9. The user returns to a town, where they are able to equip or remove skills.
+11. The user eventually sets back out on their adventure and finds the final boss and is strong enough to defeat it.
+12. Once the final boss is defeated, the credits roll, and the game is cleared. 
 
 ## Use Case 2 
 
-Two-Player Game: A user wants to play through the game with a friend.
-1. Both users open the game and are treated by the home screen.
-2. After opening the game, user selects “Create Lobby” while another selects “Join Lobby”.
-3. One user opens a lobby and sends the invite code to the other user, who then joins said lobby.
-4. Both users select their characters. The lobby host clicks begin when they’re ready.
-5. Both users load into the map and play through the game. They can go their separate ways or explore together as they feel like it.
-6. Eventually, at least one of them will find the final boss. They fight and defeat the final boss together. 
-7. Upon defeating the final boss, the credits roll, and the game is cleared. 
+Procedurally Generated Map: A user wants to play through a game and have a different experience. 
+1. Once loaded into the map and picked their class and character set out in the world.
+2. The user levels up and realizes they are not enjoying their class and finds the map seed confusing.
+3. The user exits to the main menu and creates a new lobby.
+4. They then go through the process of starting a new game and choosing a new character.
+5. Since the map was procedurally generated the map has completely changed and the user has a different experience. 
 
 ## Use Case 3 
 
