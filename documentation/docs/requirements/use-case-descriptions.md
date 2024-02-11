@@ -41,8 +41,6 @@ A user wants to challenge themselves and increase the difficulty scale.
 
  
 
- 
-
 Use Case 4 
 
 A user wants to play the game with multiple friends  
@@ -55,31 +53,3 @@ A user wants to play the game with multiple friends
 6. Each user loads into the map and can go their separate ways and play through the game 
 7. Once at least one user beats the final boss, a way to exit the game will appear 
 8. After all users go to the exit, the game will end 
-
-Use Case 5 
-
-A user wants to attempt to speedrun the game with friends as fast as possible. 
-
-1. Users open the game and are greeted by the home screen.  
-2. After opening the game, the host chooses multiplayer and opens a lobby 
-3. All users join the host,  
-4. Each user chooses their class  
-5. The host clicks begin and starts a timer 
-6. Users scurry around the map in different directions finding the final boss.  
-7. If the users did not find the boss fast enough the user decides to restart and go through steps 2-5. 
-8. Users all meet at final boss location as fast as possible 
-9. They then take on the boss 
-10. Once the boss is defeated and credits roll, the user ends the timer and submits their speed run. 
-
- 
-
-Use Case 6 
-
-A user wants to find a game that can be replayed multiple times with a different feel.  
-
-1. User opens the game and is greeted by the home screen. 
-2. The user then chooses a class and character he has yet to play 
-3. The user joins a lobby and starts their adventure 
-4. The user plays through the game and doesn't enjoy their class to much.  
-5. The user decides to start over and choose a different class and character 
-6. After joining the lobby and going through the first entrance they notice the entire layout of the map has changed.  
