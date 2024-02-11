@@ -9,17 +9,11 @@ public class PlayerAttack : MonoBehaviour
     private Movement playerMovement;
     //private float cooldownTimer = Mathf.Infinity;
 
-    private BoxCollider2D hitbox1;
-    private BoxCollider2D hitbox2;
-    private BoxCollider2D hitbox3;
-    private BoxCollider2D hitbox4;
-    private void Start(){
-        hitbox1 = transform.GetChild(0).GetComponent<BoxCollider2D>();
-        hitbox2 = transform.GetChild(1).GetComponent<BoxCollider2D>();
-        hitbox3 = transform.GetChild(2).GetComponent<BoxCollider2D>();
-        hitbox4 = transform.GetChild(3).GetComponent<BoxCollider2D>();
-    }
-
+    public int damage;
+    public Hitbox hitbox;
+    public Transform[] transforms;
+    public float[] attackRange;
+    public LayerMask enemyLayers;
     private void Awake(){
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<Movement>();
@@ -36,23 +30,48 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack(){
         anim.SetTrigger("attack");
-        //Invoke("ActivateHitbox", 0.1f);
-        //Invoke("DeactivateHitbox", 0.2f);
-        //cooldownTimer = 0;
+        /* Unused code from following a tutorial with a different approach
+        for(int i = 0; i < transforms.Length; i++)
+        {
+            Collider2D[] hitenemies = Physics2D.OverlapCircleAll(transforms[i].position, attackRange[i], enemyLayers);
+            foreach(Collider2D Enemies in hitenemies)
+            {
+                Debug.Log("We hit " + Enemies.name);
+            }
+        }
+        */
+        //hitbox.useResponder(this);
+       // hitbox.startCheckingCollision();
+        //Debug.Log("Collision checking starting!");
     }
+
+
+
 
     void ActivateHitbox(){
         //print(hitbox1);
-        hitbox1.gameObject.SetActive(true);
-        hitbox2.gameObject.SetActive(true);
-        hitbox3.gameObject.SetActive(true);
-        hitbox4.gameObject.SetActive(true);
+        this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
     }
 
     void DeactivateHitbox(){
-        hitbox1.gameObject.SetActive(false);
-        hitbox2.gameObject.SetActive(false);
-        hitbox3.gameObject.SetActive(false);
-        hitbox4.gameObject.SetActive(false);
+        this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+
     }
+    /* More unused code from following a tutorial with a different approach
+        private void OnDrawGizmosSelected(){
+        for(int i = 0; i < transforms.Length; i++)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transforms[i].position, attackRange[i]);
+        }
+    }
+    */
+    /*
+    public void collisionedWith(Collider collider){
+        Hurtbox hurtbox = collider.GetComponent<Hurtbox>();
+        hurtbox?.getHitBy(damage);
+    }
+    */
+
 }
