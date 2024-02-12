@@ -4,13 +4,31 @@ using UnityEngine;
 
 public class Hitbox : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //
-    private void OnTriggerEnter2D(Collider2D collision){
-        if(collision.CompareTag("Enemy")){
-            //Damage the enemy
-            print("u hit the enemy :(((((");
-        }
+    private int damage;
 
+   
+
+    private void Awake(){
+        Debug.Log("Hello");
+
+        
     }
+
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "EnemyHurtbox"){
+            Debug.Log("DEAL " + damage + " DAMAGE TO " + other.name);
+        }
+    }
+
+    public void setDamage(int _damage){
+        damage = _damage;
+    }
+
+    public int getDamage(){
+        return damage;
+    }
+
+
+    
 }

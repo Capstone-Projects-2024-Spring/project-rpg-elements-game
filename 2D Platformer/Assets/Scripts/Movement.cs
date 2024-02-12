@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        
 
     }
 
@@ -43,9 +44,9 @@ public class Movement : MonoBehaviour
         //Set animator parameters
         anim.SetBool("run", (horizontalInput != 0) && (attacking == false));
         anim.SetBool("grounded", isGrounded());
+    
 
-        //print(attacking);
-
+ 
     }
 
     private void Jump(){
@@ -70,6 +71,12 @@ public class Movement : MonoBehaviour
     private void changeAttackState(){
         attacking = !attacking;
     }
+
+    void onCollisionEnter2D(Collision2D collision){
+        Debug.Log("Entered collision with " + collision.gameObject.name);
+    }
+
+    
 
 
 
