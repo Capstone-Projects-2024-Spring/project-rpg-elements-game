@@ -4,6 +4,8 @@ sidebar_position: 3
 
 # General Requirements
 <list>
+<ul>Jira</ul>
+<ul>GitHub</ul>
 <ul>Unity</ul>
 <ul>Visual Studio</ul>
 <ul>Internet Connection</ul>
