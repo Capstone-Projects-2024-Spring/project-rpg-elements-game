@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.1.0">
 <title data-rh="true">Features and Requirements | Project Rpg Elements Game</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://Capstone-Projects-2024-Spring.github.io/project-rpg-elements-game/docs/requirements/features-and-requirements"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Features and Requirements | Project Rpg Elements Game"><meta data-rh="true" name="description" content="Functional Requirements"><meta data-rh="true" property="og:description" content="Functional Requirements"><link data-rh="true" rel="icon" href="/project-rpg-elements-game/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://Capstone-Projects-2024-Spring.github.io/project-rpg-elements-game/docs/requirements/features-and-requirements"><link data-rh="true" rel="alternate" href="https://Capstone-Projects-2024-Spring.github.io/project-rpg-elements-game/docs/requirements/features-and-requirements" hreflang="en"><link data-rh="true" rel="alternate" href="https://Capstone-Projects-2024-Spring.github.io/project-rpg-elements-game/docs/requirements/features-and-requirements" hreflang="x-default"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><link rel="stylesheet" href="/project-rpg-elements-game/assets/css/styles.fa79164d.css">
-<script src="/project-rpg-elements-game/assets/js/runtime~main.1efd22a8.js" defer="defer"></script>
+<script src="/project-rpg-elements-game/assets/js/runtime~main.b291780f.js" defer="defer"></script>
 <script src="/project-rpg-elements-game/assets/js/main.eefa88d0.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -19,7 +19,7 @@
 <li>Lobbies – Multiplayer system allows users to generate codes that can be sent to other players to connect and play together simultaneously</li>
 <li>Title Screen<!-- -->
 <ul>
-<li>Upon starting the game, the user is greeted with a title screen with at least 3 main buttons on it:</li>
+<li>Upon starting the game, the user is greeted with a title screen with at least these buttons on it:</li>
 <li>Tutorial<!-- -->
 <ul>
 <li>This opens a prefabricated level in which the player may learn and experiment with the in-game systems.</li>
@@ -35,6 +35,13 @@
 <li>Allows the user to join a lobby and play together.</li>
 </ul>
 </li>
+<li>Login/Create Account<!-- -->
+<ul>
+<li>Allows the user to create an account or log in if they already have one. A user can&#x27;t join or create a lobby if they are not logged in.</li>
+</ul>
+</li>
+<li>Profile</li>
+<li>Available after the user has logged in. They can change their name, see their friends list, and set a profile picture.</li>
 </ul>
 </li>
 <li>Movement System (Player Controller) - Players have diverse movement controls in which they can combine inputs to perform various attacks and skills. In addition to this, the player can interact with the environment by wall jumping and linear dashes.<!-- -->
@@ -65,9 +72,23 @@
 <li>The environment will be populated by enemies</li>
 <li>Each enemy will try to attack the player or hinder their progress.</li>
 <li>Certain enemies will be bosses in designated rooms that take more effort to fight.</li>
+<li>When an enemy is defeated, they will give every player experience, and will give gold to the player who defeated it.</li>
 </ul>
 </li>
 <li>Input: Game is playable via a keyboard.</li>
+<li>Preparations - What the user must do after creating a lobby but before starting the game session.<!-- -->
+<ul>
+<li>After creating a lobby, the user must select which character they will play as.</li>
+<li>Anyone who joins the lobby must also do the same thing.</li>
+<li>The creator of the lobby is in charge of starting the game session, which will spawn them into the map. The game can only start if all players who are in the lobby are done selecting a character.</li>
+<li>If someone tries joining the lobby after the session has started, they&#x27;ll have to select their character before they can be spawned into the map and will automatically be the same level as the rest of the group.</li>
+</ul>
+</li>
+<li>Camera – Game&#x27;s camera will always follow the player.<!-- -->
+<ul>
+<li>For each player, the game&#x27;s camera will follow their character and keep them in the center of the screen.</li>
+</ul>
+</li>
 </ul>
 <h2 id="nonfunctional-requirements">Nonfunctional Requirements</h2>
 <ul>
@@ -77,13 +98,19 @@
 <ul>
 <li>Attack<!-- -->
 <ul>
-<li>Dictates how much damage their attacks do</li>
+<li>Affects how much damage their attacks do</li>
 </ul>
 </li>
-<li>Speed</li>
-<li>Dictates how fast they move</li>
-<li>Defense</li>
+<li>Speed<!-- -->
+<ul>
+<li>Affects how fast they move</li>
+</ul>
+</li>
+<li>Defense<!-- -->
+<ul>
 <li>Affects how much damage is reduced when the player gets attacked</li>
+</ul>
+</li>
 <li>Health<!-- -->
 <ul>
 <li>Affects how much HP the player has</li>
@@ -98,24 +125,91 @@
 <ul>
 <li>An integer value that determines the groups statistics will be permanently visible in the corner of the screen.</li>
 <li>Gaining levels increases each player&#x27;s attributes.</li>
+<li>Reaching certain levels will also let the player&#x27;s character learn new attacks.</li>
+<li>Enemies will also have levels, which influence how high their attributes are.</li>
 </ul>
 </li>
-<li>Experience</li>
+<li>Experience<!-- -->
+<ul>
 <li>Experience is granted upon defeating an enemy or completing tasks.</li>
 <li>Experience is shared across all members of the group.</li>
 <li>A bar will be present that dictates a percentage of experience left to attain the next level. This bar will be present beneath the level indicator.</li>
-<li>Camera – Game camera will track the player.<!-- -->
+</ul>
+</li>
+<li>Equipment - Armor and weapons that the player can equip and dequip to change their attributes.<!-- -->
 <ul>
-<li>For each player, the game&#x27;s camera will follow their character and keep them in the center of the screen.</li>
+<li>Can sometimes be dropped by enemies.</li>
+</ul>
+</li>
+<li>Gold - In-game currency dropped by enemies. Used to buy things in shops.<!-- -->
+<ul>
+<li>Gold is not shared between all players, unlike experience and levels. How much gold a player has is unique to them.</li>
+</ul>
+</li>
+<li>HUD - The game&#x27;s HUD will display the following:<!-- -->
+<ul>
+<li>The health of every player at the bottom of the screen.</li>
+<li>The group&#x27;s level at the top left corner of the screen, as well as how much experience they&#x27;ve collected.</li>
+<li>How much gold the player has, displayed directly above their health bar.</li>
+<li>The health bars of enemies will and bosses will be displayed at the top of the screen when they&#x27;re interacted with.</li>
+<li>The level of each enemt and boss will be displayed directly above them.</li>
+</ul>
+</li>
+<li>Towns - A collection of buildings with different functionalities<!-- -->
+<ul>
+<li>At least 4 towns will be randomly placed throughout the map, with the exception of 1 town, which is will always be in the center of the map and will be where the players spawn when starting a game.</li>
+<li>Each town will the same 3 buildings:<!-- -->
+<ul>
+<li>Attack Building<!-- -->
+<ul>
+<li>Entering this building will display a menu that allows players to equip and dequip attacks.</li>
+<li>The menu also allows players to look at information about any notable features about each of their attacks, such as how much damage they do.</li>
+</ul>
+</li>
+<li>Character Building<!-- -->
+<ul>
+<li>Entering this building will display a menu that allows players to change which character they&#x27;re playing as.</li>
+<li>Switching characters should not affect the user&#x27;s level, and the character will know any attacks that would&#x27;ve been learned in all levels before and including their current level, even if the user was playing as a different character at the time.</li>
+</ul>
+</li>
+<li>Shop<!-- -->
+<ul>
+<li>Where the user can buy armor and weapons using gold.</li>
+</ul>
+</li>
+<li>Equipping armor and weapons will also affect the user&#x27;s attributes in different ways.</li>
+</ul>
+</li>
+<li>Enemies can never spawn near or enter a town.</li>
+<li>Reaching a town will fully heal the player.</li>
+</ul>
+</li>
+<li>Menus<!-- -->
+<ul>
+<li>At any point, the player can press a button to open a menu.</li>
+<li>Opening the menu won&#x27;t pause the game.</li>
+<li>Each menu has the following buttons:<!-- -->
+<ul>
+<li>Change Equipment<!-- -->
+<ul>
+<li>When selected, this will open a submenu to allow the user to equip and dequip armor and weapons.</li>
+</ul>
+</li>
+<li>Warp<!-- -->
+<ul>
+<li>When selected, this will open a submenu to allow the user to warp to the location of other players, as well as any towns that have been reached by any of the players.</li>
+</ul>
+</li>
+<li>Leave Session<!-- -->
+<ul>
+<li>When selected, the player will leave the lobby without closing the game.</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Difficulty scaling – The number of enemies and their attributes scale with number of players but can be modified by the host.</li>
-<li>Warping<!-- -->
-<ul>
-<li>Players should be able to warp to the location of other users (For example, if one user finds a boss and another user wants to help).</li>
-<li>Should have cooldown on it, and the warping itself shouldn&#x27;t happen instantaneously.</li>
-</ul>
-</li>
 <li>Custom character sprites<!-- -->
 <ul>
 <li>Characters as well as their move sets are fabricated.</li>
@@ -131,7 +225,7 @@
 <li>SFX for weapons, hit sounds, interactable objects are designed and implemented.</li>
 </ul>
 </li>
-<li>Game loads in less than a minute<!-- -->
+<li>Game loads in less than 2 minutes<!-- -->
 <ul>
 <li>Further testing of procedural generation is required to determine a good estimate.</li>
 </ul>
@@ -142,6 +236,6 @@
 <li>Lag should not be frequent (&lt;500ms spikes).</li>
 <li>Players will be able to send in-game chat messages.</li>
 <li>Friends list functionality handles the ability to see online players and send invites.</li>
-</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/edit/main/documentation/docs/requirements/features-and-requirements.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"><details><summary>Revision History</summary><table><thead><tr><th scope="row">Author</th><th scope="row">Revision</th><th scope="row">Date</th></tr></thead><tbody>nothing</tbody></table></details><span class="theme-last-updated">Last updated<!-- --> by <b>tun50126</b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/project-rpg-elements-game/docs/requirements/general-requirements"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">General Requirements</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/project-rpg-elements-game/docs/requirements/use-case-descriptions"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Use-case descriptions</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functional-requirements" class="table-of-contents__link toc-highlight">Functional Requirements</a></li><li><a href="#nonfunctional-requirements" class="table-of-contents__link toc-highlight">Nonfunctional Requirements</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/project-rpg-elements-game/docs/intro">Documentation</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Temple_T_logo.svg" alt="My Site Logo" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE"><img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Temple_T_logo.svg" alt="My Site Logo" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU"></div><div class="footer__copyright">Copyright © 2024 Project Rpg Elements Game, Inc. Built with Docusaurus.</div></div></div></footer></div>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/edit/main/documentation/docs/requirements/features-and-requirements.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"><details><summary>Revision History</summary><table><thead><tr><th scope="row">Author</th><th scope="row">Revision</th><th scope="row">Date</th></tr></thead><tbody>nothing</tbody></table></details><span class="theme-last-updated">Last updated<!-- --> by <b>Alex McGinn</b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/project-rpg-elements-game/docs/requirements/general-requirements"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">General Requirements</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/project-rpg-elements-game/docs/requirements/use-case-descriptions"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Use-case descriptions</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#functional-requirements" class="table-of-contents__link toc-highlight">Functional Requirements</a></li><li><a href="#nonfunctional-requirements" class="table-of-contents__link toc-highlight">Nonfunctional Requirements</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/project-rpg-elements-game/docs/intro">Documentation</a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="margin-bottom--sm"><img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Temple_T_logo.svg" alt="My Site Logo" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE"><img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Temple_T_logo.svg" alt="My Site Logo" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU"></div><div class="footer__copyright">Copyright © 2024 Project Rpg Elements Game, Inc. Built with Docusaurus.</div></div></div></footer></div>
 </body>
 </html>
