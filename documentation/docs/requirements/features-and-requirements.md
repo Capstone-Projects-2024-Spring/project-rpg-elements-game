@@ -5,81 +5,119 @@ sidebar_position: 4
 # Features and Requirements
 
 ## Functional Requirements
-
-- Characters – Users have the ability to choose from a cast of characters. These characters feature different combos and skills, defining the class system.
-  - At least four different characters/classes will be available.
+- The game should load each player into a large 2D world where they can explore and fight enemies using the characters they have chosen.
+  - A room with the game's "final boss" is randomly placed somewhere in the world. If the final boss is defeated, the game is considered complete and the main campaign is beaten.
+- Lobbies – Multiplayer system allows users to generate codes that can be sent to other players to connect and play together simultaneously
+- Title Screen 
+  - Upon starting the game, the user is greeted with a title screen with at least these buttons on it:
+  - Tutorial
+    - This opens a prefabricated level in which the player may learn and experiment with the in-game systems.
+  - Create Lobby
+    - Allows the user to create a lobby. These will have codes that allows other users to join the same lobby and play together.
+  - Join Lobby
+    - Allows the user to join a lobby and play together.
+  - Login/Create Account
+  	- Allows the user to create an account or log in if they already have one. A user can't join or create a lobby if they are not logged in.
+  -  Profile
+  	- Available after the user has logged in. They can change their name, see their friends list, and set a profile picture.  
 - Movement System (Player Controller) - Players have diverse movement controls in which they can combine inputs to perform various attacks and skills. In addition to this, the player can interact with the environment by wall jumping and linear dashes.
   - Player sprites will not have collision with one another.
-- Enemy AI (AI Controller) - The enemy AI will be simple yet diverse.
-  - Simple Track
-    - Ground
-      - Enemy will attempt to collide with the player's hurt box.
-      - Enemy will stand a fixed distance away from the player, colliding a hitbox (either melee or a projectile) against the player's hurt box at certain intervals.
-    - Flying
-      - They are capable of navigating around terrain and feature attack patterns similar to ground but are not limited by gravity.
-  - Directional Charge
-    - Some standard enemies will have the ability to do a linear dash towards. the player, dealing damage upon collision, but can also be canceled if a hit box collides with them before contact.
-  - Boss
-    - Each unique biome has a separate boss.
-    - Bosses feature a more diverse skillset and may choose between its attacks based on proximity from player.
-- Attributes – Statistics that determine how much damage a player deals, their game speed, and how much health are dictated by attributes.
-  - Speed – How fast the player moves.
-  - Attack – How much damage is dealt.
-  - Defense – How much damage will be reduced when getting hit.
-  - Health – How much damage the player can take.
+  - Basic attacks can be performed for all characters.
+  - Characters can perform skill attacks that differ from each other.
+  - Characters can jump.
+  - Wall jumps and dashes can be performed.
+- Characters – Users can choose from a cast of characters. These characters have different attacks and attributes.
+  - At least eight different characters will be available.
+  - Characters can respawn.
+  - Characters can take damage.
 - Environment – The play area will be procedurally generated. The environment will feature different biomes associated with different bosses.
-- UI
-  - Menu
-    - Tutorial
-      - This opens a prefabricated level in which the player may learn and experiment with the in-game systems.
-    - Create Lobby
-      - Upon lobby creation a share code will be generated to invite other players.
-      - Users can begin the game, choose the number of players, and play online with up to three friends, or play alone.
-      - Within the lobby, the player may actively switch their character until they select the "Ready" button.
-      - After clicking the "Ready" button all other options will be deactivated unless they "Unready" themselves.
-      - The host may start the game after all players in the lobby designate themselves as ready.
-    - Join Lobby
-      - Clicking the Join Lobby button will prompt the user with a text field in which they may type a code that will connect them to a lobby.
-    - Settings
-      - A settings menu will appear that allows the user to adjust various options for the sake of gameplay experience.
-- Warping
-  - Players should be able to warp to the location of other users (For example, if one user finds a boss and another user wants to help).
-  - Should have cooldown on it, and the warping itself shouldn't happen instantaneously.
-- Difficulty scaling – The number of enemies and their attributes can be scaled to change how hard the game is.
-- In-game Overlay
-  - Experience
-    - Experience is granted upon defeating an enemy or completing tasks.
-    - Experience is shared across all members of the group.
-    - A bar will be present that dictates a percentage of experience left to attain the next level. This bar will be present beneath the level indicator.
-  - Level
-    - An integer value that determines the groups statistics will be permanently visible in the corner of the screen.
-    - Gaining levels gives the players attribute points.
-  - Attributes Window
-    - A key bind may be pressed to open the attribute window.
-    - The attribute window will allow the player to increment their stats.
-  - Health
-    - Health is fixed above the player's sprite.
-    - If the character's health is full, that character's health will not be visible.
-- Equipment
-  - Players may purchase various equipment that can increase or decrease their attributes.
-- Input: Game is playable via a keyboard.
-- Players will be able to send chat messages.
-- Friends list functionality handles the ability to see online players and send invites.
-- Players will be able to obtain achievements through completing miscellaneous tasks.
+  - The environment will generate platforms that players can stand on.
+  - The environment supports trap generation that damages the player.
+  - Biomes will generate with different tile sets.
+- Enemies
+  - The environment will be populated by enemies
+  - Each enemy will try to attack the player or hinder their progress.
+  - Certain enemies will be bosses in designated rooms that take more effort to fight.
+  - When an enemy is defeated, they will give every player experience, and will give gold to the player who defeated it.
+ - Input: Game is playable via a keyboard.
+-	Preparations - What the user must do after creating a lobby but before starting the game session.
+	-	After creating a lobby, the user must select which character they will play as.
+	-	Anyone who joins the lobby must also do the same thing.
+	-	The creator of the lobby is in charge of starting the game session, which will spawn them into the map. The game can only start if all players who are in the lobby are done selecting a character.
+	-	If someone tries joining the lobby after the session has started, they'll have to select their character before they can be spawned into the map and will automatically be the same level as the rest of the group.
+- Camera – Game's camera will always follow the player.
+  - For each player, the game's camera will follow their character and keep them in the center of the screen.
 
 ## Nonfunctional Requirements
-
+- Attributes – Statistics that determine how much damage a player deals, their game speed, and how much health they have are dictated by attributes.
+  - The main attributes each character has will be:
+    - Attack
+    	- Affects how much damage their attacks do
+    -  Speed
+    	- Affects how fast they move
+    -  Defense
+    	- Affects how much damage is reduced when the player gets attacked
+    - Health
+    	- Affects how much HP the player has
+  - Enemies will also have these same attributes
+- Level
+  - An integer value that determines the groups statistics will be permanently visible in the corner of the screen.
+  - Gaining levels increases each player's attributes.
+  - Reaching certain levels will also let the player's character learn new attacks.
+  - Enemies will also have levels, which influence how high their attributes are.
+ - Experience
+	- Experience is granted upon defeating an enemy or completing tasks.
+	- Experience is shared across all members of the group.
+	- A bar will be present that dictates a percentage of experience left to attain the next level. This bar will be present beneath the level indicator.
+- Equipment - Armor and weapons that the player can equip and dequip to change their attributes.
+	- Can sometimes be dropped by enemies.
+- Gold - In-game currency dropped by enemies. Used to buy things in shops.
+	- Gold is not shared between all players, unlike experience and levels. How much gold a player has is unique to them.
+- HUD - The game's HUD will display the following:
+	- The health of every player at the bottom of the screen.
+ 	- The group's level at the top left corner of the screen, as well as how much experience they've collected.
+  - How much gold the player has, displayed directly above their health bar.
+  - The health bars of enemies will and bosses will be displayed at the top of the screen when they're interacted with.
+  - The level of each enemt and boss will be displayed directly above them.
+- Towns - A collection of buildings with different functionalities
+	- At least 4 towns will be randomly placed throughout the map, with the exception of 1 town, which is will always be in the center of the map and will be where the players spawn when starting a game.
+ 	- Each town will the same 3 buildings:
+	  	-	Attack Building
+	  		-	Entering this building will display a menu that allows players to equip and dequip attacks.
+	   		-	The menu also allows players to look at information about any notable features about each of their attacks, such as how much damage they do.
+	   -	Character Building
+	   		-	Entering this building will display a menu that allows players to change which character they're playing as.
+	     	-	Switching characters should not affect the user's level, and the character will know any attacks that would've been learned in all levels before and including their current level, even if the user was playing as a different character at the time.
+		-	Shop
+	 		-	Where the user can buy armor and weapons using gold.
+	   	-	Equipping armor and weapons will also affect the user's attributes in different ways.
+  -	Enemies can never spawn near or enter a town.
+  -	Reaching a town will fully heal the player.
+- Menus
+	- At any point, the player can press a button to open a menu.
+ 	- Opening the menu won't pause the game.
+ 	- Each menu has the following buttons:
+	  	- Change Equipment
+	  		- When selected, this will open a submenu to allow the user to equip and dequip armor and weapons.
+	  	- Warp
+	  		- When selected, this will open a submenu to allow the user to warp to the location of other players, as well as any towns that have been reached by any of the players.
+	  	 - Leave Session
+	  	 	- When selected, the player will leave the lobby without closing the game.
+- Difficulty scaling – The number of enemies and their attributes scale with number of players but can be modified by the host.
 - Custom character sprites
   - Characters as well as their move sets are fabricated.
-  - Character sprite clothing is modifiable by the player via choosing prefabricated clothing.
 - Custom environment sprites
   - Environment uses background and entities that are designed for this project.
 - Custom sound design & music
   - SFX for weapons, hit sounds, interactable objects are designed and implemented.
-- Game loads in X time
+- Game loads in less than 2 minutes
   - Further testing of procedural generation is required to determine a good estimate.
 - Firebase authentication handles user authentication.
-- Lobby hosting handled by either Firebase Cloud Functions or Unity Lobby.
+- Lobby hosting is handled by either Firebase Cloud Functions or Unity Lobby.
 - Should run at a smooth framerate on modern hardware (60 FPS).
-- Lag should not be frequent. Spikes of 500ms maximum.
+- Lag should not be frequent (\<500ms spikes).
+- Players will be able to send in-game chat messages.
+- Friends list functionality handles the ability to see online players and send invites.
+
+
 
