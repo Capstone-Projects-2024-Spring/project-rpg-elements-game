@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -10,6 +11,8 @@ public class Movement : MonoBehaviour
     private Animator anim;
     private BoxCollider2D boxCollider;
     private bool attacking = false;
+
+    private Direction facing = Direction.right;
 
     private void Awake(){
         //Grabs references for Rigidbody, Box Collider, and Animator
@@ -30,8 +33,10 @@ public class Movement : MonoBehaviour
         //Flips sprite when turning left/right
         if(horizontalInput > 0.01f){
             transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            facing = Direction.right;
         }else if(horizontalInput < -0.01f){
             transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+            facing = Direction.left;
         }
         
         //Makes the player jump when space is pressed
@@ -72,8 +77,8 @@ public class Movement : MonoBehaviour
         attacking = !attacking;
     }
 
-    void onCollisionEnter2D(Collision2D collision){
-        Debug.Log("Entered collision with " + collision.gameObject.name);
+    public Direction getDirection(){
+        return facing;
     }
 
     

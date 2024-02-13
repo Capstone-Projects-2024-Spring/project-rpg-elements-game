@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     private int damage;
+    private float[] knockback;
 
    
 
@@ -27,6 +28,14 @@ public class Hitbox : MonoBehaviour
 
     public int getDamage(){
         return damage;
+    }
+
+    public void setKnockback(float[] _knockback){
+        knockback = _knockback;
+    }
+
+    public float[] getKnockback(){
+        return knockback;
     }
 
 

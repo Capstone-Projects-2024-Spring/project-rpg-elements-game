@@ -483,6 +483,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 10
+  knockback:
+  - 2
+  - 6
   hitboxes:
   - {fileID: 1360611015}
   - {fileID: 779379354}
@@ -1209,7 +1212,7 @@ Transform:
   m_GameObject: {fileID: 796363214}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.95, y: -1.03, z: 0}
+  m_LocalPosition: {x: -1.53, y: -0.46, z: 0}
   m_LocalScale: {x: 0.4887, y: 0.4887, z: 0.4887}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1448,8 +1451,8 @@ Transform:
   m_GameObject: {fileID: 936238788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.46, y: 1.47, z: 0}
-  m_LocalScale: {x: 37.874653, y: 1.3633536, z: 1}
+  m_LocalPosition: {x: 26.23, y: 2.99, z: 0}
+  m_LocalScale: {x: 37.874653, y: 1.1989332, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
