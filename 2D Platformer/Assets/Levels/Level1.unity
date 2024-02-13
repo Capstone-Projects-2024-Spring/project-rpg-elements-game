@@ -484,8 +484,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 10
   knockback:
-  - 2
-  - 6
+  - 3
+  - 10
   hitboxes:
   - {fileID: 1360611015}
   - {fileID: 779379354}
@@ -1290,7 +1290,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &911102348
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,7 +2258,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1651448207
 SpriteRenderer:
   m_ObjectHideFlags: 0

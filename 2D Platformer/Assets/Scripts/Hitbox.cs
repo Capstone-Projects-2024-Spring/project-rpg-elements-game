@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ public class Hitbox : MonoBehaviour
 {
     private int damage;
     private float[] knockback;
+
+
+    private String attackID;
 
    
 
@@ -18,7 +22,7 @@ public class Hitbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "EnemyHurtbox"){
-            Debug.Log("DEAL " + damage + " DAMAGE TO " + other.name);
+            //Debug.Log("ATTACK " + attackID + " DEALS " + damage + " DAMAGE TO " + other.name);
         }
     }
 
@@ -36,6 +40,17 @@ public class Hitbox : MonoBehaviour
 
     public float[] getKnockback(){
         return knockback;
+    }
+
+
+
+    public void setAttackID(String _attackID){
+        attackID = _attackID;
+
+    }
+
+    public String getAttackID(){
+        return attackID;
     }
 
 

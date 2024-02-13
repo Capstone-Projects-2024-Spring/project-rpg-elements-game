@@ -16,13 +16,16 @@ public class Hurtbox : MonoBehaviour
 
     private float hitstop = 0.0f;
 
+    private String previousReceivedAttack = "";
+
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Attack" && attacked == false){
-            Debug.Log("I, " + this.name + " got hit by" + other.name + " for " + other.GetComponent<Hitbox>().getDamage() + " damage."
+        if (other.tag == "Attack" && (attacked == false) && !(string.Equals(other.GetComponent<Hitbox>().getAttackID(), previousReceivedAttack))){
+            Debug.Log("I, " + this.name + " got hit by" + other.name + " in the attack " + other.GetComponent<Hitbox>().getAttackID() + " for " + other.GetComponent<Hitbox>().getDamage() + " damage."
             + " and (" + other.GetComponent<Hitbox>().getKnockback()[0] + ", " + other.GetComponent<Hitbox>().getKnockback()[1] + ") knockback.");
             attacked = true;
             takenDamage = other.GetComponent<Hitbox>().getDamage();
             takenKnockback = other.GetComponent<Hitbox>().getKnockback();
+            previousReceivedAttack = other.GetComponent<Hitbox>().getAttackID();
         }
     }
 

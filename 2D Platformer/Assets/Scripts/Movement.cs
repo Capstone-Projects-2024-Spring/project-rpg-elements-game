@@ -73,8 +73,12 @@ public class Movement : MonoBehaviour
         return !attacking;
     }
 
-    private void changeAttackState(){
-        attacking = !attacking;
+    private void setAttackStateTrue(){
+        attacking = true;
+    }
+
+    private void setAttackStateFalse(){
+        attacking = false;
     }
 
     public Direction getDirection(){

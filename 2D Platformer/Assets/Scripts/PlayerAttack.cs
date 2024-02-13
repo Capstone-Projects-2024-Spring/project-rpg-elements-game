@@ -14,6 +14,10 @@ public class PlayerAttack : MonoBehaviour
 
     private float xKnockbackValue;
     public Hitbox[] hitboxes;
+
+    private String attackName = "Dogstrike";
+
+    private int uses = 0;
     private void Awake(){
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<Movement>();
@@ -35,7 +39,16 @@ public class PlayerAttack : MonoBehaviour
         }
         setKnockbackDirection();
 
+    }
 
+    private void setAttackName(){
+        uses += 1;
+        String attackUses = uses.ToString();
+        String ID = attackName + attackUses;
+        foreach(Hitbox hitbox in hitboxes){
+            hitbox.setAttackID(ID);
+            //Debug.Log(hitbox.getAttackID());
+        }
     }
 
     private void setKnockbackDirection(){
@@ -50,6 +63,7 @@ public class PlayerAttack : MonoBehaviour
     private void Attack(){
         anim.SetTrigger("attack");
     }
+
 
     void ActivateHitbox(){
         this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
