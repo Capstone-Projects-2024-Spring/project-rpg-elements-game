@@ -485,7 +485,7 @@ MonoBehaviour:
   power: 10
   knockback:
   - 3
-  - 10
+  - 8
   hitboxes:
   - {fileID: 1360611015}
   - {fileID: 779379354}
