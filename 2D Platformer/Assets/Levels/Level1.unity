@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &38243236
 Transform:
   m_ObjectHideFlags: 0
@@ -484,14 +484,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 10
   knockback:
-  - 3
-  - 8
+  - 4
+  - 7
+  triggerKey: 304
   hitboxes:
   - {fileID: 1360611015}
   - {fileID: 779379354}
   - {fileID: 38243239}
   - {fileID: 1489316300}
   - {fileID: 1240200815}
+  visible_hitboxes: 1
+  attackName: strike
 --- !u!1 &448661280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,7 +1010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &779379351
 Transform:
   m_ObjectHideFlags: 0
@@ -1306,7 +1309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &911102349
 Transform:
   m_ObjectHideFlags: 0
@@ -1605,7 +1608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1240200813
 Transform:
   m_ObjectHideFlags: 0
@@ -1756,7 +1759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1360611012
 Transform:
   m_ObjectHideFlags: 0
@@ -1899,7 +1902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1489316297
 Transform:
   m_ObjectHideFlags: 0

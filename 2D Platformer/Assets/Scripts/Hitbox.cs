@@ -19,9 +19,6 @@ public class Hitbox : MonoBehaviour
    
 
     private void Awake(){
-        Debug.Log("Hello");
-
-        
     }
 
     private void Update(){

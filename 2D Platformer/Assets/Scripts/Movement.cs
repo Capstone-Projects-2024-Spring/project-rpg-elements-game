@@ -31,10 +31,10 @@ public class Movement : MonoBehaviour
         }
 
         //Flips sprite when turning left/right
-        if(horizontalInput > 0.01f){
+        if(horizontalInput > 0.01f && !attacking){
             transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             facing = Direction.right;
-        }else if(horizontalInput < -0.01f){
+        }else if(horizontalInput < -0.01f && !attacking){
             transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
             facing = Direction.left;
         }
@@ -73,11 +73,11 @@ public class Movement : MonoBehaviour
         return !attacking;
     }
 
-    private void setAttackStateTrue(){
+    public void setAttackStateTrue(){
         attacking = true;
     }
 
-    private void setAttackStateFalse(){
+    public void setAttackStateFalse(){
         attacking = false;
     }
 
