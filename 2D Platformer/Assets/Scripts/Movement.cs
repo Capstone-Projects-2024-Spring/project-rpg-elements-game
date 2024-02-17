@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float running_speed;
+    [SerializeField] private PlayerStats statSheet;
     [SerializeField] private float jump_height;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
-        
+
 
     }
 
@@ -27,7 +27,7 @@ public class Movement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         //Makes the player move left/right
         if(attacking == false){
-            body.velocity = new Vector2(Input.GetAxis("Horizontal") * running_speed, body.velocity.y);
+            body.velocity = new Vector2(Input.GetAxis("Horizontal") * statSheet.Speed.Value, body.velocity.y);
         }
 
         //Flips sprite when turning left/right

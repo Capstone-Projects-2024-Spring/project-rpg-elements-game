@@ -4,10 +4,13 @@ sidebar_position: 3
 
 # General Requirements
 <list>
-<ul>Computer running Windows or macOS</ul> 
+<ul>Jira</ul>
+<ul>GitHub</ul>
+<ul>Unity</ul>
+<ul>Visual Studio</ul>
 <ul>Internet Connection</ul>
 </list>
-# Minimum requirements:
+# Pc for production testing requirements:
 <list>
 <ul>OS: Windows 10 (64bit) or OSX 10.13</ul>
 <ul>Processor: 1.5Ghz or better (x86-64)</ul>
