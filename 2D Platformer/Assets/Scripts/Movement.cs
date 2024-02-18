@@ -5,12 +5,12 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] protected LayerMask groundLayer;
     [SerializeField] protected LayerMask wallLayer;
-    protected float speedMod;
-    protected float baseSpeed = 10.0f;
-    protected Rigidbody2D body;
     protected Animator anim;
+    protected Rigidbody2D body;
     protected BoxCollider2D boxCollider;
     protected Direction facing;
+    protected float baseSpeed = 10.0f;
+    protected virtual float speedMod => 0;
     protected virtual void Start()
     {
 

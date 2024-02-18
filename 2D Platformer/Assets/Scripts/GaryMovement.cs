@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class GaryMovement : PlayerMovement
 {
-    protected override void Start()
-    {
-        base.Start();
-        speedMod = 5;
-        jumpMod = 5;
-    }
+    protected override float speedMod => 5;
+    protected override float jumpMod => 5;
 }

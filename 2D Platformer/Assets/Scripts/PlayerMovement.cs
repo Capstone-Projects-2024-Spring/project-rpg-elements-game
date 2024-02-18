@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class PlayerMovement : Movement
 {
-    protected float jumpMod;
     protected float baseJump = 10.0f;
     protected bool attacking = false;
+    protected virtual float jumpMod => 0;
 
     protected override void Awake()
     {
