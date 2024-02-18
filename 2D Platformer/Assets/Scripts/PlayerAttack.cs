@@ -6,7 +6,7 @@ using System;
 public class PlayerAttack : MonoBehaviour
 {
     private Animator anim;
-    private Movement playerMovement;
+    private PlayerMovement playerMovement;
 
     public int power = 10;
 
@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
     Vector2 storedVelocity = new Vector2();
     private void Awake(){
         anim = GetComponent<Animator>();
-        playerMovement = GetComponent<Movement>();
+        playerMovement = GetComponent<PlayerMovement>();
         body = GetComponentInParent<Rigidbody2D>();
         xKnockbackValue = Math.Abs(knockback[0]);
         hitlag = setHitlag(knockback[0], knockback[1]);

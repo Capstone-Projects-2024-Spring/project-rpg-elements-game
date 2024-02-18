@@ -3,91 +3,36 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private PlayerStats statSheet;
-    [SerializeField] private float jump_height;
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private LayerMask wallLayer;
-    private Rigidbody2D body;
-    private Animator anim;
-    private BoxCollider2D boxCollider;
-    private bool attacking = false;
-
-    private Direction facing = Direction.right;
-
-    private void Awake(){
-        //Grabs references for Rigidbody, Box Collider, and Animator
-        body = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        boxCollider = GetComponent<BoxCollider2D>();
-
+    [SerializeField] protected LayerMask groundLayer;
+    [SerializeField] protected LayerMask wallLayer;
+    protected float speedMod;
+    protected float baseSpeed = 10.0f;
+    protected Rigidbody2D body;
+    protected Animator anim;
+    protected BoxCollider2D boxCollider;
+    protected Direction facing;
+    protected virtual void Start()
+    {
 
     }
 
-    private void Update(){
-        float horizontalInput = Input.GetAxis("Horizontal");
-        //Makes the player move left/right
-        if(attacking == false){
-            body.velocity = new Vector2(Input.GetAxis("Horizontal") * statSheet.Speed.Value, body.velocity.y);
-        }
+    protected virtual void Awake()
+    {
 
-        //Flips sprite when turning left/right
-        if(horizontalInput > 0.01f){
-            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            facing = Direction.right;
-        }else if(horizontalInput < -0.01f){
-            transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
-            facing = Direction.left;
-        }
-        
-        //Makes the player jump when space is pressed
-        if(Input.GetKey(KeyCode.Space) && isGrounded() && (attacking == false)){
-            Jump();
-        }
-
-
-
-        //Set animator parameters
-        anim.SetBool("run", (horizontalInput != 0) && (attacking == false));
-        anim.SetBool("grounded", isGrounded());
-    
-
- 
     }
 
-    private void Jump(){
-        body.velocity = new Vector2(body.velocity.x, jump_height);
-        anim.SetTrigger("jump");
+    protected virtual void Update()
+    {
+
     }
 
-    private bool isGrounded(){
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer); 
-        return raycastHit.collider != null;
+    protected virtual void FixedUpdate()
+    {
+
     }
 
-    private bool onWall(){
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer); 
-        return raycastHit.collider != null;
+    protected virtual void Move()
+    {
+
     }
-
-    public bool canAttack(){
-        return !attacking;
-    }
-
-    private void setAttackStateTrue(){
-        attacking = true;
-    }
-
-    private void setAttackStateFalse(){
-        attacking = false;
-    }
-
-    public Direction getDirection(){
-        return facing;
-    }
-
-    
-
-
-
-
 }
