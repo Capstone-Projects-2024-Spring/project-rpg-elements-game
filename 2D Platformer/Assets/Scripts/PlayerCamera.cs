@@ -16,13 +16,21 @@ public class PlayerCamera : MonoBehaviour
     void Start()
     {
         comp = camObj.GetComponentInChildren<CinemachineFramingTransposer>();
+        
 
-        comp.m_TrackedObjectOffset.x = -3f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        float horizontalInput = Input.GetAxis("Horizontal");
+        if(horizontalInput > 0.01f){
+            comp.m_TrackedObjectOffset.x = 3f;
+        }else if(horizontalInput < -0.01f){
+            comp.m_TrackedObjectOffset.x = -3f;
+        }else{
+            comp.m_TrackedObjectOffset.x = 0f;
+        }
     }
 }
