@@ -547,14 +547,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 441390334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a2512f34d68b344985e4f2aadcbaafa, type: 3}
+  m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   statSheet: {fileID: 0}
   power: 5
   knockback:
   - 4
-  - 9
+  - 7
   triggerKey: 108
   hitboxes:
   - {fileID: 1360611015}

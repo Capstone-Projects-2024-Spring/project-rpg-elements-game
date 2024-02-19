@@ -68,6 +68,7 @@ public abstract class PlayerAttack : MonoBehaviour
             setHitboxes();
             setAttackName();
             Attack();
+            active = true;
         }
 
         setKnockbackDirection();
@@ -75,7 +76,7 @@ public abstract class PlayerAttack : MonoBehaviour
             //Debug.Log(attackName + "is not active");
             return;
         }
-        //Debug.Log(attackName + " is active!");
+        Debug.Log(attackName + " is active!");
         checkSuccess();
         if(success){
             enterHitlag();

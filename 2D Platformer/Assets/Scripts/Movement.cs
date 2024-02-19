@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
 
     private void Update(){
         float horizontalInput = Input.GetAxis("Horizontal");
-        Debug.Log(attacking);
+        //Debug.Log(attacking);
         if(attacking){
             return;
         }

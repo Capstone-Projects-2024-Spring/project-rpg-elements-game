@@ -4,7 +4,7 @@ using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SkySlash : PlayerAttack
+public class RisingAttack : PlayerAttack
 {
     private bool falling = false;
 
@@ -18,6 +18,7 @@ public class SkySlash : PlayerAttack
     }
     protected override void Update(){
         //Debug.Log(playerMovement.canAttack());
+        
 
         if(playerMovement.isGrounded()){
             charged = true;
@@ -27,12 +28,12 @@ public class SkySlash : PlayerAttack
         }
 
         other_constraints = charged;
+
         
         base.Update();
         //hitboxes[1].gameObject.SetActive(true);
-
         if(falling && active){
-            DeactivateSkySlash();
+            Deactivate();
         }
 
         detect_falling();
@@ -48,19 +49,18 @@ public class SkySlash : PlayerAttack
         anim.SetBool("falling", falling);
     }
 
-    private void DeactivateSkySlash(){
+    private void Deactivate(){
         //Debug.Log("Skyslash deactivated the attack!");
         base.DeactivateHitbox();
         playerMovement.setAttackStateFalse();
 
     }
 
-    protected void ActivateSkySlash(){
+    protected void ActivateRising(){
         //Debug.Log("This is Sky Slash's version of this attack.");
         foreach(Hitbox hitbox in hitboxes){
             hitbox.gameObject.SetActive(true);
         }
-        active = true;
     }
 
     private void freeze(){

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Dogstrike : PlayerAttack
+public class NormalAttack : PlayerAttack
 {
     protected override void Awake(){
         base.Awake();
@@ -14,10 +14,8 @@ public class Dogstrike : PlayerAttack
         
     }
 
-    protected void ActivateDogstrike(){
-        Debug.Log("This is dogstrike's version of this attack");
+    protected void ActivateAttack(){
         base.ActivateHitbox();
-        active = true;
 
     }
     
