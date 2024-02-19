@@ -35,4 +35,9 @@ public class Movement : MonoBehaviour
     {
 
     }
+
+    protected virtual void Jump()
+    {
+        
+    }
 }

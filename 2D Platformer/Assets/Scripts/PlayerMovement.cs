@@ -52,7 +52,7 @@ public class PlayerMovement : Movement
         anim.SetBool("run", (horizontalInput != 0) && (attacking == false));
         anim.SetBool("grounded", isGrounded());
     }
-    protected void Jump()
+    protected override void Jump()
     {
         body.velocity = new Vector2(body.velocity.x, baseJump + jumpMod);
         anim.SetTrigger("jump");
