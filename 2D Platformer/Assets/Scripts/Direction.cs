@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
- public enum ColliderState{
-        Closed,
-        Open,
-        Colliding
+ public enum Direction{
+        left,
+        right
     }
