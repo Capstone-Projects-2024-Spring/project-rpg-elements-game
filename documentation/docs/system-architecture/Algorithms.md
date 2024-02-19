@@ -1,4 +1,7 @@
-Procedural Generation Algorithm
+---
+sidebar_position: 1
+---
+# Procedural Generation Algorithm
 
 There are currently two ideas for the algorithm that may be implemented. The first is an algorithm that was created to match how a game, Spelunky, created their map. The algorithm is a simple directional checker. 
 What this means is that at its base it looks to find if a portion of the map can be spawned to the left or the right of the previous room. If this is the case then it will spawn a room there and continue the process until it reaches the maximum Y distance. 
@@ -9,7 +12,7 @@ told to choose either 2 or 3 as they have top and bottom openings.
 
 The second algorithm is an original algorithm that will be able to assign the rooms numerical values based on where the walls are then it will use graph theory to stitch them together in a way that ensures there are no spaces that are inaccessible. The algorithm will follow this layout: 
 
-Phase 1 – Generate an M by N Maze
+## Phase 1 – Generate an M by N Maze
 
   - Generate an M by N lattice graph for the rooms, call it R.
 
@@ -23,7 +26,7 @@ Phase 1 – Generate an M by N Maze
 
   - We now have a maze that ensures every room on the map is accessible via some path from any other room.
 
-Phase 2 – Increase Connectivity
+## Phase 2 – Increase Connectivity
 
   - Get a list of all the interior edges of W.
 
@@ -31,7 +34,7 @@ Phase 2 – Increase Connectivity
   
   - For each removed edge from W, add the corresponding edge to T.
 
-Phase 3 – Calculate Room Types
+## Phase 3 – Calculate Room Types
 
   - Assign the four walls of a room a value that is a power of 2, [1=top,2=right,4=bottom,8=left].
 
@@ -43,7 +46,7 @@ Phase 3 – Calculate Room Types
 
   - The MST was originally our paths through the maze, but with the additional edges added it is now a graph of the increased connectivity caused by removing the random walls.
 
-Phase 5 – Choose Player’s Starting Room and Boss Room
+## Phase 4 – Choose Player’s Starting Room and Boss Room
 
   - Set all the edge weights of T to 1.
 
@@ -55,7 +58,7 @@ Phase 5 – Choose Player’s Starting Room and Boss Room
 
   - This algorithm will ensure that every room on the map is accessible and that there are no holes in the exterior walls. From phase 5, we have also ensured that the boss is placed as far away from the players as possible.
 
-Phase 6 – Build the Map
+## Phase 5 – Build the Map
 
   - For each node in R, get the value calculated in Phase 3.
 
