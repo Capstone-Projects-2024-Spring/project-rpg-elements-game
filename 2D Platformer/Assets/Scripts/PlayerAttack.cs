@@ -3,47 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class PlayerAttack : MonoBehaviour
+public abstract class PlayerAttack : MonoBehaviour
 {
+    [SerializeField] private PlayerStats statSheet;
 
-    private Animator anim;
-    private Movement playerMovement;
+    protected Animator anim;
+    protected Movement playerMovement;
 
-    public int power = 10;
+    [SerializeField] protected int power;
 
-    public float[] knockback = {4, 3};
+    [SerializeField] protected float[] knockback = {4, 3};
 
-    public KeyCode triggerKey = KeyCode.LeftShift;
+    [SerializeField] protected KeyCode triggerKey;
 
     private float xKnockbackValue;
-    public Hitbox[] hitboxes;
+    [SerializeField] protected Hitbox[] hitboxes;
 
-    public bool visible_hitboxes = true;
+    [SerializeField] protected bool visible_hitboxes = true;
 
     public String attackName = "strike";
+
+    [SerializeField] protected string animationTrigger = "attack";
 
 
     private int uses = 0;
 
     private double hitlag;
-    private bool success;
-    private bool active;
+    protected bool success = false;
+    protected bool active;
 
     private float hitlagTimer = 0;
 
     private String receiverID = "";
 
-    private Rigidbody2D body;
+    protected Rigidbody2D body;
 
     private Vector2 storedVelocity = new Vector2();
 
-    protected void Awake(){
+    protected bool other_constraints = true;
+
+    protected virtual void Awake(){
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<Movement>();
         body = GetComponentInParent<Rigidbody2D>();
         xKnockbackValue = Math.Abs(knockback[0]);
         hitlag = setHitlag(knockback[0], knockback[1]);
-        setHitboxes();
     }
 
     protected void setHitboxes(){
@@ -57,19 +61,25 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    protected void Update(){
-        if(Input.GetKey(triggerKey) && playerMovement.canAttack()){
+    protected virtual void Update(){
+
+        if(Input.GetKeyDown(triggerKey) && playerMovement.canAttack() && other_constraints){
             playerMovement.setAttackStateTrue();
+            setHitboxes();
             setAttackName();
             Attack();
         }
 
         setKnockbackDirection();
-        if(active){
-            checkSuccess();
+        if(!active){
+            //Debug.Log(attackName + "is not active");
+            return;
         }
+        //Debug.Log(attackName + " is active!");
+        checkSuccess();
         if(success){
             enterHitlag();
+            //Debug.Log("This should only print once");
             success = false;
         }
     
@@ -84,6 +94,7 @@ public class PlayerAttack : MonoBehaviour
     }
 
     protected void checkSuccess(){
+        //Debug.Log(attackName);
         foreach(Hitbox hitbox in hitboxes){
             if(hitbox.getSuccess() && !string.Equals(hitbox.getReceiverID(), receiverID)){
                 success = true;
@@ -114,7 +125,7 @@ public class PlayerAttack : MonoBehaviour
         anim.enabled = false;
         storedVelocity = body.velocity;
         body.constraints = RigidbodyConstraints2D.FreezeAll;
-        //Debug.Log(storedVelocity);
+        //Debug.Log("Before " + attackName + ": " + storedVelocity);
         
     }
 
@@ -122,6 +133,7 @@ public class PlayerAttack : MonoBehaviour
         anim.enabled = true;
         body.constraints = RigidbodyConstraints2D.FreezeRotation;
         body.velocity = storedVelocity;
+        //Debug.Log("After " + attackName + ": " + body.velocity);
         //Debug.Log("No longer in hitlag");
     }
 
@@ -136,17 +148,18 @@ public class PlayerAttack : MonoBehaviour
 
     protected void Attack(){
         //Debug.Log("This should only print once");
-        anim.SetTrigger("attack");
+        anim.SetTrigger(animationTrigger);
     }
 
-
-    protected void ActivateHitbox(){
+    protected virtual void ActivateHitbox(){
         foreach(Hitbox hitbox in hitboxes){
             hitbox.gameObject.SetActive(true);
         }
-        active = true;
 
     }
+
+
+
 
     protected void DeactivateHitbox(){
         foreach(Hitbox hitbox in hitboxes){

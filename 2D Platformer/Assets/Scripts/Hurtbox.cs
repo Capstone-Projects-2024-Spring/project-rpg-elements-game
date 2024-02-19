@@ -21,7 +21,7 @@ public class Hurtbox : MonoBehaviour
 
     private int times_attacked = 0;
 
-    private string enemy_name = "Skrake";
+    public string characterName = "Skrake";
 
     private string ID;
 
@@ -39,7 +39,7 @@ public class Hurtbox : MonoBehaviour
             takenHitlag = other.GetComponent<Hitbox>().getHitlag();
             previousReceivedAttack = other.GetComponent<Hitbox>().getAttackID();
             times_attacked += 1;
-            ID = enemy_name + times_attacked.ToString();
+            ID = characterName + times_attacked.ToString();
         }
     }
 

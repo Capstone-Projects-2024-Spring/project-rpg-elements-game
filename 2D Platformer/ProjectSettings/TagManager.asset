@@ -8,6 +8,8 @@ TagManager:
   - Attack
   - Enemy
   - EnemyHurtbox
+  - EnemyAttack
+  - PlayerHurtbox
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Attack
   - Enemy
   - EnemyHurtbox
-  - 
-  - 
+  - PlayerHurtbox
+  - EnemyAttack
   - 
   - 
   - 
