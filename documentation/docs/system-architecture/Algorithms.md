@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# Algorithms 
+# Algorithms
 
 ## Procedural Generation Algorithm
 
