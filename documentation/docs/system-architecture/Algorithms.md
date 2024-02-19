@@ -1,7 +1,9 @@
 ---
 sidebar_position: 1
 ---
-# Procedural Generation Algorithm
+# Algorithms 
+
+## Procedural Generation Algorithm
 
 There are currently two ideas for the algorithm that may be implemented. The first is an algorithm that was created to match how a game, Spelunky, created their map. The algorithm is a simple directional checker. 
 What this means is that at its base it looks to find if a portion of the map can be spawned to the left or the right of the previous room. If this is the case then it will spawn a room there and continue the process until it reaches the maximum Y distance. 
