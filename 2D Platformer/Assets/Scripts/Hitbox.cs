@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,15 +5,6 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     private int damage;
-    private float[] knockback;
-
-    private double hitlag;
-
-    private String attackID;
-
-    private bool success;
-
-    String receiverID = "";
 
    
 
@@ -24,18 +14,10 @@ public class Hitbox : MonoBehaviour
         
     }
 
-    private void Update(){
-        if(success){
-            success = false;
-        }
-    }
-
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "EnemyHurtbox"){
-            //Debug.Log("ATTACK " + attackID + " DEALS " + hitlag + " HITLAG TO " + other.name);
-            receiverID = other.GetComponent<Hurtbox>().getName();
-            success = true;
+            Debug.Log("DEAL " + damage + " DAMAGE TO " + other.name);
         }
     }
 
@@ -45,44 +27,6 @@ public class Hitbox : MonoBehaviour
 
     public int getDamage(){
         return damage;
-    }
-
-    public void setKnockback(float[] _knockback){
-        knockback = _knockback;
-    }
-
-    public float[] getKnockback(){
-        return knockback;
-    }
-
-
-
-    public void setAttackID(String _attackID){
-        attackID = _attackID;
-    }
-
-    public String getAttackID(){
-        return attackID;
-    }
-
-    public void setHitlag(double _hitlag){
-        hitlag = _hitlag;
-    }
-
-    public double getHitlag(){
-        return hitlag;
-    }
-
-    public bool getSuccess(){
-        return success;
-    }
-
-    public void setSuccess(bool _success){
-        success = _success;
-    }
-
-    public string getReceiverID(){
-        return receiverID;
     }
 
 

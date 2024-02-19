@@ -601,14 +601,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: setAttackStateTrue
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
-    functionName: setAttackName
+    functionName: changeAttackState
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -629,7 +622,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.53333336
-    functionName: setAttackStateFalse
+    functionName: changeAttackState
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

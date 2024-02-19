@@ -1,9 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private PlayerStats statSheet;
+    [SerializeField] private float running_speed;
     [SerializeField] private float jump_height;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
@@ -12,14 +11,12 @@ public class Movement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private bool attacking = false;
 
-    private Direction facing = Direction.right;
-
     private void Awake(){
         //Grabs references for Rigidbody, Box Collider, and Animator
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
-
+        
 
     }
 
@@ -27,16 +24,14 @@ public class Movement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         //Makes the player move left/right
         if(attacking == false){
-            body.velocity = new Vector2(Input.GetAxis("Horizontal") * statSheet.Speed.Value, body.velocity.y);
+            body.velocity = new Vector2(Input.GetAxis("Horizontal") * running_speed, body.velocity.y);
         }
 
         //Flips sprite when turning left/right
         if(horizontalInput > 0.01f){
             transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            facing = Direction.right;
         }else if(horizontalInput < -0.01f){
             transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
-            facing = Direction.left;
         }
         
         //Makes the player jump when space is pressed
@@ -73,16 +68,12 @@ public class Movement : MonoBehaviour
         return !attacking;
     }
 
-    private void setAttackStateTrue(){
-        attacking = true;
+    private void changeAttackState(){
+        attacking = !attacking;
     }
 
-    private void setAttackStateFalse(){
-        attacking = false;
-    }
-
-    public Direction getDirection(){
-        return facing;
+    void onCollisionEnter2D(Collision2D collision){
+        Debug.Log("Entered collision with " + collision.gameObject.name);
     }
 
     
