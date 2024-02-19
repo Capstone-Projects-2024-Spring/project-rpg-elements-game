@@ -1,10 +1,13 @@
-## State Diagram for game movement
+---
+sidebar_position: 5
+---
+## State Diagram for Game Movement
 ![Screenshot 2024-02-18 150313](https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/assets/74077655/878a32bf-9c3f-4764-ae46-dec5eac9c821)
 
-This state diagram details how the player can move and navigate the main game map. 
+*This state diagram details how the player can move and navigate the main game map. 
 When idle, they have the choice of running, attacking, or jumping. 
 While jumping, then can choose to attack while in the air, but they can not attack and then jump while they are still attacking. 
-Running is the main method of travelling the map for the user, helping them move and explore more of the game map.
+Running is the main method of travelling the map for the user, helping them move and explore more of the game map.*
 
 ## Use Case 1
 ```mermaid
@@ -42,7 +45,7 @@ deactivate Game-Map
     Scene-Manager -->> User: Puts user in credits
 deactivate Scene-Manager
 ```
-Single-Player Game: A new user wants to play through the game. 
+#### Single-Player Game: A new user wants to play through the game. 
 
 1. The user opens the game and is treated by the home screen. 
 2. The home screen has a “tutorial”, “create lobby”, and “join lobby” buttons. Since this is the user’s first time playing the game, the user chooses “tutorial”.
@@ -83,7 +86,7 @@ activate css
 deactivate css
     User ->> Main Game: Explores a different procedurely generated map
 ```
-Procedurally Generated Map: A user wants to play through a game and have a different experience. 
+#### Procedurally Generated Map: A user wants to play through a game and have a different experience. 
 
 1. Once loaded into the map and picked their class and character set out in the world.
 2. The user levels up and realizes they are not enjoying their class and finds the map seed confusing.
@@ -110,7 +113,7 @@ activate Main Game
     Main Game -->> User: Sends user to the credits and rewards an achievement for winning on the maximum difficulty
 deactivate Main Game
 ```
-A user wants to challenge themselves and increase the difficulty scale. 
+#### A user wants to challenge themselves and increase the difficulty scale. 
 
 1. Users open the game and are greeted by the home screen.  
 2. After opening the game, the host creates a lobby but does not invite any players. 
@@ -158,7 +161,7 @@ activate Main Game
     Main Game -->> Other Players: Sends other players to the credits
 deactivate Main Game
 ```
-A user wants to play the game with multiple friends. 
+#### A user wants to play the game with multiple friends. 
 
 1. Users open the game and are greeted by the home screen.  
 2. After opening the game, the host chooses multiplayer and opens a lobby. 
