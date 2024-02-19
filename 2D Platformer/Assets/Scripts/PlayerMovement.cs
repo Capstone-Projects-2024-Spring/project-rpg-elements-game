@@ -52,19 +52,19 @@ public class PlayerMovement : Movement
         anim.SetBool("run", (horizontalInput != 0) && (attacking == false));
         anim.SetBool("grounded", isGrounded());
     }
-    private void Jump()
+    protected void Jump()
     {
         body.velocity = new Vector2(body.velocity.x, baseJump + jumpMod);
         anim.SetTrigger("jump");
     }
 
-    private bool isGrounded()
+    protected bool isGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
         return raycastHit.collider != null;
     }
 
-    private bool onWall()
+    protected bool onWall()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
         return raycastHit.collider != null;
@@ -75,12 +75,12 @@ public class PlayerMovement : Movement
         return !attacking;
     }
 
-    private void setAttackStateTrue()
+    protected void setAttackStateTrue()
     {
         attacking = true;
     }
 
-    private void setAttackStateFalse()
+    protected void setAttackStateFalse()
     {
         attacking = false;
     }

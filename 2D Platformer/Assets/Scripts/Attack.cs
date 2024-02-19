@@ -14,11 +14,11 @@ public class Attack : MonoBehaviour
     protected bool success;
     protected bool active;
     protected float time = 0.0f;
-    protected String receiverID = "";
+    protected string receiverID = "";
     protected Rigidbody2D body;
     protected Vector2 storedVelocity = new Vector2();
     public virtual int power => 0;
-    protected virtual String attackName => "";
+    protected virtual string attackName => "";
     // Start is called before the first frame update
     protected virtual void Start()
     {
