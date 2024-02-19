@@ -276,9 +276,9 @@ GameObject:
   m_Component:
   - component: {fileID: 441390335}
   - component: {fileID: 441390338}
-  - component: {fileID: 441390342}
   - component: {fileID: 441390336}
   - component: {fileID: 441390337}
+  - component: {fileID: 441390342}
   - component: {fileID: 441390339}
   - component: {fileID: 441390340}
   - component: {fileID: 441390341}
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20917fa7297fafd4ea355bb44335557d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  running_speed: 10
+  statSheet: {fileID: 441390342}
   jump_height: 15
   groundLayer:
     serializedVersion: 2
@@ -505,8 +505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300200637edb24c4d8c633bd7f309fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 10
-  currentStrength: 10
 --- !u!1 &448661280
 GameObject:
   m_ObjectHideFlags: 0
