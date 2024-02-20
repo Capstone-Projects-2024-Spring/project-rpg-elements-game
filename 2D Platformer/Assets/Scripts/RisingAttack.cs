@@ -10,6 +10,9 @@ public class RisingAttack : PlayerAttack
 
     private bool charged = true;
 
+    private bool bursted = false;
+
+
     [SerializeField] float rising_velocity = 15;
 
     protected override void Awake(){
@@ -18,6 +21,7 @@ public class RisingAttack : PlayerAttack
     }
     protected override void Update(){
         //Debug.Log(playerMovement.canAttack());
+        //Debug.Log(playerMovement.isGrounded());
         
 
         if(playerMovement.isGrounded()){
@@ -32,11 +36,12 @@ public class RisingAttack : PlayerAttack
         
         base.Update();
         //hitboxes[1].gameObject.SetActive(true);
-        if(falling && active){
+        detect_falling();
+
+        if(falling && bursted){
             Deactivate();
         }
 
-        detect_falling();
         
     }
 
@@ -53,6 +58,7 @@ public class RisingAttack : PlayerAttack
         //Debug.Log("Skyslash deactivated the attack!");
         base.DeactivateHitbox();
         playerMovement.setAttackStateFalse();
+        bursted = false;
 
     }
 
@@ -64,10 +70,12 @@ public class RisingAttack : PlayerAttack
     }
 
     private void freeze(){
+        bursted = false;
         body.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     private void burst(){
+        bursted = true;
         body.constraints = RigidbodyConstraints2D.FreezeRotation;
         body.velocity =  new UnityEngine.Vector2(0, rising_velocity);
 

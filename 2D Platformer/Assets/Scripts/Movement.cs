@@ -25,6 +25,9 @@ public class Movement : MonoBehaviour
 
     private void Update(){
         float horizontalInput = Input.GetAxis("Horizontal");
+                //Set animator parameters
+        anim.SetBool("run", (horizontalInput != 0));
+        anim.SetBool("grounded", isGrounded());
         //Debug.Log(attacking);
         if(attacking){
             return;
@@ -51,9 +54,7 @@ public class Movement : MonoBehaviour
 
 
 
-        //Set animator parameters
-        anim.SetBool("run", (horizontalInput != 0));
-        anim.SetBool("grounded", isGrounded());
+
     
 
  

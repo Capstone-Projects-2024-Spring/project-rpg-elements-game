@@ -537,7 +537,7 @@ MonoBehaviour:
   visible_hitboxes: 1
   attackName: skyslash
   animationTrigger: skyslash
-  rising_velocity: 15
+  rising_velocity: 16
 --- !u!114 &441390348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,7 +770,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.119578
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
