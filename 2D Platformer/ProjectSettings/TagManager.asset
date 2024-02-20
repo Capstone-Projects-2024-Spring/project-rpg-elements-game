@@ -23,6 +23,8 @@ TagManager:
   - EnemyHurtbox
   - PlayerHurtbox
   - EnemyAttack
+  - Room
+  - 
   - 
   - 
   - 
