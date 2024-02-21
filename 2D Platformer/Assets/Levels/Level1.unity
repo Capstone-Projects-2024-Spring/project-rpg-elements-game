@@ -527,17 +527,18 @@ MonoBehaviour:
   power: 20
   knockback:
   - 2
-  - 10
+  - 12
   triggerKey: 107
   hitboxes:
   - {fileID: 1360611015}
   - {fileID: 779379354}
   - {fileID: 38243239}
   - {fileID: 1489316300}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   attackName: skyslash
   animationTrigger: skyslash
-  rising_velocity: 16
+  rising_velocity: 20
+  gravity_reduction: 1.5
 --- !u!114 &441390348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,7 +562,7 @@ MonoBehaviour:
   - {fileID: 779379354}
   - {fileID: 38243239}
   - {fileID: 1489316300}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   attackName: sharparch
   animationTrigger: sharparch
 --- !u!1 &448661280

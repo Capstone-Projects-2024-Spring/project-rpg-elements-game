@@ -55,8 +55,11 @@ public abstract class PlayerAttack : MonoBehaviour
             hitbox.setDamage(power);
             hitbox.setKnockback(knockback);
             hitbox.setHitlag(hitlag);
-            if(!visible_hitboxes){
+            if(visible_hitboxes){
+                hitbox.gameObject.GetComponent<SpriteRenderer>().color = new Color(1,0f,0f,0.5f);
+            }else{
                 hitbox.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
+
             }
         }
     }

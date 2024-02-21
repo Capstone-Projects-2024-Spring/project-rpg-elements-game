@@ -15,9 +15,14 @@ public class RisingAttack : PlayerAttack
 
     [SerializeField] float rising_velocity = 15;
 
+    [SerializeField] float gravity_reduction = 1.0f;
+
+    private float stored_gravity;
+
     protected override void Awake(){
         base.Awake();
         active = false;
+        stored_gravity = body.gravityScale; 
     }
     protected override void Update(){
         //Debug.Log(playerMovement.canAttack());
@@ -58,6 +63,7 @@ public class RisingAttack : PlayerAttack
         //Debug.Log("Skyslash deactivated the attack!");
         base.DeactivateHitbox();
         playerMovement.setAttackStateFalse();
+        body.gravityScale = stored_gravity;
         bursted = false;
 
     }
@@ -77,6 +83,7 @@ public class RisingAttack : PlayerAttack
     private void burst(){
         bursted = true;
         body.constraints = RigidbodyConstraints2D.FreezeRotation;
+        body.gravityScale *= gravity_reduction;
         body.velocity =  new UnityEngine.Vector2(0, rising_velocity);
 
     }
