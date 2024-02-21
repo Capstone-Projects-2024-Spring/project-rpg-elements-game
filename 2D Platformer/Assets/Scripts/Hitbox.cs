@@ -12,6 +12,7 @@ public class Hitbox : MonoBehaviour
 
     private String attackID;
 
+
     private bool success;
 
     String receiverID = "";
@@ -19,9 +20,6 @@ public class Hitbox : MonoBehaviour
    
 
     private void Awake(){
-        Debug.Log("Hello");
-
-        
     }
 
     private void Update(){
@@ -64,6 +62,7 @@ public class Hitbox : MonoBehaviour
     public String getAttackID(){
         return attackID;
     }
+
 
     public void setHitlag(double _hitlag){
         hitlag = _hitlag;
