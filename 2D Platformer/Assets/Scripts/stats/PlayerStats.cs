@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class PlayerStats: MonoBehaviour {
 
-    public CharacterStat Health = new CharacterStat(10);
-    public CharacterStat Strength = new CharacterStat(10);
-    public CharacterStat Speed = new CharacterStat(10);
+    public int baseStrength = 10;
+    public CharacterStat Strength;
+    public int baseSpeed = 10;
+    public CharacterStat Speed;
 
+    public void Awake()
+    {
+        Strength = new CharacterStat(baseStrength);
+        Speed = new CharacterStat(baseSpeed);
+    }
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
