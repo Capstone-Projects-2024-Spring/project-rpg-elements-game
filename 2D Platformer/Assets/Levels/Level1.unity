@@ -624,6 +624,7 @@ MonoBehaviour:
   dashAcceleration: 4
   maxVelocity: 10
   dashTimer: 0.4
+  startingLag: 0.28
 --- !u!1 &448661280
 GameObject:
   m_ObjectHideFlags: 0

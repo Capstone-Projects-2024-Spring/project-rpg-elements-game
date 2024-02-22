@@ -17,6 +17,7 @@ public class ChargeableDashAttack : PlayerAttack
     [SerializeField] private float maxVelocity = 10.0f;
 
     [SerializeField] private float dashTimer = 0.5f;
+    [SerializeField] private float startingLag = 0.33f;
 
 
     private float storeTimer;
@@ -26,6 +27,8 @@ public class ChargeableDashAttack : PlayerAttack
     private bool dashed = false;
 
     private bool stopped = false;
+
+    private bool dashStartup = false;
 
     private float multiplier;
 
@@ -91,31 +94,33 @@ public class ChargeableDashAttack : PlayerAttack
 
         }
         if(Input.GetKeyUp(triggerKey)){
-
-            power = (int) (power * multiplier);
-            knockback[0] *= multiplier;
-            xKnockbackValue *= multiplier;
-            knockback[1] *= multiplier;
-            maxVelocity *= multiplier;
-            dashTimer *= multiplier;
-            dashAcceleration *= multiplier;
-            stopped = false;
-            dashed = true;
-            chargeTimer = 0;
-            sprite.color = new Color(1,1f,1f,1f);
+            setupDash();
             //Debug.Log(power);
-
         }
 
         setHitboxes();
 
-        if(dashed){
-            dashTimer -= Time.deltaTime;
-            dash();
+        
+
+        if(!dashed){
+            return;
         }
+
+        sprite.color = new Color(1,1f,1f,1f);
+    
+        if(chargeTimer < startingLag){
+            dashStartup = true;
+            chargeTimer += Time.deltaTime;
+            return;
+        }
+        dashStartup = false;
+        dashTimer -= Time.deltaTime;
+        dash();
+    
         if(dashTimer <= 0){
             stopped = true;
             dashed = false;
+            chargeTimer = 0;
             dashTimer = storeTimer;
             power = storePower;
             knockback[0] = storeKnockback[0];
@@ -130,6 +135,9 @@ public class ChargeableDashAttack : PlayerAttack
 
         anim.SetBool("dashed", dashed);
         anim.SetBool("stopped", stopped);
+        anim.SetBool("dashStartup", dashStartup);
+
+
 
 
 
@@ -145,6 +153,18 @@ public class ChargeableDashAttack : PlayerAttack
             knockback[0] = xKnockbackValue;
             dashAcceleration = Math.Abs(dashAcceleration);
         }
+    }
+
+    private void setupDash(){
+            power = (int) (power * multiplier);
+            knockback[0] *= multiplier;
+            xKnockbackValue *= multiplier;
+            knockback[1] *= multiplier;
+            maxVelocity *= multiplier;
+            dashTimer *= multiplier;
+            dashAcceleration *= multiplier;
+            stopped = false;
+            dashed = true;
     }
 
     private void detect_stopping(){
