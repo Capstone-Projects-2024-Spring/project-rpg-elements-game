@@ -314,7 +314,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statSheet: {fileID: 241623051}
-  baseHealth: 25
   characterName: Skrake
 --- !u!61 &241623049
 BoxCollider2D:
@@ -425,6 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c697ce12cd4b4b04fae91f87d90cf3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseHealth: 50
   baseStrength: 1
   baseSpeed: 10
 --- !u!1 &437427684
@@ -934,7 +934,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statSheet: {fileID: 448661285}
-  baseHealth: 100
   characterName: Skrake
 --- !u!61 &448661283
 BoxCollider2D:
@@ -1045,6 +1044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c697ce12cd4b4b04fae91f87d90cf3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseHealth: 200
   baseStrength: 1
   baseSpeed: 10
 --- !u!1 &519420028
@@ -2580,7 +2580,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statSheet: {fileID: 1533717440}
-  baseHealth: 20
   characterName: Skrake
 --- !u!114 &1533717440
 MonoBehaviour:
@@ -2594,6 +2593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c697ce12cd4b4b04fae91f87d90cf3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseHealth: 50
   baseStrength: 1
   baseSpeed: 10
 --- !u!1 &1651448204

@@ -31,7 +31,6 @@ public class PlayerStats: MonoBehaviour {
     }
     public void AddSpeed()
     {
-        StatModifier speedBoots = new StatModifier(2);
-        Speed.AddModifier(speedBoots);
+        Speed.ChangeStat(2);
     }
 }
