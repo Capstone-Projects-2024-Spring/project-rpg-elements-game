@@ -68,12 +68,6 @@ public class RisingAttack : PlayerAttack
 
     }
 
-    protected void ActivateRising(){
-        //Debug.Log("This is Sky Slash's version of this attack.");
-        foreach(Hitbox hitbox in hitboxes){
-            hitbox.gameObject.SetActive(true);
-        }
-    }
 
     private void freeze(){
         bursted = false;

@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 441390346}
   - component: {fileID: 441390347}
   - component: {fileID: 441390348}
+  - component: {fileID: 441390349}
   m_Layer: 0
   m_Name: Gary
   m_TagString: Untagged
@@ -508,7 +509,7 @@ MonoBehaviour:
   - {fileID: 38243239}
   - {fileID: 1489316300}
   - {fileID: 779379354}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   attackName: dogstrike
   animationTrigger: attack
 --- !u!114 &441390347
@@ -552,7 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statSheet: {fileID: 0}
-  power: 5
+  power: 11
   knockback:
   - 4
   - 7
@@ -565,6 +566,30 @@ MonoBehaviour:
   visible_hitboxes: 0
   attackName: sharparch
   animationTrigger: sharparch
+--- !u!114 &441390349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441390334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statSheet: {fileID: 0}
+  power: 6
+  knockback:
+  - 2
+  - 5
+  triggerKey: 111
+  hitboxes:
+  - {fileID: 779379354}
+  - {fileID: 1489316300}
+  visible_hitboxes: 0
+  attackName: sweepingsteel
+  animationTrigger: sweepingsteel
 --- !u!1 &448661280
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +796,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.119578
+  orthographic size: 5.7962418
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1092,7 +1117,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.021999, y: -0.867, z: 0}
-  m_LocalScale: {x: 6.0112867, y: 3.569588, z: 1}
+  m_LocalScale: {x: 6.011287, y: 3.569588, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 911102349}

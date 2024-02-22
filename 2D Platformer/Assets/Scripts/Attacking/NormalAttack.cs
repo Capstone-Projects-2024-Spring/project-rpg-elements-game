@@ -13,10 +13,12 @@ public class NormalAttack : PlayerAttack
         base.Update();
         
     }
-
+/*
     protected void ActivateAttack(){
-        base.ActivateHitbox();
-
+        if(!active){
+            return;
+        }
     }
+*/
     
 }

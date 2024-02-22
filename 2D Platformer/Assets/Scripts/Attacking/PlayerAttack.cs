@@ -156,6 +156,9 @@ public abstract class PlayerAttack : MonoBehaviour
     }
 
     protected virtual void ActivateHitbox(){
+        if(!active){
+            return;
+        }
         foreach(Hitbox hitbox in hitboxes){
             hitbox.gameObject.SetActive(true);
         }
