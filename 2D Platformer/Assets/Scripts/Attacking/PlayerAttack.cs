@@ -16,7 +16,7 @@ public abstract class PlayerAttack : MonoBehaviour
 
     [SerializeField] protected KeyCode triggerKey;
 
-    private float xKnockbackValue;
+    protected float xKnockbackValue;
     [SerializeField] protected Hitbox[] hitboxes;
 
     [SerializeField] protected bool visible_hitboxes = true;
@@ -64,14 +64,27 @@ public abstract class PlayerAttack : MonoBehaviour
         }
     }
 
-    protected virtual void Update(){
+    protected virtual bool checkForInput(){
+        if(!Input.GetKeyDown(triggerKey)){
+            return false;
+        }
+        if (!playerMovement.canAttack()){
+            return false;
+        }
+        if(!other_constraints){
+            return false;
+        }
+        return true;
 
-        if(Input.GetKeyDown(triggerKey) && playerMovement.canAttack() && other_constraints){
+    }
+
+    protected virtual void Update(){
+        if(checkForInput()){
             playerMovement.setAttackStateTrue();
+            active = true;
             setHitboxes();
             setAttackName();
             Attack();
-            active = true;
         }
 
         setKnockbackDirection();
@@ -89,7 +102,7 @@ public abstract class PlayerAttack : MonoBehaviour
     
         if(anim.enabled == false){
             hitlagTimer += Time.deltaTime;
-            //Debug.Log(time);
+            //Debug.Log(hitlagTimer);
             if(hitlagTimer > hitlag){
                 exitHitlag();
             }
@@ -101,6 +114,8 @@ public abstract class PlayerAttack : MonoBehaviour
         //Debug.Log(attackName);
         foreach(Hitbox hitbox in hitboxes){
             if(hitbox.getSuccess() && !string.Equals(hitbox.getReceiverID(), receiverID)){
+                Debug.Log("We hit " + hitbox.getReceiverID());
+                receiverID = hitbox.getReceiverID();
                 success = true;
             }
         }
@@ -141,7 +156,7 @@ public abstract class PlayerAttack : MonoBehaviour
         //Debug.Log("No longer in hitlag");
     }
 
-    protected void setKnockbackDirection(){
+    protected virtual void setKnockbackDirection(){
         if(playerMovement.getDirection() == Direction.left){
             knockback[0] = xKnockbackValue * -1;
         }

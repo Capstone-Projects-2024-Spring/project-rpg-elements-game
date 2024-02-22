@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,18 +8,21 @@ public class Movement : MonoBehaviour
     [SerializeField] private float jump_height;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private float wall_sliding_speed = -3;
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
     private bool attacking = false;
 
     private Direction facing = Direction.right;
+    [SerializeField] private float friction = 1;
 
-    private void Awake(){
+    private void Start(){
         //Grabs references for Rigidbody, Box Collider, and Animator
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        boxCollider.sharedMaterial.friction = 1;
 
 
     }
@@ -28,6 +32,8 @@ public class Movement : MonoBehaviour
                 //Set animator parameters
         anim.SetBool("run", (horizontalInput != 0));
         anim.SetBool("grounded", isGrounded());
+
+
 
         
 
@@ -54,6 +60,15 @@ public class Movement : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded()){
             Jump();
         }
+
+        if(onWall()){
+            boxCollider.sharedMaterial.friction = 0;
+            body.velocity = new Vector2(0, -1 * Math.Abs(wall_sliding_speed));
+        }
+        else{
+            boxCollider.sharedMaterial.friction = friction;
+        }
+        //Debug.Log(boxCollider.sharedMaterial.friction);
 
 
 
@@ -95,6 +110,13 @@ public class Movement : MonoBehaviour
         return facing;
     }
 
+    public float getFriction(){
+        return friction;
+    }
+
+    public void setFriction(float _friction){
+        boxCollider.sharedMaterial.friction = _friction;
+    }
     
 
 

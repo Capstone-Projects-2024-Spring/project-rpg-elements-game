@@ -15,7 +15,7 @@ public class Hitbox : MonoBehaviour
 
     private bool success;
 
-    String receiverID = "";
+    private String receiverID = "";
 
    
 
@@ -32,8 +32,8 @@ public class Hitbox : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "EnemyHurtbox"){
             //Debug.Log("ATTACK " + attackID + " DEALS " + hitlag + " HITLAG TO " + other.name);
-            receiverID = other.GetComponent<Hurtbox>().getName();
-            success = true;
+            //receiverID = other.GetComponent<Hurtbox>().getName();
+            //success = true;
         }
     }
 
@@ -78,6 +78,11 @@ public class Hitbox : MonoBehaviour
 
     public void setSuccess(bool _success){
         success = _success;
+    }
+
+    public void setReceiverID(string _receiverID){
+        receiverID = _receiverID;
+
     }
 
     public string getReceiverID(){

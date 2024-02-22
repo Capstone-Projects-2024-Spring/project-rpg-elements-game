@@ -29,10 +29,7 @@ public class Hurtbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Attack" && (attacked == false) && !(string.Equals(other.GetComponent<Hitbox>().getAttackID(), previousReceivedAttack))){
-            
-            Debug.Log("I, " + this.name + " got hit by" + other.name + " in the attack " + other.GetComponent<Hitbox>().getAttackID() + " for " + other.GetComponent<Hitbox>().getDamage() + " damage."
-            + " and (" + other.GetComponent<Hitbox>().getKnockback()[0] + ", " + other.GetComponent<Hitbox>().getKnockback()[1] + ") knockback.");
-            
+              
             attacked = true;
             takenDamage = other.GetComponent<Hitbox>().getDamage();
             takenKnockback = other.GetComponent<Hitbox>().getKnockback();
@@ -40,6 +37,10 @@ public class Hurtbox : MonoBehaviour
             previousReceivedAttack = other.GetComponent<Hitbox>().getAttackID();
             times_attacked += 1;
             ID = characterName + times_attacked.ToString();
+            other.GetComponent<Hitbox>().setReceiverID(getName());
+            other.GetComponent<Hitbox>().setSuccess(true);
+             Debug.Log("I, " + ID + " got hit by" + other.name + " in the attack " + other.GetComponent<Hitbox>().getAttackID() + " for " + other.GetComponent<Hitbox>().getDamage() + " damage."
+            + " and (" + other.GetComponent<Hitbox>().getKnockback()[0] + ", " + other.GetComponent<Hitbox>().getKnockback()[1] + ") knockback.");
         }
     }
 
