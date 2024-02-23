@@ -65,6 +65,12 @@ public class Hurtbox : MonoBehaviour
              Debug.Log("I, " + ID + " got hit by" + other.name + " in the attack " + other.GetComponent<Hitbox>().getAttackID() + " for " + other.GetComponent<Hitbox>().getDamage() + " damage."
             + " and (" + other.GetComponent<Hitbox>().getKnockback()[0] + ", " + other.GetComponent<Hitbox>().getKnockback()[1] + ") knockback.");
         }
+        else if (other.tag == "PlayerHurtbox")
+        {
+            print("I am touching a player");
+            other.GetComponent<PlayerStats>().takeDamage((int)statSheet.Strength.Value);
+
+        }
     }
 
     private void Awake(){
@@ -111,7 +117,7 @@ public class Hurtbox : MonoBehaviour
     }
 //Lowers the health of the receiver.
     private void LowerHealth(){
-        statSheet.Health.ChangeStat(-takenDamage);
+        statSheet.Health.DecreaseStat(takenDamage);
         print("my health is now ["+statSheet.Health.Value+"]");
         takenDamage = 0;
         if (statSheet.Health.Value <= 0)
