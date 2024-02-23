@@ -97,9 +97,6 @@ public class ChargeableDashAttack : PlayerAttack
             setupDash();
             //Debug.Log(power);
         }
-
-        setHitboxes();
-
         
 
         if(!dashed){
@@ -165,6 +162,8 @@ public class ChargeableDashAttack : PlayerAttack
             dashAcceleration *= multiplier;
             stopped = false;
             dashed = true;
+            setHitboxes();
+            Debug.Log(power + " " + hitboxes[0].getDamage());
     }
 
     private void detect_stopping(){

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     private int damage;
-    private float[] knockback;
+    private float[] knockback = new float[2];
 
     private double hitlag;
 
@@ -87,6 +87,10 @@ public class Hitbox : MonoBehaviour
 
     public string getReceiverID(){
         return receiverID;
+    }
+
+    public float getKnockback(int position){
+        return knockback[position];
     }
 
 

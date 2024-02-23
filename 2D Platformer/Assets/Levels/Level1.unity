@@ -285,7 +285,8 @@ GameObject:
   - component: {fileID: 441390347}
   - component: {fileID: 441390348}
   - component: {fileID: 441390349}
-  - component: {fileID: 441390350}
+  - component: {fileID: 441390352}
+  - component: {fileID: 441390351}
   m_Layer: 0
   m_Name: Gary
   m_TagString: Untagged
@@ -591,10 +592,33 @@ MonoBehaviour:
   hitboxes:
   - {fileID: 779379354}
   - {fileID: 1489316300}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   attackName: sweepingsteel
   animationTrigger: sweepingsteel
---- !u!114 &441390350
+--- !u!114 &441390351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441390334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statSheet: {fileID: 0}
+  power: 5
+  knockback:
+  - 1.2
+  - 6.7
+  triggerKey: 105
+  hitboxes:
+  - {fileID: 1360611015}
+  visible_hitboxes: 0
+  attackName: cloudstrike
+  animationTrigger: cloudstrike
+--- !u!114 &441390352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -607,23 +631,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statSheet: {fileID: 0}
-  power: 12
+  power: 10
   knockback:
-  - 2
-  - 8
+  - 4
+  - 12
   triggerKey: 117
   hitboxes:
   - {fileID: 1360611015}
   visible_hitboxes: 0
   attackName: dashnslash
   animationTrigger: dashnslash
-  midLevelThreshold: 0.6
-  maxLevelThreshold: 1.4
-  midLevelMultiplier: 1.5
-  maxLevelMultiplier: 2
+  midLevelThreshold: 1
+  maxLevelThreshold: 2
+  midLevelMultiplier: 1.4
+  maxLevelMultiplier: 1.8
   dashAcceleration: 4
   maxVelocity: 10
-  dashTimer: 0.4
+  dashTimer: 0.5
   startingLag: 0.28
 --- !u!1 &448661280
 GameObject:
@@ -2020,7 +2044,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 18, y: 18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -2074,7 +2098,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 18, y: 18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
