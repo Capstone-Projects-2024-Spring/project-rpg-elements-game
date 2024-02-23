@@ -960,7 +960,7 @@ MonoBehaviour:
   triggerKey: 117
   hitboxes:
   - {fileID: 1360611015}
-  visible_hitboxes: 0
+  visible_hitboxes: 1
   attackName: dashnslash
   animationTrigger: dashnslash
   midLevelThreshold: 1
