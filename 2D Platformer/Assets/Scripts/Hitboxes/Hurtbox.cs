@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Hurtbox : MonoBehaviour 
 {
-    public int health = 100;
+
+    [SerializeField] EnemyStats statSheet;
     private bool attacked = false;
     private int takenDamage = 0;
 
@@ -78,8 +79,14 @@ public class Hurtbox : MonoBehaviour
     }
 
     private void LowerHealth(){
-        health -= takenDamage;
+        statSheet.Health.ChangeStat(-takenDamage);
+        print("my health is now ["+statSheet.Health.Value+"]");
         takenDamage = 0;
+        if (statSheet.Health.Value <= 0)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            print("I died");
+        }
     }
 
     private void FlyAway(){
