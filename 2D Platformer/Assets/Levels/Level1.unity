@@ -837,7 +837,8 @@ MonoBehaviour:
   - {fileID: 1489316300}
   - {fileID: 779379354}
   visible_hitboxes: 0
-  attackName: dogstrike
+  attackName: Dog Strike
+  attackDescription: A fast overhead arc that covers a wide range for modest damage.
   animationTrigger: attack
 --- !u!114 &441390347
 MonoBehaviour:
@@ -863,7 +864,9 @@ MonoBehaviour:
   - {fileID: 38243239}
   - {fileID: 1489316300}
   visible_hitboxes: 0
-  attackName: skyslash
+  attackName: Sky Slash
+  attackDescription: A sword swing that sends both you and your opponents to the
+    sky. But you can't use it again until you're back on the ground.
   animationTrigger: skyslash
   rising_velocity: 20
   gravity_reduction: 1.5
@@ -891,7 +894,9 @@ MonoBehaviour:
   - {fileID: 38243239}
   - {fileID: 1489316300}
   visible_hitboxes: 0
-  attackName: sharparch
+  attackName: Sharp Arch
+  attackDescription: A quick upwards slash that covers a wide range and propels foes
+    upwards. Great for setting up into bigger moves.
   animationTrigger: sharparch
 --- !u!114 &441390349
 MonoBehaviour:
@@ -915,7 +920,9 @@ MonoBehaviour:
   - {fileID: 779379354}
   - {fileID: 1489316300}
   visible_hitboxes: 0
-  attackName: sweepingsteel
+  attackName: Sweeping Steel
+  attackDescription: Swiftly strike at the legs of your opponent, sending them upwards
+    a little. Its low knockback makes it a great combo tool.
   animationTrigger: sweepingsteel
 --- !u!114 &441390351
 MonoBehaviour:
@@ -938,7 +945,9 @@ MonoBehaviour:
   hitboxes:
   - {fileID: 1360611015}
   visible_hitboxes: 0
-  attackName: cloudstrike
+  attackName: Cloud Strike
+  attackDescription: Lift up your sword. Great for juggling opponents already in
+    the air.
   animationTrigger: cloudstrike
 --- !u!114 &441390352
 MonoBehaviour:
@@ -960,8 +969,10 @@ MonoBehaviour:
   triggerKey: 117
   hitboxes:
   - {fileID: 1360611015}
-  visible_hitboxes: 1
-  attackName: dashnslash
+  visible_hitboxes: 0
+  attackName: Dash 'n' Slash
+  attackDescription: A chargeable attack that will give a sudden burst of movement
+    forwards when released. How far you go depends on how long you charge.
   animationTrigger: dashnslash
   midLevelThreshold: 1
   maxLevelThreshold: 2
@@ -969,7 +980,7 @@ MonoBehaviour:
   maxLevelMultiplier: 1.8
   dashAcceleration: 4
   maxVelocity: 10
-  dashTimer: 0.5
+  dashTimer: 1
   startingLag: 0.28
 --- !u!1 &448661280
 GameObject:

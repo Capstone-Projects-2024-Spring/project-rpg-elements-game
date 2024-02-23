@@ -125,7 +125,13 @@ public class ChargeableDashAttack : PlayerAttack
                 sprite.color = new Color(1f,0.4196079f, 0.8923197f,1f);
             }
 
+    /* Putting this block of code will KILL wavedashing :(
+        if(!active){
+            return;
+        }
+    */
     //If the button is released, amplify everything that needs to be amplified.
+
         if(Input.GetKeyUp(triggerKey)){
             setupDash();
             //Debug.Log(power);

@@ -35,6 +35,7 @@ for testing purposes
 //For development purposes. In the final game, all hitboxes will be invisible
     [SerializeField] protected bool visible_hitboxes = true;
     [SerializeField] public String attackName = "strike";
+    [SerializeField] public string attackDescription = "A placeholder description for attacks. Seen by the user in the attack menu.";
 /*
 For the animator to know which animation to trigger. 
 It's a separate variable from attackName since I'll probably have to capialize the attack names later, but
