@@ -13,6 +13,7 @@ public class CharacterStat
             }
             return _value;
         } 
+
     }
 
     private bool isDirty = true;
@@ -26,7 +27,7 @@ public class CharacterStat
         statModifiers = new List<StatModifier>();
     }
     //Use negative number to reduce stat, positive to increase
-    public void changeStat(int amt)
+    public void ChangeStat(int amt)
     {
         StatModifier reducedByMethod = new StatModifier(amt);
         AddModifier(reducedByMethod);
@@ -54,5 +55,6 @@ public class CharacterStat
         // 12.0001f != 12f
         return (float)Math.Round(finalValue, 4);
     }
+
 }
 

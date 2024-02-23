@@ -7,8 +7,6 @@ public class Hurtbox : MonoBehaviour
 {
 
     [SerializeField] EnemyStats statSheet;
-    public int baseHealth;
-    Health health = new Health(10);
     private bool attacked = false;
     private int takenDamage = 0;
 
@@ -48,8 +46,6 @@ public class Hurtbox : MonoBehaviour
 
     private void Awake(){
         body = GetComponentInParent<Rigidbody2D>();
-        health.setHealth(baseHealth);
-        print(health + "@@@@@@@@@");
     }
     private void Update(){
         if (attacked){
@@ -82,10 +78,10 @@ public class Hurtbox : MonoBehaviour
     }
 
     private void LowerHealth(){
-        health.changeHealth(-takenDamage);
-        health.checkHealth();
+        statSheet.Health.ChangeStat(-takenDamage);
+        print("my health is now ["+statSheet.Health.Value+"]");
         takenDamage = 0;
-        if (!health.Alive)
+        if (statSheet.Health.Value <= 0)
         {
             this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
             print("I died");
