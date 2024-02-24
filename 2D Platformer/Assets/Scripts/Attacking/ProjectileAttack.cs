@@ -12,7 +12,7 @@ public class ProjectileAttack : PlayerAttack
     private float velocityXValue;
     [SerializeField] protected float gravity = 0;
 
-    private bool destroyOnContact = true;
+    [SerializeField] protected bool destroyOnContact = true;
 
     [SerializeField] protected float projectileLifetime = 2.0f;
     [SerializeField] protected bool collidesWithWalls = false;

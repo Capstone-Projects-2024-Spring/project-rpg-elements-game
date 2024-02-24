@@ -991,15 +991,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441390334}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.61, y: -2.04, z: 10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.61, y: -2.04, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 911102349}
   - {fileID: 1142330874}
   - {fileID: 859523555}
-  m_Father: {fileID: 519420032}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &441390336
 Rigidbody2D:
@@ -1232,13 +1232,13 @@ MonoBehaviour:
   - {fileID: 779379354}
   - {fileID: 38243239}
   - {fileID: 1489316300}
-  visible_hitboxes: 0
+  visible_hitboxes: 1
   attackName: Sky Slash
   attackDescription: A sword swing that sends both you and your opponents to the
     sky. But you can't use it again until you're back on the ground.
   animationTrigger: skyslash
-  rising_velocity: 20
-  gravity_reduction: 1.5
+  rising_velocity: 27.5
+  gravity_reduction: 2.5
 --- !u!114 &441390348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1383,6 +1383,7 @@ MonoBehaviour:
   spawnPosition: {x: 1, y: 0}
   projectileVelocity: {x: 8, y: 0}
   gravity: 0
+  destroyOnContact: 0
   projectileLifetime: 2
   collidesWithWalls: 0
   sprite: {fileID: 21300000, guid: 1aee9d8378de5b24da2ece2811ecc8da, type: 3}
@@ -1793,7 +1794,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.7962418
+  orthographic size: 6.5745425
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1821,8 +1822,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 441390335}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &566107305
@@ -2581,7 +2581,7 @@ GameObject:
   m_Component:
   - component: {fileID: 859523555}
   - component: {fileID: 859523556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: sword physicsbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4981,6 +4981,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 441390335}
   - {fileID: 1713839876}
   - {fileID: 566107308}
   - {fileID: 936238791}
