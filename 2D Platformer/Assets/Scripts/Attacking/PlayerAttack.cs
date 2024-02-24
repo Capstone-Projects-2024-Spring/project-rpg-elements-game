@@ -46,7 +46,7 @@ not the animation triggers
 //How many times the attack is used. Used when creating the "Attack ID"
     private int uses = 0;
 //The time (in seconds) a player and enemy is frozen for when an attack connects
-    private double hitlag;
+    protected double hitlag;
 //Whether or not the attack hits.
     protected bool success = false;
 /*
@@ -84,12 +84,16 @@ they had beforehand is preserved for when they unfreeze
             hitbox.setDamage(power);
             hitbox.setKnockback(knockback);
             hitbox.setHitlag(hitlag);
-            if(visible_hitboxes){
-                hitbox.gameObject.GetComponent<SpriteRenderer>().color = new Color(1,0f,0f,0.5f);
-            }else{
-                hitbox.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
+            setHitboxVisibility(hitbox);
+        }
+    }
 
-            }
+    protected virtual void setHitboxVisibility(Hitbox hitbox){
+        if(visible_hitboxes){
+            hitbox.gameObject.GetComponent<SpriteRenderer>().color = new Color(1,0f,0f,0.5f);
+        }else{
+            hitbox.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
+
         }
     }
 /*
@@ -247,6 +251,7 @@ Only hits an enemy once until the attack ends.
         //Debug.Log("This should only print once");
         anim.SetTrigger(animationTrigger);
     }
+    
 /*
     USED BY THE ANIMATOR ONLY
     Turns on all hitboxes used by whichever attack is active.
@@ -268,6 +273,9 @@ Only hits an enemy once until the attack ends.
     the COOLDOWN portion of the attack.
 */
     protected void DeactivateHitbox(){
+        if(!active){
+            return;
+        }
         foreach(Hitbox hitbox in hitboxes){
             hitbox.setSuccess(false);
             hitbox.gameObject.SetActive(false);

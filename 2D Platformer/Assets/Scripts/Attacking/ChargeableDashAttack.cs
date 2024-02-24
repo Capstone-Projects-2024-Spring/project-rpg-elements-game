@@ -104,6 +104,13 @@ public class ChargeableDashAttack : PlayerAttack
         
         base.Update();
 
+    /* 
+        Putting this block of code will KILL wavedashing :(
+    */
+        if(!active){
+            return;
+        }
+
     //Increments the charge timer based on how long the button is being held.
         if(Input.GetKey(triggerKey)){
             chargeTimer += Time.deltaTime;
@@ -125,11 +132,8 @@ public class ChargeableDashAttack : PlayerAttack
                 sprite.color = new Color(1f,0.4196079f, 0.8923197f,1f);
             }
 
-    /* Putting this block of code will KILL wavedashing :(
-        if(!active){
-            return;
-        }
-    */
+
+    
     //If the button is released, amplify everything that needs to be amplified.
 
         if(Input.GetKeyUp(triggerKey)){

@@ -68,6 +68,10 @@ public class RisingAttack : PlayerAttack
 
     //Calls the parent update function  
         base.Update();
+
+        if(!active){
+            return;
+        }
     //If the player is falling and the attack has been used up, then the attack turns off.
         detect_falling();
 
@@ -100,6 +104,10 @@ public class RisingAttack : PlayerAttack
     Freezes the player in place before the attack comes out.
 */
     private void freeze(){
+        if(!active){
+            return;
+        }
+
         bursted = false;
         body.constraints = RigidbodyConstraints2D.FreezeAll;
     }
@@ -109,6 +117,9 @@ public class RisingAttack : PlayerAttack
     In hindsight, "rise" is probably a better name than burst O_O Might rename this function later lol
 */
     private void burst(){
+        if(!active){
+            return;
+        }
         bursted = true;
         body.constraints = RigidbodyConstraints2D.FreezeRotation;
         body.gravityScale *= gravity_reduction;
