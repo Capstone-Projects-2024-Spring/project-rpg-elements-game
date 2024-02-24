@@ -138,7 +138,7 @@ An attack can only be triggered if the following are true:
             //Debug.Log(attackName + "is not active");
             return;
         }
-        Debug.Log(attackName + " is active!");
+        //Debug.Log(attackName + " is active!");
 
     
     //If the attack manages to hit something, the player should freeze for a short amount of time
