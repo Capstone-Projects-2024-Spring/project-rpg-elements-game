@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Unity.Properties;
+using Unity.IO.LowLevel.Unsafe;
 
 //The basic attack script that all attacks will inherit from. Contains logic that all attacks should follow.
 public abstract class PlayerAttack : MonoBehaviour
@@ -11,6 +12,15 @@ public abstract class PlayerAttack : MonoBehaviour
 
     protected Animator anim;
     protected Movement playerMovement;
+    [SerializeField] public String attackName = "strike";
+    [SerializeField] public string attackDescription = "A placeholder description for attacks. Seen by the user in the attack menu.";
+/*
+For the animator to know which animation to trigger. 
+It's a separate variable from attackName since I'll probably have to capialize the attack names later, but
+not the animation triggers
+ */
+    [SerializeField] protected string animationTrigger = "attack";
+
 
 /* 
 Base damage of the move. Later, attacks will also account for the player's strength stat when
@@ -34,14 +44,6 @@ for testing purposes
     [SerializeField] protected Hitbox[] hitboxes;
 //For development purposes. In the final game, all hitboxes will be invisible
     [SerializeField] protected bool visible_hitboxes = true;
-    [SerializeField] public String attackName = "strike";
-    [SerializeField] public string attackDescription = "A placeholder description for attacks. Seen by the user in the attack menu.";
-/*
-For the animator to know which animation to trigger. 
-It's a separate variable from attackName since I'll probably have to capialize the attack names later, but
-not the animation triggers
- */
-    [SerializeField] protected string animationTrigger = "attack";
 
 //How many times the attack is used. Used when creating the "Attack ID"
     protected int uses = 0;
@@ -247,7 +249,7 @@ Only hits an enemy once until the attack ends.
     into it, or just have this one line of code moved to the Update function and then delete it.
     But for now it stays.
 */
-    protected void Attack(){
+    protected virtual void Attack(){
         //Debug.Log("This should only print once");
         anim.SetTrigger(animationTrigger);
     }
@@ -284,6 +286,14 @@ Only hits an enemy once until the attack ends.
         success = false;
 
 
+    }
+
+    protected virtual void freeze(){
+        if(!active){
+            return;
+        }
+
+        body.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
 }

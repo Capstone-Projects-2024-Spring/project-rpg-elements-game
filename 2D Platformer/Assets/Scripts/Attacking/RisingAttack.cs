@@ -103,7 +103,7 @@ public class RisingAttack : PlayerAttack
     USED BY THE ANIMATOR ONLY
     Freezes the player in place before the attack comes out.
 */
-    private void freeze(){
+    protected override void freeze(){
         if(!active){
             return;
         }
