@@ -44,7 +44,7 @@ not the animation triggers
     [SerializeField] protected string animationTrigger = "attack";
 
 //How many times the attack is used. Used when creating the "Attack ID"
-    private int uses = 0;
+    protected int uses = 0;
 //The time (in seconds) a player and enemy is frozen for when an attack connects
     protected double hitlag;
 //Whether or not the attack hits.
@@ -79,7 +79,7 @@ they had beforehand is preserved for when they unfreeze
 /*
     Sets up the following for each hitbox in the attack: Damage, Knockback, Hitlag, Visibility
 */
-    protected void setHitboxes(){
+    protected virtual void setHitboxes(){
         foreach(Hitbox hitbox in hitboxes){
             hitbox.setDamage(power);
             hitbox.setKnockback(knockback);
@@ -176,7 +176,7 @@ Only hits an enemy once until the attack ends.
         //Debug.Log(attackName);
         foreach(Hitbox hitbox in hitboxes){
             if(hitbox.getSuccess() && !string.Equals(hitbox.getReceiverID(), receiverID)){
-                Debug.Log("We hit " + hitbox.getReceiverID());
+                //Debug.Log("We hit " + hitbox.getReceiverID());
                 receiverID = hitbox.getReceiverID();
                 success = true;
             }
@@ -189,10 +189,10 @@ Only hits an enemy once until the attack ends.
     Once multiplayer is integrated, each player should also have a unique ID, and that ID should
     be a part of the attack ID as well so that 2 players can never have the same attack ID.
 */
-    protected void setAttackName(){
+    protected virtual void setAttackName(){
         uses += 1;
-        String attackUses = uses.ToString();
-        String ID = attackName + attackUses;
+        string attackUses = uses.ToString();
+        string ID = attackName + attackUses;
         foreach(Hitbox hitbox in hitboxes){
             hitbox.setAttackID(ID);
             //Debug.Log(hitbox.getAttackID());

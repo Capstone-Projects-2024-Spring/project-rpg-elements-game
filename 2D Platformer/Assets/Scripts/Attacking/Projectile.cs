@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D body;
     private BoxCollider2D boxCollider;
     private SpriteRenderer spriteRenderer;
+    private Hitbox hitbox;
     private bool destroyOnContact = false;
     private bool hit = false;
     private float hitlagTimer = 0.0f;
@@ -30,6 +31,7 @@ public class Projectile : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();  
         spriteRenderer = GetComponent<SpriteRenderer>();
+        hitbox = GetComponent<Hitbox>();
     }
 
 
@@ -37,6 +39,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(hitbox.getSuccess());
         if(fired){
             lifetimeTimer += Time.deltaTime;
         }
@@ -55,7 +58,8 @@ public class Projectile : MonoBehaviour
             return;
         }
         if(destroyOnContact){
-            destroy();
+            body.constraints = RigidbodyConstraints2D.FreezeAll;
+            Invoke("destroy", 0.1f);
         }
         resetHitlagValues();
         
@@ -95,7 +99,7 @@ public class Projectile : MonoBehaviour
     }
 
     public void setProjectile(Vector2 _velocity, float _gravity, Direction _direction, bool _destroyOnContact, 
-    double _hitlag, float _lifetime, bool _collidesWithWalls, Sprite _sprite, float _scale){
+    double _hitlag, float _lifetime, bool _collidesWithWalls, Sprite _sprite, float _scale, Vector2 _hitboxModifiers){
         velocity = _velocity;
         body.gravityScale = _gravity;
         //boxCollider.enabled = true;
@@ -115,6 +119,7 @@ public class Projectile : MonoBehaviour
         }
         collidesWithWalls = _collidesWithWalls;
         spriteRenderer.sprite = _sprite;
+        boxCollider.size = _hitboxModifiers;
 
     }
 

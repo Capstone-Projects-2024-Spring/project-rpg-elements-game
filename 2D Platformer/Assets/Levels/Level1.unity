@@ -1383,11 +1383,12 @@ MonoBehaviour:
   spawnPosition: {x: 1, y: 0}
   projectileVelocity: {x: 8, y: 0}
   gravity: 0
-  destroyOnContact: 0
+  destroyOnContact: 1
   projectileLifetime: 2
   collidesWithWalls: 0
   sprite: {fileID: 21300000, guid: 1aee9d8378de5b24da2ece2811ecc8da, type: 3}
   projectileSize: 0.8
+  projectileHitboxModifiers: {x: 4, y: 5}
 --- !u!1 &448661280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,7 +1795,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.5745425
+  orthographic size: 7.590102
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

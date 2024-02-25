@@ -19,6 +19,10 @@ public class ProjectileAttack : PlayerAttack
     [SerializeField] protected Sprite sprite;
     [SerializeField] protected float projectileSize = 1;
 
+    protected Hitbox storedProjectile;
+
+    [SerializeField] Vector2 projectileHitboxModifiers = new Vector2(1, 1);
+
     
     //[SerializeField] protected Projectile[] projectiles;
     protected override void Awake(){
@@ -54,22 +58,40 @@ public class ProjectileAttack : PlayerAttack
             projectileVelocity[0] = velocityXValue;
         }
     }
+    protected override void setHitboxes(){
+        foreach(Hitbox hitbox in hitboxes){
+            if(!hitbox.gameObject.activeSelf){
+                hitbox.setDamage(power);
+                hitbox.setKnockback(knockback);
+                hitbox.setHitlag(hitlag);
+                setHitboxVisibility(hitbox);
+                storedProjectile = hitbox;
+                return;
+            }
+        }
+    }
+
+    protected override void setAttackName(){
+        uses += 1;
+        string attackUses = uses.ToString();
+        string ID = attackName + attackUses;
+        storedProjectile.setAttackID(ID);
+    }
 
     protected virtual void ActivateProjectile(){
         if(!active){
             return;
         }
-        foreach(Hitbox hitbox in hitboxes){
-            if(!hitbox.gameObject.activeSelf){
-                hitbox.gameObject.transform.position = body.position + spawnPosition;
-                hitbox.gameObject.SetActive(true);
-                hitbox.gameObject.GetComponent<Projectile>().setProjectile(
-                    projectileVelocity, gravity, playerMovement.getDirection(), destroyOnContact, 
-                    hitlag, projectileLifetime, collidesWithWalls, sprite, projectileSize);
-                Debug.Log(hitbox);
-                return;
-            }
-        }
+
+        storedProjectile.gameObject.transform.position = body.position + spawnPosition;
+        storedProjectile.gameObject.SetActive(true);
+        storedProjectile.gameObject.GetComponent<Projectile>().setProjectile(
+            projectileVelocity, gravity, playerMovement.getDirection(), destroyOnContact, 
+            hitlag, projectileLifetime, collidesWithWalls, sprite, projectileSize, projectileHitboxModifiers);
+                //Debug.Log(hitbox.getAttackID());
+        //Debug.Log("Projectile ID: " + storedProjectile.getAttackID());
+
+        return;
 
     }
 
