@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 29217001}
   - component: {fileID: 29217000}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   level: 0
   experience: 0
   requiredExperience: 0
+  levelConfig: {fileID: 11400000, guid: ce6e969187d476d47ab9ad01c4763d4e, type: 2}
 --- !u!4 &29217001
 Transform:
   m_ObjectHideFlags: 0
