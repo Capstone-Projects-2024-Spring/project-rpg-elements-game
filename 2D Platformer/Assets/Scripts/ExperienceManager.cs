@@ -8,6 +8,7 @@ public class ExperienceManager : MonoBehaviour
     public delegate void ExperienceChangeHandler(int amount);
     public event ExperienceChangeHandler OnExperienceChange;
 
+    //Invokes function to anything subscribed to the instance
     public void AddExperience(int amount)
     {
         Debug.Log("AddExperience invoked with amount: " + amount);
@@ -15,6 +16,7 @@ public class ExperienceManager : MonoBehaviour
         OnExperienceChange?.Invoke(amount);
     }
 
+    //Checks if there are any other ExperienceManager instances
     private void Awake()
     {
         if(Instance != null && Instance != this)
