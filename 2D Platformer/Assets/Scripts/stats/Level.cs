@@ -35,6 +35,7 @@ public class Level : MonoBehaviour
         CalculateRequiredExp();
     }
 
+    //Adds the value to total experience, then checks if player can level up
     public void IncreaseExp(int value)
     {
         experience += value;

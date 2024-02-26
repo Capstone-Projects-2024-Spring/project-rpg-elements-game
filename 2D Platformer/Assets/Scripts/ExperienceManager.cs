@@ -14,7 +14,7 @@ public class ExperienceManager : MonoBehaviour
         Debug.Log("Number of subscribers: " + (OnExperienceChange != null ? OnExperienceChange.GetInvocationList().Length : 0));
         OnExperienceChange?.Invoke(amount);
     }
-
+    //Checks if an instance of this already exists
     private void Awake()
     {
         if(Instance != null && Instance != this)
