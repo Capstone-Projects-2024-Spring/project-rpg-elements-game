@@ -25,7 +25,7 @@ public class Hurtbox : MonoBehaviour
     A string that's compared with the hitboxes ID to make sure that it's not being hit 
     by the same attack multiple times.
 */
-    private String previousReceivedAttack = "";
+    private string previousReceivedAttack = "";
 //Timer used for freezing the hurtbox in place if it's received an attack
     private float time = 0;
 //Checks if the hurtbox is currently frozen in place or not
@@ -52,8 +52,7 @@ public class Hurtbox : MonoBehaviour
     It's also important to note that this function gets called BEFORE Update.
 */
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Attack" && (attacked == false) && !(string.Equals(other.GetComponent<Hitbox>().getAttackID(), previousReceivedAttack))){
-              
+        if (other.tag == "Attack" && (attacked == false) && !string.Equals(other.GetComponent<Hitbox>().getAttackID(), previousReceivedAttack)){
             attacked = true;
             takenDamage = other.GetComponent<Hitbox>().getDamage();
             takenKnockback = other.GetComponent<Hitbox>().getKnockback();
@@ -63,8 +62,10 @@ public class Hurtbox : MonoBehaviour
             ID = characterName + times_attacked.ToString();
             other.GetComponent<Hitbox>().setReceiverID(getName());
             other.GetComponent<Hitbox>().setSuccess(true);
+        
              Debug.Log("I, " + ID + " got hit by" + other.name + " in the attack " + other.GetComponent<Hitbox>().getAttackID() + " for " + other.GetComponent<Hitbox>().getDamage() + " damage."
             + " and (" + other.GetComponent<Hitbox>().getKnockback()[0] + ", " + other.GetComponent<Hitbox>().getKnockback()[1] + ") knockback.");
+        
         }
     }
 
@@ -72,6 +73,7 @@ public class Hurtbox : MonoBehaviour
         body = GetComponentInParent<Rigidbody2D>();
     }
     private void Update(){
+        //Debug.Log("Hurtbox ID: " + previousReceivedAttack + " " + attacked);
     /*
         If the hurtbox has been attacked, freeze the hurtbox in place and lower the
         character's health (lowering the character's health might have to be moved to
