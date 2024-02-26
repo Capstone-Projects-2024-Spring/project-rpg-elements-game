@@ -19,7 +19,6 @@ public class Hurtbox : MonoBehaviour
     private double takenHitlag = 0.0;
 
     private Rigidbody2D body;
-    int expAmount = 100;
 
 /*
     A string that's compared with the hitboxes ID to make sure that it's not being hit 
@@ -121,7 +120,6 @@ public class Hurtbox : MonoBehaviour
         {
             this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
             print("I died");
-            ExperienceManager.Instance.AddExperience(expAmount);
         }
     }
 //Makes the hurtbox recoil based on the attack's knockback
