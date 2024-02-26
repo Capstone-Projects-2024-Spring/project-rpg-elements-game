@@ -650,7 +650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseHealth: 50
-  baseStrength: 1
+  baseStrength: 15
   baseSpeed: 10
 --- !u!1 &437427684
 GameObject:
@@ -819,14 +819,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 448661281}
-  - component: {fileID: 448661284}
-  - component: {fileID: 448661283}
-  - component: {fileID: 448661282}
-  - component: {fileID: 448661285}
-  m_Layer: 9
-  m_Name: Other Enemy Hurtbox
-  m_TagString: EnemyHurtbox
+  - component: {fileID: 441390335}
+  - component: {fileID: 441390338}
+  - component: {fileID: 441390336}
+  - component: {fileID: 441390337}
+  - component: {fileID: 441390342}
+  - component: {fileID: 441390339}
+  - component: {fileID: 441390340}
+  - component: {fileID: 441390346}
+  - component: {fileID: 441390347}
+  - component: {fileID: 441390348}
+  - component: {fileID: 441390349}
+  - component: {fileID: 441390352}
+  - component: {fileID: 441390351}
+  m_Layer: 0
+  m_Name: Gary
+  m_TagString: PlayerHurtbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -839,9 +847,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448661280}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0349, y: 0.0525, z: 0}
-  m_LocalScale: {x: 3.2139432, y: 2.9725752, z: 0.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.22, y: -0.78, z: 10}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1651448208}
@@ -892,7 +900,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.10962534, y: 0.028977156}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -903,7 +911,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.450904, y: 5.537995}
   m_EdgeRadius: 0
 --- !u!212 &448661284
 SpriteRenderer:
@@ -972,8 +980,63 @@ MonoBehaviour:
   baseHealth: 200
   baseStrength: 1
   baseSpeed: 10
---- !u!1 &519249089
-GameObject:
+  baseHealth: 100
+--- !u!114 &441390346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441390334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statSheet: {fileID: 0}
+  power: 12
+  knockback:
+  - 2
+  - 7
+  triggerKey: 106
+  hitboxes:
+  - {fileID: 1360611015}
+  - {fileID: 38243239}
+  - {fileID: 1489316300}
+  - {fileID: 779379354}
+  visible_hitboxes: 0
+  attackName: dogstrike
+  animationTrigger: attack
+--- !u!114 &441390347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441390334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243be50834efbb04abd83eeae5aa0845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statSheet: {fileID: 0}
+  power: 20
+  knockback:
+  - 2
+  - 12
+  triggerKey: 107
+  hitboxes:
+  - {fileID: 1360611015}
+  - {fileID: 779379354}
+  - {fileID: 38243239}
+  - {fileID: 1489316300}
+  visible_hitboxes: 0
+  attackName: skyslash
+  animationTrigger: skyslash
+  rising_velocity: 20
+  gravity_reduction: 1.5
+--- !u!114 &441390348
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}

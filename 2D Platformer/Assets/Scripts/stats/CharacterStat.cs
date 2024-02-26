@@ -26,10 +26,14 @@ public class CharacterStat
         BaseValue = baseValue;
         statModifiers = new List<StatModifier>();
     }
-    //Use negative number to reduce stat, positive to increase
-    public void ChangeStat(int amt)
+    public void IncreaseStat(int amt)
     {
-        StatModifier reducedByMethod = new StatModifier(amt);
+        StatModifier increasedByMethod = new StatModifier(amt);
+        AddModifier(increasedByMethod);
+    }
+    public void DecreaseStat(int amt)
+    {
+        StatModifier reducedByMethod = new StatModifier(-amt);
         AddModifier(reducedByMethod);
     }
     public void AddModifier(StatModifier mod)
