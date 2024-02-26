@@ -9,7 +9,7 @@ When idle, they have the choice of running, attacking, or jumping.
 While jumping, then can choose to attack while in the air, but they can not attack and then jump while they are still attacking. 
 Running is the main method of travelling the map for the user, helping them move and explore more of the game map.*
 
-## Use Case 1
+## Use Case 1: Single-Player Game
 ```mermaid
 sequenceDiagram
 Actor User
@@ -58,7 +58,7 @@ deactivate Scene-Manager
 11. The user eventually sets back out on their adventure and finds the final boss and is strong enough to defeat it.
 12. Once the final boss is defeated, the credits roll, and the game is cleared.
 
-## Use Case 2
+## Use Case 2: Procedurally Generated Map
 ```mermaid
 sequenceDiagram
     actor User
@@ -94,7 +94,7 @@ deactivate css
 4. They then go through the process of starting a new game and choosing a new character.
 5. Since the map was procedurally generated the map has completely changed and the user has a different experience. 
 
-## Use Case 3
+## Use Case 3: Changing difficulty
 ```mermaid
 sequenceDiagram
     actor User
@@ -124,7 +124,7 @@ deactivate Main Game
 7. The player carefully traverses through the environment and defeats enemies until they are strong enough to defeat the final boss. 
 8. Upon defeating the final boss, the credits roll, and the game is cleared. 
 9. The player gains an achievement for defeating the game on maximum difficulty. 
-## Use Case 4
+## Use Case 4: Multiplayer
 ```mermaid
 sequenceDiagram
     actor Host Player

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Unity.Properties;
+using Unity.IO.LowLevel.Unsafe;
 
 //The basic attack script that all attacks will inherit from. Contains logic that all attacks should follow.
 public abstract class PlayerAttack : MonoBehaviour
@@ -11,6 +12,15 @@ public abstract class PlayerAttack : MonoBehaviour
 
     protected Animator anim;
     protected Movement playerMovement;
+    [SerializeField] public String attackName = "strike";
+    [SerializeField] public string attackDescription = "A placeholder description for attacks. Seen by the user in the attack menu.";
+/*
+For the animator to know which animation to trigger. 
+It's a separate variable from attackName since I'll probably have to capialize the attack names later, but
+not the animation triggers
+ */
+    [SerializeField] protected string animationTrigger = "attack";
+
 
 /* 
 Base damage of the move. Later, attacks will also account for the player's strength stat when
@@ -34,18 +44,11 @@ for testing purposes
     [SerializeField] protected Hitbox[] hitboxes;
 //For development purposes. In the final game, all hitboxes will be invisible
     [SerializeField] protected bool visible_hitboxes = true;
-    [SerializeField] public String attackName = "strike";
-/*
-For the animator to know which animation to trigger. 
-It's a separate variable from attackName since I'll probably have to capialize the attack names later, but
-not the animation triggers
- */
-    [SerializeField] protected string animationTrigger = "attack";
 
 //How many times the attack is used. Used when creating the "Attack ID"
-    private int uses = 0;
+    protected int uses = 0;
 //The time (in seconds) a player and enemy is frozen for when an attack connects
-    private double hitlag;
+    protected double hitlag;
 //Whether or not the attack hits.
     protected bool success = false;
 /*
@@ -78,17 +81,21 @@ they had beforehand is preserved for when they unfreeze
 /*
     Sets up the following for each hitbox in the attack: Damage, Knockback, Hitlag, Visibility
 */
-    protected void setHitboxes(){
+    protected virtual void setHitboxes(){
         foreach(Hitbox hitbox in hitboxes){
             hitbox.setDamage(power);
             hitbox.setKnockback(knockback);
             hitbox.setHitlag(hitlag);
-            if(visible_hitboxes){
-                hitbox.gameObject.GetComponent<SpriteRenderer>().color = new Color(1,0f,0f,0.5f);
-            }else{
-                hitbox.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
+            setHitboxVisibility(hitbox);
+        }
+    }
 
-            }
+    protected virtual void setHitboxVisibility(Hitbox hitbox){
+        if(visible_hitboxes){
+            hitbox.gameObject.GetComponent<SpriteRenderer>().color = new Color(1,0f,0f,0.5f);
+        }else{
+            hitbox.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,0f);
+
         }
     }
 /*
@@ -171,7 +178,7 @@ Only hits an enemy once until the attack ends.
         //Debug.Log(attackName);
         foreach(Hitbox hitbox in hitboxes){
             if(hitbox.getSuccess() && !string.Equals(hitbox.getReceiverID(), receiverID)){
-                Debug.Log("We hit " + hitbox.getReceiverID());
+                //Debug.Log("We hit " + hitbox.getReceiverID());
                 receiverID = hitbox.getReceiverID();
                 success = true;
             }
@@ -184,10 +191,10 @@ Only hits an enemy once until the attack ends.
     Once multiplayer is integrated, each player should also have a unique ID, and that ID should
     be a part of the attack ID as well so that 2 players can never have the same attack ID.
 */
-    protected void setAttackName(){
+    protected virtual void setAttackName(){
         uses += 1;
-        String attackUses = uses.ToString();
-        String ID = attackName + attackUses;
+        string attackUses = uses.ToString();
+        string ID = attackName + attackUses;
         foreach(Hitbox hitbox in hitboxes){
             hitbox.setAttackID(ID);
             //Debug.Log(hitbox.getAttackID());
@@ -242,10 +249,11 @@ Only hits an enemy once until the attack ends.
     into it, or just have this one line of code moved to the Update function and then delete it.
     But for now it stays.
 */
-    protected void Attack(){
+    protected virtual void Attack(){
         //Debug.Log("This should only print once");
         anim.SetTrigger(animationTrigger);
     }
+    
 /*
     USED BY THE ANIMATOR ONLY
     Turns on all hitboxes used by whichever attack is active.
@@ -267,6 +275,9 @@ Only hits an enemy once until the attack ends.
     the COOLDOWN portion of the attack.
 */
     protected void DeactivateHitbox(){
+        if(!active){
+            return;
+        }
         foreach(Hitbox hitbox in hitboxes){
             hitbox.setSuccess(false);
             hitbox.gameObject.SetActive(false);
@@ -275,6 +286,14 @@ Only hits an enemy once until the attack ends.
         success = false;
 
 
+    }
+
+    protected virtual void freeze(){
+        if(!active){
+            return;
+        }
+
+        body.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
 }
