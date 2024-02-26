@@ -8,6 +8,8 @@ public class LevelGeneration : MonoBehaviour
 {   
     public Transform[] startingPositions;
     public GameObject[] rooms;
+    public GameObject player1;
+    public Transform spawnRoom;
 
     private int direction;
     public float moveAmount;
@@ -31,6 +33,12 @@ public class LevelGeneration : MonoBehaviour
         Instantiate(rooms[0], transform.position, Quaternion.identity);
         
         direction = Random.Range(1, 6);
+    }
+
+    private void spawnCharacter()
+    {
+        GameObject character = Instantiate(player1, spawnRoom.position, Quaternion.identity);
+        character.transform.SetParent(transform);
     }
 
     private void Move()
