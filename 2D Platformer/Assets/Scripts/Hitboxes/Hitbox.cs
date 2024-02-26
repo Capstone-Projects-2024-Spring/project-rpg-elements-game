@@ -23,8 +23,8 @@ public class Hitbox : MonoBehaviour
      - An attack only hits a hurtbox once.
     Prevents an hurtbox from getting hit by the same attack each frame.
 */
-    private string attackID;
-    private string receiverID = "";
+    private String attackID;
+    private String receiverID = "";
 //Used to determine if an attack has connected or not.
     private bool success;
 
@@ -35,7 +35,6 @@ public class Hitbox : MonoBehaviour
     }
 
     private void Update(){
-        //Debug.Log("Hitbox ID: " + attackID);
     //Resets the value of success.
         if(success){
             success = false;
@@ -61,18 +60,17 @@ public class Hitbox : MonoBehaviour
     }
 
     public void setKnockback(float[] _knockback){
-        knockback[0] = _knockback[0];
-        knockback[1] = _knockback[1];
+        knockback = _knockback;
     }
 
     public float[] getKnockback(){
         return knockback;
     }
-    public void setAttackID(string _attackID){
+    public void setAttackID(String _attackID){
         attackID = _attackID;
     }
 
-    public string getAttackID(){
+    public String getAttackID(){
         return attackID;
     }
 
