@@ -49,10 +49,10 @@ public class Movement : MonoBehaviour
 
         //Flips sprite when turning left/right
         if(horizontalInput > 0.01f){
-            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
             facing = Direction.right;
         }else if(horizontalInput < -0.01f){
-            transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+            transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
             facing = Direction.left;
         }
         
