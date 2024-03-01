@@ -83,7 +83,7 @@ jobs:
           testMode: ${{ matrix.testMode }}
           artifactsPath: ${{ matrix.testMode }}-artifacts
           checkName: ${{ matrix.testMode }} Test Results
-          githubToken: ${{ secrets.TOKEN }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       # Upload Artifact
       - uses: actions/upload-artifact@v2
