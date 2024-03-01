@@ -39,7 +39,8 @@ name: Test
 
 on: [push, pull_request]
 
-permissions: write-all
+permissions: 
+  checks: read
 
 jobs:
   test:
