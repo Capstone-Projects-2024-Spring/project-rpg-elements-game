@@ -37,17 +37,21 @@
 # refer to https://github.com/microsoft/github-actions-for-desktop-apps
 name: Test
 
-on: [push, pull_request]
+on: [pull_request]
+
+permissions: 
+  checks: read
 
 jobs:
   test:
+    permissions: write-all
     name: ${{ matrix.testMode }} on ${{ matrix.unityVersion }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         projectPath:
-          - .
+          - ./2D Platformer
         unityVersion:
           - 2022.3.17f1
         testMode:
@@ -68,16 +72,19 @@ jobs:
             Library-
 
       # Test
-      - uses: game-ci/unity-test-runner@v2
+      - uses: game-ci/unity-test-runner@v4
         id: tests
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           projectPath: ${{ matrix.projectPath }}
           unityVersion: ${{ matrix.unityVersion }}
           testMode: ${{ matrix.testMode }}
           artifactsPath: ${{ matrix.testMode }}-artifacts
           checkName: ${{ matrix.testMode }} Test Results
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       # Upload Artifact
       - uses: actions/upload-artifact@v2
