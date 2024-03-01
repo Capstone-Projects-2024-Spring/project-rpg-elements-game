@@ -39,6 +39,8 @@ name: Test
 
 on: [push, pull_request]
 
+permissions: write-all
+
 jobs:
   test:
     name: ${{ matrix.testMode }} on ${{ matrix.unityVersion }}
