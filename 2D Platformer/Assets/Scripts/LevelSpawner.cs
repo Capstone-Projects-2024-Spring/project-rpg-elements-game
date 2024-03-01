@@ -45,7 +45,12 @@ public class LevelSpawner : MonoBehaviour
         SpawnRooms();
     }
 
-    void SpawnRooms()
+    public int getSpawnCounter()
+    {
+        return roomCounter;
+    }
+
+    public void SpawnRooms()
     {
         int numRows = roomTypes.GetLength(0);
         int numCols = roomTypes.GetLength(1);
