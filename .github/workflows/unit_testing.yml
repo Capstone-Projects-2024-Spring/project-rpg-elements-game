@@ -37,7 +37,7 @@
 # refer to https://github.com/microsoft/github-actions-for-desktop-apps
 name: Test
 
-on: [push, pull_request]
+on: [pull_request]
 
 permissions: 
   checks: read
