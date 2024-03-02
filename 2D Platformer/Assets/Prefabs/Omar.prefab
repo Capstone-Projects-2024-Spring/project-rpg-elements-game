@@ -682,16 +682,16 @@ GameObject:
   - component: {fileID: 1997334554155446076}
   - component: {fileID: 5315216812399354587}
   - component: {fileID: 3712394841846837171}
-  - component: {fileID: 6077882256009818207}
   - component: {fileID: 2529029297004982552}
   - component: {fileID: 1805790263231340635}
+  - component: {fileID: 6077882256009818207}
   - component: {fileID: 3380574593020085018}
   - component: {fileID: 821054391102767121}
   - component: {fileID: 2725964921201996180}
   - component: {fileID: 209167587323273354}
   m_Layer: 0
   m_Name: Omar
-  m_TagString: Untagged
+  m_TagString: PlayerHurtbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -704,7 +704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7984122117270326092}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.8, y: -0.22, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
@@ -755,7 +755,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 618cbcffaa276114f93a5151b517eaa6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8f703928b20ee39479aae406d49bdbc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -885,7 +885,7 @@ Animator:
   m_GameObject: {fileID: 7984122117270326092}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a17d907e081ea2a4b90ea7a5d9f3943d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9db66fdfc5b80314f92a0a9a9786c3ab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -909,20 +909,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statSheet: {fileID: 0}
-  attackName: Dog Strike
-  attackDescription: A fast overhead arc that covers a wide range for modest damage.
+  attackName: Straight Punch
+  attackDescription: Throw your fist straight forwards, sending anyone in front of
+    you flying backwards. Use it to finish combos.
   animationTrigger: attack
-  power: 12
+  power: 11
   knockback:
+  - 4
   - 2
-  - 7
   triggerKey: 106
   hitboxes:
   - {fileID: 1723615292638173369}
-  - {fileID: 5345621637131915180}
-  - {fileID: 3831776069872821766}
+  visible_hitboxes: 1
+--- !u!114 &2529029297004982552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984122117270326092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statSheet: {fileID: 0}
+  attackName: Bunny Uppercut
+  attackDescription: '"Deliver a fierce, quick uppercut to you opponents. While it
+    lacks range, its low knockback makes it great for combos"'
+  animationTrigger: bunnyuppercut
+  power: 5
+  knockback:
+  - 1
+  - 6
+  triggerKey: 108
+  hitboxes:
+  - {fileID: 1723615292638173369}
+  visible_hitboxes: 1
+--- !u!114 &1805790263231340635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984122117270326092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statSheet: {fileID: 0}
+  attackName: Sax Kick
+  attackDescription: A very quick attack where you thrust your leg forward, striking
+    a tried and true pose.
+  animationTrigger: saxkick
+  power: 6
+  knockback:
+  - 2
+  - 4
+  triggerKey: 111
+  hitboxes:
   - {fileID: 2517431730197761734}
-  visible_hitboxes: 0
+  - {fileID: 3831776069872821766}
+  visible_hitboxes: 1
 --- !u!114 &6077882256009818207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -953,60 +1002,6 @@ MonoBehaviour:
   visible_hitboxes: 0
   rising_velocity: 27.5
   gravity_reduction: 2.5
---- !u!114 &2529029297004982552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7984122117270326092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statSheet: {fileID: 0}
-  attackName: Sharp Arch
-  attackDescription: A quick upwards slash that covers a wide range and propels foes
-    upwards. Great for setting up into bigger moves.
-  animationTrigger: sharparch
-  power: 11
-  knockback:
-  - 4
-  - 7
-  triggerKey: 108
-  hitboxes:
-  - {fileID: 1723615292638173369}
-  - {fileID: 2517431730197761734}
-  - {fileID: 5345621637131915180}
-  - {fileID: 3831776069872821766}
-  visible_hitboxes: 0
---- !u!114 &1805790263231340635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7984122117270326092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statSheet: {fileID: 0}
-  attackName: Sweeping Steel
-  attackDescription: Swiftly strike at the legs of your opponent, sending them upwards
-    a little. Its low knockback makes it a great combo tool.
-  animationTrigger: sweepingsteel
-  power: 6
-  knockback:
-  - 1
-  - 8
-  triggerKey: 111
-  hitboxes:
-  - {fileID: 2517431730197761734}
-  - {fileID: 3831776069872821766}
-  visible_hitboxes: 0
 --- !u!114 &3380574593020085018
 MonoBehaviour:
   m_ObjectHideFlags: 0

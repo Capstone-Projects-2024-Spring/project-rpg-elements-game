@@ -3071,87 +3071,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1001 &5058022447775433552
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1508772588999006740, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: hitboxes.Array.data[0]
-      value: 
-      objectReference: {fileID: 2097463429}
-    - target: {fileID: 1508772588999006740, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: hitboxes.Array.data[1]
-      value: 
-      objectReference: {fileID: 842493161}
-    - target: {fileID: 1508772588999006740, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: hitboxes.Array.data[2]
-      value: 
-      objectReference: {fileID: 52992899}
-    - target: {fileID: 1508772588999006740, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: hitboxes.Array.data[3]
-      value: 
-      objectReference: {fileID: 1548941118}
-    - target: {fileID: 1508772588999006740, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: hitboxes.Array.data[4]
-      value: 
-      objectReference: {fileID: 980049176}
-    - target: {fileID: 4413909215928327728, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 4413909215928327728, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 4413909215928327728, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4413909215928327728, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4413909215928327728, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4413909215928327728, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4413909215928327728, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4413909215928327728, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4413909215928327728, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4413909215928327728, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6554584858392232962, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: m_Name
-      value: Gary
-      objectReference: {fileID: 0}
-    - target: {fileID: 6554584858392232962, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-      propertyPath: m_TagString
-      value: PlayerHurtbox
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 325b46dda95e94240944548a07df1b81, type: 3}
 --- !u!1001 &6573644400449003293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3160,10 +3079,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 722157875603325541, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8f703928b20ee39479aae406d49bdbc1, type: 3}
     - target: {fileID: 1889703892290793600, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.8
@@ -3224,50 +3139,9 @@ PrefabInstance:
       propertyPath: hitboxes.Array.data[4]
       value: 
       objectReference: {fileID: 980049176}
-    - target: {fileID: 3630055014181990534, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3712394841846837171, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
-      propertyPath: power
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3712394841846837171, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
-      propertyPath: attackName
-      value: Straight Punch
-      objectReference: {fileID: 0}
-    - target: {fileID: 3712394841846837171, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
-      propertyPath: visible_hitboxes
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3712394841846837171, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
-      propertyPath: attackDescription
-      value: Throw your fist straight forwards, sending anyone in front of you flying
-        backwards. Use it to finish combos.
-      objectReference: {fileID: 0}
-    - target: {fileID: 3712394841846837171, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
-      propertyPath: hitboxes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3712394841846837171, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
-      propertyPath: knockback.Array.data[0]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3712394841846837171, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
-      propertyPath: knockback.Array.data[1]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5315216812399354587, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 9db66fdfc5b80314f92a0a9a9786c3ab, type: 2}
     - target: {fileID: 7984122117270326092, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
       propertyPath: m_Name
       value: Omar
-      objectReference: {fileID: 0}
-    - target: {fileID: 7984122117270326092, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
-      propertyPath: m_TagString
-      value: PlayerHurtbox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3279,7 +3153,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 5058022447775433552}
   - {fileID: 6573644400449003293}
   - {fileID: 1713839876}
   - {fileID: 566107308}

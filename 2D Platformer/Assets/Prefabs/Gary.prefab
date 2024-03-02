@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 2821982427333218821}
   m_Layer: 0
   m_Name: Gary
-  m_TagString: Untagged
+  m_TagString: PlayerHurtbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -767,7 +767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6554584858392232962}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.34, y: -2.11, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
@@ -915,6 +915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStrength: 10
   baseSpeed: 10
+  baseHealth: 100
 --- !u!114 &8634297986206217419
 MonoBehaviour:
   m_ObjectHideFlags: 0
