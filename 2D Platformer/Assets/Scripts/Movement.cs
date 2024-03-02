@@ -61,7 +61,7 @@ public class Movement : MonoBehaviour
             Jump();
         }
 
-        if(onWall()){
+        if(onWall() && body.velocity.x != 0){
             boxCollider.sharedMaterial.friction = 0;
             body.velocity = new Vector2(0, -1 * Math.Abs(wall_sliding_speed));
         }
