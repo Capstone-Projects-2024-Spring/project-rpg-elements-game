@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System.Threading.Tasks;
+using UnityEngine.Networking;
 
 public class LevelSpawner : MonoBehaviour
 {
+    private int M = 10;
+    private int N = 10;
+    bool gotRandom = false;
+    private int[] mapVector;
+    private int[,] mapMatrix;
     public GameObject[] rooms; //room prefabs 0 --> Open, 1 --> T, 2 --> L, 3 --> LT, 4 --> R, 5 --> TR, 6 --> LR, 7 --> LT, 8 --> B, 9 --> TB, 10 --> LB, 11 --> TLB, 12 --> RB, 13 --> TRB, 14 --> LBR, 15 --> LRTB    
     public int[,] roomTypes = {
         { 11, 9, 1, 1, 13, 3, 5, 7, 11, 5},
@@ -20,25 +27,13 @@ public class LevelSpawner : MonoBehaviour
     }; //Matrix that will be made by algorithm
 
     public Transform spawnPoint; // Spawn point for where rooms can spawns
-
-    public GameObject player1; //Player 1 spawn
-
-    public Transform spawnRoom; //room where user spawns
-
-
-
-    //Spawn Player room
-    public float spawnPlayerRoom = 100;
-
-    //Room Counter for Spawning
-    public int roomCounter = 0;
-
-    //Final Boss Spawn Room
-    public int finalBossRoom = 1;
-
-    //Width and Height of the rooms
-    public float roomWidth = 10f; 
-    public float roomHeight = 10f; 
+    public GameObject player1; // Player 1 spawn
+    public Transform spawnRoom; // Room where user spawns
+    public float spawnPlayerRoom = 100; // Spawn Player room
+    public int roomCounter = 0; // Room Counter for Spawning
+    public int finalBossRoom = 1; // Final Boss Spawn Room
+    public float roomWidth = 10f; // Width of the rooms
+    public float roomHeight = 10f; // Height of the rooms
 
     void Start()
     {
@@ -50,10 +45,20 @@ public class LevelSpawner : MonoBehaviour
         return roomCounter;
     }
 
-    public void SpawnRooms()
+    async public void SpawnRooms()
     {
-        int numRows = roomTypes.GetLength(0);
-        int numCols = roomTypes.GetLength(1);
+        await getRandomMap();
+        vectorToMatrix();
+        int numRows = M;
+        int numCols = N;
+
+        if (gotRandom)
+        {
+            roomTypes = mapMatrix;
+            spawnPlayerRoom = mapVector[M * N];
+            finalBossRoom = mapVector[M * N + 1];
+        }
+            
 
         //Iterate through matrix
         for (int i = 0; i < numRows; i++)
@@ -61,27 +66,25 @@ public class LevelSpawner : MonoBehaviour
             for (int j = 0; j < numCols; j++)
             {
                 int roomType = roomTypes[i, j];
-
-
                 if (roomType >= 0 && roomType < rooms.Length)
                 {
                     Vector2 newPos = new Vector2(j * roomWidth, -i * roomHeight);
 
                     // Ensure the correct rooms are spawning
-                    Debug.Log("Spawning room of type: " + roomType);
+                    //Debug.Log("Spawning room of type: " + roomType);
 
-                    Debug.Log("Room Location: " + newPos);
+                    //Debug.Log("Room Location: " + newPos);
 
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
 
-                    Debug.Log("Room Counter: " + roomCounter);
+                    //Debug.Log("Room Counter: " + roomCounter);
 
                     roomCounter++;
 
                     if (roomCounter == 100)
                     {
            
-                        Debug.Log("Room Location Final: " + newPos);
+                        //Debug.Log("Room Location Final: " + newPos);
 
                         Instantiate(player1, newPos , Quaternion.identity);
 
@@ -93,6 +96,57 @@ public class LevelSpawner : MonoBehaviour
                         }
                     }
                 }
+            }
+        }
+    }
+
+    private async Task<string> getRandomMap()
+    {
+        mapVector = new int[M * N + 2];
+        UnityWebRequest www = UnityWebRequest.Post("http://localhost:9900/mapGenerator/mapGenerator", "{ \"nargout\": 1, \"rhs\": [10,10] }", "application/json");
+        www.SendWebRequest();
+        while (!www.isDone)
+        {
+            await Task.Yield();
+        }
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError(www.error);
+            gotRandom = false;
+            return null;
+        }
+        else
+        {
+            Debug.Log("Form upload complete!");
+            string response = www.downloadHandler.text;
+            int start = 19;
+            int end = response.Substring(start).IndexOf("]");
+            int i = 0;
+            int n;
+            string mapString = response.Substring(start, end);
+            Debug.Log(mapString);
+            foreach (var s in mapString.Split(','))
+            {
+                n = int.Parse(s);
+                mapVector[i] = n;
+                
+                i++;
+            }
+            gotRandom = true;
+            return "success";
+        }
+    }
+    private void vectorToMatrix()
+    {
+        mapMatrix = new int[M,N];
+        int k = 0;
+        for (int i = 0; i < M; i++)
+        {
+            for (int j = 0; j < N; j++)
+            {
+                mapMatrix[j,i] = mapVector[k];
+                k++;
             }
         }
     }
