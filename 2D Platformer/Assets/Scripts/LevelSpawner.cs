@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 public class LevelSpawner : MonoBehaviour
 {
-    private int M = 10;
+    private int M = 20;
     private int N = 10;
     bool gotRandom = false;
     private int[] mapVector;
@@ -28,7 +28,6 @@ public class LevelSpawner : MonoBehaviour
 
     public Transform spawnPoint; // Spawn point for where rooms can spawns
     public GameObject player1; // Player 1 spawn
-    public Transform spawnRoom; // Room where user spawns
     public float spawnPlayerRoom = 100; // Spawn Player room
     public int roomCounter = 0; // Room Counter for Spawning
     public int finalBossRoom = 1; // Final Boss Spawn Room
@@ -47,18 +46,24 @@ public class LevelSpawner : MonoBehaviour
 
     async public void SpawnRooms()
     {
-        await getRandomMap();
+        gotRandom = await getRandomMap();
         vectorToMatrix();
-        int numRows = M;
-        int numCols = N;
+        int numRows;
+        int numCols;
 
         if (gotRandom)
         {
             roomTypes = mapMatrix;
             spawnPlayerRoom = mapVector[M * N];
             finalBossRoom = mapVector[M * N + 1];
+            numRows = M;
+            numCols = N;
         }
-            
+        else
+        {
+            numRows = roomTypes.GetLength(0);
+            numCols = roomTypes.GetLength(1);
+        }
 
         //Iterate through matrix
         for (int i = 0; i < numRows; i++)
@@ -69,27 +74,19 @@ public class LevelSpawner : MonoBehaviour
                 if (roomType >= 0 && roomType < rooms.Length)
                 {
                     Vector2 newPos = new Vector2(j * roomWidth, -i * roomHeight);
-
                     // Ensure the correct rooms are spawning
                     //Debug.Log("Spawning room of type: " + roomType);
-
                     //Debug.Log("Room Location: " + newPos);
-
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
-
                     //Debug.Log("Room Counter: " + roomCounter);
-
                     roomCounter++;
 
-                    if (roomCounter == 100)
+                    if (roomCounter == spawnPlayerRoom)
                     {
-           
                         //Debug.Log("Room Location Final: " + newPos);
-
+                        //Debug.Log("Player Start Room: " + spawnPlayerRoom);
                         Instantiate(player1, newPos , Quaternion.identity);
-
                         Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
-
                         if (virtualCamera != null)
                         {
                             virtualCamera.enabled = true;
@@ -100,10 +97,11 @@ public class LevelSpawner : MonoBehaviour
         }
     }
 
-    private async Task<string> getRandomMap()
+    private async Task<bool> getRandomMap()
     {
         mapVector = new int[M * N + 2];
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost:9900/mapGenerator/mapGenerator", "{ \"nargout\": 1, \"rhs\": [10,10] }", "application/json");
+        string data = "{ \"nargout\": 1, \"rhs\": [" + M.ToString() + "," + N.ToString() + "] }";
+        UnityWebRequest www = UnityWebRequest.Post("http://localhost:9900/mapGenerator/mapGenerator", data, "application/json");
         www.SendWebRequest();
         while (!www.isDone)
         {
@@ -114,7 +112,7 @@ public class LevelSpawner : MonoBehaviour
         {
             Debug.LogError(www.error);
             gotRandom = false;
-            return null;
+            return false;
         }
         else
         {
@@ -125,16 +123,18 @@ public class LevelSpawner : MonoBehaviour
             int i = 0;
             int n;
             string mapString = response.Substring(start, end);
+            if (mapString.Length == 1)
+            {
+                return false;
+            }
             Debug.Log(mapString);
             foreach (var s in mapString.Split(','))
             {
                 n = int.Parse(s);
                 mapVector[i] = n;
-                
                 i++;
             }
-            gotRandom = true;
-            return "success";
+            return true;
         }
     }
     private void vectorToMatrix()
@@ -145,7 +145,7 @@ public class LevelSpawner : MonoBehaviour
         {
             for (int j = 0; j < N; j++)
             {
-                mapMatrix[j,i] = mapVector[k];
+                mapMatrix[i,j] = mapVector[k];
                 k++;
             }
         }
