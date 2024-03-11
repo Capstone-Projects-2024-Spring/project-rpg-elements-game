@@ -171,3 +171,163 @@ deactivate Main Game
 6. Each user loads into the map and can go their separate ways and play through the game.
 7. Once at least one user beats the final boss, a way to exit the game will appear.
 8. After all users go to the exit, the game will end.
+
+## Use Case 5: Attacking
+```mermaid
+sequenceDiagram
+
+    Actor P as Player
+    Participant PC as PlayerController
+    Participant HI as Hitbox (Player's)
+    Participant PA as Player Attack
+    Participant HU as Hurtbox (Enemy's)
+    Participant EC as EnemyController
+
+    autonumber
+    P->>+PC: Input Attack
+    PC->>+PA: DogStrike()
+    PA->>+HI: setActive(true)
+    PA->>PC: enterHitlag()
+    deactivate PC
+    deactivate PA
+    HI->>+HU: OnTriggerEnter2D()
+    deactivate HI
+    HU->>+EC: LowerHealth()
+    HU->>EC: HitStun()
+    HU->>EC: AppliedKnockback()
+
+    deactivate HU
+    deactivate EC
+```
+#### A player initiates an attack.
+
+1. Player provides an attack which is sent to the Player Controller.
+2. The PlayerController interprets that input and initiates the associated attack.
+3. The hitbox is activated.
+4. The PlayerController is entered into a hitlag state where they can not provide movement.
+5. When the hitbox collides with the hurtbox, the OnTrigger method activates.
+6. The attack's hitbox is then deactivated.
+7. The Hurtbox informs the enemy controller about various attributes that should be applied such as damage, stun, and knockback.
+
+## Use Case 6: Skill Swap
+```mermaid
+sequenceDiagram
+    actor P as Player
+    participant S as Skill UI (Canvas)
+    participant SL as Skill List
+    participant SS as Skill Slot
+    participant PC as PlayerController
+
+    P->>+S:  Opens Skill Panel
+    S->>+SS: DisplayCurrentSkills()
+    S->>+SL: DisplayList()
+    loop for each skill
+        SS->>+PC: FetchCurrentSkill()
+        PC-->>-SS: ReturnCurrentSkill()
+    end
+    P->>SL: Player drags skill from list to slot
+    SL->>SS: SetSkill()
+    SS->>+PC: RebindKeyToSkill()
+    deactivate PC
+    SS-->>SL: PreviousSkill()
+
+    deactivate SL
+    deactivate SS
+    deactivate S
+```
+
+#### Player swaps skills.
+1. Upon opening the skill panel two elements pop up, the list of skills and the skill slots.
+2. The Skill Slot will query the player controller to see what skills are currently equipped.
+3. The player can set different skills by moving a skill from the list to the slot.
+4. Upon doing this, the skill is rebound to the slot and the previous skill is returned to the list.
+
+## Use Case 7: Warping
+```mermaid
+sequenceDiagram
+
+    actor P as Player 1
+    participant 1C as Player 1's Canvas
+    participant O1 as Player Object
+    participant W as Warp (Script)
+    participant O2 as Player 2 Object
+    participant 2C as Player 2's Canvas
+    actor P2 as Player 2
+
+    P ->>+ 1C: Player interacts with Warp UI
+    Note right of 1C: Possibly pause input while request active
+    1C ->>+ W: WarpRequest(): Player Object
+    W ->>+ 2C: CreateDialog(): Bool
+    alt Declining
+        P2 ->> 2C: Player clicks 'No' on UI
+        deactivate 2C
+        2C -->> W: False
+        W -->> 1C: FailureDialog()
+        deactivate W
+        deactivate 1C
+
+    else Accepting
+        P2 ->>+ 2C: Player clicks 'Yes' on UI
+        2C -->>+ W: True
+        deactivate 2C
+        W-->>+ 1C: SuccessDialog()
+        W ->> W: Wait(3)
+        W ->>+ O2:  QueryPosition()
+        O2 -->>- W: get PlayerObject2.transform.position;
+        W ->>+ O1: set equal PlayerObject2.transform.position
+        W -->> 1C: CloseDialog()
+        deactivate 1C
+        deactivate O1
+        deactivate W 
+    end
+```
+#### Player sends a warp request.
+1. Player interacts with Canvas Element to send warp request to other player.
+2. Warp Request Dialog will appear on other player's canvas.
+3. The other player may either accept or decline this request.
+4. On decline, the requesting player is notified that their request failed.
+5. On accept, the requesting player is notified that their request was accepted.
+6. They are then forced to wait for a period of time.
+7. The Warp Script will then query the second player's position and then set it to the first player's position.
+
+## Use Case 8: Tutorial
+```mermaid
+sequenceDiagram
+    actor P as Player
+
+    participant C as Canvas
+    participant SM as SceneManager
+    participant IO as PlayerInput
+    participant T as <<Scene>> Tutorial
+    
+    
+    P->>+C: OnClickTutorial()
+    C->>+SM: LoadSceneAsync(Tutorial) : Scene
+    SM->>+T: LoadSceneAsync(Tutorial) : Scene
+    T-->>+IO: setActive(true)
+    SM-->>-C: sceneLoaded()
+    C->>C: setActive(false)
+    deactivate C
+    loop
+        P->>IO: interacting with level
+    end
+    
+    par T to IO
+        T-->>IO: setActive(false)
+        deactivate IO
+    and T to SM
+        T-->>+SM: TutorialClear()
+    end
+    SM->>T: unloadSceneAsync()
+    T-->>SM: sceneUnloaded()
+    SM-->>+C: loadMainMenu(): Canvas
+    deactivate SM
+    deactivate T
+    deactivate C
+```
+#### Player enters the tutorial.
+1. Player clicks the tutorial button in the main menu.
+2. Scene loads and hides the canvas.
+3. Player Input is activated and the player may interact with the game.
+4. Upon clearing the tutorial, the player input is deactivated and the scene is unloaded.
+5. The main menu canvas is reloaded onto the player's screen.
