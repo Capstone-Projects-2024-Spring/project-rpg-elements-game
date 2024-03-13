@@ -25,7 +25,7 @@ namespace Tests
             yield return new WaitForSeconds(5f);
 
             //Esnure that the count is 100 which is the spawnCounter
-            Assert.AreEqual(200, levelSpawner.getSpawnCounter(), "Wrong amount spawned");
+            Assert.AreEqual(100, levelSpawner.getSpawnCounter(), "Wrong amount spawned");
 
         }
     }
