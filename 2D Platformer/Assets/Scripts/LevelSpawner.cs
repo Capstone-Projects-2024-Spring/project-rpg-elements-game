@@ -8,7 +8,7 @@ using UnityEngine.Networking;
 public class LevelSpawner : MonoBehaviour
 {
     private int M = 10;
-    private int N = 20;
+    private int N = 10;
     bool gotRandom = false;
     private int[] mapVector;
     private int[,] mapMatrix;
