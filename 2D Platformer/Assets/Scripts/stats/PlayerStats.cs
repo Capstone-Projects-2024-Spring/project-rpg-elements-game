@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class PlayerStats: MonoBehaviour {
 
+    [Header("Strength")]
     public int baseStrength = 10;
+    public AnimationCurve strengthCurve;
     public CharacterStat Strength;
+    
+    [Header("Speed")]
     public int baseSpeed = 10;
+    public AnimationCurve speedCurve;
     public CharacterStat Speed;
+
+    [Header("Health")]
     public int baseHealth = 100;
+    public AnimationCurve healthCurve;
     public CharacterStat Health;
 
     public void Awake()
