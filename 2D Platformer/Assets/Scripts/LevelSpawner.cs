@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System.Linq;
 
 public class LevelSpawner : MonoBehaviour
 {
@@ -23,9 +24,9 @@ public class LevelSpawner : MonoBehaviour
 
     public GameObject player1; //Player 1 spawn
 
+    public GameObject[] enemyPrefabs;
+
     public Transform spawnRoom; //room where user spawns
-
-
 
     //Spawn Player room
     public float spawnPlayerRoom = 100;
@@ -78,6 +79,8 @@ public class LevelSpawner : MonoBehaviour
 
                     roomCounter++;
 
+                    SpawnEnemies(room, roomType);
+
                     if (roomCounter == 100)
                     {
            
@@ -93,7 +96,21 @@ public class LevelSpawner : MonoBehaviour
                         }
                     }
                 }
+
+                
             }
+        }
+    }
+
+    public void SpawnEnemies(GameObject room, int roomType)
+    {
+        if (roomType == 8)
+        {
+            Transform[] enemySpawnPoints = room.GetComponentsInChildren<Transform>().Where(t => t.CompareTag("EnemySpawnPoint")).ToArray();
+            int randEnemy = Random.Range(0, enemyPrefabs.Length);
+            int randSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
+
+            Instantiate(enemyPrefabs[randEnemy], enemySpawnPoints[randSpawnPoint].position, Quaternion.identity);
         }
     }
 }
