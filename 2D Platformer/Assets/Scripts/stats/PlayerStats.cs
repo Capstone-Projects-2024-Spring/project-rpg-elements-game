@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerStats: MonoBehaviour {
 
+    //Assignments for the player's stats.
     [Header("Strength")]
     public int baseStrength = 10;
     public AnimationCurve strengthCurve;
@@ -26,6 +27,7 @@ public class PlayerStats: MonoBehaviour {
         Health = new CharacterStat(baseHealth);
     }
 
+    //Subscribes to the event in which level increases.
     private void OnEnable()
     {
     if (Level.Instance != null)
@@ -39,6 +41,7 @@ public class PlayerStats: MonoBehaviour {
         }
     }
     
+    //Unsubscribes when disabled.
     private void OnDisable()
     {
         Debug.Log("Unsubscribed");
@@ -80,6 +83,7 @@ public class PlayerStats: MonoBehaviour {
         print(this.gameObject.name + " is dead");
     }
 
+    //Function that will handle stat increases.
     private void HandleLevelUp(int level)
     {
         Debug.Log("Current player level is: " + level);
