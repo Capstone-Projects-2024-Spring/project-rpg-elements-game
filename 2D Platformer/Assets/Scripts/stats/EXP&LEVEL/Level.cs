@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    public static Level Instance;
+    public delegate void LevelChangeHandler(int level);
+    public static event LevelChangeHandler LevelStatUp;
+
     public int level;
     public int experience;
     public int requiredExperience;
@@ -23,11 +27,22 @@ public class Level : MonoBehaviour
             Debug.LogError("Subscription failed. Instance or event is null.");
         }
     }
-    
     private void OnDisable()
     {
         Debug.Log("Unsubscribed");
         ExperienceManager.Instance.OnExperienceChange -= IncreaseExp;
+    }
+
+        private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -56,6 +71,9 @@ public class Level : MonoBehaviour
         level++;
         Debug.Log("Leveled up to: " + level);
         CalculateRequiredExp();
+
+        //Invokes event that informs PlayerStats to increase
+        LevelStatUp?.Invoke(level);
     }
 
     public void CalculateRequiredExp()

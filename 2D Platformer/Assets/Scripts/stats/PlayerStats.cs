@@ -25,6 +25,27 @@ public class PlayerStats: MonoBehaviour {
         Speed = new CharacterStat(baseSpeed);
         Health = new CharacterStat(baseHealth);
     }
+
+    private void OnEnable()
+    {
+    if (Level.Instance != null)
+        {
+            Debug.Log("Subscribed to Level");
+            Level.LevelStatUp += HandleLevelUp;
+        }
+        else
+        {
+            Debug.LogError("Subscription failed. Instance or event is null.");
+        }
+    }
+    
+    private void OnDisable()
+    {
+        Debug.Log("Unsubscribed");
+        Level.LevelStatUp -= HandleLevelUp;
+        
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
@@ -57,5 +78,10 @@ public class PlayerStats: MonoBehaviour {
     {
         this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         print(this.gameObject.name + " is dead");
+    }
+
+    private void HandleLevelUp(int level)
+    {
+        Debug.Log("Current player level is: " + level);
     }
 }
