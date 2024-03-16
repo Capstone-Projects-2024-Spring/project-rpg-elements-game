@@ -47,6 +47,10 @@ jobs:
     permissions: write-all
     name: ${{ matrix.testMode }} on ${{ matrix.unityVersion }}
     runs-on: ubuntu-latest
+    container:
+      image: theronh/mapgenerator:latest
+      ports:
+        - 9900:9910
     strategy:
       fail-fast: false
       matrix:

@@ -101,7 +101,7 @@ public class LevelSpawner : MonoBehaviour
     {
         mapVector = new int[M * N + 2];
         string data = "{ \"nargout\": 1, \"rhs\": [" + M.ToString() + "," + N.ToString() + "] }";
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost:9900/mapGenerator/mapGenerator", data, "application/json");
+        UnityWebRequest www = UnityWebRequest.Post("wildlifeodyssey.d3ecbch5a8e9gcej.eastus.azurecontainer.io:9910/mapGenerator/mapGenerator", data, "application/json");
         www.SendWebRequest();
         while (!www.isDone)
         {
