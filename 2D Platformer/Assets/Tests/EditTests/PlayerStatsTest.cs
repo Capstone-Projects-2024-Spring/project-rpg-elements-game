@@ -31,8 +31,12 @@ public class PlayerStatsTest
 
     [Test]
     public void Increasable(){
+        StatsConfig statsConfig = UnityEditor.AssetDatabase.LoadAssetAtPath<StatsConfig>("Assets/ScriptableObjects/GaryStats.asset");
+
         GameObject gameObject = new GameObject();
         PlayerStats playerStats = gameObject.AddComponent<PlayerStats>();
+
+        playerStats.statsConfig = statsConfig;
 
         playerStats.Awake();
 
