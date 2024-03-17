@@ -7,8 +7,8 @@ using UnityEngine.Networking;
 
 public class LevelSpawner : MonoBehaviour
 {
-    private int M = 10;
-    private int N = 10;
+    private int M = 20;
+    private int N = 20;
     bool gotRandom = false;
     private int[] mapVector;
     private int[,] mapMatrix;
@@ -101,7 +101,7 @@ public class LevelSpawner : MonoBehaviour
     {
         mapVector = new int[M * N + 2];
         string data = "{ \"nargout\": 1, \"rhs\": [" + M.ToString() + "," + N.ToString() + "] }";
-        UnityWebRequest www = UnityWebRequest.Post("wildlifeodyssey.d3ecbch5a8e9gcej.eastus.azurecontainer.io:9910/mapGenerator/mapGenerator", data, "application/json");
+        UnityWebRequest www = UnityWebRequest.Post("www.meatdeathoftheuniverse.com:9900/mapGenerator/mapGenerator", data, "application/json");
         www.SendWebRequest();
         while (!www.isDone)
         {
