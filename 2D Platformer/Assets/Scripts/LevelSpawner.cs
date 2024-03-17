@@ -24,6 +24,8 @@ public class LevelSpawner : MonoBehaviour
 
     public GameObject player1; //Player 1 spawn
 
+    public GameObject doorPrefab;
+
     public GameObject[] enemyPrefabs;
 
     public Transform spawnRoom; //room where user spawns
@@ -81,19 +83,25 @@ public class LevelSpawner : MonoBehaviour
 
                     SpawnEnemies(room, roomType);
 
-                    if (roomCounter == 100)
+                    if (roomCounter == spawnPlayerRoom)
                     {
            
                         Debug.Log("Room Location Final: " + newPos);
 
                         Instantiate(player1, newPos , Quaternion.identity);
 
+                        //Locks Camera onto player
                         Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
 
                         if (virtualCamera != null)
                         {
                             virtualCamera.enabled = true;
                         }
+                    }
+
+                    if (roomCounter == finalBossRoom)
+                    {
+                        SpawnDoor(room);
                     }
                 }
 
@@ -107,10 +115,22 @@ public class LevelSpawner : MonoBehaviour
         if (roomType == 8)
         {
             Transform[] enemySpawnPoints = room.GetComponentsInChildren<Transform>().Where(t => t.CompareTag("EnemySpawnPoint")).ToArray();
+
             int randEnemy = Random.Range(0, enemyPrefabs.Length);
+
             int randSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
 
             Instantiate(enemyPrefabs[randEnemy], enemySpawnPoints[randSpawnPoint].position, Quaternion.identity);
         }
+    }
+
+    public void SpawnDoor(GameObject room)
+    {
+        Vector2 roomPosition = room.transform.position;
+
+        Vector2 doorSpawnPosition = new Vector2(roomPosition.x - roomWidth/100f, roomPosition.y - roomHeight/4f);
+
+        GameObject door = Instantiate(doorPrefab, doorSpawnPosition, Quaternion.identity);
+
     }
 }
