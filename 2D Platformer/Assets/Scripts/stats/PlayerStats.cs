@@ -5,26 +5,16 @@ using UnityEngine;
 public class PlayerStats: MonoBehaviour {
 
     //Assignments for the player's stats.
-    [Header("Strength")]
-    public int baseStrength = 10;
-    public AnimationCurve strengthCurve;
+    public StatsConfig statsConfig;
     public CharacterStat Strength;
-    
-    [Header("Speed")]
-    public int baseSpeed = 10;
-    public AnimationCurve speedCurve;
     public CharacterStat Speed;
-
-    [Header("Health")]
-    public int baseHealth = 100;
-    public AnimationCurve healthCurve;
     public CharacterStat Health;
 
     public void Awake()
     {
-        Strength = new CharacterStat(baseStrength);
-        Speed = new CharacterStat(baseSpeed);
-        Health = new CharacterStat(baseHealth);
+        Strength = new CharacterStat(statsConfig.baseStrength);
+        Speed = new CharacterStat(statsConfig.baseSpeed);
+        Health = new CharacterStat(statsConfig.baseHealth);
     }
 
     //Subscribes to the event in which level increases.

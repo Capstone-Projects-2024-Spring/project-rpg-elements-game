@@ -3363,6 +3363,10 @@ PrefabInstance:
       value: Gary
       objectReference: {fileID: 0}
     - target: {fileID: 8297312936399410857, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+      propertyPath: statsConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 54fa48983388a844c9fdd4d50777c102, type: 2}
+    - target: {fileID: 8297312936399410857, guid: 325b46dda95e94240944548a07df1b81, type: 3}
       propertyPath: speedCurve.m_Curve.Array.size
       value: 2
       objectReference: {fileID: 0}
