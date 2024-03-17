@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "StatsConfig", menuName = "ScriptableObjects/StatsConfig", order = 2)]
+//Config file, base values aren't actually needed since you can just modify the values in editor
 public class StatsConfig : ScriptableObject
 {
     [Header("Strength")]

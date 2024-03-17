@@ -10,6 +10,7 @@ public class PlayerStats: MonoBehaviour {
     public CharacterStat Speed;
     public CharacterStat Health;
 
+    //Basically on start, assigned these values to the ones in the config
     public void Awake()
     {
         Strength = new CharacterStat(statsConfig.baseStrength);
@@ -73,9 +74,29 @@ public class PlayerStats: MonoBehaviour {
         print(this.gameObject.name + " is dead");
     }
 
-    //Function that will handle stat increases.
+    //Currently passes the level (although not actually necessary)
+    //Might be useful if you want to adjust stat gains by level or usch
     private void HandleLevelUp(int level)
     {
         Debug.Log("Current player level is: " + level);
+        int maxIncrease = 10; //Adjust this to change maximum stat growth
+        float old; //Just used for debugging
+
+        
+        float v = Random.Range(0f, 1f);                                                                 //Essentially choose a random value
+        old = Speed.Value;                                                                              //Correspond value to the curve, then multiply to get value
+        Speed.IncreaseStat(Mathf.RoundToInt(statsConfig.speedCurve.Evaluate(v)* maxIncrease));          
+        Debug.Log("Speed: " + old + "->" + Speed.Value);
+
+        old = Health.Value;
+        v = Random.Range(0f, 1f);
+        Health.IncreaseStat(Mathf.RoundToInt(statsConfig.healthCurve.Evaluate(v)* maxIncrease));
+        Debug.Log("Health: " + old + "->" + Health.Value);
+
+        old = Strength.Value;
+        v = Random.Range(0f, 1f);
+        Strength.IncreaseStat(Mathf.RoundToInt(statsConfig.strengthCurve.Evaluate(v)* maxIncrease));
+        Debug.Log("Strength: " + old + "->" + Strength.Value);
+        
     }
 }
