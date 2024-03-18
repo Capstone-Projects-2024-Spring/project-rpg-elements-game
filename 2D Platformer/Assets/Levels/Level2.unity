@@ -2752,6 +2752,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1651475316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8297312936399410857, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+  m_PrefabInstance: {fileID: 5058022447775433552}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300200637edb24c4d8c633bd7f309fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1713839875
 GameObject:
   m_ObjectHideFlags: 0
@@ -3298,6 +3309,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1330891980363741072, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+      propertyPath: statSheet
+      value: 
+      objectReference: {fileID: 1651475316}
+    - target: {fileID: 1508772588999006740, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+      propertyPath: statSheet
+      value: 
+      objectReference: {fileID: 1651475316}
     - target: {fileID: 1508772588999006740, guid: 325b46dda95e94240944548a07df1b81, type: 3}
       propertyPath: hitboxes.Array.data[0]
       value: 
@@ -3318,6 +3337,22 @@ PrefabInstance:
       propertyPath: hitboxes.Array.data[4]
       value: 
       objectReference: {fileID: 980049176}
+    - target: {fileID: 2578986321915300357, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+      propertyPath: statSheet
+      value: 
+      objectReference: {fileID: 1651475316}
+    - target: {fileID: 2821982427333218821, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+      propertyPath: statSheet
+      value: 
+      objectReference: {fileID: 1651475316}
+    - target: {fileID: 3450259796821906162, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+      propertyPath: statSheet
+      value: 
+      objectReference: {fileID: 1651475316}
+    - target: {fileID: 3997971044410176615, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+      propertyPath: statSheet
+      value: 
+      objectReference: {fileID: 1651475316}
     - target: {fileID: 4413909215928327728, guid: 325b46dda95e94240944548a07df1b81, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.34
@@ -3358,10 +3393,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4497097163240020577, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+      propertyPath: statSheet
+      value: 
+      objectReference: {fileID: 1651475316}
     - target: {fileID: 6554584858392232962, guid: 325b46dda95e94240944548a07df1b81, type: 3}
       propertyPath: m_Name
       value: Gary
       objectReference: {fileID: 0}
+    - target: {fileID: 7229422852406146346, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+      propertyPath: statSheet
+      value: 
+      objectReference: {fileID: 1651475316}
     - target: {fileID: 8297312936399410857, guid: 325b46dda95e94240944548a07df1b81, type: 3}
       propertyPath: statsConfig
       value: 
