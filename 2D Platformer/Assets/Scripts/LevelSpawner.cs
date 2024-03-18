@@ -36,7 +36,6 @@ public class LevelSpawner : MonoBehaviour
     public float roomHeight = 10f; // Height of the rooms
     public GameObject doorPrefab;
     public GameObject[] enemyPrefabs;
-    public Transform spawnRoom; //room where user spawns
 
     void Start()
     {
@@ -84,29 +83,19 @@ public class LevelSpawner : MonoBehaviour
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
                     //Debug.Log("Room Counter: " + roomCounter);
                     roomCounter++;
-                    SpawnEnemies(room, roomType);
+
                     if (roomCounter == spawnPlayerRoom)
                     {
                         //Debug.Log("Room Location Final: " + newPos);
                         //Debug.Log("Player Start Room: " + spawnPlayerRoom);
                         Instantiate(player1, newPos, Quaternion.identity);
-
-
-                        //Locks Camera onto player
                         Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
                         if (virtualCamera != null)
                         {
                             virtualCamera.enabled = true;
                         }
                     }
-
-                    if (roomCounter == finalBossRoom)
-                    {
-                        SpawnDoor(room);
-                    }
                 }
-
-
             }
         }
     }
