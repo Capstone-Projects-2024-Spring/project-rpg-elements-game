@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System.Linq;
 
 public class LevelSpawner : MonoBehaviour
 {
@@ -23,9 +24,11 @@ public class LevelSpawner : MonoBehaviour
 
     public GameObject player1; //Player 1 spawn
 
+    public GameObject doorPrefab;
+
+    public GameObject[] enemyPrefabs;
+
     public Transform spawnRoom; //room where user spawns
-
-
 
     //Spawn Player room
     public float spawnPlayerRoom = 100;
@@ -78,13 +81,16 @@ public class LevelSpawner : MonoBehaviour
 
                     roomCounter++;
 
-                    if (roomCounter == 100)
+                    SpawnEnemies(room, roomType);
+
+                    if (roomCounter == spawnPlayerRoom)
                     {
            
                         Debug.Log("Room Location Final: " + newPos);
 
                         Instantiate(player1, newPos , Quaternion.identity);
 
+                        //Locks Camera onto player
                         Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
 
                         if (virtualCamera != null)
@@ -92,8 +98,39 @@ public class LevelSpawner : MonoBehaviour
                             virtualCamera.enabled = true;
                         }
                     }
+
+                    if (roomCounter == finalBossRoom)
+                    {
+                        SpawnDoor(room);
+                    }
                 }
+
+                
             }
         }
+    }
+
+    public void SpawnEnemies(GameObject room, int roomType)
+    {
+        if (roomType == 8)
+        {
+            Transform[] enemySpawnPoints = room.GetComponentsInChildren<Transform>().Where(t => t.CompareTag("EnemySpawnPoint")).ToArray();
+
+            int randEnemy = Random.Range(0, enemyPrefabs.Length);
+
+            int randSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
+
+            Instantiate(enemyPrefabs[randEnemy], enemySpawnPoints[randSpawnPoint].position, Quaternion.identity);
+        }
+    }
+
+    public void SpawnDoor(GameObject room)
+    {
+        Vector2 roomPosition = room.transform.position;
+
+        Vector2 doorSpawnPosition = new Vector2(roomPosition.x - roomWidth/100f, roomPosition.y - roomHeight/4f);
+
+        GameObject door = Instantiate(doorPrefab, doorSpawnPosition, Quaternion.identity);
+
     }
 }
