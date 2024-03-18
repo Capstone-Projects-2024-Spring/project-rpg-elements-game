@@ -752,6 +752,8 @@ GameObject:
   - component: {fileID: 3450259796821906162}
   - component: {fileID: 1508772588999006740}
   - component: {fileID: 2821982427333218821}
+  - component: {fileID: 2505783562235381217}
+  - component: {fileID: 944488859703786471}
   m_Layer: 0
   m_Name: Gary
   m_TagString: Player
@@ -928,6 +930,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20917fa7297fafd4ea355bb44335557d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 8297312936399410857}
   jump_height: 15
   groundLayer:
@@ -1202,6 +1207,57 @@ MonoBehaviour:
   aerialHitboxes:
   - {fileID: 7871251580788388095}
   fallingVelocity: {x: 3, y: -20}
+--- !u!114 &2505783562235381217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554584858392232962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 2905633933
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
+--- !u!114 &944488859703786471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554584858392232962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 4413909215928327728}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  sendIntervalMultiplier: 1
+  timelineOffset: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChangeCorrectionMultiplier: 2
+  rotationSensitivity: 0.01
+  positionPrecision: 0.01
+  scalePrecision: 0.01
 --- !u!1 &7203378536197827936
 GameObject:
   m_ObjectHideFlags: 0

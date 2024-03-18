@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using System.Linq;
+using Mirror;
 
-public class LevelSpawner : MonoBehaviour
+public class LevelSpawner : NetworkBehaviour
 {
     public GameObject[] rooms; //room prefabs 0 --> Open, 1 --> T, 2 --> L, 3 --> LT, 4 --> R, 5 --> TR, 6 --> LR, 7 --> LT, 8 --> B, 9 --> TB, 10 --> LB, 11 --> TLB, 12 --> RB, 13 --> TRB, 14 --> LBR, 15 --> LRTB    
     public int[,] roomTypes = {
@@ -41,11 +42,11 @@ public class LevelSpawner : MonoBehaviour
 
     //Width and Height of the rooms
     public float roomWidth = 10f; 
-    public float roomHeight = 10f; 
+    public float roomHeight = 10f;
 
-    void Start()
-    {
-        SpawnRooms();
+    public void Start()
+    { 
+        SpawnRooms();  
     }
 
     public int getSpawnCounter()
@@ -83,19 +84,22 @@ public class LevelSpawner : MonoBehaviour
 
                     SpawnEnemies(room, roomType);
 
-                    if (roomCounter == spawnPlayerRoom)
+                    if (isLocalPlayer)
                     {
-           
-                        Debug.Log("Room Location Final: " + newPos);
-
-                        Instantiate(player1, newPos , Quaternion.identity);
-
-                        //Locks Camera onto player
-                        Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
-
-                        if (virtualCamera != null)
+                        if (roomCounter == spawnPlayerRoom)
                         {
-                            virtualCamera.enabled = true;
+
+                            Debug.Log("Room Location Final: " + newPos);
+
+                            Instantiate(player1, newPos, Quaternion.identity);
+
+                            //Locks Camera onto player
+                            Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
+
+                            if (virtualCamera != null)
+                            {
+                                virtualCamera.enabled = true;
+                            }
                         }
                     }
 
