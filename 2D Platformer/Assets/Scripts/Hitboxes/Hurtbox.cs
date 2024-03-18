@@ -66,7 +66,7 @@ public class Hurtbox : MonoBehaviour
             + " and (" + other.GetComponent<Hitbox>().getKnockback()[0] + ", " + other.GetComponent<Hitbox>().getKnockback()[1] + ") knockback.");
         
         }
-        else if (other.tag == "PlayerHurtbox")
+        else if (other.tag == "Player")
         {
             print("I am touching a player");
             other.GetComponent<PlayerStats>().takeDamage((int)statSheet.Strength.Value);

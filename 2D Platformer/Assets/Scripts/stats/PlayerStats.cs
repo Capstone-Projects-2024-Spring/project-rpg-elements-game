@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerStats: MonoBehaviour {
@@ -9,6 +10,7 @@ public class PlayerStats: MonoBehaviour {
     public CharacterStat Strength;
     public CharacterStat Speed;
     public CharacterStat Health;
+    public CharacterStat CurrentHealth;
 
     //Basically on start, assigned these values to the ones in the config
     public void Awake()
@@ -16,6 +18,7 @@ public class PlayerStats: MonoBehaviour {
         Strength = new CharacterStat(statsConfig.baseStrength);
         Speed = new CharacterStat(statsConfig.baseSpeed);
         Health = new CharacterStat(statsConfig.baseHealth);
+        CurrentHealth = new CharacterStat(statsConfig.baseHealth);
     }
 
     //Subscribes to the event in which level increases.
@@ -61,8 +64,8 @@ public class PlayerStats: MonoBehaviour {
     }
     public void takeDamage(int damageTaken)
     {
-        Health.DecreaseStat(damageTaken);
-        print("Player [" + this.gameObject.name + "] took [" + damageTaken + "] damage and is now at [" + Health.Value + "] health.");
+        CurrentHealth.DecreaseStat(damageTaken);
+        print("Player [" + this.gameObject.name + "] took [" + damageTaken + "] damage and is now at [" + CurrentHealth.Value + "] health.");
         if (Health.Value <= 0)
         {
             die();
@@ -92,6 +95,8 @@ public class PlayerStats: MonoBehaviour {
         v = Random.Range(0f, 1f);
         Health.IncreaseStat(Mathf.RoundToInt(statsConfig.healthCurve.Evaluate(v)* maxIncrease));
         Debug.Log("Health: " + old + "->" + Health.Value);
+        Debug.Log("CurrentHealth: " + CurrentHealth.Value);
+ 
 
         old = Strength.Value;
         v = Random.Range(0f, 1f);
