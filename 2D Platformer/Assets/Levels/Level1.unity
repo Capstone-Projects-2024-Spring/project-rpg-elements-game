@@ -3196,9 +3196,29 @@ PrefabInstance:
       propertyPath: hitboxes.Array.data[4]
       value: 
       objectReference: {fileID: 980049176}
+    - target: {fileID: 3630055014181990534, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6077882256009818207, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
+      propertyPath: visible_hitboxes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778275534919663578, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417491299342571964, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7984122117270326092, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
       propertyPath: m_Name
       value: Omar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205248679132087759, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
