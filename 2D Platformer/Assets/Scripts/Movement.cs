@@ -9,6 +9,10 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private float wall_sliding_speed = -3;
+    [SerializeField] private KeyCode jumpKey = KeyCode.Space;
+    // Up and down keys are unused as of now, so commenting it out to quiet the code warnings of unused variable
+    //[SerializeField] private KeyCode upKey = KeyCode.UpArrow;
+    //[SerializeField] private KeyCode downKey = KeyCode.DownArrow;
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
@@ -44,7 +48,7 @@ public class Movement : MonoBehaviour
         //Makes the player move left/right
 
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * statSheet.Speed.Value, body.velocity.y);
-
+        
     
 
         //Flips sprite when turning left/right
@@ -57,7 +61,7 @@ public class Movement : MonoBehaviour
         }
         
         //Makes the player jump when space is pressed
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded()){
+        if(Input.GetKeyDown(jumpKey) && isGrounded()){
             Jump();
         }
 
