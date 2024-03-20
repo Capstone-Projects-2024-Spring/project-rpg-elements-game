@@ -13,9 +13,11 @@ public class SkrakeAI : MonoBehaviour
     private Color defaultColor;
     private bool touchingPlayer = false;
     private bool inHitstun = false;
+    private Vector3 localScale;
 
     void Start()
     {
+        localScale = transform.localScale;
         sb = GetComponent<SpriteRenderer>();
         defaultColor = sb.color;
         rb = GetComponent<Rigidbody2D>();
@@ -32,6 +34,7 @@ public class SkrakeAI : MonoBehaviour
         }
     }
 
+
     private void ChasePlayer()
     {
         if ((transform.position.x < player.position.x) && !touchingPlayer && !inHitstun)
@@ -44,6 +47,7 @@ public class SkrakeAI : MonoBehaviour
             //player is on the left, move left
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
         }
+        transform.localScale = localScale;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -73,4 +77,5 @@ public class SkrakeAI : MonoBehaviour
         sb.color = defaultColor;
         inHitstun = false;
     }
+
 }
