@@ -19,6 +19,7 @@ public class PlayerStats: MonoBehaviour {
     public Image frontHealthBar;
     public Image backHealthBar;
     public TextMeshProUGUI healthText;
+    public TextMeshProUGUI levelText;
   
 
     //Basically on start, assigned these values to the ones in the config
@@ -103,6 +104,7 @@ public class PlayerStats: MonoBehaviour {
     //Might be useful if you want to adjust stat gains by level or usch
     private void HandleLevelUp(int level)
     {
+        levelText.text = level.ToString();
         Debug.Log("Current player level is: " + level);
         int maxIncrease = 10; //Adjust this to change maximum stat growth
         float old; //Just used for debugging
