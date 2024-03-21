@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.TestTools;
 
@@ -9,21 +10,33 @@ public class PlayerStatsTest
     [Test]
     public void CheckBaseStats()
     {
+        
         // Arrange
+        StatsConfig statsConfig = UnityEditor.AssetDatabase.LoadAssetAtPath<StatsConfig>("Assets/ScriptableObjects/GaryStats.asset");
+
         GameObject gameObject = new GameObject();
         PlayerStats playerStats = gameObject.AddComponent<PlayerStats>();
 
+        playerStats.statsConfig = statsConfig;
+
+
+
         playerStats.Awake();
         // Act & Assert
-        Assert.AreEqual(playerStats.baseStrength, playerStats.Strength.Value);
-        Assert.AreEqual(playerStats.baseSpeed, playerStats.Speed.Value);
-        Assert.AreEqual(playerStats.baseHealth, playerStats.Health.Value);
+        Assert.IsNotNull(statsConfig, "Failed to load GaryStats prefab from Resources.");
+        Assert.AreEqual(statsConfig.baseStrength, playerStats.Strength.Value);
+        Assert.AreEqual(statsConfig.baseSpeed, playerStats.Speed.Value);
+        Assert.AreEqual(statsConfig.baseHealth, playerStats.Health.Value);
     }
 
     [Test]
     public void Increasable(){
+        StatsConfig statsConfig = UnityEditor.AssetDatabase.LoadAssetAtPath<StatsConfig>("Assets/ScriptableObjects/GaryStats.asset");
+
         GameObject gameObject = new GameObject();
         PlayerStats playerStats = gameObject.AddComponent<PlayerStats>();
+
+        playerStats.statsConfig = statsConfig;
 
         playerStats.Awake();
 

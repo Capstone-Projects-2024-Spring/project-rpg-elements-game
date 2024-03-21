@@ -318,9 +318,6 @@ MonoBehaviour:
   finalBossRoom: 1
   roomWidth: 10
   roomHeight: 10
-  doorPrefab: {fileID: 959457127545484383, guid: 154d9e93b99fe460d9f3c9c183e11bd3, type: 3}
-  enemyPrefabs:
-  - {fileID: 6749484314320138859, guid: 1e7ab2c9aa6f34d75be76ecb79432f26, type: 3}
 --- !u!1 &1997339387
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,3 +356,4 @@ SceneRoots:
   - {fileID: 234707146}
   - {fileID: 1008764831}
   - {fileID: 1997339388}
+  - {fileID: 1620776441}
