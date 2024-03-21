@@ -913,9 +913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300200637edb24c4d8c633bd7f309fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStrength: 10
-  baseSpeed: 10
-  baseHealth: 100
+  statsConfig: {fileID: 11400000, guid: dd4178480ea8f36429a64e1bb40f7847, type: 2}
 --- !u!114 &8634297986206217419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -971,7 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statSheet: {fileID: 0}
+  statSheet: {fileID: 8297312936399410857}
   attackName: Dog Strike
   attackDescription: A fast overhead arc that covers a wide range for modest damage.
   animationTrigger: attack
@@ -998,7 +996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243be50834efbb04abd83eeae5aa0845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statSheet: {fileID: 0}
+  statSheet: {fileID: 8297312936399410857}
   attackName: Sky Slash
   attackDescription: A sword swing that sends both you and your opponents to the
     sky. But you can't use it again until you're back on the ground.
@@ -1028,7 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statSheet: {fileID: 0}
+  statSheet: {fileID: 8297312936399410857}
   attackName: Sharp Arch
   attackDescription: A quick upwards slash that covers a wide range and propels foes
     upwards. Great for setting up into bigger moves.
@@ -1056,7 +1054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statSheet: {fileID: 0}
+  statSheet: {fileID: 8297312936399410857}
   attackName: Sweeping Steel
   attackDescription: Swiftly strike at the legs of your opponent, sending them upwards
     a little. Its low knockback makes it a great combo tool.
@@ -1082,7 +1080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727c5f7f68c5ce14fa9c6eed1d21930d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statSheet: {fileID: 0}
+  statSheet: {fileID: 8297312936399410857}
   attackName: Dash 'n' Slash
   attackDescription: A chargeable attack that will give a sudden burst of movement
     forwards when released. How far you go depends on how long you charge.
@@ -1115,7 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statSheet: {fileID: 0}
+  statSheet: {fileID: 8297312936399410857}
   attackName: Cloud Strike
   attackDescription: Lift up your sword. Great for juggling opponents already in
     the air.
@@ -1140,7 +1138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e899b10adf554458c8b1fa9db4d51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statSheet: {fileID: 0}
+  statSheet: {fileID: 8297312936399410857}
   attackName: Sword Beam
   attackDescription: Summon a beam from your sword. It will travel straight forward,
     hitting enemies too far away for you to stab.
@@ -1178,7 +1176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe0399eaff97a5449213f52a0083dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statSheet: {fileID: 0}
+  statSheet: {fileID: 8297312936399410857}
   attackName: Oblivion Dive
   attackDescription: A giant, massive slash that does a ton of damage, but it also
     leaves you wide open. Using it in the air will send you straight down to the
