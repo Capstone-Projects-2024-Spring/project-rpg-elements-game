@@ -33,7 +33,8 @@ for i=N-2:-1:1
     Nv = Nv+(Nv>((M-1)*i));
 end
 
-intersectingEdges = [ Nh Nh+M; Nv Nv+1];
+% 2d vector of all intersecting edges
+intersectingEdges = [Nh Nh+M; Nv Nv+1];
 
 % remove all the intersecting edges from the full map to get a maze
 Maze = rmedge(G,intersectingEdges(:,1),intersectingEdges(:,2));

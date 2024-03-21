@@ -1,4 +1,4 @@
-function [A] = latticeAdjacencyMatrix(M,N)
+function A = latticeAdjacencyMatrix(M,N)
 %#codegen
 % FROM: https://www.mathworks.com/matlabcentral/answers/1820440-any-function-to-get-adjacency-matrix-of-2d-m-by-n-lattice
 % M rows, N columns, denoting the size of the rectangular lattice
@@ -19,6 +19,5 @@ ind3 = sub2ind([M,N],i,j);
 ind4 = sub2ind([M,N],i,j+1);
 
 % build the global adjacency matrix
-totalnodes = N*(M-1) + (N-1)*M;
-A = sparse([ind1(:);ind3(:)],[ind2(:);ind4(:)],ones(totalnodes,1),N*M,N*M);
+A = sparse([ind1(:);ind3(:)],[ind2(:);ind4(:)],ones(N*(M-1) + (N-1)*M,1),N*M,N*M);
 end

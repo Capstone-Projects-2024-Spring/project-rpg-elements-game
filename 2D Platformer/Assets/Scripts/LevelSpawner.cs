@@ -171,4 +171,22 @@ public class LevelSpawner : MonoBehaviour
     {
         return numCols;
     }
+    public bool setNumRows(int M)
+    {
+        if (M >= minDim && M <= maxDim)
+        {
+            numRows = M;
+            return true;
+        }
+        return false;
+    }
+    public bool setNumCols(int N)
+    {
+        if (N >= minDim && N <= maxDim)
+        {
+            numCols = N;
+            return true;
+        }
+        return false;
+    }
 }

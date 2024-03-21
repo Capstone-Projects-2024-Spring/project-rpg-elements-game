@@ -35,11 +35,8 @@ end
 function edges = getRandomEdges(edgeList,numOptions,numToRemove)
 % uses Knuth's Algorithm S to select edges from a list with equal
 % probability
-numOptionsRemaining = numOptions;
-numToChoose = numToRemove;
 numChosen = 0;
 edges = zeros(numToRemove,2);
-
 for i=1:numOptions
     numOptionsRemaining = numOptions - i;
     numToChoose = numToRemove - numChosen;
