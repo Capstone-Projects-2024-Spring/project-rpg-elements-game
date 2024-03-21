@@ -5,7 +5,7 @@ arguments
     N double
 end
 
-% set a limit of 100x100 map
+% set a limit of 20x20 map
 if (M>20) || (N>20)
     Map = 0;
     return
@@ -113,8 +113,8 @@ D = distances(Tree,'Method','unweighted');
 [startRoom, bossRoom] = ind2sub(size(D),bossRoom);
 X = [startRoom bossRoom];
 [Y,Z] = ind2sub(size(rooms),X);
-StartBossBooms = sub2ind(flip(size(rooms)),Z,Y);
+StartBossRooms = sub2ind(flip(size(rooms)),Z,Y);
 
 % output rooms vals as vector with start and boss rooms appended on end
-Map = [reshape(rooms',1,[]) StartBossBooms];
+Map = [reshape(rooms',1,[]) StartBossRooms];
 end

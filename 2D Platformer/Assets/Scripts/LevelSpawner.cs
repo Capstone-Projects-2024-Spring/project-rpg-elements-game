@@ -8,7 +8,7 @@ using System.Linq;
 
 public class LevelSpawner : MonoBehaviour
 {
-    private int M = 10;
+    private int M = 15;
     private int N = 10;
     bool gotRandom = false;
     private int[] mapVector;

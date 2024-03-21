@@ -1,7 +1,7 @@
 # Dockerfile for image: theronh/mapgenerator
 # 
 # Sample docker build command:
-# wsl docker build -f "Dockerfile" -t theronh/mapgenerator "."
+# docker build -f "Dockerfile" -t theronh/mapgenerator "."
 
 FROM matlabruntime/r2023b/release/update7/108000000000000000
 
