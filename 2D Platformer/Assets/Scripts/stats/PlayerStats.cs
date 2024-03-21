@@ -42,6 +42,7 @@ public class PlayerStats: MonoBehaviour {
         else
         {
             Debug.LogError("Subscription failed. Instance or event is null.");
+            //This is for the level manager,  if you're not using it in your level, feel free to ignore!
         }
     }
     
