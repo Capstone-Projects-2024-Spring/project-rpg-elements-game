@@ -1,37 +1,35 @@
-function [Map,Tree] = increaseConnectivity(Maze,Tree,N,interiorNodes)
+function [Map,Tree] = increaseConnectivity(Maze,Tree,M,N,interiorNodes)
 %#codegen
 % function to increase the connectivity of the provided maze by randomly
 % removing a set portion of the interior walls
 arguments
     Maze graph
     Tree graph
+    M double
     N double
     interiorNodes (:,:) double
 end
-N = N-1;
+
 edges = Maze.Edges.EndNodes; % node pairs of all the edges in the maze
 interiorEdges = edges((ismember(edges(:,1),interiorNodes) | ismember(edges(:,2),interiorNodes)),:);
 NumInteriorEdges = length(interiorEdges);
 numToRemove = ceil(NumInteriorEdges/10);
 toRemove = getRandomEdges(interiorEdges,NumInteriorEdges,numToRemove); % to remove from Maze
-toAdd = mapMazeEdgeToTreeEdge(toRemove,N); % to add back to Tree
 Map = rmedge(Maze,toRemove(:,1),toRemove(:,2));
-Tree = addedge(Tree,toAdd(:,1),toAdd(:,2),ones(1,length(toAdd(:,1))));
+
+% divide the Maze edges into horizontal and vertical edges
+Nh = toRemove((toRemove(:,2)-toRemove(:,1)==1),1); % all right root nodes for the horizontal edges to add to Tree
+Nv = toRemove((toRemove(:,2)-toRemove(:,1)~=1),1); % all lower root nodes for the vertical edges to add to Tree
+
+% map the nodes of the maze to the nodes of the tree
+for i=N-2:-1:1
+    Nv = Nv-(Nv>=(M*i+1));
+    Nh = Nh-(Nh>=(M*i+1));
 end
 
-function treeEdges = mapMazeEdgeToTreeEdge(mazeEdges,N)
-% helper function to map the maze edges to the tree edges
-n = length(mazeEdges(:,1));
-treeEdges = zeros(n,2);
-for i=1:n
-    r = floor((mazeEdges(i,1)-1)/N); % find the row offset
-    treeNode = mazeEdges(i,2)-r; % map the maze node to the tree node
-    if (mazeEdges(i,2)-mazeEdges(i,1))==1 % horizontal edge
-        treeEdges(i,:) = [treeNode-N+1 treeNode]; % connect tree node to the node above it
-    else % vertical edge
-        treeEdges(i,:) = [treeNode-1 treeNode]; % connect tree node to the node before it
-    end
-end
+% list of edges to add back to the Tree
+toAdd = [Nv-1 Nv; Nh-M+1 Nh];
+Tree = addedge(Tree,toAdd(:,1),toAdd(:,2),ones(1,length(toAdd(:,1))));
 end
 
 function edges = getRandomEdges(edgeList,numOptions,numToRemove)
