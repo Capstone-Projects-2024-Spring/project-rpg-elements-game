@@ -313,6 +313,8 @@ MonoBehaviour:
   - {fileID: 6907610008828045339, guid: fa0a92fd626544673a544d82870dc981, type: 3}
   spawnPoint: {fileID: 1997339388}
   player1: {fileID: 6554584858392232962, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+  doorPrefab: {fileID: 959457127545484383, guid: 154d9e93b99fe460d9f3c9c183e11bd3, type: 3}
+  enemyPrefabs: []
   spawnPlayerRoom: 2
   roomCounter: 0
   finalBossRoom: 1
@@ -356,4 +358,3 @@ SceneRoots:
   - {fileID: 234707146}
   - {fileID: 1008764831}
   - {fileID: 1997339388}
-  - {fileID: 1620776441}

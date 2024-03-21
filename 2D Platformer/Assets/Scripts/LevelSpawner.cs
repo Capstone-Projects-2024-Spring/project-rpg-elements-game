@@ -8,8 +8,10 @@ using System.Linq;
 
 public class LevelSpawner : MonoBehaviour
 {
-    private int M = 15;
-    private int N = 10;
+    private int minDim = 10;
+    private int maxDim = 20;
+    private int numRows;
+    private int numCols;
     bool gotRandom = false;
     private int[] mapVector;
     private int[,] mapMatrix;
@@ -48,18 +50,16 @@ public class LevelSpawner : MonoBehaviour
 
     async public void SpawnRooms()
     {
+        numRows = Random.Range(minDim,maxDim);
+        numCols = Random.Range(minDim,maxDim);
         gotRandom = await getRandomMap();
         vectorToMatrix();
-        int numRows;
-        int numCols;
 
         if (gotRandom)
         {
             roomTypes = mapMatrix;
-            spawnPlayerRoom = mapVector[M * N];
-            finalBossRoom = mapVector[M * N + 1];
-            numRows = M;
-            numCols = N;
+            spawnPlayerRoom = mapVector[numRows * numCols];
+            finalBossRoom = mapVector[numRows * numCols + 1];
         }
         else
         {
@@ -96,8 +96,8 @@ public class LevelSpawner : MonoBehaviour
 
     private async Task<bool> getRandomMap()
     {
-        mapVector = new int[M * N + 2];
-        string data = "{ \"nargout\": 1, \"rhs\": [" + M.ToString() + "," + N.ToString() + "] }";
+        mapVector = new int[numRows * numCols + 2];
+        string data = "{ \"nargout\": 1, \"rhs\": [" + numRows.ToString() + "," + numCols.ToString() + "] }";
         UnityWebRequest www = UnityWebRequest.Post("www.meatdeathoftheuniverse.com:9900/mapGenerator/mapGenerator", data, "application/json");
         www.SendWebRequest();
         while (!www.isDone)
@@ -133,11 +133,11 @@ public class LevelSpawner : MonoBehaviour
     }
     private void vectorToMatrix()
     {
-        mapMatrix = new int[M, N];
+        mapMatrix = new int[numRows, numCols];
         int k = 0;
-        for (int i = 0; i < M; i++)
+        for (int i = 0; i < numRows; i++)
         {
-            for (int j = 0; j < N; j++)
+            for (int j = 0; j < numCols; j++)
             {
                 mapMatrix[i, j] = mapVector[k];
                 k++;
@@ -161,5 +161,14 @@ public class LevelSpawner : MonoBehaviour
         Vector2 roomPosition = room.transform.position;
         Vector2 doorSpawnPosition = new Vector2(roomPosition.x - roomWidth / 100f, roomPosition.y - roomHeight / 4f);
         GameObject door = Instantiate(doorPrefab, doorSpawnPosition, Quaternion.identity);
+    }
+
+    public int getNumRows()
+    {
+        return numRows;
+    }
+    public int getNumCols()
+    {
+        return numCols;
     }
 }
