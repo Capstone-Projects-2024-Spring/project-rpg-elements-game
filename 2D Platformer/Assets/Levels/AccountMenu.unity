@@ -430,6 +430,8 @@ MonoBehaviour:
   signupPassword: {fileID: 2123637896}
   signupConfirm: {fileID: 1973003739}
   signupIGN: {fileID: 1411990894}
+  forgetPassEmail: {fileID: 368483309}
+  notifPanel: {fileID: 0}
 --- !u!4 &180307676
 Transform:
   m_ObjectHideFlags: 0
@@ -7062,8 +7064,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 163}
-  m_SizeDelta: {x: 332.2177, y: 50}
+  m_AnchoredPosition: {x: 7.6, y: 158.4}
+  m_SizeDelta: {x: 285.9599, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1851796881
 MonoBehaviour:
@@ -7085,7 +7087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Begin your Odyssey
+  m_text: Continue your Odyssey
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7148,7 +7150,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -35.54837, y: 0, z: -2.514511, w: 0}
+  m_margin: {x: 1.0203705, y: 0, z: 0.80989075, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

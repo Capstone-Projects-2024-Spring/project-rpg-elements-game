@@ -8,7 +8,7 @@ public class FirebaseController : MonoBehaviour
 {
     public GameObject loginPanel, signupPanel, profilePanel, forgotPassPanel;
 
-    public InputField loginEmail, loginPassword, signupEmail, signupPassword, signupConfirm, signupIGN;
+    public InputField loginEmail, loginPassword, signupEmail, signupPassword, signupConfirm, signupIGN, forgetPassEmail, notifPanel;
 
     public void OpenLoginPanel()
     {
@@ -25,7 +25,7 @@ public class FirebaseController : MonoBehaviour
         loginPanel.SetActive(false);
         signupPanel.SetActive(true);
         profilePanel.SetActive(false);
-        forgotPassPanel.SetActive(true);
+        forgotPassPanel.SetActive(false);
     }
 
     public void OpenProfilePanel()
@@ -34,7 +34,7 @@ public class FirebaseController : MonoBehaviour
         loginPanel.SetActive(false);
         signupPanel.SetActive(false);
         profilePanel.SetActive(true);
-        forgotPassPanel.SetActive(true);
+        forgotPassPanel.SetActive(false);
     }
 
     public void OpenForgotPassPanel()
@@ -77,11 +77,11 @@ public class FirebaseController : MonoBehaviour
 
     }
 
-    // public void forgotPassword()
-    // {
-    //     if (string.IsNullOrEmpty(forgetPassEmail.text))
-    //     {
-    //         return;
-    //     }
-    // }
+    public void forgotPassword()
+    {
+        if (string.IsNullOrEmpty(forgetPassEmail.text))
+        {
+            return;
+        }
+    }
 }
