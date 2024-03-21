@@ -1,7 +1,7 @@
 # Dockerfile for image: matlabruntimebase/r2023b/release/update7
 # 
 # Sample docker build command:
-# wsl docker build -f "Dockerfile.deps" -t matlabruntimebase/r2023b/release/update7 "."
+# docker build -f "Dockerfile.deps" -t matlabruntimebase/r2023b/release/update7 "."
 
 FROM ubuntu:22.04
 

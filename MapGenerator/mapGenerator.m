@@ -31,33 +31,14 @@ rooms(1,:) = 1;
 rooms(end,:) = rooms(end,:) + 8;
 rooms(:,1) = rooms(:,1) + 2;
 rooms(:,end) = rooms(:,end) + 4;
+j_odd = false;
 for j=1:N-2
-    j_odd = mod(j,2);
+    j_odd = ~j_odd;
+    i_odd = false;
     for i=1:M-2
-        i_odd = mod(i,2);
         n = interiorNodes(i,j);
-        if (i_odd && j_odd)
-            u = findedge(Maze,n-1,n);
-            d = findedge(Maze,n,n+1);
-            l = findedge(Maze,n-M,n);
-            r = findedge(Maze,n,n+M);
-            if u
-                rooms(i,j) = rooms(i,j) + 4;
-                rooms(i,j+1) = rooms(i,j+1) + 2;
-            end
-            if d
-                rooms(i+1,j) = rooms(i+1,j) + 4;
-                rooms(i+1,j+1) = rooms(i+1,j+1) + 2;
-            end
-            if l
-                rooms(i,j) = rooms(i,j) + 8;
-                rooms(i+1,j) = rooms(i+1,j) + 1;
-            end
-            if r
-                rooms(i,j+1) = rooms(i,j+1) + 8;
-                rooms(i+1,j+1) = rooms(i+1,j+1) + 1;
-            end
-        elseif (i_odd && ~j_odd)
+        i_odd = ~i_odd;
+        if i_odd
             u = findedge(Maze,n-1,n);
             d = findedge(Maze,n,n+1);
             if u
@@ -68,7 +49,8 @@ for j=1:N-2
                 rooms(i+1,j) = rooms(i+1,j) + 4;
                 rooms(i+1,j+1) = rooms(i+1,j+1) + 2;
             end
-        elseif (~i_odd && j_odd)
+        end
+        if j_odd
             l = findedge(Maze,n-M,n);
             r = findedge(Maze,n,n+M);
             if l
