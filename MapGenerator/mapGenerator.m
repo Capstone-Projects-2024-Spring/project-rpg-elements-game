@@ -6,10 +6,10 @@ arguments
 end
 
 % set a limit of 100x100 map
-% if (M>100) || (N>100)
-%     Map = 0;
-%     return
-% end
+if (M>20) || (N>20)
+    Map = 0;
+    return
+end
 
 % adjust M and N to wall dimensions by adding 1
 M = idivide(M,uint32(1))+1;
