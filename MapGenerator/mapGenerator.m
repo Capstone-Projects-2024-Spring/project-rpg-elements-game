@@ -12,12 +12,12 @@ if (M>20) || (N>20)
 end
 
 % adjust M and N to wall dimensions by adding 1
-M = idivide(M,uint32(1))+1;
-N = idivide(N,uint32(1))+1;
+M = floor(M)+1;
+N = floor(N)+1;
 
 % get a matrix of just interior nodes
-interiorNodes = reshape(1:1:M*N,[M N]);
-interiorNodes = interiorNodes(2:end-1,2:end-1);
+interiorNodes = reshape(M+1:1:M*(N-1),[M N-2]);
+interiorNodes = interiorNodes(2:end-1,:);
 
 % generate random maze
 [Maze,Tree] = genRandomMaze(M,N);
