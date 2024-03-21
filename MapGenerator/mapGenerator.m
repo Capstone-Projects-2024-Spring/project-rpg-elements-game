@@ -109,11 +109,10 @@ end
 
 % calculate the players' start room and boss room
 D = distances(Tree,'Method','unweighted');
-[~, bossRoom] = max(D(:));
-[startRoom, bossRoom] = ind2sub(size(D),bossRoom);
-X = [startRoom bossRoom];
-[Y,Z] = ind2sub(size(rooms),X);
-StartBossRooms = sub2ind(flip(size(rooms)),Z,Y);
+[~,bossRoom] = max(D(:));
+[startRoom,bossRoom] = ind2sub(size(D),bossRoom); % column major start and boss room numbers
+[startRoom,bossRoom] = ind2sub(size(rooms),[startRoom bossRoom]);
+StartBossRooms = sub2ind(flip(size(rooms)),bossRoom,startRoom); % row major start and boss room numbers
 
 % output rooms vals as vector with start and boss rooms appended on end
 Map = [reshape(rooms',1,[]) StartBossRooms];
