@@ -10,6 +10,7 @@ TagManager:
   - EnemyHurtbox
   - EnemyAttack
   - PlayerHurtbox
+  - EnemySpawnPoint
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,6 @@ TagManager:
   - PlayerHurtbox
   - EnemyAttack
   - Room
-  - 
-  - 
   - 
   - 
   - 
