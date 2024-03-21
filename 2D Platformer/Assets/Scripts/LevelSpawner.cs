@@ -29,19 +29,18 @@ public class LevelSpawner : MonoBehaviour
 
     public Transform spawnPoint; // Spawn point for where rooms can spawns
     public GameObject player1; // Player 1 spawn
+    public GameObject doorPrefab;
+    public GameObject[] enemyPrefabs;
     public float spawnPlayerRoom = 100; // Spawn Player room
     public int roomCounter = 0; // Room Counter for Spawning
     public int finalBossRoom = 1; // Final Boss Spawn Room
     public float roomWidth = 10f; // Width of the rooms
     public float roomHeight = 10f; // Height of the rooms
-    public GameObject doorPrefab;
-    public GameObject[] enemyPrefabs;
 
     void Start()
     {
         SpawnRooms();
     }
-
     public int getSpawnCounter()
     {
         return roomCounter;
@@ -78,16 +77,11 @@ public class LevelSpawner : MonoBehaviour
                 {
                     Vector2 newPos = new Vector2(j * roomWidth, -i * roomHeight);
                     // Ensure the correct rooms are spawning
-                    //Debug.Log("Spawning room of type: " + roomType);
-                    //Debug.Log("Room Location: " + newPos);
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
-                    //Debug.Log("Room Counter: " + roomCounter);
                     roomCounter++;
 
                     if (roomCounter == spawnPlayerRoom)
                     {
-                        //Debug.Log("Room Location Final: " + newPos);
-                        //Debug.Log("Player Start Room: " + spawnPlayerRoom);
                         Instantiate(player1, newPos, Quaternion.identity);
                         Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
                         if (virtualCamera != null)
@@ -113,13 +107,11 @@ public class LevelSpawner : MonoBehaviour
 
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError(www.error);
             gotRandom = false;
             return false;
         }
         else
         {
-            Debug.Log("Form upload complete!");
             string response = www.downloadHandler.text;
             int start = 19;
             int end = response.Substring(start).IndexOf("]");
@@ -130,7 +122,6 @@ public class LevelSpawner : MonoBehaviour
             {
                 return false;
             }
-            Debug.Log(mapString);
             foreach (var s in mapString.Split(','))
             {
                 n = int.Parse(s);
@@ -159,11 +150,8 @@ public class LevelSpawner : MonoBehaviour
         if (roomType == 8)
         {
             Transform[] enemySpawnPoints = room.GetComponentsInChildren<Transform>().Where(t => t.CompareTag("EnemySpawnPoint")).ToArray();
-
             int randEnemy = Random.Range(0, enemyPrefabs.Length);
-
             int randSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
-
             Instantiate(enemyPrefabs[randEnemy], enemySpawnPoints[randSpawnPoint].position, Quaternion.identity);
         }
     }
@@ -171,10 +159,7 @@ public class LevelSpawner : MonoBehaviour
     public void SpawnDoor(GameObject room)
     {
         Vector2 roomPosition = room.transform.position;
-
         Vector2 doorSpawnPosition = new Vector2(roomPosition.x - roomWidth / 100f, roomPosition.y - roomHeight / 4f);
-
         GameObject door = Instantiate(doorPrefab, doorSpawnPosition, Quaternion.identity);
-
     }
 }
