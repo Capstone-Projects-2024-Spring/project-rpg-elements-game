@@ -2,12 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Level : MonoBehaviour
 {
     public static Level Instance;
     public delegate void LevelChangeHandler(int level);
     public static event LevelChangeHandler LevelStatUp;
+
+    public Image expBar;
+    public TextMeshProUGUI expText;
 
     public int level;
     public int experience;
@@ -87,5 +92,17 @@ public class Level : MonoBehaviour
     {
         requiredExperience = levelConfig.GetRequiredExp(level);
         Debug.Log("Next maximum: " + requiredExperience);
+    }
+
+    public void Update()
+    {
+        UpdateExpUI();
+    }
+
+    private void UpdateExpUI()
+    {
+        if(experience != 0 && requiredExperience != 0)
+            expBar.fillAmount = (float)experience / requiredExperience;
+        expText.text = experience + "/" + requiredExperience;
     }
 }
