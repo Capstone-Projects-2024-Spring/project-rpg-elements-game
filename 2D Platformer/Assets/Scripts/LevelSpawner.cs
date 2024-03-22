@@ -5,8 +5,9 @@ using Cinemachine;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
 using System.Linq;
+using Mirror;
 
-public class LevelSpawner : MonoBehaviour
+public class LevelSpawner : NetworkBehaviour
 {
     private int minDim = 10;
     private int maxDim = 20;
@@ -39,9 +40,9 @@ public class LevelSpawner : MonoBehaviour
     public float roomWidth = 10f; // Width of the rooms
     public float roomHeight = 10f; // Height of the rooms
 
-    void Start()
-    {
-        SpawnRooms();
+    public void Start()
+    { 
+        SpawnRooms();  
     }
     public int getSpawnCounter()
     {
@@ -79,14 +80,19 @@ public class LevelSpawner : MonoBehaviour
                     // Ensure the correct rooms are spawning
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
                     roomCounter++;
-
-                    if (roomCounter == spawnPlayerRoom)
+                    SpawnEnemies(room, roomType);
+                    if (isLocalPlayer)
                     {
-                        Instantiate(player1, newPos, Quaternion.identity);
-                        Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
-                        if (virtualCamera != null)
+                        if (roomCounter == spawnPlayerRoom)
                         {
-                            virtualCamera.enabled = true;
+                            //Debug.Log("Room Location Final: " + newPos);
+                            //Debug.Log("Player Start Room: " + spawnPlayerRoom);
+                            Instantiate(player1, newPos, Quaternion.identity);
+                            Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
+                            if (virtualCamera != null)
+                            {
+                                virtualCamera.enabled = true;
+                            }
                         }
                     }
                 }
