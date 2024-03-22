@@ -126,6 +126,7 @@ public class Hurtbox : MonoBehaviour
         {
             this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
             print("I died");
+            ExperienceManager.Instance.AddExperience(500);
         }
     }
 //Makes the hurtbox recoil based on the attack's knockback

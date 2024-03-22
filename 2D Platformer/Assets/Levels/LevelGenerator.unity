@@ -313,15 +313,14 @@ MonoBehaviour:
   - {fileID: 6907610008828045339, guid: fa0a92fd626544673a544d82870dc981, type: 3}
   spawnPoint: {fileID: 1997339388}
   player1: {fileID: 6554584858392232962, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-  doorPrefab: {fileID: 959457127545484383, guid: 154d9e93b99fe460d9f3c9c183e11bd3, type: 3}
-  enemyPrefabs:
-  - {fileID: 6749484314320138859, guid: 1e7ab2c9aa6f34d75be76ecb79432f26, type: 3}
-  spawnRoom: {fileID: 0}
   spawnPlayerRoom: 2
   roomCounter: 0
   finalBossRoom: 1
   roomWidth: 10
   roomHeight: 10
+  doorPrefab: {fileID: 959457127545484383, guid: 154d9e93b99fe460d9f3c9c183e11bd3, type: 3}
+  enemyPrefabs:
+  - {fileID: 6749484314320138859, guid: 1e7ab2c9aa6f34d75be76ecb79432f26, type: 3}
 --- !u!1 &1997339387
 GameObject:
   m_ObjectHideFlags: 0

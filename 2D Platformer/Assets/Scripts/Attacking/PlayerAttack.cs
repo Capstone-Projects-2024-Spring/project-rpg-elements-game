@@ -83,7 +83,7 @@ they had beforehand is preserved for when they unfreeze
 */
     protected virtual void setHitboxes(){
         foreach(Hitbox hitbox in hitboxes){
-            hitbox.setDamage(power);
+            hitbox.setDamage(power + (int)statSheet.Strength.Value);
             hitbox.setKnockback(knockback);
             hitbox.setHitlag(hitlag);
             setHitboxVisibility(hitbox);
