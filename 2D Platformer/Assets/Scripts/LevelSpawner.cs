@@ -5,8 +5,9 @@ using Cinemachine;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
 using System.Linq;
+using Mirror;
 
-public class LevelSpawner : MonoBehaviour
+public class LevelSpawner : NetworkBehaviour
 {
     private int M = 10;
     private int N = 10;
@@ -37,9 +38,24 @@ public class LevelSpawner : MonoBehaviour
     public GameObject doorPrefab;
     public GameObject[] enemyPrefabs;
 
-    void Start()
-    {
-        SpawnRooms();
+    public Transform spawnRoom; //room where user spawns
+
+    //Spawn Player room
+    public float spawnPlayerRoom = 100;
+
+    //Room Counter for Spawning
+    public int roomCounter = 0;
+
+    //Final Boss Spawn Room
+    public int finalBossRoom = 1;
+
+    //Width and Height of the rooms
+    public float roomWidth = 10f; 
+    public float roomHeight = 10f;
+
+    public void Start()
+    { 
+        SpawnRooms();  
     }
 
     public int getSpawnCounter()
@@ -84,15 +100,24 @@ public class LevelSpawner : MonoBehaviour
                     //Debug.Log("Room Counter: " + roomCounter);
                     roomCounter++;
 
-                    if (roomCounter == spawnPlayerRoom)
+                    SpawnEnemies(room, roomType);
+
+                    if (isLocalPlayer)
                     {
-                        //Debug.Log("Room Location Final: " + newPos);
-                        //Debug.Log("Player Start Room: " + spawnPlayerRoom);
-                        Instantiate(player1, newPos, Quaternion.identity);
-                        Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
-                        if (virtualCamera != null)
+                        if (roomCounter == spawnPlayerRoom)
                         {
-                            virtualCamera.enabled = true;
+
+                            Debug.Log("Room Location Final: " + newPos);
+
+                            Instantiate(player1, newPos, Quaternion.identity);
+
+                            //Locks Camera onto player
+                            Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
+
+                            if (virtualCamera != null)
+                            {
+                                virtualCamera.enabled = true;
+                            }
                         }
                     }
                 }

@@ -1,8 +1,9 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using Mirror;
 
-public class Movement : MonoBehaviour
+public class Movement : NetworkBehaviour
 {
     [SerializeField] private PlayerStats statSheet;
     [SerializeField] private float jump_height;
@@ -28,53 +29,62 @@ public class Movement : MonoBehaviour
     }
 
     private void Update(){
-        float horizontalInput = Input.GetAxis("Horizontal");
-                //Set animator parameters
-        anim.SetBool("run", (horizontalInput != 0));
-        anim.SetBool("grounded", isGrounded());
+        if (isLocalPlayer)
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            //Set animator parameters
+            anim.SetBool("run", (horizontalInput != 0));
+            anim.SetBool("grounded", isGrounded());
 
 
 
-        
 
-        //Debug.Log(attacking);
-        if(attacking){
-            return;
+
+            //Debug.Log(attacking);
+            if (attacking)
+            {
+                return;
+            }
+            //Makes the player move left/right
+
+            body.velocity = new Vector2(Input.GetAxis("Horizontal") * statSheet.Speed.Value, body.velocity.y);
+
+
+
+            //Flips sprite when turning left/right
+            if (horizontalInput > 0.01f)
+            {
+                transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                facing = Direction.right;
+            }
+            else if (horizontalInput < -0.01f)
+            {
+                transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
+                facing = Direction.left;
+            }
+
+            //Makes the player jump when space is pressed
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+            {
+                Jump();
+            }
+
+            if (onWall())
+            {
+                boxCollider.sharedMaterial.friction = 0;
+                body.velocity = new Vector2(0, -1 * Math.Abs(wall_sliding_speed));
+            }
+            else
+            {
+                boxCollider.sharedMaterial.friction = friction;
+            }
+            //Debug.Log(boxCollider.sharedMaterial.friction);
+
+
+
+
+
         }
-        //Makes the player move left/right
-
-        body.velocity = new Vector2(Input.GetAxis("Horizontal") * statSheet.Speed.Value, body.velocity.y);
-
-    
-
-        //Flips sprite when turning left/right
-        if(horizontalInput > 0.01f){
-            transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
-            facing = Direction.right;
-        }else if(horizontalInput < -0.01f){
-            transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
-            facing = Direction.left;
-        }
-        
-        //Makes the player jump when space is pressed
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded()){
-            Jump();
-        }
-
-        if(onWall()){
-            boxCollider.sharedMaterial.friction = 0;
-            body.velocity = new Vector2(0, -1 * Math.Abs(wall_sliding_speed));
-        }
-        else{
-            boxCollider.sharedMaterial.friction = friction;
-        }
-        //Debug.Log(boxCollider.sharedMaterial.friction);
-
-
-
-
-    
-
  
     }
 
@@ -118,7 +128,6 @@ public class Movement : MonoBehaviour
         boxCollider.sharedMaterial.friction = _friction;
     }
     
-
 
 
 
