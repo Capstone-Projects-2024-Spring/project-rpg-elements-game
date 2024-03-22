@@ -40,6 +40,11 @@ public class LevelSpawner : NetworkBehaviour
     public float roomWidth = 10f; // Width of the rooms
     public float roomHeight = 10f; // Height of the rooms
 
+    public Transform spawnRoom; //room where user spawns
+    public float spawnPlayerRoom = 100; //Spawn Player room
+    public float roomWidth = 10f; //Width and Height of the rooms
+    public float roomHeight = 10f;
+
     public void Start()
     { 
         SpawnRooms();  
