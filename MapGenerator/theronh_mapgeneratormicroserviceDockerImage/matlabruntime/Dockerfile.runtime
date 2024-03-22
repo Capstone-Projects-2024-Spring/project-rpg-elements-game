@@ -1,0 +1,33 @@
+# Dockerfile for image: matlabruntime/r2023b/release/update7/108000000000000000
+# 
+# Sample docker build command:
+# wsl docker build -f "Dockerfile.runtime" -t matlabruntime/r2023b/release/update7/108000000000000000 "."
+
+FROM containers.mathworks.com/matlab-runtime-utils/matlab-runtime-installer:r2023b-update-7 AS installer
+LABEL "mathworks.matlab.runtime.cleanup"="true"
+
+ENV EXTRACTEDDIR="/opt/matlabruntime/unzippedinstaller"
+
+WORKDIR $EXTRACTEDDIR
+
+# Write the installer file
+RUN touch ./installInputs.txt
+RUN printf "destinationFolder=/tmp/matlabruntime/runtime\nagreeToLicense=yes\n" > ./installInputs.txt
+RUN printf "product.MATLAB Runtime - Numerics\n" >> ./installInputs.txt
+RUN printf "product.MATLAB Runtime - Production Server Addin\n" >> ./installInputs.txt
+
+# Run the installer
+RUN ./install -bat true -inputFile ./installInputs.txt
+
+FROM matlabruntimebase/r2023b/release/update7
+LABEL "mathworks.matlab.runtime.cleanup"="false"
+
+ENV TZ="Etc/UTC"
+
+COPY --from=installer /tmp/matlabruntime/runtime /opt/matlabruntime
+
+RUN unlink /opt/matlabruntime/R2023b/sys/os/glnxa64/libstdc++.so.6
+RUN ln -s /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /opt/matlabruntime/R2023b/sys/os/glnxa64/libstdc++.so.6
+
+ENV LD_LIBRARY_PATH="/opt/matlabruntime/R2023b/runtime/glnxa64:/opt/matlabruntime/R2023b/bin/glnxa64:/opt/matlabruntime/R2023b/sys/os/glnxa64:/opt/matlabruntime/R2023b/sys/opengl/lib/glnxa64:/opt/matlabruntime/R2023b/extern/bin/glnxa64"
+
