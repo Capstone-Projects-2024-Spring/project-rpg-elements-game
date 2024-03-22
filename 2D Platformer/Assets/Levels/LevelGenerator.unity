@@ -333,11 +333,7 @@ Transform:
   m_GameObject: {fileID: 234707143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: -4.34, y: -2.1099997, z: -6.3641577}
-=======
   m_LocalPosition: {x: 6.096345, y: -13.466645, z: -6.3641577}
->>>>>>> e7de836df74154ca69be259ad65c7f4f79c2f049
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -447,17 +443,12 @@ MonoBehaviour:
   doorPrefab: {fileID: 959457127545484383, guid: 154d9e93b99fe460d9f3c9c183e11bd3, type: 3}
   enemyPrefabs:
   - {fileID: 6749484314320138859, guid: 1e7ab2c9aa6f34d75be76ecb79432f26, type: 3}
-<<<<<<< HEAD
-=======
   spawnRoom: {fileID: 0}
->>>>>>> e7de836df74154ca69be259ad65c7f4f79c2f049
   spawnPlayerRoom: 2
   roomCounter: 0
   finalBossRoom: 1
   roomWidth: 10
   roomHeight: 10
-<<<<<<< HEAD
-=======
 --- !u!114 &1008764833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -912,7 +903,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386167508}
   m_CullTransparentMesh: 1
->>>>>>> e7de836df74154ca69be259ad65c7f4f79c2f049
 --- !u!1 &1997339387
 GameObject:
   m_ObjectHideFlags: 0
