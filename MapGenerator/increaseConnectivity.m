@@ -10,6 +10,7 @@ arguments
     interiorNodes (:,:) double
 end
 
+% generate a Map from the Maze by removing random walls in the Maze
 edges = Maze.Edges.EndNodes; % node pairs of all the edges in the maze
 interiorEdges = edges((ismember(edges(:,1),interiorNodes) | ismember(edges(:,2),interiorNodes)),:);
 NumInteriorEdges = length(interiorEdges);

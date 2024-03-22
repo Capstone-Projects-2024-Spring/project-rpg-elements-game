@@ -20,7 +20,6 @@ S.Edges.Weight = rand(length(S.Edges.Weight),1);
 Tree = minspantree(S);
 
 % store the end nodes as ordered pairs
-%G.Edges.EndNodes
 E = Tree.Edges.EndNodes;
 
 % find all the intersecting edges of the MST with the Wall graph

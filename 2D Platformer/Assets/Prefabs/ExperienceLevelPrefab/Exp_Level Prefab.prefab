@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8739f13f2dd6c49848f74a72c104e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expBar: {fileID: 0}
+  expText: {fileID: 0}
   level: 0
   experience: 0
   requiredExperience: 0
-  levelConfig: {fileID: 11400000, guid: ce6e969187d476d47ab9ad01c4763d4e, type: 2}
+  levelConfig: {fileID: 11400000, guid: ec97dcc820c35b24884c015f7320252b, type: 2}
 --- !u!1 &5749923738293514737
 GameObject:
   m_ObjectHideFlags: 0
