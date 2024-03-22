@@ -83,7 +83,7 @@ they had beforehand is preserved for when they unfreeze
 */
     protected virtual void setHitboxes(){
         foreach(Hitbox hitbox in hitboxes){
-            hitbox.setDamage(power);
+            hitbox.setDamage(power + (int)statSheet.Strength.Value);
             hitbox.setKnockback(knockback);
             hitbox.setHitlag(hitlag);
             setHitboxVisibility(hitbox);
@@ -145,7 +145,7 @@ An attack can only be triggered if the following are true:
             //Debug.Log(attackName + "is not active");
             return;
         }
-        Debug.Log(attackName + " is active!");
+        //Debug.Log(attackName + " is active!");
 
     
     //If the attack manages to hit something, the player should freeze for a short amount of time

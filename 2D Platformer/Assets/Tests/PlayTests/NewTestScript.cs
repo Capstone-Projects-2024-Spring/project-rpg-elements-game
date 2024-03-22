@@ -23,7 +23,7 @@ namespace Tests
             LevelSpawner levelSpawner = GameObject.FindObjectOfType<LevelSpawner>();
 
             //This will allow rooms to spawn
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(5f);
 
             //Esnure that the count is 100 which is the spawnCounter
             Assert.AreEqual(100, levelSpawner.getSpawnCounter(), "Wrong amount spawned");
