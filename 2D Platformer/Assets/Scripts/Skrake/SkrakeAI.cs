@@ -10,11 +10,13 @@ public class SkrakeAI : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sb;
     private Color defaultColor;
-    private bool touchingPlayer = false;
+    private bool currentlyAttacking = false;
     private bool inHitstun = false;
     private Vector3 localScale;
     [SerializeField] private EnemyStats SkrakeStats;
     private float moveSpeed = 1;
+    private bool playerIsOnLeft = false;
+    private float attackDirection = 1;
 
     void Start()
     {
@@ -39,23 +41,30 @@ public class SkrakeAI : MonoBehaviour
 
     private void ChasePlayer()
     {
-        if ((transform.position.x < player.position.x) && (Mathf.Abs(transform.position.x - player.position.x) > 0.5) && !touchingPlayer && !inHitstun)
+        if ((transform.position.x < player.position.x) && (Mathf.Abs(transform.position.x - player.position.x) > 2.5) && !currentlyAttacking && !inHitstun)
         {
             //player is on the right, move right
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+            playerIsOnLeft = false;
             if (localScale.x > 0 && Mathf.Abs(transform.position.x - player.position.x) > 1) //face right if not already
             {
                 localScale.x *= -1;
             }
         }
-        else if ((transform.position.x > player.position.x) && (Mathf.Abs(transform.position.x - player.position.x) > 0.5) && !touchingPlayer && !inHitstun)
+        else if ((transform.position.x > player.position.x) && (Mathf.Abs(transform.position.x - player.position.x) > 2.5) && !currentlyAttacking && !inHitstun)
         {
             //player is on the left, move left
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
+            playerIsOnLeft = true;
             if (localScale.x < 0 && Mathf.Abs(transform.position.x - player.position.x) > 1) //face left if not already
             {
+                print(playerIsOnLeft);
                 localScale.x *= -1;
             }
+        }
+        else if ((Mathf.Abs(transform.position.x - player.position.x) < 2.5) && !currentlyAttacking && !inHitstun)
+        {
+            StartCoroutine(StartAttack());
         }
         //update left/right rotation
         transform.localScale = localScale;
@@ -63,8 +72,8 @@ public class SkrakeAI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player")){
-            StartCoroutine(StopChasing());
+        if (collider.CompareTag("Player") && !currentlyAttacking){
+            StartCoroutine(StartAttack());
         }
         if (collider.CompareTag("Attack"))
         {
@@ -72,13 +81,20 @@ public class SkrakeAI : MonoBehaviour
         }
     }
     
-    private IEnumerator StopChasing()
+    private IEnumerator StartAttack()
     {
-        touchingPlayer = true;
+        currentlyAttacking = true;
         sb.color = Color.yellow;
+        //check for what direction player was
+        if (playerIsOnLeft)
+            attackDirection = -1;
+        else
+            attackDirection = 1;
+        yield return new WaitForSeconds(0.5f);
+        rb.velocity = new Vector2(moveSpeed * attackDirection, moveSpeed);
         yield return new WaitForSeconds(1);
         sb.color = defaultColor;
-        touchingPlayer = false;
+        currentlyAttacking = false;
     }
     private IEnumerator BeginHitstun()
     {

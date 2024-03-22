@@ -651,7 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHealth: 50
   baseStrength: 15
-  baseSpeed: 10
+  baseSpeed: 3
 --- !u!1 &251133977
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visionRange: 10
-  moveSpeed: 3
+  SkrakeStats: {fileID: 241623051}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
