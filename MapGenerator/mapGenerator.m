@@ -4,7 +4,7 @@ arguments
     M double
     N double
 end
-
+tic
 % set a limit of 20x20 map
 if (M>20) || (N>20)
     Map = 0;
@@ -37,4 +37,5 @@ StartBossRooms = sub2ind(flip(size(Rooms)),bossRoom,startRoom); % row major star
 
 % output rooms vals as vector with start and boss rooms appended on end
 Map = [reshape(Rooms',1,[]) StartBossRooms];
+toc
 end

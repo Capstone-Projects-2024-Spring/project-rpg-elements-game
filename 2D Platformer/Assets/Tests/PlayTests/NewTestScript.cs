@@ -25,7 +25,7 @@ namespace Tests
             //This will allow rooms to spawn
             yield return new WaitForSeconds(5f);
 
-            //Esnure that the count is 100 which is the spawnCounter
+            //Esnure that the correct number of rooms are spawned
             Assert.AreEqual(levelSpawner.getNumRows() * levelSpawner.getNumCols(), levelSpawner.getSpawnCounter(), "Wrong amount spawned");
         }
     }

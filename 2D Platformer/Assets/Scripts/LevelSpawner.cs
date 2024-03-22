@@ -30,6 +30,7 @@ public class LevelSpawner : NetworkBehaviour
         { 10, 12, 11, 8, 9, 12, 14, 10, 12, 14}
     }; //Matrix that will be made by algorithm
 
+    public Transform spawnRoom; //room where user spawns
     public Transform spawnPoint; // Spawn point for where rooms can spawns
     public GameObject player1; // Player 1 spawn
     public GameObject doorPrefab;
@@ -39,11 +40,10 @@ public class LevelSpawner : NetworkBehaviour
     public int finalBossRoom = 1; // Final Boss Spawn Room
     public float roomWidth = 10f; // Width of the rooms
     public float roomHeight = 10f; // Height of the rooms
-    public Transform spawnRoom; //room where user spawns
 
     public void Start()
-    { 
-        SpawnRooms();  
+    {
+        SpawnRooms();
     }
     public int getSpawnCounter()
     {
@@ -52,8 +52,10 @@ public class LevelSpawner : NetworkBehaviour
 
     async public void SpawnRooms()
     {
-        numRows = Random.Range(minDim,maxDim);
-        numCols = Random.Range(minDim,maxDim);
+        numRows = Random.Range(minDim, maxDim);
+        numCols = Random.Range(minDim, maxDim);
+        //numRows = 10;
+        //numCols = 10;
         gotRandom = await getRandomMap();
         vectorToMatrix();
 
@@ -82,9 +84,9 @@ public class LevelSpawner : NetworkBehaviour
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
                     roomCounter++;
                     SpawnEnemies(room, roomType);
-                    if (isLocalPlayer)
+                    if (roomCounter == spawnPlayerRoom)
                     {
-                        if (roomCounter == spawnPlayerRoom)
+                        if (isLocalPlayer)
                         {
                             //Debug.Log("Room Location Final: " + newPos);
                             //Debug.Log("Player Start Room: " + spawnPlayerRoom);
