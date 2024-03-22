@@ -333,7 +333,7 @@ Transform:
   m_GameObject: {fileID: 234707143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.096345, y: -13.466645, z: -6.3641577}
+  m_LocalPosition: {x: 30, y: -40, z: -6.3641577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -438,12 +438,12 @@ MonoBehaviour:
   - {fileID: 5825373303130384037, guid: e2cc3768233aa4ee2ab7481aa01d642c, type: 3}
   - {fileID: 8050459667627358208, guid: 5722b06bc58a54b6ba509ce822c49900, type: 3}
   - {fileID: 6907610008828045339, guid: fa0a92fd626544673a544d82870dc981, type: 3}
+  spawnRoom: {fileID: 0}
   spawnPoint: {fileID: 1997339388}
   player1: {fileID: 6554584858392232962, guid: 325b46dda95e94240944548a07df1b81, type: 3}
   doorPrefab: {fileID: 959457127545484383, guid: 154d9e93b99fe460d9f3c9c183e11bd3, type: 3}
   enemyPrefabs:
   - {fileID: 6749484314320138859, guid: 1e7ab2c9aa6f34d75be76ecb79432f26, type: 3}
-  spawnRoom: {fileID: 0}
   spawnPlayerRoom: 2
   roomCounter: 0
   finalBossRoom: 1
@@ -751,7 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1008764830}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1243930501
@@ -946,6 +946,7 @@ GameObject:
   - component: {fileID: 2125753449}
   - component: {fileID: 2125753451}
   - component: {fileID: 2125753447}
+  - component: {fileID: 2125753452}
   m_Layer: 0
   m_Name: Network Manager Steam
   m_TagString: Untagged
@@ -982,7 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
-  runInBackground: 1
+  runInBackground: 0
   headlessStartMode: 1
   editorAutoStart: 0
   sendRate: 60
@@ -1044,6 +1045,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hostButton: {fileID: 1051402698}
+--- !u!114 &2125753452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125753446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

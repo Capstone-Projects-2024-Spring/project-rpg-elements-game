@@ -9,8 +9,10 @@ using Mirror;
 
 public class LevelSpawner : NetworkBehaviour
 {
-    private int M = 10;
-    private int N = 10;
+    private int minDim = 10;
+    private int maxDim = 20;
+    private int numRows;
+    private int numCols;
     bool gotRandom = false;
     private int[] mapVector;
     private int[,] mapMatrix;
@@ -28,36 +30,21 @@ public class LevelSpawner : NetworkBehaviour
         { 10, 12, 11, 8, 9, 12, 14, 10, 12, 14}
     }; //Matrix that will be made by algorithm
 
+    public Transform spawnRoom; //room where user spawns
     public Transform spawnPoint; // Spawn point for where rooms can spawns
     public GameObject player1; // Player 1 spawn
+    public GameObject doorPrefab;
+    public GameObject[] enemyPrefabs;
     public float spawnPlayerRoom = 100; // Spawn Player room
     public int roomCounter = 0; // Room Counter for Spawning
     public int finalBossRoom = 1; // Final Boss Spawn Room
     public float roomWidth = 10f; // Width of the rooms
     public float roomHeight = 10f; // Height of the rooms
-    public GameObject doorPrefab;
-    public GameObject[] enemyPrefabs;
-
-    public Transform spawnRoom; //room where user spawns
-
-    //Spawn Player room
-    public float spawnPlayerRoom = 100;
-
-    //Room Counter for Spawning
-    public int roomCounter = 0;
-
-    //Final Boss Spawn Room
-    public int finalBossRoom = 1;
-
-    //Width and Height of the rooms
-    public float roomWidth = 10f; 
-    public float roomHeight = 10f;
 
     public void Start()
-    { 
-        SpawnRooms();  
+    {
+        SpawnRooms();
     }
-
     public int getSpawnCounter()
     {
         return roomCounter;
@@ -65,18 +52,18 @@ public class LevelSpawner : NetworkBehaviour
 
     async public void SpawnRooms()
     {
+        numRows = Random.Range(minDim, maxDim);
+        numCols = Random.Range(minDim, maxDim);
+        //numRows = 10;
+        //numCols = 10;
         gotRandom = await getRandomMap();
         vectorToMatrix();
-        int numRows;
-        int numCols;
 
         if (gotRandom)
         {
             roomTypes = mapMatrix;
-            spawnPlayerRoom = mapVector[M * N];
-            finalBossRoom = mapVector[M * N + 1];
-            numRows = M;
-            numCols = N;
+            spawnPlayerRoom = mapVector[numRows * numCols];
+            finalBossRoom = mapVector[numRows * numCols + 1];
         }
         else
         {
@@ -94,26 +81,17 @@ public class LevelSpawner : NetworkBehaviour
                 {
                     Vector2 newPos = new Vector2(j * roomWidth, -i * roomHeight);
                     // Ensure the correct rooms are spawning
-                    //Debug.Log("Spawning room of type: " + roomType);
-                    //Debug.Log("Room Location: " + newPos);
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
-                    //Debug.Log("Room Counter: " + roomCounter);
                     roomCounter++;
-
                     SpawnEnemies(room, roomType);
-
-                    if (isLocalPlayer)
+                    if (roomCounter == spawnPlayerRoom)
                     {
-                        if (roomCounter == spawnPlayerRoom)
+                        if (isLocalPlayer)
                         {
-
-                            Debug.Log("Room Location Final: " + newPos);
-
+                            //Debug.Log("Room Location Final: " + newPos);
+                            //Debug.Log("Player Start Room: " + spawnPlayerRoom);
                             Instantiate(player1, newPos, Quaternion.identity);
-
-                            //Locks Camera onto player
                             Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
-
                             if (virtualCamera != null)
                             {
                                 virtualCamera.enabled = true;
@@ -127,8 +105,8 @@ public class LevelSpawner : NetworkBehaviour
 
     private async Task<bool> getRandomMap()
     {
-        mapVector = new int[M * N + 2];
-        string data = "{ \"nargout\": 1, \"rhs\": [" + M.ToString() + "," + N.ToString() + "] }";
+        mapVector = new int[numRows * numCols + 2];
+        string data = "{ \"nargout\": 1, \"rhs\": [" + numRows.ToString() + "," + numCols.ToString() + "] }";
         UnityWebRequest www = UnityWebRequest.Post("www.meatdeathoftheuniverse.com:9900/mapGenerator/mapGenerator", data, "application/json");
         www.SendWebRequest();
         while (!www.isDone)
@@ -138,13 +116,11 @@ public class LevelSpawner : NetworkBehaviour
 
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError(www.error);
             gotRandom = false;
             return false;
         }
         else
         {
-            Debug.Log("Form upload complete!");
             string response = www.downloadHandler.text;
             int start = 19;
             int end = response.Substring(start).IndexOf("]");
@@ -155,7 +131,6 @@ public class LevelSpawner : NetworkBehaviour
             {
                 return false;
             }
-            Debug.Log(mapString);
             foreach (var s in mapString.Split(','))
             {
                 n = int.Parse(s);
@@ -167,11 +142,11 @@ public class LevelSpawner : NetworkBehaviour
     }
     private void vectorToMatrix()
     {
-        mapMatrix = new int[M, N];
+        mapMatrix = new int[numRows, numCols];
         int k = 0;
-        for (int i = 0; i < M; i++)
+        for (int i = 0; i < numRows; i++)
         {
-            for (int j = 0; j < N; j++)
+            for (int j = 0; j < numCols; j++)
             {
                 mapMatrix[i, j] = mapVector[k];
                 k++;
@@ -184,11 +159,8 @@ public class LevelSpawner : NetworkBehaviour
         if (roomType == 8)
         {
             Transform[] enemySpawnPoints = room.GetComponentsInChildren<Transform>().Where(t => t.CompareTag("EnemySpawnPoint")).ToArray();
-
             int randEnemy = Random.Range(0, enemyPrefabs.Length);
-
             int randSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
-
             Instantiate(enemyPrefabs[randEnemy], enemySpawnPoints[randSpawnPoint].position, Quaternion.identity);
         }
     }
@@ -196,10 +168,34 @@ public class LevelSpawner : NetworkBehaviour
     public void SpawnDoor(GameObject room)
     {
         Vector2 roomPosition = room.transform.position;
-
         Vector2 doorSpawnPosition = new Vector2(roomPosition.x - roomWidth / 100f, roomPosition.y - roomHeight / 4f);
-
         GameObject door = Instantiate(doorPrefab, doorSpawnPosition, Quaternion.identity);
+    }
 
+    public int getNumRows()
+    {
+        return numRows;
+    }
+    public int getNumCols()
+    {
+        return numCols;
+    }
+    public bool setNumRows(int M)
+    {
+        if (M >= minDim && M <= maxDim)
+        {
+            numRows = M;
+            return true;
+        }
+        return false;
+    }
+    public bool setNumCols(int N)
+    {
+        if (N >= minDim && N <= maxDim)
+        {
+            numCols = N;
+            return true;
+        }
+        return false;
     }
 }
