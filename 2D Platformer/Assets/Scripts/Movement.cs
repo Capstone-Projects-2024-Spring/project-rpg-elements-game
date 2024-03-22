@@ -13,6 +13,9 @@ public class Movement : MonoBehaviour
     private Animator anim;
     private BoxCollider2D boxCollider;
     private bool attacking = false;
+    private bool hurt = false;
+    private bool sentForwards = false;
+    private float hitstunTimer = 0f;
 
     private Direction facing = Direction.right;
     [SerializeField] private float friction = 1;
@@ -32,6 +35,19 @@ public class Movement : MonoBehaviour
                 //Set animator parameters
         anim.SetBool("run", (horizontalInput != 0));
         anim.SetBool("grounded", isGrounded());
+        anim.SetBool("hurt", hurt);
+        anim.SetBool("sent_forwards", sentForwards);
+
+        if(hitstunTimer <= 0f)
+        {
+            hurt = false;
+        }
+
+        if (hurt)
+        {
+            hitstunTimer -= Time.deltaTime;
+            return;
+        }
 
 
 
@@ -95,6 +111,10 @@ public class Movement : MonoBehaviour
     }
 
     public bool canAttack(){
+        if (hurt)
+        {
+            return false;
+        }
         return !attacking;
     }
 
@@ -105,6 +125,22 @@ public class Movement : MonoBehaviour
     public void setAttackStateFalse(){
         attacking = false;
     }
+
+    public void setHurtStateTrue(float _hitstunTimer, float xKnockback)
+    {
+        hurt = true;
+        hitstunTimer = _hitstunTimer;
+        if((xKnockback >= 0 && getDirection() == Direction.right) || (xKnockback < 0 && getDirection() == Direction.left))
+        {
+            sentForwards = true;
+        }
+        else
+        {
+            sentForwards = false;
+        }
+    }
+
+
 
     public Direction getDirection(){
         return facing;
