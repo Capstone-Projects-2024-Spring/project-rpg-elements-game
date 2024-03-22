@@ -1,3 +1,4 @@
+using Codice.CM.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,15 +11,15 @@ public class Hurtbox : MonoBehaviour
 
     [SerializeField] EnemyStats statSheet;
 //Boolean value that detects whether or not the hurtbox has collided with a hitbox.
-    private bool attacked = false;
+    protected bool attacked = false;
 
 //Received information from the hitbox the hurtbox has collided with
     private int takenDamage = 0;
-    private float[] takenKnockback = {0, 0};
+    protected float[] takenKnockback = {0, 0};
 
-    private double takenHitlag = 0.0;
+    protected double takenHitlag = 0.0;
 
-    private Rigidbody2D body;
+    protected Rigidbody2D body;
 
 /*
     A string that's compared with the hitboxes ID to make sure that it's not being hit 
@@ -50,7 +51,7 @@ public class Hurtbox : MonoBehaviour
     the hitbox connecting with it are updated.
     It's also important to note that this function gets called BEFORE Update.
 */
-    private void OnTriggerEnter2D(Collider2D other) {
+    protected virtual void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Attack" && (attacked == false) && !string.Equals(other.GetComponent<Hitbox>().getAttackID(), previousReceivedAttack)){
             attacked = true;
             takenDamage = other.GetComponent<Hitbox>().getDamage();
@@ -68,16 +69,18 @@ public class Hurtbox : MonoBehaviour
         }
         else if (other.tag == "Player")
         {
-            //print("I am touching a player");
-            other.GetComponent<PlayerStats>().takeDamage((int)statSheet.Strength.Value);
+            print("I am touching a player");
+            if(other.GetComponent<PlayerHurtbox>() != null) { 
+                other.GetComponent<PlayerHurtbox>().getStatSheet().takeDamage((int)statSheet.Strength.Value);
+            }
 
         }
     }
 
-    private void Awake(){
+    protected virtual void Awake(){
         body = GetComponentInParent<Rigidbody2D>();
     }
-    private void Update(){
+    protected virtual void Update(){
         //Debug.Log("Hurtbox ID: " + previousReceivedAttack + " " + attacked);
     /*
         If the hurtbox has been attacked, freeze the hurtbox in place and lower the
@@ -118,7 +121,7 @@ public class Hurtbox : MonoBehaviour
 
     }
 //Lowers the health of the receiver.
-    private void LowerHealth(){
+    protected virtual void LowerHealth(){
         statSheet.Health.DecreaseStat(takenDamage);
         print("my health is now ["+statSheet.Health.Value+"]");
         takenDamage = 0;
