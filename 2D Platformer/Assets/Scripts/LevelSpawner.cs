@@ -40,19 +40,6 @@ public class LevelSpawner : NetworkBehaviour
 
     public Transform spawnRoom; //room where user spawns
 
-    //Spawn Player room
-    public float spawnPlayerRoom = 100;
-
-    //Room Counter for Spawning
-    public int roomCounter = 0;
-
-    //Final Boss Spawn Room
-    public int finalBossRoom = 1;
-
-    //Width and Height of the rooms
-    public float roomWidth = 10f; 
-    public float roomHeight = 10f;
-
     public void Start()
     { 
         SpawnRooms();  

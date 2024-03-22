@@ -440,15 +440,15 @@ MonoBehaviour:
   - {fileID: 6907610008828045339, guid: fa0a92fd626544673a544d82870dc981, type: 3}
   spawnPoint: {fileID: 1997339388}
   player1: {fileID: 6554584858392232962, guid: 325b46dda95e94240944548a07df1b81, type: 3}
-  doorPrefab: {fileID: 959457127545484383, guid: 154d9e93b99fe460d9f3c9c183e11bd3, type: 3}
-  enemyPrefabs:
-  - {fileID: 6749484314320138859, guid: 1e7ab2c9aa6f34d75be76ecb79432f26, type: 3}
-  spawnRoom: {fileID: 0}
   spawnPlayerRoom: 2
   roomCounter: 0
   finalBossRoom: 1
   roomWidth: 10
   roomHeight: 10
+  doorPrefab: {fileID: 959457127545484383, guid: 154d9e93b99fe460d9f3c9c183e11bd3, type: 3}
+  enemyPrefabs:
+  - {fileID: 6749484314320138859, guid: 1e7ab2c9aa6f34d75be76ecb79432f26, type: 3}
+  spawnRoom: {fileID: 0}
 --- !u!114 &1008764833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,6 +946,7 @@ GameObject:
   - component: {fileID: 2125753449}
   - component: {fileID: 2125753451}
   - component: {fileID: 2125753447}
+  - component: {fileID: 2125753452}
   m_Layer: 0
   m_Name: Network Manager Steam
   m_TagString: Untagged
@@ -1044,6 +1045,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hostButton: {fileID: 1051402698}
+--- !u!114 &2125753452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125753446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
