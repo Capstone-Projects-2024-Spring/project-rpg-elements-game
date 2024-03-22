@@ -7,16 +7,18 @@ public class SkrakeAI : MonoBehaviour
 
     private Transform player;
     [SerializeField] private float visionRange;
-    [SerializeField] private float moveSpeed;
     private Rigidbody2D rb;
     private SpriteRenderer sb;
     private Color defaultColor;
     private bool touchingPlayer = false;
     private bool inHitstun = false;
     private Vector3 localScale;
+    [SerializeField] private EnemyStats SkrakeStats;
+    private float moveSpeed = 1;
 
     void Start()
     {
+        moveSpeed = SkrakeStats.Speed.Value;
         localScale = transform.localScale;
         sb = GetComponent<SpriteRenderer>();
         defaultColor = sb.color;
@@ -37,16 +39,25 @@ public class SkrakeAI : MonoBehaviour
 
     private void ChasePlayer()
     {
-        if ((transform.position.x < player.position.x) && !touchingPlayer && !inHitstun)
+        if ((transform.position.x < player.position.x) && (Mathf.Abs(transform.position.x - player.position.x) > 0.5) && !touchingPlayer && !inHitstun)
         {
             //player is on the right, move right
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+            if (localScale.x > 0 && Mathf.Abs(transform.position.x - player.position.x) > 1) //face right if not already
+            {
+                localScale.x *= -1;
+            }
         }
-        else if ((transform.position.x > player.position.x) && !touchingPlayer && !inHitstun)
+        else if ((transform.position.x > player.position.x) && (Mathf.Abs(transform.position.x - player.position.x) > 0.5) && !touchingPlayer && !inHitstun)
         {
             //player is on the left, move left
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
+            if (localScale.x < 0 && Mathf.Abs(transform.position.x - player.position.x) > 1) //face left if not already
+            {
+                localScale.x *= -1;
+            }
         }
+        //update left/right rotation
         transform.localScale = localScale;
     }
 
