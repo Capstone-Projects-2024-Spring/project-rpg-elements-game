@@ -1081,6 +1081,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20917fa7297fafd4ea355bb44335557d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 8297312936399410857}
   jump_height: 15
   groundLayer:

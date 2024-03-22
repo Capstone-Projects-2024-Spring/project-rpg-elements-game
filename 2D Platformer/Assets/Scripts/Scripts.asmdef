@@ -4,6 +4,9 @@
     "references": [
         "Cinemachine",
         "LevelSpawner",
+        "Mirror",
+        "FizzySteamworks",
+        "com.rlabrecque.steamworks.net",
         "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
