@@ -16,13 +16,13 @@ The second algorithm is an original algorithm that will be able to assign the ro
 
 ## Phase 1 – Generate an M by N Maze
 
-  - Generate an M by N lattice graph for the rooms, call it R.
+  - Generate an M by N lattice graph for the Rooms, call it R.
 
-  - Generate an (M+1) by (N+1) lattice graph for the walls around each room, call it W.
+  - Generate an (M+1) by (N+1) lattice graph for the Walls around each room, call it W.
 
   - Give all the edges of R and random weight.
   
-  - Construct a minimum spanning tree (MST) from the edges of R, call it T.
+  - Construct a Minimum Spanning Tree (MST) from the edges of R, call it T.
   
   - Remove all the edges of W that intersect an edge of the MST of R.
 
@@ -52,11 +52,11 @@ The second algorithm is an original algorithm that will be able to assign the ro
 
   - Set all the edge weights of T to 1.
 
-  - Use Dijkstra's Algorithm to compute the shortest path between all nodes of T.
+  - Use Breadth First Search to compute the shortest path between all nodes of T.
 
   - From the resulting matrix, find the maximum value to get the longest path between any of the nodes.
 
-  - Take the two nodes that make the longest path and assign one as the players’ starting point, and the Boss room at the other.
+  - The indicies of the max value are two rooms furthest apart. Assign one as the players’ starting point, and the Boss room at the other.
 
   - This algorithm will ensure that every room on the map is accessible and that there are no holes in the exterior walls. From phase 5, we have also ensured that the boss is placed as far away from the players as possible.
 

@@ -1,6 +1,21 @@
 {
-	"name": "Scripts",
-	"references": ["Cinemachine", "LevelSpawner"]
-	
-
+    "name": "Scripts",
+    "rootNamespace": "",
+    "references": [
+        "Cinemachine",
+        "LevelSpawner",
+        "Mirror",
+        "FizzySteamworks",
+        "com.rlabrecque.steamworks.net",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
