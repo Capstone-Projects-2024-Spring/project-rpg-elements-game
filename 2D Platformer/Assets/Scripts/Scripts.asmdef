@@ -6,7 +6,8 @@
         "LevelSpawner",
         "Mirror",
         "FizzySteamworks",
-        "com.rlabrecque.steamworks.net"
+        "com.rlabrecque.steamworks.net",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
