@@ -1,12 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
-public class Launcher : MonoBehaviour
+//MBPC: Class provides .photon view and callbacks/events that pun can call
+public class Launcher : MonoBehaviourPunCallbacks
 {
     private void Start()
     {
         Debug.Log("Connecting to Master");
-        //PhotonNetwork.ConnectUsingSettings();
+        //connect using pun resource file settings
+        PhotonNetwork.ConnectUsingSettings();
+    }
+
+    public override void OnConnectedToMaster()
+    {
+        Debug.Log("Connected to Master");
+        OnJoinedLobby();
+    }
+
+    public override void OnJoinedLobby()
+    {
+        Debug.Log("Joined Lobby");
     }
 }
