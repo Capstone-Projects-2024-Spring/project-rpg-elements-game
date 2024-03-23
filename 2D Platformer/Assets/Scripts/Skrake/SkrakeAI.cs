@@ -91,6 +91,8 @@ public class SkrakeAI : MonoBehaviour
         else
             attackDirection = 1;
         yield return new WaitForSeconds(0.5f);
+        if (inHitstun)
+            StopCoroutine(StartAttack());
         rb.velocity = new Vector2(moveSpeed * attackDirection, moveSpeed);
         yield return new WaitForSeconds(1);
         sb.color = defaultColor;
