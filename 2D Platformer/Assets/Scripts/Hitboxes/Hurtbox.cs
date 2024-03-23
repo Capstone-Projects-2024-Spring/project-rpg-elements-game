@@ -14,7 +14,7 @@ public class Hurtbox : MonoBehaviour
     protected bool attacked = false;
 
 //Received information from the hitbox the hurtbox has collided with
-    private int takenDamage = 0;
+    protected int takenDamage = 0;
     protected float[] takenKnockback = {0, 0};
 
     protected double takenHitlag = 0.0;

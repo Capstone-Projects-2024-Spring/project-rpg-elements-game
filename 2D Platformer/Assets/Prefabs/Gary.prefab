@@ -404,7 +404,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3475505121651245636}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9969687041bbcdb46a0325615d1e4e1a, type: 3}
   m_Name: 
@@ -898,7 +898,6 @@ GameObject:
   - component: {fileID: 3450259796821906162}
   - component: {fileID: 1508772588999006740}
   - component: {fileID: 2821982427333218821}
-  - component: {fileID: 7834340644985612607}
   - component: {fileID: 3060260808306498300}
   m_Layer: 0
   m_Name: Gary
@@ -1359,21 +1358,6 @@ MonoBehaviour:
   aerialHitboxes:
   - {fileID: 7871251580788388095}
   fallingVelocity: {x: 3, y: -20}
---- !u!114 &7834340644985612607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6554584858392232962}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9969687041bbcdb46a0325615d1e4e1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statSheet: {fileID: 0}
-  characterName: Skrake
-  playerStatSheet: {fileID: 8297312936399410857}
 --- !u!114 &3060260808306498300
 MonoBehaviour:
   m_ObjectHideFlags: 0
