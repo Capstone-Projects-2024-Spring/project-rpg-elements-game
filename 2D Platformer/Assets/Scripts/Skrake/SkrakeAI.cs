@@ -6,7 +6,7 @@ public class SkrakeAI : MonoBehaviour
 {
 
     private Transform player;
-    [SerializeField] private float visionRange;
+    [SerializeField] private float visionRange = 5;
     private Rigidbody2D rb;
     private SpriteRenderer sb;
     private Color defaultColor;
