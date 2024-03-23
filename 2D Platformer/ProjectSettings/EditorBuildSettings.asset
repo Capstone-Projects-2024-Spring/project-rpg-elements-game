@@ -24,9 +24,6 @@ EditorBuildSettings:
     path: Assets/Levels/TestScene.unity
     guid: 3356f36d19fdb4579a8c6ff4e48246e3
   - enabled: 0
-    path: Assets/Levels/Multiplayer/Multiplayer.unity
-    guid: bacbee3676b1f5f42a4707186aeae35e
-  - enabled: 0
     path: Assets/Levels/LevelGenerator.unity
     guid: 7078998ebee6e48fba2498d1090b52c9
   m_configObjects: {}
