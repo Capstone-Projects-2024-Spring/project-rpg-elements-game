@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.VersionControl;
 
 public class FirebaseController : MonoBehaviour
 {
-    public GameObject loginPanel, signupPanel, profilePanel, forgotPassPanel;
+    public GameObject loginPanel, signupPanel, profilePanel, forgotPassPanel, notifPanel;
 
-    public InputField loginEmail, loginPassword, signupEmail, signupPassword, signupConfirm, signupIGN, forgetPassEmail, notifPanel;
+    public InputField loginEmail, loginPassword, signupEmail, signupPassword, signupConfirm, signupIGN, forgetPassEmail;
+
+    public Text notif_Text;
+
+    public Toggle rememberMe;
 
     public void OpenLoginPanel()
     {
@@ -60,6 +65,7 @@ public class FirebaseController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(loginEmail.text) && string.IsNullOrEmpty(loginPassword.text))
         {
+            showNotif("One or more fields are empty, please enter your account email and password");
             return;
         }
 
@@ -70,6 +76,7 @@ public class FirebaseController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(signupEmail.text) && string.IsNullOrEmpty(signupPassword.text) && string.IsNullOrEmpty(signupConfirm.text) && string.IsNullOrEmpty(signupIGN.text))
         {
+            showNotif("One or more fields are empty, please enter an email address, new password, and in-game name");
             return;
         }
 
@@ -81,7 +88,22 @@ public class FirebaseController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(forgetPassEmail.text))
         {
+            showNotif("No email entered");
             return;
         }
+    }
+
+    public void showNotif(string message)
+    {
+        notif_Text.text = "" + message;
+
+        notifPanel.SetActive(true);
+    }
+
+    public void closeNotif()
+    {
+        notif_Text.text = "";
+
+        notifPanel.SetActive(false);
     }
 }
