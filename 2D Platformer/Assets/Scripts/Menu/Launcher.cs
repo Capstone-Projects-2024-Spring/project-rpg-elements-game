@@ -1,14 +1,25 @@
-using Codice.Client.BaseCommands;
 using Photon.Pun;
+using Photon.Realtime;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 //MBPC: Class provides .photon view and callbacks/events that pun can call
 public class Launcher : MonoBehaviourPunCallbacks
 {
+
+    public static Launcher instance;
+
     [SerializeField] InputField roomNameInputField;
     [SerializeField] Text roomNameText;
     [SerializeField] Text errorText;
+    [SerializeField] Transform roomListContent;
+    [SerializeField] GameObject roomListItemPrefab;
+
+    public void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         Debug.Log("Connecting to Master");
@@ -19,7 +30,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected to Master");
-        OnJoinedLobby();
+        PhotonNetwork.JoinLobby();
     }
 
     public override void OnJoinedLobby()
@@ -55,6 +66,12 @@ public class Launcher : MonoBehaviourPunCallbacks
         MenuManager.instance.OpenMenu("ErrorMenu");
     }
 
+    public void JoinRoom(RoomInfo info)
+    {
+        PhotonNetwork.JoinRoom(info.Name);
+        MenuManager.instance.OpenMenu("LoadingMenu");
+    }
+
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
@@ -64,5 +81,21 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         MenuManager.instance.OpenMenu("MainMenu");
+    }
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+
+        foreach(Transform trans in roomListContent)
+        {
+            Destroy(trans.gameObject);
+        }
+
+
+        //get all available rooms and instantiate with roomlistprefab
+        for(int i = 0; i < roomList.Count; i++)
+        {
+            Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
+        }
     }
 }

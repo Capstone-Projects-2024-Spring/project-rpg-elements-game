@@ -102,3 +102,6 @@ octave-workspace
 
 # Published documents
 *.pdf
+
+# Alex build file
+/2D Platformer/z_build

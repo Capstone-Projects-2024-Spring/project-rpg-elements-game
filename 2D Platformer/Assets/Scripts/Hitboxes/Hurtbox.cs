@@ -1,7 +1,3 @@
-using Codice.CM.Common;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 /*
     Invisible boxes that collide with hitboxes to detect whether or not the character has been hit by something.
