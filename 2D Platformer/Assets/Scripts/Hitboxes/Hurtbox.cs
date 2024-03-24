@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 /*
     Invisible boxes that collide with hitboxes to detect whether or not the character has been hit by something.
 */
@@ -26,6 +27,9 @@ public class Hurtbox : MonoBehaviour
     private float time = 0;
 //Checks if the hurtbox is currently frozen in place or not
     private bool frozen = false;
+
+    public GameObject DamageText;
+    public TMP_Text DamageTextComponent;
 
 
 /*
@@ -58,6 +62,9 @@ public class Hurtbox : MonoBehaviour
             ID = characterName + times_attacked.ToString();
             other.GetComponent<Hitbox>().setReceiverID(getName());
             other.GetComponent<Hitbox>().setSuccess(true);
+
+            DamageTextComponent.text = takenDamage.ToString();
+            Instantiate(DamageText, transform.position, Quaternion.identity);
         
              Debug.Log("I, " + ID + " got hit by" + other.name + " in the attack " + other.GetComponent<Hitbox>().getAttackID() + " for " + other.GetComponent<Hitbox>().getDamage() + " damage."
             + " and (" + other.GetComponent<Hitbox>().getKnockback()[0] + ", " + other.GetComponent<Hitbox>().getKnockback()[1] + ") knockback.");
