@@ -17,10 +17,10 @@ public class MenuManager : MonoBehaviour
     {
         for (int i = 0; i < menus.Length; i++)
         {
-            if (menus[i].menuName == menuName) 
+            if (menus[i].menuName == menuName)
             {
                 OpenMenu(menus[i]);
-            } 
+            }
             else if (menus[i].isOpen)
             {
                 CloseMenu(menus[i]);

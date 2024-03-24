@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerHurtbox : Hurtbox
@@ -39,6 +36,12 @@ public class PlayerHurtbox : Hurtbox
         base.Awake();
         body = GetComponentInParent<Rigidbody2D>();
         movement = GetComponentInParent<Movement>();
+    }
+
+    protected override void LowerHealth()
+    {
+        takenDamage = 0;
+
     }
 
     public PlayerStats getStatSheet()
