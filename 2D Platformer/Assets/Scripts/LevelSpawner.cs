@@ -43,7 +43,10 @@ public class LevelSpawner : NetworkBehaviour
 
     public void Start()
     {
-        SpawnRooms();
+        if (NetworkServer.active)
+        {
+            SpawnRooms();
+        }
     }
     public int getSpawnCounter()
     {
