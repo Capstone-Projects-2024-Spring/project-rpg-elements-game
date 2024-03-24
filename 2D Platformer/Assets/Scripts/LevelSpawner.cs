@@ -43,10 +43,7 @@ public class LevelSpawner : NetworkBehaviour
 
     public void Start()
     {
-        if (NetworkServer.active)
-        {
-            SpawnRooms();
-        }
+        SpawnRooms();
     }
     public int getSpawnCounter()
     {
@@ -59,7 +56,10 @@ public class LevelSpawner : NetworkBehaviour
         numCols = Random.Range(minDim, maxDim);
         //numRows = 10;
         //numCols = 10;
-        gotRandom = await getRandomMap();
+        if (NetworkServer.active)
+        {
+            gotRandom = await getRandomMap();
+        }
         vectorToMatrix();
 
         if (gotRandom)
