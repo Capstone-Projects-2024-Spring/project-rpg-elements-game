@@ -410,6 +410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statSheet: {fileID: 0}
+  DamageText: {fileID: 8458354314928785234, guid: 0ca3cf36077335c4ebb9d7deb8695545, type: 3}
+  DamageTextComponent: {fileID: 8863875750191080330, guid: 0ca3cf36077335c4ebb9d7deb8695545, type: 3}
   characterName: Gary
   playerStatSheet: {fileID: 8297312936399410857}
 --- !u!61 &8466239963884008791
