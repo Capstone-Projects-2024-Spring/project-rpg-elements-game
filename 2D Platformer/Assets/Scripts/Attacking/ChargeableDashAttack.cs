@@ -101,7 +101,6 @@ public class ChargeableDashAttack : PlayerAttack
     protected override void Update()
     {
         //Debug.Log(hitboxes[0].getDamage());
-        
         base.Update();
 
     /* 

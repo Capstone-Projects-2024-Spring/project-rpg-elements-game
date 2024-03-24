@@ -41,6 +41,12 @@ public class PlayerHurtbox : Hurtbox
         movement = GetComponentInParent<Movement>();
     }
 
+    protected override void LowerHealth()
+    {
+        takenDamage = 0;
+
+    }
+
     public PlayerStats getStatSheet()
     {
         return playerStatSheet;
