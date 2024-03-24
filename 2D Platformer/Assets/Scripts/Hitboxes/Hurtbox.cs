@@ -136,7 +136,7 @@ public class Hurtbox : MonoBehaviour
     private void FlyAway(){
         Vector2 force = new Vector2(takenKnockback[0], takenKnockback[1]);
         //Debug.Log("Flying away with force " + force);
-        body.AddForce(force, ForceMode2D.Impulse);
+        body.velocity = force;
     }
 //Used by the hitbox to get the ID of the hurtbox, ensuring an attack only hits it once.
     public string getName(){
