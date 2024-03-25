@@ -13,7 +13,9 @@ public class LevelSpawner : NetworkBehaviour
     private int maxDim = 20;
     private int numRows;
     private int numCols;
+    [SyncVar]
     bool gotRandom = false;
+    [SyncVar]
     private int[] mapVector;
     private int[,] mapMatrix;
     public GameObject[] rooms; //room prefabs 0 --> Open, 1 --> T, 2 --> L, 3 --> LT, 4 --> R, 5 --> TR, 6 --> LR, 7 --> LT, 8 --> B, 9 --> TB, 10 --> LB, 11 --> TLB, 12 --> RB, 13 --> TRB, 14 --> LBR, 15 --> LRTB    
