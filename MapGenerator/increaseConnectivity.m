@@ -5,8 +5,8 @@ function [Map,Tree] = increaseConnectivity(Maze,Tree,M,N,interiorNodes)
 arguments
     Maze graph
     Tree graph
-    M double
-    N double
+    M (1,1) double
+    N (1,1) double
     interiorNodes (:,:) double
 end
 

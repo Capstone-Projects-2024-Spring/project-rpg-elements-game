@@ -1,8 +1,8 @@
 function Map = mapGenerator(M,N)
 %#codegen
 arguments
-    M double
-    N double
+    M (1,1) double 
+    N (1,1) double
 end
 tic
 % set a limit of 20x20 map

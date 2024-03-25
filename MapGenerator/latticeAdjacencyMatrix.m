@@ -4,8 +4,8 @@ function A = latticeAdjacencyMatrix(M,N)
 % M rows, N columns, denoting the size of the rectangular lattice
 % A - N*M by N*M square adjacency matrix
 arguments
-    M double
-    N double
+    M (1,1) double
+    N (1,1) double
 end
 
 % Connect nodes (i,j) to (i+1,j)
