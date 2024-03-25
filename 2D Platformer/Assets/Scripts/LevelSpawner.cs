@@ -9,16 +9,14 @@ using Mirror;
 
 public class LevelSpawner : NetworkBehaviour
 {
-    private int minDim = 10;
-    private int maxDim = 20;
-    private int numRows;
-    private int numCols;
-    [SyncVar]
-    bool gotRandom = false;
-    [SyncVar]
-    private int[] mapVector;
+    [SyncVar] private int minDim = 10;
+    [SyncVar] private int maxDim = 20;
+    [SyncVar] private int numRows;
+    [SyncVar] private int numCols;
+    [SyncVar] bool gotRandom = false;
+    [SyncVar] private int[] mapVector;
     private int[,] mapMatrix;
-    public GameObject[] rooms; //room prefabs 0 --> Open, 1 --> T, 2 --> L, 3 --> LT, 4 --> R, 5 --> TR, 6 --> LR, 7 --> LT, 8 --> B, 9 --> TB, 10 --> LB, 11 --> TLB, 12 --> RB, 13 --> TRB, 14 --> LBR, 15 --> LRTB    
+    [SyncVar] public GameObject[] rooms; //room prefabs 0 --> Open, 1 --> T, 2 --> L, 3 --> LT, 4 --> R, 5 --> TR, 6 --> LR, 7 --> LT, 8 --> B, 9 --> TB, 10 --> LB, 11 --> TLB, 12 --> RB, 13 --> TRB, 14 --> LBR, 15 --> LRTB    
     public int[,] roomTypes = {
         { 11, 9, 1, 1, 13, 3, 5, 7, 11, 5},
         { 7, 11, 4, 14, 11, 8, 8, 0, 13, 6 },
@@ -32,16 +30,16 @@ public class LevelSpawner : NetworkBehaviour
         { 10, 12, 11, 8, 9, 12, 14, 10, 12, 14}
     }; //Matrix that will be made by algorithm
 
-    public Transform spawnRoom; //room where user spawns
-    public Transform spawnPoint; // Spawn point for where rooms can spawns
-    public GameObject player1; // Player 1 spawn
-    public GameObject doorPrefab;
-    public GameObject[] enemyPrefabs;
-    public float spawnPlayerRoom = 100; // Spawn Player room
-    public int roomCounter = 0; // Room Counter for Spawning
-    public int finalBossRoom = 1; // Final Boss Spawn Room
-    public float roomWidth = 10f; // Width of the rooms
-    public float roomHeight = 10f; // Height of the rooms
+    [SyncVar] public Transform spawnRoom; //room where user spawns
+    [SyncVar] public Transform spawnPoint; // Spawn point for where rooms can spawns
+    [SyncVar] public GameObject player1; // Player 1 spawn
+    [SyncVar] public GameObject doorPrefab;
+    [SyncVar] public GameObject[] enemyPrefabs;
+    [SyncVar] public float spawnPlayerRoom = 100; // Spawn Player room
+    [SyncVar] public int roomCounter = 0; // Room Counter for Spawning
+    [SyncVar] public int finalBossRoom = 1; // Final Boss Spawn Room
+    [SyncVar] public float roomWidth = 10f; // Width of the rooms
+    [SyncVar] public float roomHeight = 10f; // Height of the rooms
 
     public void Start()
     {
