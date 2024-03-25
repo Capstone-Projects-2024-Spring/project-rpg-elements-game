@@ -1,11 +1,11 @@
 To get help for microservice options, type in a terminal:
 
-wsl docker run --rm theronh/mapgenerator -h
+docker run --rm theronh/mapgenerator -h
 
 
 To run the microservice image, type in a terminal:
 
-wsl docker run --rm -p 9900:9910 theronh/mapgenerator -l trace
+docker run --rm -p 9900:9910 theronh/mapgenerator -l trace
 
 Note that the choice of 9900 was arbitrary.  9910 is the default port
 exposed by the microservice within the container, and you can map it to any

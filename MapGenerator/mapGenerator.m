@@ -4,17 +4,18 @@ arguments
     M (1,1) double 
     N (1,1) double
 end
-tic
+
+% adjust M and N to wall dimensions by adding 1
+M = floor(abs(M))+1;
+N = floor(abs(N))+1;
+
 % set a limit of 20x20 map
-if (M>20) || (N>20)
+if (M>21) || (N>21)
     Map = 0;
     return
 end
 
-% adjust M and N to wall dimensions by adding 1
-M = floor(M)+1;
-N = floor(N)+1;
-
+tic
 % get a matrix of just interior nodes
 interiorNodes = reshape(M+1:1:M*(N-1),[M N-2]);
 interiorNodes = interiorNodes(2:end-1,:);
