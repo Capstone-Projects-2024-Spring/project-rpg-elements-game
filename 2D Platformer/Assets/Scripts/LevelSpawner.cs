@@ -93,26 +93,23 @@ public class LevelSpawner : NetworkBehaviour
                     newPos = new Vector2(j * roomWidth, -i * roomHeight);
                     // Ensure the correct rooms are spawning
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
-                    NetworkServer.Spawn(room);
                     roomCounter++;
+                    NetworkServer.Spawn(room);
                     SpawnEnemies(room, roomType);
                     if (roomCounter == spawnPlayerRoom)
                     {
                         if (isLocalPlayer)
                         {
-                            GameObject playerObject = Instantiate(player1, newPos, Quaternion.identity);
+                            Instantiate(player1, newPos, Quaternion.identity);
                             Vector2 spawnPos = GetSpawnPosition(newPos, out bool isLocalPlayerSpawn);
 
                             GameObject player = Instantiate(player1, spawnPos, Quaternion.identity);
-                            NetworkServer.Spawn(player, connectionToClient); // Spawn player for the respective client
+                            NetworkServer.Spawn(player);
+                            CinemachineVirtualCamera virtualCamera = player.GetComponentInChildren<CinemachineVirtualCamera>();
 
-                            if (isLocalPlayerSpawn)
-                            {
-                                CinemachineVirtualCamera virtualCamera = player.GetComponentInChildren<CinemachineVirtualCamera>();
-                                if (virtualCamera != null)
-                                {
-                                    virtualCamera.enabled = true;
-                                }
+                            if (virtualCamera != null)
+                            { 
+                                virtualCamera.enabled = true;
                             }
                         }
                     }
