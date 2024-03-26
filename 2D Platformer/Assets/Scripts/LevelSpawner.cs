@@ -43,9 +43,18 @@ public class LevelSpawner : NetworkBehaviour
     public Vector2 newPos;
 
 
-    public void Start()
+    public override void OnStartServer()
     {
+        base.OnStartServer();
         SpawnRooms();
+    }
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        if (isLocalPlayer)
+        {
+            SpawnPlayer();
+        }
     }
     public int getSpawnCounter()
     {
@@ -188,8 +197,26 @@ public class LevelSpawner : NetworkBehaviour
     {
         Vector2 spawnPos = newPos; 
         isLocal = isLocalPlayer && roomCounter == spawnPlayerRoom;
-
         return spawnPos;
+    }
+
+    [Command]
+    private void SpawnPlayer()
+    {
+        bool isLocalPlayerSpawn;
+        Vector2 spawnPos = GetSpawnPosition(newPos, out isLocalPlayerSpawn);
+
+        GameObject player = Instantiate(player1, spawnPos, Quaternion.identity);
+        NetworkServer.Spawn(player, connectionToClient);
+
+        if (isLocalPlayerSpawn)
+        {
+            CinemachineVirtualCamera virtualCamera = player.GetComponentInChildren<CinemachineVirtualCamera>();
+            if (virtualCamera != null)
+            {
+                virtualCamera.enabled = true;
+            }
+        }
     }
 
     public int getNumRows()
