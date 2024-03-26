@@ -449,6 +449,7 @@ MonoBehaviour:
   finalBossRoom: 1
   roomWidth: 10
   roomHeight: 10
+  newPos: {x: 0, y: 0}
 --- !u!114 &1008764833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,7 +1107,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3

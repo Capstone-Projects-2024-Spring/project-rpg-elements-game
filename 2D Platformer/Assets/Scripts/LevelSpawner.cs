@@ -40,6 +40,8 @@ public class LevelSpawner : NetworkBehaviour
     public int finalBossRoom = 1; // Final Boss Spawn Room
     public float roomWidth = 10f; // Width of the rooms
     public float roomHeight = 10f; // Height of the rooms
+    public Vector2 newPos;
+
 
     public void Start()
     {
@@ -79,7 +81,7 @@ public class LevelSpawner : NetworkBehaviour
                 int roomType = roomTypes[i, j];
                 if (roomType >= 0 && roomType < rooms.Length)
                 {
-                    Vector2 newPos = new Vector2(j * roomWidth, -i * roomHeight);
+                    newPos = new Vector2(j * roomWidth, -i * roomHeight);
                     // Ensure the correct rooms are spawning
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
                     roomCounter++;
@@ -88,17 +90,23 @@ public class LevelSpawner : NetworkBehaviour
                     {
                         if (isLocalPlayer)
                         {
-                            //Debug.Log("Room Location Final: " + newPos);
-                            //Debug.Log("Player Start Room: " + spawnPlayerRoom);
-                            Instantiate(player1, newPos, Quaternion.identity);
-                            Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
-                            if (virtualCamera != null)
+                            GameObject playerObject = Instantiate(player1, newPos, Quaternion.identity);
+                            Vector2 spawnPos = GetSpawnPosition(newPos, out bool isLocalPlayerSpawn);
+
+                            GameObject player = Instantiate(player1, spawnPos, Quaternion.identity);
+                            NetworkServer.Spawn(player, connectionToClient); // Spawn player for the respective client
+
+                            if (isLocalPlayerSpawn)
                             {
-                                virtualCamera.enabled = true;
+                                CinemachineVirtualCamera virtualCamera = player.GetComponentInChildren<CinemachineVirtualCamera>();
+                                if (virtualCamera != null)
+                                {
+                                    virtualCamera.enabled = true;
+                                }
                             }
                         }
                     }
-                    if(roomCounter == finalBossRoom)
+                    if (roomCounter == finalBossRoom)
                     {
                         SpawnDoor(room);
                     }
@@ -174,6 +182,14 @@ public class LevelSpawner : NetworkBehaviour
         Vector2 roomPosition = room.transform.position;
         Vector2 doorSpawnPosition = new Vector2(roomPosition.x - roomWidth / 100f, roomPosition.y - roomHeight / 4f);
         GameObject door = Instantiate(doorPrefab, doorSpawnPosition, Quaternion.identity);
+    }
+
+    private Vector2 GetSpawnPosition(Vector2 newPos, out bool isLocal)
+    {
+        Vector2 spawnPos = newPos; 
+        isLocal = isLocalPlayer && roomCounter == spawnPlayerRoom;
+
+        return spawnPos;
     }
 
     public int getNumRows()
