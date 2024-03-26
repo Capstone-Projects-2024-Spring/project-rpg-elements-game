@@ -93,6 +93,7 @@ public class LevelSpawner : NetworkBehaviour
                     newPos = new Vector2(j * roomWidth, -i * roomHeight);
                     // Ensure the correct rooms are spawning
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
+                    NetworkServer.Spawn(room);
                     roomCounter++;
                     SpawnEnemies(room, roomType);
                     if (roomCounter == spawnPlayerRoom)
