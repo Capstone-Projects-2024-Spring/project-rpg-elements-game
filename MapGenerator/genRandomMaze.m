@@ -2,8 +2,8 @@ function [Maze,Tree] = genRandomMaze(M,N)
 %#codegen
 % create a random MxN maze
 arguments
-    M double
-    N double
+    M (1,1) double
+    N (1,1) double
 end
 
 % get Adjacency Matrix for map space, and for a space smaller than the map
