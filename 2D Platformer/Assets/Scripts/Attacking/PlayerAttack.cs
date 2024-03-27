@@ -4,9 +4,10 @@ using UnityEngine;
 using System;
 using Unity.Properties;
 using Unity.IO.LowLevel.Unsafe;
+using Mirror;
 
 //The basic attack script that all attacks will inherit from. Contains logic that all attacks should follow.
-public abstract class PlayerAttack : MonoBehaviour
+public abstract class PlayerAttack : NetworkBehaviour
 {
     [SerializeField] private PlayerStats statSheet;
 
@@ -14,6 +15,8 @@ public abstract class PlayerAttack : MonoBehaviour
     protected Movement playerMovement;
     [SerializeField] public String attackName = "strike";
     [SerializeField] public string attackDescription = "A placeholder description for attacks. Seen by the user in the attack menu.";
+
+
 /*
 For the animator to know which animation to trigger. 
 It's a separate variable from attackName since I'll probably have to capialize the attack names later, but
