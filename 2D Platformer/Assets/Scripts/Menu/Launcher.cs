@@ -66,6 +66,12 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         Player[] players = PhotonNetwork.PlayerList;
 
+        //delete previous playerlist objects for this user
+        foreach(Transform child in playerListContent)
+        {
+            Destroy(child.gameObject);
+        }
+
         //Display each players username
         for(int i = 0; i < players.Count(); i++)
         {
@@ -108,6 +114,9 @@ public class Launcher : MonoBehaviourPunCallbacks
         //get all available rooms and instantiate with roomlistprefab
         for(int i = 0; i < roomList.Count; i++)
         {
+            //rooms cannot be removed, but if it is disabled, we don't want to instantiate it again so we skip instantiation
+            if (roomList[i].RemovedFromList)
+                continue;
             Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
         }
     }
