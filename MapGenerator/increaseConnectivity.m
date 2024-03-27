@@ -3,8 +3,8 @@ function [Map,Tree] = increaseConnectivity(Maze,Tree,M,N,interiorNodes,p)
 % function to increase the connectivity of the provided maze by randomly
 % removing a set portion of the interior walls
 arguments
-    Maze graph
-    Tree graph
+    Maze (1,1) graph
+    Tree (1,1) graph
     M (1,1) double
     N (1,1) double
     interiorNodes (:,:) double

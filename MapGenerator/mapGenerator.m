@@ -1,7 +1,7 @@
 function Map = mapGenerator(M,N,p)
 %#codegen
 arguments
-    M (1,1) double 
+    M (1,1) double
     N (1,1) double
     p (1,1) double = .1
 end
