@@ -903,12 +903,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4413909215928327728}
+  - component: {fileID: 5687692288683098182}
+  - component: {fileID: 8978231763261695324}
   - component: {fileID: 2892007828377519966}
   - component: {fileID: 1565521025602260749}
   - component: {fileID: 3475226080469579611}
   - component: {fileID: 8297312936399410857}
   - component: {fileID: 8634297986206217419}
-  - component: {fileID: 8978231763261695324}
   - component: {fileID: 4497097163240020577}
   - component: {fileID: 2578986321915300357}
   - component: {fileID: 3997971044410176615}
@@ -919,7 +920,6 @@ GameObject:
   - component: {fileID: 2821982427333218821}
   - component: {fileID: 3060260808306498300}
   - component: {fileID: 3628699285819013644}
-  - component: {fileID: 5687692288683098182}
   m_Layer: 0
   m_Name: Gary
   m_TagString: Player
@@ -948,6 +948,44 @@ Transform:
   - {fileID: 5630774168813550799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5687692288683098182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554584858392232962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  clientAuthority: 1
+  animator: {fileID: 8978231763261695324}
+--- !u!95 &8978231763261695324
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554584858392232962}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a17d907e081ea2a4b90ea7a5d9f3943d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &2892007828377519966
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1115,27 +1153,6 @@ MonoBehaviour:
     m_Bits: 64
   wall_sliding_speed: 3
   friction: 0.7
---- !u!95 &8978231763261695324
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6554584858392232962}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a17d907e081ea2a4b90ea7a5d9f3943d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4497097163240020577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,6 +1165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 8297312936399410857}
   attackName: Dog Strike
   attackDescription: A fast overhead arc that covers a wide range for modest damage.
@@ -1175,6 +1195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243be50834efbb04abd83eeae5aa0845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 8297312936399410857}
   attackName: Sky Slash
   attackDescription: A sword swing that sends both you and your opponents to the
@@ -1205,6 +1228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 8297312936399410857}
   attackName: Sharp Arch
   attackDescription: A quick upwards slash that covers a wide range and propels foes
@@ -1233,6 +1259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 8297312936399410857}
   attackName: Sweeping Steel
   attackDescription: Swiftly strike at the legs of your opponent, sending them upwards
@@ -1259,6 +1288,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727c5f7f68c5ce14fa9c6eed1d21930d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 8297312936399410857}
   attackName: Dash 'n' Slash
   attackDescription: A chargeable attack that will give a sudden burst of movement
@@ -1292,6 +1324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 8297312936399410857}
   attackName: Cloud Strike
   attackDescription: Lift up your sword. Great for juggling opponents already in
@@ -1317,6 +1352,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e899b10adf554458c8b1fa9db4d51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 8297312936399410857}
   attackName: Sword Beam
   attackDescription: Summon a beam from your sword. It will travel straight forward,
@@ -1355,6 +1393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe0399eaff97a5449213f52a0083dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 8297312936399410857}
   attackName: Oblivion Dive
   attackDescription: A giant, massive slash that does a ton of damage, but it also
@@ -1430,23 +1471,6 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
---- !u!114 &5687692288683098182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6554584858392232962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 1
-  syncMode: 0
-  syncInterval: 0
-  clientAuthority: 1
-  animator: {fileID: 8978231763261695324}
 --- !u!1 &7203378536197827936
 GameObject:
   m_ObjectHideFlags: 0
