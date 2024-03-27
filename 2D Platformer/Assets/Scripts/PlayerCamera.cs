@@ -19,15 +19,29 @@ public class PlayerCamera : NetworkBehaviour
         comp = camObj.GetComponentInChildren<CinemachineFramingTransposer>();
     }
 
-    public override void OnStartLocalPlayer()
+    /** public override void OnStartLocalPlayer()
+     {
+         base.OnStartLocalPlayer();
+
+         Transform parentTransform = transform.parent;
+
+         camObj.Follow = parentTransform;
+     }
+    **/
+    private void Start()
     {
-        base.OnStartLocalPlayer();
-
-        Transform parentTransform = transform.parent;
-
-        camObj.Follow = parentTransform;
+        camObj = GetComponent<CinemachineVirtualCamera>();
     }
 
+
+    public override void OnStartAuthority()
+    {
+        base.OnStartAuthority();
+        if(camObj != null)
+        {
+            camObj.enabled = true;
+        }
+    }
 
     // Update is called once per frame
     void Update()
