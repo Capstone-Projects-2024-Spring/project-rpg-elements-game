@@ -74,7 +74,7 @@ they had beforehand is preserved for when they unfreeze
 // A boolean to be used by other attacks that would want to limit whether or not an attack could be used
     protected bool other_constraints = true;
 
-/*        public void NetworkTrigger(string animatorHash) // call this method to set trigger and send over network 
+    public void NetworkTrigger(string animatorHash) // call this method to set trigger and send over network 
     {
         anim.SetTrigger(animatorHash);
 
@@ -95,7 +95,7 @@ they had beforehand is preserved for when they unfreeze
         if (isLocalPlayer) // skip for owner, they invoke locally
             return;
         anim.SetTrigger(animatorHash);
-    }*/
+    }
 //Runs once when the script is started.
     protected virtual void Awake(){
         anim = GetComponent<Animator>();
@@ -277,8 +277,8 @@ Only hits an enemy once until the attack ends.
 */
     protected virtual void Attack(){
         //Debug.Log("This should only print once");
-        //NetworkTrigger(animationTrigger);
-        anim.SetTrigger(animationTrigger);
+        NetworkTrigger(animationTrigger);
+        //anim.SetTrigger(animationTrigger);
     }
     
 /*

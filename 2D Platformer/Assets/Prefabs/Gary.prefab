@@ -941,10 +941,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6508956773352518551}
+  - {fileID: 6061992108428574931}
   - {fileID: 1746569123895144741}
   - {fileID: 7941461435479354649}
   - {fileID: 1874380827571762684}
-  - {fileID: 6061992108428574931}
   - {fileID: 5630774168813550799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -960,10 +960,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
+  syncDirection: 1
   syncMode: 1
   syncInterval: 0
-  clientAuthority: 1
+  clientAuthority: 0
   animator: {fileID: 8978231763261695324}
 --- !u!95 &8978231763261695324
 Animator:
