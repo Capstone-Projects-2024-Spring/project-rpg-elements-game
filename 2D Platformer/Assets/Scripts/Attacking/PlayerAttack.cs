@@ -73,6 +73,29 @@ they had beforehand is preserved for when they unfreeze
     private Vector2 storedVelocity = new Vector2();
 // A boolean to be used by other attacks that would want to limit whether or not an attack could be used
     protected bool other_constraints = true;
+
+        public void NetworkTrigger(string animatorHash) // call this method to set trigger and send over network 
+    {
+        anim.SetTrigger(animatorHash);
+
+        if (isServer)
+            RpcSendTrigger(animatorHash);
+        else if (isClient)
+            CmdSendTrigger(animatorHash);
+    }
+
+    [Command]
+    private void CmdSendTrigger(string animatorHash)
+    {
+        RpcSendTrigger(animatorHash);
+    }
+    [ClientRpc]
+    private void RpcSendTrigger(string animatorHash)
+    {
+        if (isLocalPlayer) // skip for owner, they invoke locally
+            return;
+        anim.SetTrigger(animatorHash);
+    }
 //Runs once when the script is started.
     protected virtual void Awake(){
         anim = GetComponent<Animator>();
@@ -254,7 +277,8 @@ Only hits an enemy once until the attack ends.
 */
     protected virtual void Attack(){
         //Debug.Log("This should only print once");
-        anim.SetTrigger(animationTrigger);
+        NetworkTrigger(animationTrigger);
+        //anim.SetTrigger(animationTrigger);
     }
     
 /*
