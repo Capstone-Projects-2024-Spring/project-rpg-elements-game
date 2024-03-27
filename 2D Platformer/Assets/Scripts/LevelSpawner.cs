@@ -110,7 +110,7 @@ public class LevelSpawner : NetworkBehaviour
     private async Task<bool> getRandomMap()
     {
         mapVector = new int[numRows * numCols + 2];
-        double p = 0.1f;
+        double p = 0.1f; // percentage of interior walls to remove to increase connectivity. Can be [0,1)
         string data = "{ \"nargout\": 1, \"rhs\": [" + numRows.ToString() + "," + numCols.ToString() + "," + p.ToString() + "] }";
         UnityWebRequest www = UnityWebRequest.Post("www.meatdeathoftheuniverse.com:9900/mapGenerator/mapGenerator", data, "application/json");
         www.SendWebRequest();
