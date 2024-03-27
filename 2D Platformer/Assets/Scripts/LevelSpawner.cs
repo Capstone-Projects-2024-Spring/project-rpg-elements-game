@@ -98,6 +98,10 @@ public class LevelSpawner : NetworkBehaviour
                             }
                         }
                     }
+                    if(roomCounter == finalBossRoom)
+                    {
+                        SpawnDoor(room);
+                    }
                 }
             }
         }
