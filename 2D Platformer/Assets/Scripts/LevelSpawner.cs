@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
 using System.Linq;
@@ -13,6 +10,7 @@ public class LevelSpawner : NetworkBehaviour
     private int maxDim = 20;
     private int numRows;
     private int numCols;
+    private double p_openness = 0.1f; // percentage of interior walls to remove to increase connectivity. Can be [0,1)
     bool gotRandom = false;
     private int[] mapVector;
     private int[,] mapMatrix;
@@ -54,8 +52,6 @@ public class LevelSpawner : NetworkBehaviour
     {
         numRows = Random.Range(minDim, maxDim);
         numCols = Random.Range(minDim, maxDim);
-        //numRows = 10;
-        //numCols = 10;
         gotRandom = await getRandomMap();
         vectorToMatrix();
 
@@ -88,8 +84,6 @@ public class LevelSpawner : NetworkBehaviour
                     {
                         if (isLocalPlayer)
                         {
-                            //Debug.Log("Room Location Final: " + newPos);
-                            //Debug.Log("Player Start Room: " + spawnPlayerRoom);
                             Instantiate(player1, newPos, Quaternion.identity);
                             Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
                             if (virtualCamera != null)
@@ -110,8 +104,8 @@ public class LevelSpawner : NetworkBehaviour
     private async Task<bool> getRandomMap()
     {
         mapVector = new int[numRows * numCols + 2];
-        double p = 0.1f; // percentage of interior walls to remove to increase connectivity. Can be [0,1)
-        string data = "{ \"nargout\": 1, \"rhs\": [" + numRows.ToString() + "," + numCols.ToString() + "," + p.ToString() + "] }";
+        
+        string data = "{ \"nargout\": 1, \"rhs\": [" + numRows.ToString() + "," + numCols.ToString() + "," + p_openness.ToString() + "] }";
         UnityWebRequest www = UnityWebRequest.Post("www.meatdeathoftheuniverse.com:9900/mapGenerator/mapGenerator", data, "application/json");
         www.SendWebRequest();
         while (!www.isDone)
@@ -185,6 +179,10 @@ public class LevelSpawner : NetworkBehaviour
     {
         return numCols;
     }
+    public double getOpenness()
+    {
+        return p_openness;
+    }
     public bool setNumRows(int M)
     {
         if (M >= minDim && M <= maxDim)
@@ -199,6 +197,15 @@ public class LevelSpawner : NetworkBehaviour
         if (N >= minDim && N <= maxDim)
         {
             numCols = N;
+            return true;
+        }
+        return false;
+    }
+    public bool setOpenness(double p)
+    {
+        if (p >= 0.0 && p < 1.0)
+        {
+            p_openness = p;
             return true;
         }
         return false;
