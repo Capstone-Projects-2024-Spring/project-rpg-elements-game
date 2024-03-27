@@ -32,6 +32,8 @@ public class PlayerCamera : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isLocalPlayer)
+            return;
         float horizontalInput = Input.GetAxis("Horizontal");
         float targetXOffset = Mathf.Lerp(comp.m_TrackedObjectOffset.x, horizontalInput * 3f, Time.deltaTime * smoothing);
         comp.m_TrackedObjectOffset.x = targetXOffset;
