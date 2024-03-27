@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Mirror;
 
-public class PlayerCamera : MonoBehaviour
+
+public class PlayerCamera : NetworkBehaviour
 {
     private CinemachineVirtualCamera camObj;
+    private Transform parentTransform;
     public float smoothing = 5f;
     CinemachineFramingTransposer comp;
     // Start is called before the first frame update
@@ -15,6 +18,16 @@ public class PlayerCamera : MonoBehaviour
         camObj = GetComponent<CinemachineVirtualCamera>();
         comp = camObj.GetComponentInChildren<CinemachineFramingTransposer>();
     }
+
+    public override void OnStartLocalPlayer()
+    {
+        base.OnStartLocalPlayer();
+
+        Transform parentTransform = transform.parent;
+
+        camObj.Follow = parentTransform;
+    }
+
 
     // Update is called once per frame
     void Update()
