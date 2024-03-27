@@ -189,6 +189,7 @@ public class LevelSpawner : NetworkBehaviour
         Vector2 roomPosition = room.transform.position;
         Vector2 doorSpawnPosition = new Vector2(roomPosition.x - roomWidth / 100f, roomPosition.y - roomHeight / 4f);
         GameObject door = Instantiate(doorPrefab, doorSpawnPosition, Quaternion.identity);
+        NetworkServer.Spawn(door);
     }
 
     private Vector2 GetSpawnPosition(Vector2 newPos, out bool isLocal)
