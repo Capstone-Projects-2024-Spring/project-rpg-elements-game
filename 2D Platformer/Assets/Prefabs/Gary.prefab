@@ -960,8 +960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 1
-  syncMode: 0
+  syncDirection: 0
+  syncMode: 1
   syncInterval: 0
   clientAuthority: 1
   animator: {fileID: 8978231763261695324}
