@@ -1,4 +1,4 @@
-function [Map,Tree] = increaseConnectivity(Maze,Tree,M,N,interiorNodes)
+function [Map,Tree] = increaseConnectivity(Maze,Tree,M,N,interiorNodes,p)
 %#codegen
 % function to increase the connectivity of the provided maze by randomly
 % removing a set portion of the interior walls
@@ -8,13 +8,14 @@ arguments
     M (1,1) double
     N (1,1) double
     interiorNodes (:,:) double
+    p (1,1) double
 end
 
 % generate a Map from the Maze by removing random walls in the Maze
 edges = Maze.Edges.EndNodes; % node pairs of all the edges in the maze
 interiorEdges = edges((ismember(edges(:,1),interiorNodes) | ismember(edges(:,2),interiorNodes)),:);
 NumInteriorEdges = length(interiorEdges);
-numToRemove = ceil(NumInteriorEdges/10);
+numToRemove = floor(NumInteriorEdges*p);
 toRemove = getRandomEdges(interiorEdges,NumInteriorEdges,numToRemove); % to remove from Maze
 Map = rmedge(Maze,toRemove(:,1),toRemove(:,2));
 
