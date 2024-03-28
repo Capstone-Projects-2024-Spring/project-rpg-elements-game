@@ -7,7 +7,8 @@
         "Mirror",
         "FizzySteamworks",
         "com.rlabrecque.steamworks.net",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "Mirror.Components"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

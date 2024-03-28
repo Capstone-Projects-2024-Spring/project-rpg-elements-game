@@ -12,6 +12,7 @@ public abstract class PlayerAttack : NetworkBehaviour
     [SerializeField] private PlayerStats statSheet;
 
     protected Animator anim;
+    protected NetworkAnimator n_anim;
     protected Movement playerMovement;
     [SerializeField] public String attackName = "strike";
     [SerializeField] public string attackDescription = "A placeholder description for attacks. Seen by the user in the attack menu.";
@@ -99,6 +100,7 @@ they had beforehand is preserved for when they unfreeze
 //Runs once when the script is started.
     protected virtual void Awake(){
         anim = GetComponent<Animator>();
+        n_anim = GetComponent<NetworkAnimator>();
         playerMovement = GetComponent<Movement>();
         body = GetComponentInParent<Rigidbody2D>();
         xKnockbackValue = Math.Abs(knockback[0]);
@@ -277,8 +279,8 @@ Only hits an enemy once until the attack ends.
 */
     protected virtual void Attack(){
         //Debug.Log("This should only print once");
-        NetworkTrigger(animationTrigger);
-        //anim.SetTrigger(animationTrigger);
+        //NetworkTrigger(animationTrigger);
+        n_anim.SetTrigger(animationTrigger);
     }
     
 /*
