@@ -8,13 +8,6 @@ Tests to demonstrate each use-case based on the use-case descriptions and the se
 <table cellspacing="0" style="border-collapse: collapse;">
   <tbody>
     <tr>
-    <tr>
-      <td class="" style="width: 206.25px; height: 33.75px; font-weight: bold; font-size: 10px; text-align: center; vertical-align: top; border-bottom: 1px solid rgb(255, 0, 0);"></td>
-      <td class="" style="width: 195.75px; height: 33.75px; font-weight: bold; font-size: 10px; text-align: center; vertical-align: top; border-bottom: 1px solid rgb(255, 0, 0);"></td>
-      <td class="" style="width: 164.25px; height: 33.75px; font-weight: bold; font-size: 10px; text-align: center; vertical-align: top; border-bottom: 1px solid rgb(255, 0, 0);"></td>
-      <td class="" style="width: 164.25px; height: 33.75px; font-weight: bold; font-size: 10px; text-align: center; vertical-align: top; border-bottom: 1px solid rgb(255, 0, 0); border-right: 1px solid rgb(255, 0, 0);"></td>
-    </tr>
-    <tr>
       <td class="" style="background-color: rgb(0, 0, 255); width: 164.25px; height: 33.75px; font-weight: bold; font-size: 10px; text-align: left; vertical-align: top; border-bottom: 1px solid rgb(255, 0, 0); border-right: 1px solid rgb(0, 255, 0); border-left: 1px solid rgb(255, 0, 0);">Test ID</td>
       <td class="" style="background-color: rgb(0, 0, 255); width: 206.25px; height: 33.75px; font-size: 10px; text-align: left; vertical-align: top; border-bottom: 1px solid rgb(255, 0, 0); border-right: 1px solid rgb(255, 0, 0);">Use Case</td>
       <td class="" style="background-color: rgb(0, 0, 255); width: 195.75px; height: 33.75px; font-size: 10px; text-align: left; vertical-align: top; border-bottom: 1px solid rgb(255, 0, 0); border-right: 1px solid rgb(255, 0, 0);">Mock Objects</td>
