@@ -1,7 +1,7 @@
 # Dockerfile for image: matlabruntime/r2023b/release/update7/108000000000000000
 # 
 # Sample docker build command:
-# docker build -f "Dockerfile.runtime" -t matlabruntime/r2023b/release/update7/108000000000000000 "."
+# wsl docker build -f "Dockerfile.runtime" -t matlabruntime/r2023b/release/update7/108000000000000000 "."
 
 FROM containers.mathworks.com/matlab-runtime-utils/matlab-runtime-installer:r2023b-update-7 AS installer
 LABEL "mathworks.matlab.runtime.cleanup"="true"

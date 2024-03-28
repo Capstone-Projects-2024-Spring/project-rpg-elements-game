@@ -10,7 +10,7 @@ public class LevelSpawner : NetworkBehaviour
     private int maxDim = 20;
     private int numRows;
     private int numCols;
-    private double p_openness = 0.1f; // percentage of interior walls to remove to increase connectivity. Can be [0,1)
+    private int p_openness = 10; // integer representation of percentage of interior walls to remove to increase connectivity. Can be [0,100)
     bool gotRandom = false;
     private int[] mapVector;
     private int[,] mapMatrix;
@@ -104,7 +104,6 @@ public class LevelSpawner : NetworkBehaviour
     private async Task<bool> getRandomMap()
     {
         mapVector = new int[numRows * numCols + 2];
-        
         string data = "{ \"nargout\": 1, \"rhs\": [" + numRows.ToString() + "," + numCols.ToString() + "," + p_openness.ToString() + "] }";
         UnityWebRequest www = UnityWebRequest.Post("www.meatdeathoftheuniverse.com:9900/mapGenerator/mapGenerator", data, "application/json");
         www.SendWebRequest();
@@ -179,7 +178,7 @@ public class LevelSpawner : NetworkBehaviour
     {
         return numCols;
     }
-    public double getOpenness()
+    public int getOpenness()
     {
         return p_openness;
     }
@@ -201,7 +200,7 @@ public class LevelSpawner : NetworkBehaviour
         }
         return false;
     }
-    public bool setOpenness(double p)
+    public bool setOpenness(int p)
     {
         if (p >= 0.0 && p < 1.0)
         {

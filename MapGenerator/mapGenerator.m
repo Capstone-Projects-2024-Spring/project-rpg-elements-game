@@ -3,20 +3,24 @@ function Map = mapGenerator(M,N,p)
 arguments
     M (1,1) double
     N (1,1) double
-    p (1,1) double = .1
+    p (1,1) double = 10
 end
 
 % adjust M and N to wall dimensions by adding 1
 M = floor(abs(M))+1;
 N = floor(abs(N))+1;
+p = floor(abs(p));
 
-% set a limit max of 20x20 rooms and min of 2x2 rooms and p in [0,1)
-if (M>21) || (N>21) || (M<3) || (N<3) || p<0 || p >= 1
+% set a limit max of 20x20 rooms and min of 2x2 rooms and p in [0,100)
+if (M>21) || (N>21) || (M<3) || (N<3) || p<0 || p >= 100
     Map = 0;
     return
 end
 
 tic
+% turn p into a percentage
+p = p/100;
+
 % get a matrix of just interior nodes
 interiorNodes = reshape(M+1:1:M*(N-1),[M N-2]);
 interiorNodes = interiorNodes(2:end-1,:);
