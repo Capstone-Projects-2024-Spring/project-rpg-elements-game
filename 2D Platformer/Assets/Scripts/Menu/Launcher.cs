@@ -19,6 +19,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     
     [SerializeField] Transform playerListContent;
     [SerializeField] GameObject playerListItemPrefab;
+    public GameObject startButton;
 
     public void Awake()
     {
@@ -35,6 +36,8 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         Debug.Log("Connected to Master");
         PhotonNetwork.JoinLobby();
+        PhotonNetwork.AutomaticallySyncScene = true;
+
     }
 
     public override void OnJoinedLobby()
@@ -77,6 +80,14 @@ public class Launcher : MonoBehaviourPunCallbacks
         {
             Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
         }
+
+        //if it is the master client button start button will show
+        startButton.SetActive(PhotonNetwork.IsMasterClient);
+    }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        startButton.SetActive(PhotonNetwork.IsMasterClient);
     }
 
     public override void OnCreateRoomFailed(short returnCode, string errorMessage)
@@ -89,6 +100,11 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.JoinRoom(info.Name);
         MenuManager.instance.OpenMenu("LoadingMenu");
+    }
+
+    public void StartGame()
+    {
+        PhotonNetwork.LoadLevel("LevelGenerator");
     }
 
     public void LeaveRoom()

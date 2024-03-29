@@ -339,7 +339,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8967330}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1280887590}
+        m_TargetAssemblyTypeName: Launcher, Menu
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8967330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7165,6 +7177,7 @@ MonoBehaviour:
   roomListItemPrefab: {fileID: 9092382866192943667, guid: 1f2acfa20220b4349bd0f048b483fac8, type: 3}
   playerListContent: {fileID: 1149919243}
   playerListItemPrefab: {fileID: 7115832183097919066, guid: 591f060190d48714f9ad99030f8e1ca5, type: 3}
+  startButton: {fileID: 8967327}
 --- !u!114 &1280887591
 MonoBehaviour:
   m_ObjectHideFlags: 0
