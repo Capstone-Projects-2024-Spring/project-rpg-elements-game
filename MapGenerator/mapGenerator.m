@@ -1,19 +1,25 @@
-function Map = mapGenerator(M,N)
+function Map = mapGenerator(M,N,p)
 %#codegen
 arguments
-    M double
-    N double
+    M (1,1) double
+    N (1,1) double
+    p (1,1) double = 10
 end
-tic
-% set a limit of 20x20 map
-if (M>20) || (N>20)
+
+% adjust M and N to wall dimensions by adding 1
+M = floor(abs(M))+1;
+N = floor(abs(N))+1;
+p = floor(abs(p));
+
+% set a limit max of 20x20 rooms and min of 2x2 rooms and p in [0,100)
+if (M>21) || (N>21) || (M<3) || (N<3) || p<0 || p >= 100
     Map = 0;
     return
 end
 
-% adjust M and N to wall dimensions by adding 1
-M = floor(M)+1;
-N = floor(N)+1;
+tic
+% turn p into a percentage
+p = p/100;
 
 % get a matrix of just interior nodes
 interiorNodes = reshape(M+1:1:M*(N-1),[M N-2]);
@@ -23,7 +29,7 @@ interiorNodes = interiorNodes(2:end-1,:);
 [Maze,Tree] = genRandomMaze(M,N);
 
 % remove additional random interior edges to increase connectivity
-[Maze,Tree] = increaseConnectivity(Maze,Tree,M,N,interiorNodes);
+[Maze,Tree] = increaseConnectivity(Maze,Tree,M,N,interiorNodes,p);
 
 % assign room values to map
 Rooms = calcRoomVals(Maze,interiorNodes,M,N);

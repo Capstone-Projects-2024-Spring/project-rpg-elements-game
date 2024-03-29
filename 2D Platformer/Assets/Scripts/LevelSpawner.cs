@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
 using System.Linq;
 using Mirror;
+using Cinemachine;
 
 public class LevelSpawner : NetworkBehaviour
 {
@@ -13,6 +11,7 @@ public class LevelSpawner : NetworkBehaviour
     private int maxDim = 20;
     private int numRows;
     private int numCols;
+    private int p_openness = 10; // integer representation of percentage of interior walls to remove to increase connectivity. Can be [0,100)
     bool gotRandom = false;
     private int[] mapVector;
     private int[,] mapMatrix;
@@ -40,10 +39,21 @@ public class LevelSpawner : NetworkBehaviour
     public int finalBossRoom = 1; // Final Boss Spawn Room
     public float roomWidth = 10f; // Width of the rooms
     public float roomHeight = 10f; // Height of the rooms
+    public Vector2 newPos;
 
-    public void Start()
+
+    public override void OnStartServer()
     {
+        base.OnStartServer();
         SpawnRooms();
+    }
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        if (isLocalPlayer)
+        {
+            SpawnPlayer();
+        }
     }
     public int getSpawnCounter()
     {
@@ -54,8 +64,6 @@ public class LevelSpawner : NetworkBehaviour
     {
         numRows = Random.Range(minDim, maxDim);
         numCols = Random.Range(minDim, maxDim);
-        //numRows = 10;
-        //numCols = 10;
         gotRandom = await getRandomMap();
         vectorToMatrix();
 
@@ -79,26 +87,30 @@ public class LevelSpawner : NetworkBehaviour
                 int roomType = roomTypes[i, j];
                 if (roomType >= 0 && roomType < rooms.Length)
                 {
-                    Vector2 newPos = new Vector2(j * roomWidth, -i * roomHeight);
+                    newPos = new Vector2(j * roomWidth, -i * roomHeight);
                     // Ensure the correct rooms are spawning
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
                     roomCounter++;
+                    NetworkServer.Spawn(room);
                     SpawnEnemies(room, roomType);
                     if (roomCounter == spawnPlayerRoom)
                     {
                         if (isLocalPlayer)
                         {
-                            //Debug.Log("Room Location Final: " + newPos);
-                            //Debug.Log("Player Start Room: " + spawnPlayerRoom);
                             Instantiate(player1, newPos, Quaternion.identity);
-                            Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
+                            Vector2 spawnPos = GetSpawnPosition(newPos, out bool isLocalPlayerSpawn);
+
+                            GameObject player = Instantiate(player1, spawnPos, Quaternion.identity);
+                            NetworkServer.Spawn(player);
+                            CinemachineVirtualCamera virtualCamera = player.GetComponentInChildren<CinemachineVirtualCamera>();
+
                             if (virtualCamera != null)
-                            {
+                            { 
                                 virtualCamera.enabled = true;
                             }
                         }
                     }
-                    if(roomCounter == finalBossRoom)
+                    if (roomCounter == finalBossRoom)
                     {
                         SpawnDoor(room);
                     }
@@ -110,7 +122,7 @@ public class LevelSpawner : NetworkBehaviour
     private async Task<bool> getRandomMap()
     {
         mapVector = new int[numRows * numCols + 2];
-        string data = "{ \"nargout\": 1, \"rhs\": [" + numRows.ToString() + "," + numCols.ToString() + "] }";
+        string data = "{ \"nargout\": 1, \"rhs\": [" + numRows.ToString() + "," + numCols.ToString() + "," + p_openness.ToString() + "] }";
         UnityWebRequest www = UnityWebRequest.Post("www.meatdeathoftheuniverse.com:9900/mapGenerator/mapGenerator", data, "application/json");
         www.SendWebRequest();
         while (!www.isDone)
@@ -165,7 +177,8 @@ public class LevelSpawner : NetworkBehaviour
             Transform[] enemySpawnPoints = room.GetComponentsInChildren<Transform>().Where(t => t.CompareTag("EnemySpawnPoint")).ToArray();
             int randEnemy = Random.Range(0, enemyPrefabs.Length);
             int randSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
-            Instantiate(enemyPrefabs[randEnemy], enemySpawnPoints[randSpawnPoint].position, Quaternion.identity);
+            GameObject enem=Instantiate(enemyPrefabs[randEnemy], enemySpawnPoints[randSpawnPoint].position, Quaternion.identity);
+            NetworkServer.Spawn(enem);
         }
     }
 
@@ -174,6 +187,33 @@ public class LevelSpawner : NetworkBehaviour
         Vector2 roomPosition = room.transform.position;
         Vector2 doorSpawnPosition = new Vector2(roomPosition.x - roomWidth / 100f, roomPosition.y - roomHeight / 4f);
         GameObject door = Instantiate(doorPrefab, doorSpawnPosition, Quaternion.identity);
+        NetworkServer.Spawn(door);
+    }
+
+    private Vector2 GetSpawnPosition(Vector2 newPos, out bool isLocal)
+    {
+        Vector2 spawnPos = newPos; 
+        isLocal = isLocalPlayer && roomCounter == spawnPlayerRoom;
+        return spawnPos;
+    }
+
+    [Command]
+    private void SpawnPlayer()
+    {
+        bool isLocalPlayerSpawn;
+        Vector2 spawnPos = GetSpawnPosition(newPos, out isLocalPlayerSpawn);
+
+        GameObject player = Instantiate(player1, spawnPos, Quaternion.identity);
+        NetworkServer.Spawn(player, connectionToClient);
+
+        if (isLocalPlayerSpawn)
+        {
+            CinemachineVirtualCamera virtualCamera = player.GetComponentInChildren<CinemachineVirtualCamera>();
+            if (virtualCamera != null)
+            {
+                virtualCamera.enabled = true;
+            }
+        }
     }
 
     public int getNumRows()
@@ -183,6 +223,10 @@ public class LevelSpawner : NetworkBehaviour
     public int getNumCols()
     {
         return numCols;
+    }
+    public int getOpenness()
+    {
+        return p_openness;
     }
     public bool setNumRows(int M)
     {
@@ -198,6 +242,15 @@ public class LevelSpawner : NetworkBehaviour
         if (N >= minDim && N <= maxDim)
         {
             numCols = N;
+            return true;
+        }
+        return false;
+    }
+    public bool setOpenness(int p)
+    {
+        if (p >= 0.0 && p < 1.0)
+        {
+            p_openness = p;
             return true;
         }
         return false;

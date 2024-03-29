@@ -3,10 +3,10 @@ function RoomsVals = calcRoomVals(Maze,interiorNodes,M,N)
 %CALROOMVALS Calculate the room values based on the walls surrounding a
 %room
 arguments
-    Maze graph
+    Maze (1,1) graph
     interiorNodes (:,:) double
-    M double
-    N double
+    M (1,1) double
+    N (1,1) double
 end
 
 % set the values for the exterior walls since they are fixed

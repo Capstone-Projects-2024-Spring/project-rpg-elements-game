@@ -27,10 +27,20 @@ public class Movement : NetworkBehaviour
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         boxCollider.sharedMaterial.friction = 1;
+
+        if (!isLocalPlayer)
+        {
+            enabled = false;
+        }
     }
 
     private void Update()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         if (isLocalPlayer)
         {
             float horizontalInput = Input.GetAxis("Horizontal");

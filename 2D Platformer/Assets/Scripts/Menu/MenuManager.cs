@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        instance.OpenMenu("LogInPage");
     }
 
     public void OpenMenu(string menuName)
@@ -19,7 +20,7 @@ public class MenuManager : MonoBehaviour
         {
             if (menus[i].menuName == menuName)
             {
-                OpenMenu(menus[i]);
+                menus[i].Open();
             }
             else if (menus[i].isOpen)
             {

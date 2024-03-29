@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 2183536293943640269}
   - component: {fileID: 2271894077357435672}
   - component: {fileID: 4647809476444413583}
+  - component: {fileID: 8284024380379595164}
   m_Layer: 8
   m_Name: Skrake
   m_TagString: Enemy
@@ -337,3 +338,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visionRange: 10
   SkrakeStats: {fileID: 1426025100367752646}
+--- !u!114 &8284024380379595164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6749484314320138859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 3354180740
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
