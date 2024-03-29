@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine.Networking;
 using System.Linq;
 using Mirror;
+using Cinemachine;
 
 public class LevelSpawner : NetworkBehaviour
 {
