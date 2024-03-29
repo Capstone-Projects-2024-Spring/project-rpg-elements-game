@@ -689,6 +689,9 @@ GameObject:
   - component: {fileID: 821054391102767121}
   - component: {fileID: 2725964921201996180}
   - component: {fileID: 209167587323273354}
+  - component: {fileID: 1583393277336031088}
+  - component: {fileID: 3828707209450216748}
+  - component: {fileID: 8887724719568220298}
   m_Layer: 0
   m_Name: Omar
   m_TagString: PlayerHurtbox
@@ -850,9 +853,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300200637edb24c4d8c633bd7f309fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStrength: 10
-  baseSpeed: 10
-  baseHealth: 100
+  statsConfig: {fileID: 0}
+  chipSpeed: 2
+  frontHealthBar: {fileID: 0}
+  backHealthBar: {fileID: 0}
+  healthText: {fileID: 0}
+  levelText: {fileID: 0}
 --- !u!114 &1997334554155446076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,6 +871,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20917fa7297fafd4ea355bb44335557d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 1617113524828428380}
   jump_height: 15
   groundLayer:
@@ -908,6 +917,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 0}
   attackName: Straight Punch
   attackDescription: Throw your fist straight forwards, sending anyone in front of
@@ -933,6 +945,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 0}
   attackName: Bunny Uppercut
   attackDescription: '"Deliver a fierce, quick uppercut to you opponents. While it
@@ -958,6 +973,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 0}
   attackName: Sax Kick
   attackDescription: A very quick attack where you thrust your leg forward, striking
@@ -984,6 +1002,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243be50834efbb04abd83eeae5aa0845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 0}
   attackName: Rabbit Rise
   attackDescription: A rising uppercut that propels you further into the air. Can't
@@ -1014,6 +1035,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727c5f7f68c5ce14fa9c6eed1d21930d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 0}
   attackName: Dash 'n' Slash
   attackDescription: A chargeable attack that will give a sudden burst of movement
@@ -1047,6 +1071,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 0}
   attackName: Cloud Strike
   attackDescription: Lift up your sword. Great for juggling opponents already in
@@ -1072,6 +1099,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e899b10adf554458c8b1fa9db4d51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 0}
   attackName: Sword Beam
   attackDescription: Summon a beam from your sword. It will travel straight forward,
@@ -1110,6 +1140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe0399eaff97a5449213f52a0083dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statSheet: {fileID: 0}
   attackName: Oblivion Dive
   attackDescription: A giant, massive slash that does a ton of damage, but it also
@@ -1134,6 +1167,74 @@ MonoBehaviour:
   aerialHitboxes:
   - {fileID: 1723615292638173369}
   fallingVelocity: {x: 3, y: -20}
+--- !u!114 &1583393277336031088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984122117270326092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 1
+  syncInterval: 0
+  clientAuthority: 1
+  animator: {fileID: 5315216812399354587}
+--- !u!114 &3828707209450216748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984122117270326092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 1840879254
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
+--- !u!114 &8887724719568220298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984122117270326092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 1889703892290793600}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  sendIntervalMultiplier: 1
+  timelineOffset: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChangeCorrectionMultiplier: 2
+  rotationSensitivity: 0.01
+  positionPrecision: 0.01
+  scalePrecision: 0.01
 --- !u!1 &8136480622574830865
 GameObject:
   m_ObjectHideFlags: 0
