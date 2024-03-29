@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        instance.OpenMenu("LogInPage");
     }
 
     public void OpenMenu(string menuName)
