@@ -1,0 +1,28 @@
+{
+  "id": "system-architecture/Algorithms",
+  "title": "Algorithms",
+  "description": "Procedural Generation Algorithm",
+  "source": "@site/docs/system-architecture/Algorithms.md",
+  "sourceDirName": "system-architecture",
+  "slug": "/system-architecture/Algorithms",
+  "permalink": "/your-project-name/docs/system-architecture/Algorithms",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/undefined/your-project-name/edit/main/documentation/docs/system-architecture/Algorithms.md",
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "System Architecture",
+    "permalink": "/your-project-name/docs/category/system-architecture"
+  },
+  "next": {
+    "title": "Architecture",
+    "permalink": "/your-project-name/docs/system-architecture/Architecture"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "requirements/Use-Case-Descriptions",
+  "title": "Use-case descriptions",
+  "description": "Use Case 1",
+  "source": "@site/docs/requirements/Use-Case-Descriptions.md",
+  "sourceDirName": "requirements",
+  "slug": "/requirements/Use-Case-Descriptions",
+  "permalink": "/your-project-name/docs/requirements/Use-Case-Descriptions",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/undefined/your-project-name/edit/main/documentation/docs/requirements/Use-Case-Descriptions.md",
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "System Overview",
+    "permalink": "/your-project-name/docs/requirements/System-Overview"
+  },
+  "next": {
+    "title": "System Architecture",
+    "permalink": "/your-project-name/docs/category/system-architecture"
+  }
+}

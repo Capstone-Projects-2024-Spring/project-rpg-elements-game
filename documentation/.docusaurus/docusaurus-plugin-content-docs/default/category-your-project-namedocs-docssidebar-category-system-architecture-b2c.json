@@ -1,0 +1,16 @@
+{
+  "title": "System Architecture",
+  "description": "Document Overview goes here.",
+  "slug": "/category/system-architecture",
+  "permalink": "/your-project-name/docs/category/system-architecture",
+  "navigation": {
+    "previous": {
+      "title": "Use-case descriptions",
+      "permalink": "/your-project-name/docs/requirements/Use-Case-Descriptions"
+    },
+    "next": {
+      "title": "Algorithms",
+      "permalink": "/your-project-name/docs/system-architecture/Algorithms"
+    }
+  }
+}
