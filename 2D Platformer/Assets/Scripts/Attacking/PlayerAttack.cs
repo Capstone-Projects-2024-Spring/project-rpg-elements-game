@@ -4,16 +4,20 @@ using UnityEngine;
 using System;
 using Unity.Properties;
 using Unity.IO.LowLevel.Unsafe;
+using Mirror;
 
 //The basic attack script that all attacks will inherit from. Contains logic that all attacks should follow.
-public abstract class PlayerAttack : MonoBehaviour
+public abstract class PlayerAttack : NetworkBehaviour
 {
     [SerializeField] private PlayerStats statSheet;
 
     protected Animator anim;
+    protected NetworkAnimator n_anim;
     protected Movement playerMovement;
     [SerializeField] public String attackName = "strike";
     [SerializeField] public string attackDescription = "A placeholder description for attacks. Seen by the user in the attack menu.";
+
+
 /*
 For the animator to know which animation to trigger. 
 It's a separate variable from attackName since I'll probably have to capialize the attack names later, but
@@ -70,9 +74,33 @@ they had beforehand is preserved for when they unfreeze
     private Vector2 storedVelocity = new Vector2();
 // A boolean to be used by other attacks that would want to limit whether or not an attack could be used
     protected bool other_constraints = true;
+
+    public void NetworkTrigger(string animatorHash) // call this method to set trigger and send over network 
+    {
+        anim.SetTrigger(animatorHash);
+
+        if (isServer)
+            RpcSendTrigger(animatorHash);
+        else if (isClient)
+            CmdSendTrigger(animatorHash);
+    }
+
+    [Command]
+    private void CmdSendTrigger(string animatorHash)
+    {
+        RpcSendTrigger(animatorHash);
+    }
+    [ClientRpc]
+    private void RpcSendTrigger(string animatorHash)
+    {
+        if (isLocalPlayer) // skip for owner, they invoke locally
+            return;
+        anim.SetTrigger(animatorHash);
+    }
 //Runs once when the script is started.
     protected virtual void Awake(){
         anim = GetComponent<Animator>();
+        n_anim = GetComponent<NetworkAnimator>();
         playerMovement = GetComponent<Movement>();
         body = GetComponentInParent<Rigidbody2D>();
         xKnockbackValue = Math.Abs(knockback[0]);
@@ -251,7 +279,8 @@ Only hits an enemy once until the attack ends.
 */
     protected virtual void Attack(){
         //Debug.Log("This should only print once");
-        anim.SetTrigger(animationTrigger);
+        //NetworkTrigger(animationTrigger);
+        n_anim.SetTrigger(animationTrigger);
     }
     
 /*

@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &89863820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +449,7 @@ MonoBehaviour:
   finalBossRoom: 1
   roomWidth: 10
   roomHeight: 10
+  newPos: {x: 0, y: 0}
 --- !u!114 &1008764833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -953,7 +954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2125753447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1001,6 +1002,23 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs:
+  - {fileID: 6554584858392232962, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+  - {fileID: 8715419012732498495, guid: 003df1088ac3e4ac2b47c2b652db38e0, type: 3}
+  - {fileID: 7821585138313092938, guid: 364bb0649d1b944afa0f74711e895df4, type: 3}
+  - {fileID: 9111875723008216564, guid: b7ab77f4138a34b63ac04f929083b472, type: 3}
+  - {fileID: 4919471837628295668, guid: 797745f8dd2904b16ac0d1deaea2f078, type: 3}
+  - {fileID: 1715253314274515272, guid: 65e50cd758e714e91944904cde625462, type: 3}
+  - {fileID: 5825373303130384037, guid: e2cc3768233aa4ee2ab7481aa01d642c, type: 3}
+  - {fileID: 8050459667627358208, guid: 5722b06bc58a54b6ba509ce822c49900, type: 3}
+  - {fileID: 6907610008828045339, guid: fa0a92fd626544673a544d82870dc981, type: 3}
+  - {fileID: 7253599803067960755, guid: b1eb4d4bb89c648bd957cc4237628da7, type: 3}
+  - {fileID: 5000581182978562659, guid: 4d89a9ab7a1494d18a309cdae97ccc16, type: 3}
+  - {fileID: 6832416790342060017, guid: c9f1f2944879b4d49819c6f85718cb3b, type: 3}
+  - {fileID: 8876503054828720652, guid: 60951059604734c9491d2dc122fed128, type: 3}
+  - {fileID: 1879620722501263601, guid: 01b6e66644e3240f8aa87b1abafb5931, type: 3}
+  - {fileID: 70021930447007690, guid: 70bebc30ac25845e89d185f833e28d18, type: 3}
+  - {fileID: 6630251519251888355, guid: a7828decadc884eefa93b951ce13b20c, type: 3}
+  - {fileID: 4969559848893933694, guid: 604324fd7ca6b4f43bc4cf298584021f, type: 3}
   - {fileID: 959457127545484383, guid: 154d9e93b99fe460d9f3c9c183e11bd3, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
@@ -1106,7 +1124,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3

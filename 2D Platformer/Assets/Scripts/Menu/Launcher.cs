@@ -1,3 +1,4 @@
+using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     
     [SerializeField] Transform playerListContent;
     [SerializeField] GameObject playerListItemPrefab;
+    public GameObject startButton;
 
     public void Awake()
     {
@@ -35,11 +37,13 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         Debug.Log("Connected to Master");
         PhotonNetwork.JoinLobby();
+        PhotonNetwork.AutomaticallySyncScene = true;
+
     }
 
     public override void OnJoinedLobby()
     {
-        MenuManager.instance.OpenMenu("MainMenu");
+        
         Debug.Log("Joined Lobby");
         PhotonNetwork.NickName = "Player " + Random.Range(0, 10000).ToString("0000");
     }
@@ -64,6 +68,16 @@ public class Launcher : MonoBehaviourPunCallbacks
         MenuManager.instance.OpenMenu("RoomMenu");
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 
+        //generate a random ID
+        string playerId = GeneratePlayerId();
+
+        // Set the player ID as a custom property for the local player
+        Hashtable playerCustomProperties = new Hashtable
+        {
+            { "PlayerId", playerId }
+        };
+        PhotonNetwork.LocalPlayer.SetCustomProperties(playerCustomProperties);
+
         Player[] players = PhotonNetwork.PlayerList;
 
         //delete previous playerlist objects for this user
@@ -77,6 +91,22 @@ public class Launcher : MonoBehaviourPunCallbacks
         {
             Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
         }
+
+        //if it is the master client button start button will show
+        startButton.SetActive(PhotonNetwork.IsMasterClient);
+    }
+    private string GeneratePlayerId()
+    {
+        // Generate a unique player ID based on your requirements
+        // For example, you can combine username and timestamp
+        string username = PhotonNetwork.NickName;
+        string timestamp = System.DateTime.Now.ToString("yyyyMMddHHmmssfff");
+        return username + "_" + timestamp;
+    }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        startButton.SetActive(PhotonNetwork.IsMasterClient);
     }
 
     public override void OnCreateRoomFailed(short returnCode, string errorMessage)
@@ -89,6 +119,27 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.JoinRoom(info.Name);
         MenuManager.instance.OpenMenu("LoadingMenu");
+    }
+
+    public void StartGame()
+    {
+        // Iterate through the list of players
+        foreach (Player player in PhotonNetwork.PlayerList)
+        {
+            // Access player properties
+            object playerId;
+            if (player.CustomProperties.TryGetValue("PlayerId", out playerId))
+            {
+                Debug.Log("Player ID: " + playerId);
+                // Pass playerId to Mirror for network communication
+                // Example: MirrorPlayerManager.Instance.AddPlayer(playerId);
+            }
+            else
+            {
+                Debug.LogWarning("Player ID not found for player: " + player.NickName);
+            }
+        }
+        PhotonNetwork.LoadLevel("LevelGenerator");
     }
 
     public void LeaveRoom()
