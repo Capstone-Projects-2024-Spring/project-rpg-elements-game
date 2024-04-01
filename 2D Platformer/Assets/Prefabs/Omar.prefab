@@ -831,7 +831,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.26278985, y: -0.8460157}
+  m_Offset: {x: -0.30378765, y: -0.8460157}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -842,7 +842,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0589387, y: 3.7880092}
+  m_Size: {x: 1.9769431, y: 3.7880092}
   m_EdgeRadius: 0
 --- !u!114 &1617113524828428380
 MonoBehaviour:
@@ -1042,26 +1042,26 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   statSheet: {fileID: 1617113524828428380}
-  attackName: Dash 'n' Slash
+  attackName: Charging Lunge
   attackDescription: A chargeable attack that will give a sudden burst of movement
     forwards when released. How far you go depends on how long you charge.
-  animationTrigger: dashnslash
-  power: 10
+  animationTrigger: charginglunge
+  power: 6
   knockback:
-  - 4
-  - 12
+  - 2
+  - 9
   triggerKey: 117
   hitboxes:
   - {fileID: 1723615292638173369}
-  visible_hitboxes: 0
-  midLevelThreshold: 0.7
-  maxLevelThreshold: 1.5
-  midLevelMultiplier: 1.4
-  maxLevelMultiplier: 1.8
-  dashAcceleration: 4
-  maxVelocity: 10
-  dashTimer: 0.34
-  startingLag: 0.28
+  visible_hitboxes: 1
+  midLevelThreshold: 0.4
+  maxLevelThreshold: 1.6
+  midLevelMultiplier: 1.2
+  maxLevelMultiplier: 1.9
+  dashAcceleration: 5
+  maxVelocity: 8.8
+  dashTimer: 0.4
+  startingLag: 0.2
 --- !u!114 &821054391102767121
 MonoBehaviour:
   m_ObjectHideFlags: 0
