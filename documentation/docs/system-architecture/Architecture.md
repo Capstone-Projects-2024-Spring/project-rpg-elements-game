@@ -32,12 +32,17 @@ Photon is a real-time cloud Networking solution that is used for room-based mult
 classDiagram
 
     Player o-- PlayerController
+    Player o-- PlayerStats
     Player -- UIManager
+    EnemyController o-- EnemyStats
+    CharacterStat -- EnemyStats
+    CharacterStat -- PlayerStats
 
     Firebase o-- ChatMessenger
     Firebase o-- UserAuthentication
     Firebase o-- FriendsListManager
     LoginManager --o Firebase
+
 
     Photon o-- Launcher
     Photon o-- QuickMatch
@@ -177,6 +182,33 @@ classDiagram
             DisplayExperience()
             DisplayLevel()
             UpdateDisplay()
+        }
+
+        class CharacterStat{
+            +BaseValue: float
+            +Value: float
+            -StatModifiers: List<StatModifier>
+            IncreaseStat(int amt): void
+            DecreaseStat(int amt): void
+            AddModifier(StatModifier Mod): void
+            RemoveModifier(StatModifier Mod): bool
+            CalculateFinalValue(): float
+        }
+
+        class EnemyStats{
+            +Health: CharacterStat
+            +Strength: CharacterStat
+            +Speed: CharacterStat
+        }
+
+        class PlayerStats{
+            +Health: CharacterStat
+            +Strength: CharacterStat
+            +Speed: CharacterStat
+            TakeDamage(int damageTaken): void
+            Heal(int amountHealed): void
+            Die(): void
+            HandleLevelUp(int level): void 
         }
     }
 ```
