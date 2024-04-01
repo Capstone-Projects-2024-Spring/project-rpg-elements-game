@@ -1,0 +1,31 @@
+{
+  "id": "api-specification/openapi-spec",
+  "title": "API 1 - Swagger Petstore",
+  "description": "API Specification from openapi.yml",
+  "source": "@site/docs/api-specification/openapi-spec.md",
+  "sourceDirName": "api-specification",
+  "slug": "/api-specification/openapi-spec",
+  "permalink": "/your-project-name/docs/api-specification/openapi-spec",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/undefined/your-project-name/edit/main/documentation/docs/api-specification/openapi-spec.md",
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "title": "API 1 - Swagger Petstore",
+    "description": "API Specification from openapi.yml",
+    "hide_table_of_contents": true,
+    "sidebar_position": 2
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Design Document - Part II API",
+    "permalink": "/your-project-name/docs/api-specification/design-api-intro"
+  },
+  "next": {
+    "title": "CalculatorModel.java",
+    "permalink": "/your-project-name/docs/api-specification/calculator-model-generated"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "tutorial-basics/create-a-page",
+  "title": "Create a Page",
+  "description": "Add Markdown or React files to src/pages to create a standalone page:",
+  "source": "@site/tutorial/tutorial-basics/create-a-page.md",
+  "sourceDirName": "tutorial-basics",
+  "slug": "/tutorial-basics/create-a-page",
+  "permalink": "/your-project-name/tutorial/tutorial-basics/create-a-page",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Tutorial - Basics",
+    "permalink": "/your-project-name/tutorial/category/tutorial---basics"
+  },
+  "next": {
+    "title": "Create a Document",
+    "permalink": "/your-project-name/tutorial/tutorial-basics/create-a-document"
+  }
+}

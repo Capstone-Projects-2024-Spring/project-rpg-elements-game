@@ -1,0 +1,28 @@
+{
+  "id": "system-architecture/Version-Control",
+  "title": "Version Control",
+  "description": "GitHub will be used as the version control system.",
+  "source": "@site/docs/system-architecture/Version-Control.md",
+  "sourceDirName": "system-architecture",
+  "slug": "/system-architecture/Version-Control",
+  "permalink": "/your-project-name/docs/system-architecture/Version-Control",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/undefined/your-project-name/edit/main/documentation/docs/system-architecture/Version-Control.md",
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Sequence-Diagrams",
+    "permalink": "/your-project-name/docs/system-architecture/Sequence-Diagrams"
+  },
+  "next": {
+    "title": "API Specification",
+    "permalink": "/your-project-name/docs/category/api-specification"
+  }
+}

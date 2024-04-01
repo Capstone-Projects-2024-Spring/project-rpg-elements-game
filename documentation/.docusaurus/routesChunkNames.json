@@ -1,0 +1,225 @@
+{
+  "/your-project-name/__docusaurus/debug-fb4": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---your-project-name-docusaurus-debuge-2-c-1cc"
+    }
+  },
+  "/your-project-name/__docusaurus/debug/config-007": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---your-project-name-docusaurus-debuge-2-c-1cc"
+    }
+  },
+  "/your-project-name/__docusaurus/debug/content-193": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---your-project-name-docusaurus-debuge-2-c-1cc"
+    },
+    "allContent": "allContent---your-project-name-docusaurus-debug-content-246-199"
+  },
+  "/your-project-name/__docusaurus/debug/globalData-d52": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---your-project-name-docusaurus-debuge-2-c-1cc"
+    }
+  },
+  "/your-project-name/__docusaurus/debug/metadata-6ca": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---your-project-name-docusaurus-debuge-2-c-1cc"
+    }
+  },
+  "/your-project-name/__docusaurus/debug/registry-13f": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---your-project-name-docusaurus-debuge-2-c-1cc"
+    }
+  },
+  "/your-project-name/__docusaurus/debug/routes-7f8": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---your-project-name-docusaurus-debuge-2-c-1cc"
+    }
+  },
+  "/your-project-name/api-c96": {
+    "__comp": "__comp---theme-api-docf-0-a-77e",
+    "__context": {
+      "plugin": "plugin---your-project-name-api-42-a-13d"
+    },
+    "specProps": "specProps---your-project-name-apiac-9-ff4",
+    "layoutProps": "layoutProps---your-project-name-api-111-c0d"
+  },
+  "/your-project-name/markdown-page-366": {
+    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__context": {
+      "plugin": "plugin---your-project-name-markdown-pagee-57-b88"
+    },
+    "content": "content---your-project-name-markdown-page-393-569"
+  },
+  "/your-project-name/docs-2a8": {
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__context": {
+      "plugin": "plugin---your-project-name-docsa-4-e-41b"
+    }
+  },
+  "/your-project-name/docs-174": {
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "version": "version---your-project-name-docs-935-106"
+  },
+  "/your-project-name/docs-92c": {
+    "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/your-project-name/docs/api-specification/calculator-model-generated-116": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-api-specification-calculator-model-generated-986-53e"
+  },
+  "/your-project-name/docs/api-specification/design-api-intro-58c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-api-specification-design-api-introdb-8-cb8"
+  },
+  "/your-project-name/docs/api-specification/openapi-spec-ffb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-api-specification-openapi-specfb-6-d52"
+  },
+  "/your-project-name/docs/category/api-specification-cc9": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---your-project-name-docs-category-api-specificatione-97-776"
+  },
+  "/your-project-name/docs/category/requirements-specification-581": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---your-project-name-docs-category-requirements-specification-7-e-1-c1a"
+  },
+  "/your-project-name/docs/category/system-architecture-8f8": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---your-project-name-docs-category-system-architecture-494-b37"
+  },
+  "/your-project-name/docs/category/test-procedures-e43": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---your-project-name-docs-category-test-procedures-124-681"
+  },
+  "/your-project-name/docs/intro-dcf": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-introf-84-20f"
+  },
+  "/your-project-name/docs/requirements/Features-and-Requirements-e7c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-requirements-features-and-requirements-4-f-1-1fd"
+  },
+  "/your-project-name/docs/requirements/General-Requirements-e5b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-requirements-general-requirementsc-91-f35"
+  },
+  "/your-project-name/docs/requirements/System-Block-Diagram-18f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-requirements-system-block-diagram-872-f5a"
+  },
+  "/your-project-name/docs/requirements/System-Overview-505": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-requirements-system-overviewe-47-959"
+  },
+  "/your-project-name/docs/requirements/Use-Case-Descriptions-d30": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-requirements-use-case-descriptions-6-ff-cc8"
+  },
+  "/your-project-name/docs/system-architecture/Algorithms-847": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-system-architecture-algorithms-062-327"
+  },
+  "/your-project-name/docs/system-architecture/Architecture-c10": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-system-architecture-architecture-246-f79"
+  },
+  "/your-project-name/docs/system-architecture/Development-Environment-810": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-system-architecture-development-environment-7-f-8-c2c"
+  },
+  "/your-project-name/docs/system-architecture/Sequence-Diagrams-cf4": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-system-architecture-sequence-diagrams-192-0ee"
+  },
+  "/your-project-name/docs/system-architecture/Version-Control-752": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-system-architecture-version-control-2-f-7-1d7"
+  },
+  "/your-project-name/docs/testing/acceptence-testing-e75": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-testing-acceptence-testingfc-3-4d3"
+  },
+  "/your-project-name/docs/testing/integration-testing-30f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-testing-integration-testing-9-ca-f14"
+  },
+  "/your-project-name/docs/testing/unit-testing-05d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-docs-testing-unit-testingf-85-241"
+  },
+  "/your-project-name/tutorial-feb": {
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__context": {
+      "plugin": "plugin---your-project-name-tutoriale-97-cb8"
+    }
+  },
+  "/your-project-name/tutorial-b75": {
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "version": "version---your-project-name-tutorialf-89-782"
+  },
+  "/your-project-name/tutorial-6e9": {
+    "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/your-project-name/tutorial/category/custom-components-9e3": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---your-project-name-tutorial-category-custom-componentsd-9-b-f88"
+  },
+  "/your-project-name/tutorial/category/tutorial---basics-e65": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---your-project-name-tutorial-category-tutorial-basicsc-4-e-453"
+  },
+  "/your-project-name/tutorial/category/tutorial---extras-75f": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---your-project-name-tutorial-category-tutorial-extras-81-f-119"
+  },
+  "/your-project-name/tutorial/custom-components/figure-615": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-tutorial-custom-components-figure-863-822"
+  },
+  "/your-project-name/tutorial/intro-1fd": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-tutorial-introdeb-9ac"
+  },
+  "/your-project-name/tutorial/tutorial-basics/congratulations-cfd": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-tutorial-tutorial-basics-congratulationsc-0-b-a0b"
+  },
+  "/your-project-name/tutorial/tutorial-basics/create-a-document-afc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-tutorial-tutorial-basics-create-a-document-61-d-14a"
+  },
+  "/your-project-name/tutorial/tutorial-basics/create-a-page-f68": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-tutorial-tutorial-basics-create-a-pageecf-513"
+  },
+  "/your-project-name/tutorial/tutorial-basics/deploy-your-site-616": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-tutorial-tutorial-basics-deploy-your-siteb-5-f-621"
+  },
+  "/your-project-name/tutorial/tutorial-basics/markdown-features-477": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-tutorial-tutorial-basics-markdown-features-97-b-bbd"
+  },
+  "/your-project-name/tutorial/tutorial-extras/manage-docs-versions-ce8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-tutorial-tutorial-extras-manage-docs-versions-208-b04"
+  },
+  "/your-project-name/tutorial/tutorial-extras/translate-your-site-464": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---your-project-name-tutorial-tutorial-extras-translate-your-sitefde-c05"
+  },
+  "/your-project-name/-bc9": {
+    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
+    "__context": {
+      "plugin": "plugin---your-project-name-markdown-pagee-57-b88"
+    },
+    "config": "config---your-project-name-5-e-9-9ad"
+  }
+}
