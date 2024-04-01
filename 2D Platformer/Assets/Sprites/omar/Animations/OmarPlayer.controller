@@ -728,7 +728,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_CloudStrike
+  m_Name: Attack_LadderKick
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -743,7 +743,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 342ad1adcde633d43824cd4f059e52e7, type: 2}
+  m_Motion: {fileID: 7400000, guid: f646f1db60fbd524aad7a7e275aa38b6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1014,7 +1014,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: cloudstrike
+  - m_Name: ladderkick
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1475,7 +1475,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: cloudstrike
+    m_ConditionEvent: ladderkick
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1271222452800091533}
@@ -1848,7 +1848,7 @@ AnimatorStateMachine:
     m_Position: {x: 370, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1271222452800091533}
-    m_Position: {x: -50, y: 160, z: 0}
+    m_Position: {x: -40, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -42644318450621922}
     m_Position: {x: 180, y: -260, z: 0}

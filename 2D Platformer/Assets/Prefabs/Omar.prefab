@@ -1078,14 +1078,14 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   statSheet: {fileID: 1617113524828428380}
-  attackName: Cloud Strike
+  attackName: Ladder Kick
   attackDescription: Lift up your sword. Great for juggling opponents already in
     the air.
-  animationTrigger: cloudstrike
-  power: 5
+  animationTrigger: ladderkick
+  power: 7
   knockback:
-  - 1.2
-  - 6.7
+  - 0.6
+  - 7.7
   triggerKey: 105
   hitboxes:
   - {fileID: 1723615292638173369}
@@ -1581,8 +1581,8 @@ MonoBehaviour:
   statSheet: {fileID: 0}
   DamageText: {fileID: 8458354314928785234, guid: 0ca3cf36077335c4ebb9d7deb8695545, type: 3}
   DamageTextComponent: {fileID: 8863875750191080330, guid: 0ca3cf36077335c4ebb9d7deb8695545, type: 3}
-  characterName: Gary
-  playerStatSheet: {fileID: 0}
+  characterName: Omar
+  playerStatSheet: {fileID: 1617113524828428380}
 --- !u!61 &4086353466498878846
 BoxCollider2D:
   m_ObjectHideFlags: 0
