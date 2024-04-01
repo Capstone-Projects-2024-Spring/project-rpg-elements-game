@@ -22,6 +22,7 @@ public class FirebaseController : MonoBehaviour
         signupPanel.SetActive(false);
         profilePanel.SetActive(false);
         forgotPassPanel.SetActive(false);
+        notifPanel.SetActive(false);
     }
 
     public void OpenSignupPanel()
@@ -31,6 +32,7 @@ public class FirebaseController : MonoBehaviour
         signupPanel.SetActive(true);
         profilePanel.SetActive(false);
         forgotPassPanel.SetActive(false);
+        notifPanel.SetActive(false);
     }
 
     public void OpenProfilePanel()
@@ -40,6 +42,7 @@ public class FirebaseController : MonoBehaviour
         signupPanel.SetActive(false);
         profilePanel.SetActive(true);
         forgotPassPanel.SetActive(false);
+        notifPanel.SetActive(false);
     }
 
     public void OpenForgotPassPanel()
@@ -49,6 +52,8 @@ public class FirebaseController : MonoBehaviour
         signupPanel.SetActive(false);
         profilePanel.SetActive(false);
         forgotPassPanel.SetActive(true);
+        notifPanel.SetActive(false);
+        notifPanel.SetActive(false);
     }
 
     public void LastScene()
@@ -65,18 +70,18 @@ public class FirebaseController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(loginEmail.text) && string.IsNullOrEmpty(loginPassword.text))
         {
-            showNotif("One or more fields are empty, please enter your account email and password");
+            ShowNotif("One or more fields are empty, please enter your account email and password");
             return;
         }
 
         // login code here
     }
 
-    public void Signup()
+    public void SignUp()
     {
         if (string.IsNullOrEmpty(signupEmail.text) && string.IsNullOrEmpty(signupPassword.text) && string.IsNullOrEmpty(signupConfirm.text) && string.IsNullOrEmpty(signupIGN.text))
         {
-            showNotif("One or more fields are empty, please enter an email address, new password, and in-game name");
+            ShowNotif("One or more fields are empty, please enter an email address, new password, and in-game name");
             return;
         }
 
@@ -84,23 +89,23 @@ public class FirebaseController : MonoBehaviour
 
     }
 
-    public void forgotPassword()
+    public void ForgotPassword()
     {
         if (string.IsNullOrEmpty(forgetPassEmail.text))
         {
-            showNotif("No email entered");
+            ShowNotif("No email entered");
             return;
         }
     }
 
-    public void showNotif(string message)
+    public void ShowNotif(string message)
     {
         notif_Text.text = "" + message;
 
         notifPanel.SetActive(true);
     }
 
-    public void closeNotif()
+    public void CloseNotif()
     {
         notif_Text.text = "";
 
