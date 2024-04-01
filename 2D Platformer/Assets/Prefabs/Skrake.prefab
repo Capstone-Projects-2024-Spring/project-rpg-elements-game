@@ -145,6 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statSheet: {fileID: 1426025100367752646}
+  DamageText: {fileID: 8458354314928785234, guid: 0ca3cf36077335c4ebb9d7deb8695545, type: 3}
+  DamageTextComponent: {fileID: 8863875750191080330, guid: 0ca3cf36077335c4ebb9d7deb8695545, type: 3}
   characterName: Skrake
 --- !u!114 &1426025100367752646
 MonoBehaviour:
@@ -160,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHealth: 50
   baseStrength: 15
-  baseSpeed: 10
+  baseSpeed: 3
 --- !u!1 &6749484314320138859
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +175,8 @@ GameObject:
   - component: {fileID: 8684275123832690535}
   - component: {fileID: 2183536293943640269}
   - component: {fileID: 2271894077357435672}
+  - component: {fileID: 4647809476444413583}
+  - component: {fileID: 8284024380379595164}
   m_Layer: 8
   m_Name: Skrake
   m_TagString: Enemy
@@ -320,3 +324,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.37649, y: 2.627207}
   m_EdgeRadius: 0
+--- !u!114 &4647809476444413583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6749484314320138859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a02c860a7f908014d85f9502af12115b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visionRange: 10
+  SkrakeStats: {fileID: 1426025100367752646}
+--- !u!114 &8284024380379595164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6749484314320138859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 3354180740
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0

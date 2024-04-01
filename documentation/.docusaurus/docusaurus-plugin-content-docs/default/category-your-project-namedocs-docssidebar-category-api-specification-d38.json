@@ -1,0 +1,16 @@
+{
+  "title": "API Specification",
+  "description": "Please remove and replace examples where necessary.",
+  "slug": "/category/api-specification",
+  "permalink": "/your-project-name/docs/category/api-specification",
+  "navigation": {
+    "previous": {
+      "title": "Version Control",
+      "permalink": "/your-project-name/docs/system-architecture/Version-Control"
+    },
+    "next": {
+      "title": "Design Document - Part II API",
+      "permalink": "/your-project-name/docs/api-specification/design-api-intro"
+    }
+  }
+}

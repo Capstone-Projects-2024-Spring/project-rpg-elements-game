@@ -1,0 +1,28 @@
+{
+  "id": "requirements/Features-and-Requirements",
+  "title": "Features and Requirements",
+  "description": "Functional Requirements",
+  "source": "@site/docs/requirements/Features-and-Requirements.md",
+  "sourceDirName": "requirements",
+  "slug": "/requirements/Features-and-Requirements",
+  "permalink": "/your-project-name/docs/requirements/Features-and-Requirements",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/undefined/your-project-name/edit/main/documentation/docs/requirements/Features-and-Requirements.md",
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Requirements Specification",
+    "permalink": "/your-project-name/docs/category/requirements-specification"
+  },
+  "next": {
+    "title": "General Requirements",
+    "permalink": "/your-project-name/docs/requirements/General-Requirements"
+  }
+}

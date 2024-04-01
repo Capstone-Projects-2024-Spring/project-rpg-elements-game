@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1116650710245067803}
   - component: {fileID: 8440981148901079420}
   - component: {fileID: 5740802377980010421}
+  - component: {fileID: -6515216306881518061}
   m_Layer: 0
   m_Name: tileset_dungeon_PNG_3
   m_TagString: Untagged
@@ -143,3 +144,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753ac1e347cdb41019cc1b21c83efbf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6515216306881518061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959457127545484383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 3825153366
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0

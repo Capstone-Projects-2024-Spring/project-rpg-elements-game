@@ -1,15 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 using System.Threading.Tasks;
 using UnityEngine.Networking;
 using System.Linq;
+using Mirror;
+using Cinemachine;
 
-public class LevelSpawner : MonoBehaviour
+public class LevelSpawner : NetworkBehaviour
 {
-    private int M = 10;
-    private int N = 10;
+    private int minDim = 10;
+    private int maxDim = 20;
+    private int numRows;
+    private int numCols;
+    private int p_openness = 10; // integer representation of percentage of interior walls to remove to increase connectivity. Can be [0,100)
     bool gotRandom = false;
     private int[] mapVector;
     private int[,] mapMatrix;
@@ -27,21 +29,32 @@ public class LevelSpawner : MonoBehaviour
         { 10, 12, 11, 8, 9, 12, 14, 10, 12, 14}
     }; //Matrix that will be made by algorithm
 
+    public Transform spawnRoom; //room where user spawns
     public Transform spawnPoint; // Spawn point for where rooms can spawns
     public GameObject player1; // Player 1 spawn
+    public GameObject doorPrefab;
+    public GameObject[] enemyPrefabs;
     public float spawnPlayerRoom = 100; // Spawn Player room
     public int roomCounter = 0; // Room Counter for Spawning
     public int finalBossRoom = 1; // Final Boss Spawn Room
     public float roomWidth = 10f; // Width of the rooms
     public float roomHeight = 10f; // Height of the rooms
-    public GameObject doorPrefab;
-    public GameObject[] enemyPrefabs;
+    public Vector2 newPos;
 
-    void Start()
+
+    public override void OnStartServer()
     {
+        base.OnStartServer();
         SpawnRooms();
     }
-
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        if (isLocalPlayer)
+        {
+            SpawnPlayer();
+        }
+    }
     public int getSpawnCounter()
     {
         return roomCounter;
@@ -49,18 +62,16 @@ public class LevelSpawner : MonoBehaviour
 
     async public void SpawnRooms()
     {
+        numRows = Random.Range(minDim, maxDim);
+        numCols = Random.Range(minDim, maxDim);
         gotRandom = await getRandomMap();
         vectorToMatrix();
-        int numRows;
-        int numCols;
 
         if (gotRandom)
         {
             roomTypes = mapMatrix;
-            spawnPlayerRoom = mapVector[M * N];
-            finalBossRoom = mapVector[M * N + 1];
-            numRows = M;
-            numCols = N;
+            spawnPlayerRoom = mapVector[numRows * numCols];
+            finalBossRoom = mapVector[numRows * numCols + 1];
         }
         else
         {
@@ -76,24 +87,32 @@ public class LevelSpawner : MonoBehaviour
                 int roomType = roomTypes[i, j];
                 if (roomType >= 0 && roomType < rooms.Length)
                 {
-                    Vector2 newPos = new Vector2(j * roomWidth, -i * roomHeight);
+                    newPos = new Vector2(j * roomWidth, -i * roomHeight);
                     // Ensure the correct rooms are spawning
-                    //Debug.Log("Spawning room of type: " + roomType);
-                    //Debug.Log("Room Location: " + newPos);
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
-                    //Debug.Log("Room Counter: " + roomCounter);
                     roomCounter++;
-
+                    NetworkServer.Spawn(room);
+                    SpawnEnemies(room, roomType);
                     if (roomCounter == spawnPlayerRoom)
                     {
-                        //Debug.Log("Room Location Final: " + newPos);
-                        //Debug.Log("Player Start Room: " + spawnPlayerRoom);
-                        Instantiate(player1, newPos, Quaternion.identity);
-                        Cinemachine.CinemachineVirtualCamera virtualCamera = player1.GetComponentInChildren<Cinemachine.CinemachineVirtualCamera>();
-                        if (virtualCamera != null)
+                        if (isLocalPlayer)
                         {
-                            virtualCamera.enabled = true;
+                            Instantiate(player1, newPos, Quaternion.identity);
+                            Vector2 spawnPos = GetSpawnPosition(newPos, out bool isLocalPlayerSpawn);
+
+                            GameObject player = Instantiate(player1, spawnPos, Quaternion.identity);
+                            NetworkServer.Spawn(player);
+                            CinemachineVirtualCamera virtualCamera = player.GetComponentInChildren<CinemachineVirtualCamera>();
+
+                            if (virtualCamera != null)
+                            { 
+                                virtualCamera.enabled = true;
+                            }
                         }
+                    }
+                    if (roomCounter == finalBossRoom)
+                    {
+                        SpawnDoor(room);
                     }
                 }
             }
@@ -102,8 +121,8 @@ public class LevelSpawner : MonoBehaviour
 
     private async Task<bool> getRandomMap()
     {
-        mapVector = new int[M * N + 2];
-        string data = "{ \"nargout\": 1, \"rhs\": [" + M.ToString() + "," + N.ToString() + "] }";
+        mapVector = new int[numRows * numCols + 2];
+        string data = "{ \"nargout\": 1, \"rhs\": [" + numRows.ToString() + "," + numCols.ToString() + "," + p_openness.ToString() + "] }";
         UnityWebRequest www = UnityWebRequest.Post("www.meatdeathoftheuniverse.com:9900/mapGenerator/mapGenerator", data, "application/json");
         www.SendWebRequest();
         while (!www.isDone)
@@ -113,13 +132,11 @@ public class LevelSpawner : MonoBehaviour
 
         if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError(www.error);
             gotRandom = false;
             return false;
         }
         else
         {
-            Debug.Log("Form upload complete!");
             string response = www.downloadHandler.text;
             int start = 19;
             int end = response.Substring(start).IndexOf("]");
@@ -130,7 +147,6 @@ public class LevelSpawner : MonoBehaviour
             {
                 return false;
             }
-            Debug.Log(mapString);
             foreach (var s in mapString.Split(','))
             {
                 n = int.Parse(s);
@@ -142,11 +158,11 @@ public class LevelSpawner : MonoBehaviour
     }
     private void vectorToMatrix()
     {
-        mapMatrix = new int[M, N];
+        mapMatrix = new int[numRows, numCols];
         int k = 0;
-        for (int i = 0; i < M; i++)
+        for (int i = 0; i < numRows; i++)
         {
-            for (int j = 0; j < N; j++)
+            for (int j = 0; j < numCols; j++)
             {
                 mapMatrix[i, j] = mapVector[k];
                 k++;
@@ -159,22 +175,84 @@ public class LevelSpawner : MonoBehaviour
         if (roomType == 8)
         {
             Transform[] enemySpawnPoints = room.GetComponentsInChildren<Transform>().Where(t => t.CompareTag("EnemySpawnPoint")).ToArray();
-
             int randEnemy = Random.Range(0, enemyPrefabs.Length);
-
             int randSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
-
-            Instantiate(enemyPrefabs[randEnemy], enemySpawnPoints[randSpawnPoint].position, Quaternion.identity);
+            GameObject enem=Instantiate(enemyPrefabs[randEnemy], enemySpawnPoints[randSpawnPoint].position, Quaternion.identity);
+            NetworkServer.Spawn(enem);
         }
     }
 
     public void SpawnDoor(GameObject room)
     {
         Vector2 roomPosition = room.transform.position;
-
         Vector2 doorSpawnPosition = new Vector2(roomPosition.x - roomWidth / 100f, roomPosition.y - roomHeight / 4f);
-
         GameObject door = Instantiate(doorPrefab, doorSpawnPosition, Quaternion.identity);
+        NetworkServer.Spawn(door);
+    }
 
+    private Vector2 GetSpawnPosition(Vector2 newPos, out bool isLocal)
+    {
+        Vector2 spawnPos = newPos; 
+        isLocal = isLocalPlayer && roomCounter == spawnPlayerRoom;
+        return spawnPos;
+    }
+
+    [Command]
+    private void SpawnPlayer()
+    {
+        bool isLocalPlayerSpawn;
+        Vector2 spawnPos = GetSpawnPosition(newPos, out isLocalPlayerSpawn);
+
+        GameObject player = Instantiate(player1, spawnPos, Quaternion.identity);
+        NetworkServer.Spawn(player, connectionToClient);
+
+        if (isLocalPlayerSpawn)
+        {
+            CinemachineVirtualCamera virtualCamera = player.GetComponentInChildren<CinemachineVirtualCamera>();
+            if (virtualCamera != null)
+            {
+                virtualCamera.enabled = true;
+            }
+        }
+    }
+
+    public int getNumRows()
+    {
+        return numRows;
+    }
+    public int getNumCols()
+    {
+        return numCols;
+    }
+    public int getOpenness()
+    {
+        return p_openness;
+    }
+    public bool setNumRows(int M)
+    {
+        if (M >= minDim && M <= maxDim)
+        {
+            numRows = M;
+            return true;
+        }
+        return false;
+    }
+    public bool setNumCols(int N)
+    {
+        if (N >= minDim && N <= maxDim)
+        {
+            numCols = N;
+            return true;
+        }
+        return false;
+    }
+    public bool setOpenness(int p)
+    {
+        if (p >= 0.0 && p < 1.0)
+        {
+            p_openness = p;
+            return true;
+        }
+        return false;
     }
 }

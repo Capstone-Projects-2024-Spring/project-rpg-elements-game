@@ -1,0 +1,28 @@
+{
+  "id": "requirements/General-Requirements",
+  "title": "General Requirements",
+  "description": "Jira",
+  "source": "@site/docs/requirements/General-Requirements.md",
+  "sourceDirName": "requirements",
+  "slug": "/requirements/General-Requirements",
+  "permalink": "/your-project-name/docs/requirements/General-Requirements",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/undefined/your-project-name/edit/main/documentation/docs/requirements/General-Requirements.md",
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Features and Requirements",
+    "permalink": "/your-project-name/docs/requirements/Features-and-Requirements"
+  },
+  "next": {
+    "title": "System Block Diagram",
+    "permalink": "/your-project-name/docs/requirements/System-Block-Diagram"
+  }
+}
