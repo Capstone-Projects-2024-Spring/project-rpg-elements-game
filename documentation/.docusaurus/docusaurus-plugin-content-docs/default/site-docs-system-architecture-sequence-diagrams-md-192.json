@@ -1,0 +1,28 @@
+{
+  "id": "system-architecture/Sequence-Diagrams",
+  "title": "Sequence-Diagrams",
+  "description": "State Diagram for Game Movement",
+  "source": "@site/docs/system-architecture/Sequence-Diagrams.md",
+  "sourceDirName": "system-architecture",
+  "slug": "/system-architecture/Sequence-Diagrams",
+  "permalink": "/your-project-name/docs/system-architecture/Sequence-Diagrams",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/undefined/your-project-name/edit/main/documentation/docs/system-architecture/Sequence-Diagrams.md",
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Development Environment",
+    "permalink": "/your-project-name/docs/system-architecture/Development-Environment"
+  },
+  "next": {
+    "title": "Version Control",
+    "permalink": "/your-project-name/docs/system-architecture/Version-Control"
+  }
+}

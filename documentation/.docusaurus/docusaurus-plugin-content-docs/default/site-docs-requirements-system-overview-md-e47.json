@@ -1,0 +1,28 @@
+{
+  "id": "requirements/System-Overview",
+  "title": "System Overview",
+  "description": "Project Abstract",
+  "source": "@site/docs/requirements/System-Overview.md",
+  "sourceDirName": "requirements",
+  "slug": "/requirements/System-Overview",
+  "permalink": "/your-project-name/docs/requirements/System-Overview",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/undefined/your-project-name/edit/main/documentation/docs/requirements/System-Overview.md",
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "System Block Diagram",
+    "permalink": "/your-project-name/docs/requirements/System-Block-Diagram"
+  },
+  "next": {
+    "title": "Use-case descriptions",
+    "permalink": "/your-project-name/docs/requirements/Use-Case-Descriptions"
+  }
+}

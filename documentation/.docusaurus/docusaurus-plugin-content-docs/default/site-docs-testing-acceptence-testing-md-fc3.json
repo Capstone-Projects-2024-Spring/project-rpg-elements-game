@@ -1,0 +1,24 @@
+{
+  "id": "testing/acceptence-testing",
+  "title": "Acceptance test",
+  "description": "| Project Name | Wildlife Odyssey | Block/Skip (B) | 0   |     |",
+  "source": "@site/docs/testing/acceptence-testing.md",
+  "sourceDirName": "testing",
+  "slug": "/testing/acceptence-testing",
+  "permalink": "/your-project-name/docs/testing/acceptence-testing",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/undefined/your-project-name/edit/main/documentation/docs/testing/acceptence-testing.md",
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Integration tests",
+    "permalink": "/your-project-name/docs/testing/integration-testing"
+  }
+}

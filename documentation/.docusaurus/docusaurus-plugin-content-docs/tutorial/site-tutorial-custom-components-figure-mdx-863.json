@@ -1,0 +1,19 @@
+{
+  "id": "custom-components/figure",
+  "title": "Figure Component",
+  "description": "The figure component is used for images or media that should be referenced.",
+  "source": "@site/tutorial/custom-components/figure.mdx",
+  "sourceDirName": "custom-components",
+  "slug": "/custom-components/figure",
+  "permalink": "/your-project-name/tutorial/custom-components/figure",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Custom Components",
+    "permalink": "/your-project-name/tutorial/category/custom-components"
+  }
+}
