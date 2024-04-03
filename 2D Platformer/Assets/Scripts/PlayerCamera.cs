@@ -19,7 +19,7 @@ public class PlayerCamera : NetworkBehaviour
         comp = camObj.GetComponentInChildren<CinemachineFramingTransposer>();
     }
 
-    /** public override void OnStartLocalPlayer()
+    public override void OnStartLocalPlayer()
      {
          base.OnStartLocalPlayer();
 
@@ -27,7 +27,7 @@ public class PlayerCamera : NetworkBehaviour
 
          camObj.Follow = parentTransform;
      }
-    **/
+    
     private void Start()
     {
         camObj = GetComponent<CinemachineVirtualCamera>();
