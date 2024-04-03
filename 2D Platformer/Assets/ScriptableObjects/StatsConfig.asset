@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7bc4069885304c43b3bc34d2ec75f93, type: 3}
   m_Name: StatsConfig
   m_EditorClassIdentifier: 
-  baseStrength: 10
+  baseStrength: 1
   strengthCurve:
     serializedVersion: 2
     m_Curve:
