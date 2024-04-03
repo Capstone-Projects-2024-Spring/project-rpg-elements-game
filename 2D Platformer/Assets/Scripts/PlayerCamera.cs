@@ -28,6 +28,7 @@ public class PlayerCamera : NetworkBehaviour
          camObj.Follow = parentTransform;
      }
     **/
+    
     private void Start()
     {
         camObj = GetComponent<CinemachineVirtualCamera>();
