@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 9893e1e7d2236604da4a309af526feeb, type: 3}
+      value: {fileID: 21300000, guid: 36018a05d17b82b499d834bed44964e9, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,7 +44,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 9893e1e7d2236604da4a309af526feeb, type: 3}
+    - {fileID: 21300000, guid: 36018a05d17b82b499d834bed44964e9, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -72,6 +72,13 @@ AnimationClip:
   m_Events:
   - time: 0
     functionName: setAttackStateFalse
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
+    functionName: DeactivateHitbox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
