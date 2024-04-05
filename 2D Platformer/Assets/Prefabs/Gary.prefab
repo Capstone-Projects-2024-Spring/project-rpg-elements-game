@@ -1380,7 +1380,7 @@ MonoBehaviour:
   collidesWithWalls: 0
   sprite: {fileID: 21300000, guid: 1aee9d8378de5b24da2ece2811ecc8da, type: 3}
   projectileSize: 0.8
-  projectileHitboxModifiers: {x: 4, y: 5}
+  projectileHitboxModifiers: {x: 5, y: 5}
 --- !u!114 &2821982427333218821
 MonoBehaviour:
   m_ObjectHideFlags: 0
