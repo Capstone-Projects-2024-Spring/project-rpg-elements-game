@@ -1,0 +1,28 @@
+{
+  "id": "requirements/System-Block-Diagram",
+  "title": "System Block Diagram",
+  "description": "SystemBlockDiagram_Updated",
+  "source": "@site/docs/requirements/System-Block-Diagram.md",
+  "sourceDirName": "requirements",
+  "slug": "/requirements/System-Block-Diagram",
+  "permalink": "/your-project-name/docs/requirements/System-Block-Diagram",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/undefined/your-project-name/edit/main/documentation/docs/requirements/System-Block-Diagram.md",
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "General Requirements",
+    "permalink": "/your-project-name/docs/requirements/General-Requirements"
+  },
+  "next": {
+    "title": "System Overview",
+    "permalink": "/your-project-name/docs/requirements/System-Overview"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Custom Components",
+  "description": "Custom Components built for the CIS 4398.",
+  "slug": "/category/custom-components",
+  "permalink": "/your-project-name/tutorial/category/custom-components",
+  "navigation": {
+    "previous": {
+      "title": "Translate your site",
+      "permalink": "/your-project-name/tutorial/tutorial-extras/translate-your-site"
+    },
+    "next": {
+      "title": "Figure Component",
+      "permalink": "/your-project-name/tutorial/custom-components/figure"
+    }
+  }
+}

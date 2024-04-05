@@ -1,0 +1,28 @@
+{
+  "id": "api-specification/calculator-model-generated",
+  "title": "CalculatorModel.java",
+  "description": "(generated using Javadoc to Markdown)",
+  "source": "@site/docs/api-specification/calculator-model-generated.md",
+  "sourceDirName": "api-specification",
+  "slug": "/api-specification/calculator-model-generated",
+  "permalink": "/your-project-name/docs/api-specification/calculator-model-generated",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/undefined/your-project-name/edit/main/documentation/docs/api-specification/calculator-model-generated.md",
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "API 1 - Swagger Petstore",
+    "permalink": "/your-project-name/docs/api-specification/openapi-spec"
+  },
+  "next": {
+    "title": "Test Procedures",
+    "permalink": "/your-project-name/docs/category/test-procedures"
+  }
+}

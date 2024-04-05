@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class SkrakeAI : MonoBehaviour
+public class SkrakeAI : NetworkBehaviour
 {
 
     private Transform player;

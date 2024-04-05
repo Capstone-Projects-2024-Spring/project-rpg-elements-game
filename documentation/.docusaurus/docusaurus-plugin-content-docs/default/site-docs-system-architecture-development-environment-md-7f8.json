@@ -1,0 +1,28 @@
+{
+  "id": "system-architecture/Development-Environment",
+  "title": "Development Environment",
+  "description": "Editors and IDEs:",
+  "source": "@site/docs/system-architecture/Development-Environment.md",
+  "sourceDirName": "system-architecture",
+  "slug": "/system-architecture/Development-Environment",
+  "permalink": "/your-project-name/docs/system-architecture/Development-Environment",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/undefined/your-project-name/edit/main/documentation/docs/system-architecture/Development-Environment.md",
+  "tags": [],
+  "version": "current",
+  "lastUpdatedBy": "Author",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "docsSidebar",
+  "previous": {
+    "title": "Architecture",
+    "permalink": "/your-project-name/docs/system-architecture/Architecture"
+  },
+  "next": {
+    "title": "Sequence-Diagrams",
+    "permalink": "/your-project-name/docs/system-architecture/Sequence-Diagrams"
+  }
+}
