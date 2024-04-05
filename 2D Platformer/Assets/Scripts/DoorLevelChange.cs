@@ -7,9 +7,7 @@ using System;
 
 public class Door : NetworkBehaviour
 {
-    public Vector2 bossPosition;
-
-    public GameObject player;
+    public Vector2 bossPosition = new Vector2(-78.5f, -18.5f);
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,12 +15,12 @@ public class Door : NetworkBehaviour
         {
             print("Switching Locations");
 
-            movePlayer(bossPosition);
+            movePlayer(other.gameObject);
         }
     }
 
-    [ClientRpc]
-    private void movePlayer(Vector2 bossPosition)
+    [Server]
+    private void movePlayer(GameObject player)
     {
         player.transform.position = bossPosition;
     }
