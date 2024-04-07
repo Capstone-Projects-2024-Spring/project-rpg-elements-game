@@ -10,11 +10,14 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [HideInInspector] public Transform parentAfterDrag;
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin Drag");
-        parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
-        transform.SetAsLastSibling();
-        image.raycastTarget = false;
+        if (transform.childCount == 0)
+        {
+            Debug.Log("Begin Drag");
+            parentAfterDrag = transform.parent;
+            transform.SetParent(transform.root);
+            transform.SetAsLastSibling();
+            image.raycastTarget = false;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -25,9 +28,17 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("End Drag");
-        transform.SetParent(parentAfterDrag);
-        image.raycastTarget = true;
+        try
+        {
+            Debug.Log("End Drag");
+            transform.SetParent(parentAfterDrag);
+            image.raycastTarget = true;
+        }
+        catch (System.NullReferenceException ex)
+        {
+            Debug.Log(ex + ": Did not drag any ability");
+        }
+        
     }
 
 }
