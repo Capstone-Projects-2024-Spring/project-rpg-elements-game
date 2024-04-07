@@ -10,6 +10,7 @@ public class SkrakeAI : NetworkBehaviour
     [SerializeField] private float visionRange = 5;
     private Rigidbody2D rb;
     private SpriteRenderer sb;
+    private Animator anim;
     private Color defaultColor;
     private bool currentlyAttacking = false;
     private bool inHitstun = false;
@@ -18,6 +19,7 @@ public class SkrakeAI : NetworkBehaviour
     private float moveSpeed = 1;
     private bool playerIsOnLeft = false;
     private float attackDirection = 1;
+    private bool running = false;
 
     void Start()
     {
@@ -27,10 +29,13 @@ public class SkrakeAI : NetworkBehaviour
         defaultColor = sb.color;
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
+        anim.SetBool("run", running);
+        anim.SetBool("hurt", inHitstun);
         float distToPlayer = Vector2.Distance(transform.position, player.transform.position);
         if (distToPlayer < visionRange)
         {
@@ -45,6 +50,7 @@ public class SkrakeAI : NetworkBehaviour
         if ((transform.position.x < player.position.x) && (Mathf.Abs(transform.position.x - player.position.x) > 2.5) && !currentlyAttacking && !inHitstun)
         {
             //player is on the right, move right
+            running = true;
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
             playerIsOnLeft = false;
             if (localScale.x > 0 && Mathf.Abs(transform.position.x - player.position.x) > 1) //face right if not already
@@ -55,6 +61,7 @@ public class SkrakeAI : NetworkBehaviour
         else if ((transform.position.x > player.position.x) && (Mathf.Abs(transform.position.x - player.position.x) > 2.5) && !currentlyAttacking && !inHitstun)
         {
             //player is on the left, move left
+            running = true;
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
             playerIsOnLeft = true;
             if (localScale.x < 0 && Mathf.Abs(transform.position.x - player.position.x) > 1) //face left if not already
@@ -85,6 +92,7 @@ public class SkrakeAI : NetworkBehaviour
     private IEnumerator StartAttack()
     {
         currentlyAttacking = true;
+        running = false;
         sb.color = Color.yellow;
         //check for what direction player was
         if (playerIsOnLeft)
@@ -102,6 +110,7 @@ public class SkrakeAI : NetworkBehaviour
     private IEnumerator BeginHitstun()
     {
         inHitstun = true;
+        running = false;
         sb.color = Color.blue;
         yield return new WaitForSeconds(2);
         sb.color = defaultColor;
