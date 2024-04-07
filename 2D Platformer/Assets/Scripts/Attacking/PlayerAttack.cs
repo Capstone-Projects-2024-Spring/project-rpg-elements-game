@@ -9,7 +9,7 @@ using Mirror;
 //The basic attack script that all attacks will inherit from. Contains logic that all attacks should follow.
 public abstract class PlayerAttack : NetworkBehaviour
 {
-    [SerializeField] private PlayerStats statSheet;
+    [SerializeField] protected PlayerStats statSheet;
 
     protected Animator anim;
     protected NetworkAnimator n_anim;
