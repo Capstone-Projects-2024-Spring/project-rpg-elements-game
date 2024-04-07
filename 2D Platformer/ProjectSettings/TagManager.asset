@@ -12,6 +12,7 @@ TagManager:
   - PlayerHurtbox
   - EnemySpawnPoint
   - Wall
+  - PlayerSpawnPoint
   layers:
   - Default
   - TransparentFX
