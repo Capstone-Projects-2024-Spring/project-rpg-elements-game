@@ -105,7 +105,7 @@ they had beforehand is preserved for when they unfreeze
         body = GetComponentInParent<Rigidbody2D>();
         xKnockbackValue = Math.Abs(knockback[0]);
         hitlag = setHitlag(knockback[0], knockback[1]);
-        power += (int)Math.Ceiling(statSheet.Strength.Value * 1.5);
+        //power += (int)Math.Ceiling(statSheet.Strength.Value * 1.5);
     }
 /*
     Sets up the following for each hitbox in the attack: Damage, Knockback, Hitlag, Visibility
