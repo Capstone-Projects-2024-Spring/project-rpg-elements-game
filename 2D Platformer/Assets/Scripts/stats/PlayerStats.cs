@@ -16,10 +16,12 @@ public class PlayerStats: MonoBehaviour {
 
     private float lerpTimer;
     public float chipSpeed = 2f;
+
+    private float healTimer = 0f;
     public Image frontHealthBar;
     public Image backHealthBar;
     public TextMeshProUGUI healthText;
-    public TextMeshProUGUI levelText;
+    //public TextMeshProUGUI levelText;
   
 
     //Basically on start, assigned these values to the ones in the config
@@ -64,9 +66,16 @@ public class PlayerStats: MonoBehaviour {
         {
             AddSpeed();
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        healTimer -= Time.deltaTime;
+        if (CurrentHealth.Value < Health.Value && healTimer <= 0f)
         {
-            heal(10);
+            if(CurrentHealth.Value + (int)(CurrentHealth.Value *.10) > Health.Value){
+                heal((int)(Health.Value - CurrentHealth.Value));
+            } else{
+                heal((int)(Health.Value *.10));
+            }
+            
+            healTimer = 5f;
         }
 
         UpdateHealthUI();
@@ -105,7 +114,7 @@ public class PlayerStats: MonoBehaviour {
     //Might be useful if you want to adjust stat gains by level or usch
     private void HandleLevelUp(int level)
     {
-        levelText.text = level.ToString();
+        //levelText.text = level.ToString();
         Debug.Log("Current player level is: " + level);
         int maxIncrease = 10; //Adjust this to change maximum stat growth
         float old; //Just used for debugging
