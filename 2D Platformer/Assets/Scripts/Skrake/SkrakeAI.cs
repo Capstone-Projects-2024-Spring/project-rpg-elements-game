@@ -59,6 +59,7 @@ public class SkrakeAI : NetworkBehaviour
             return players.OrderBy(o => Vector2.Distance(transform.position, o.transform.position)).ToList()[0].transform;
         } catch (ArgumentOutOfRangeException ex)
         {
+            Debug.Log(ex);
             return transform;
         }
     }
