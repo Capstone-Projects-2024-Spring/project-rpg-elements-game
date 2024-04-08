@@ -177,7 +177,6 @@ GameObject:
   - component: {fileID: 2271894077357435672}
   - component: {fileID: 4647809476444413583}
   - component: {fileID: 8284024380379595164}
-  - component: {fileID: 8636981495194475519}
   m_Layer: 8
   m_Name: Skrake
   m_TagString: Enemy
@@ -337,9 +336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02c860a7f908014d85f9502af12115b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
   visionRange: 10
   SkrakeStats: {fileID: 1426025100367752646}
 --- !u!114 &8284024380379595164
@@ -359,24 +355,3 @@ MonoBehaviour:
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
---- !u!95 &8636981495194475519
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6749484314320138859}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6395c583623dba64c8ea7d923ab9bf9a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
