@@ -9,7 +9,7 @@ using Mirror;
 //The basic attack script that all attacks will inherit from. Contains logic that all attacks should follow.
 public abstract class PlayerAttack : NetworkBehaviour
 {
-    [SerializeField] private PlayerStats statSheet;
+    [SerializeField] protected PlayerStats statSheet;
 
     protected Animator anim;
     protected NetworkAnimator n_anim;
@@ -105,6 +105,7 @@ they had beforehand is preserved for when they unfreeze
         body = GetComponentInParent<Rigidbody2D>();
         xKnockbackValue = Math.Abs(knockback[0]);
         hitlag = setHitlag(knockback[0], knockback[1]);
+        //power += (int)Math.Ceiling(statSheet.Strength.Value * 1.5);
     }
 /*
     Sets up the following for each hitbox in the attack: Damage, Knockback, Hitlag, Visibility
