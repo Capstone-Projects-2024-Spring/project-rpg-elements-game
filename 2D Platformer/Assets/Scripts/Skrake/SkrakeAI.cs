@@ -31,35 +31,36 @@ public class SkrakeAI : NetworkBehaviour
         sb = GetComponent<SpriteRenderer>();
         defaultColor = sb.color;
         rb = GetComponent<Rigidbody2D>();
-        players = GameObject.FindGameObjectsWithTag("Player");
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
+        players = GameObject.FindGameObjectsWithTag("Player"); 
         anim.SetBool("run", running);
         anim.SetBool("hurt", inHitstun);
-        try
+        //print(players + "=players");
+        closestPlayer = getClosestPlayer(players.ToList<GameObject>());
+        //print("closest player " + closestPlayer);
+        float distToPlayer = Vector2.Distance(transform.position, closestPlayer.transform.position);
+        //print("distance to player " + distToPlayer);
+        if (distToPlayer < visionRange)
         {
-            float distToPlayer = Vector2.Distance(transform.position, closestPlayer.transform.position);
-            closestPlayer = getClosestPlayer(players.ToList<GameObject>()); if (distToPlayer < visionRange)
-            {
-                //move towards detected player
-                ChasePlayer();
-            }
-        } catch (NullReferenceException ex)
-        {
-            Debug.Log(ex + "No objects with player tag detected");
-        } catch (UnassignedReferenceException ex)
-        {
-            Debug.Log(ex + "No objects with player tag to find distance to"); 
+            //move towards detected player
+            ChasePlayer();
         }
         
     }
 
     private Transform getClosestPlayer(List<GameObject> players)
     {
-        return players.OrderBy(o => Vector2.Distance(transform.position, o.transform.position)).ToList()[0].transform;
+        try
+        {
+            return players.OrderBy(o => Vector2.Distance(transform.position, o.transform.position)).ToList()[0].transform;
+        } catch (ArgumentOutOfRangeException ex)
+        {
+            return transform;
+        }
     }
 
     private void ChasePlayer()
