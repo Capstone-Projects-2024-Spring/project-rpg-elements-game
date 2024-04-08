@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Mirror;
 
-public class Projectile : MonoBehaviour
+public class Projectile : NetworkBehaviour
 {
     private bool fired = false;
     private Vector2 velocity = new Vector2(0, 0);
