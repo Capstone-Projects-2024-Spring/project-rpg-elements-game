@@ -1160,6 +1160,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5033692476620637341, guid: 5b870d93be5564dbcafe9ad92ad11d05, type: 3}
+      propertyPath: sceneId
+      value: 1458357640
+      objectReference: {fileID: 0}
     - target: {fileID: 6630251519251888355, guid: 5b870d93be5564dbcafe9ad92ad11d05, type: 3}
       propertyPath: m_Name
       value: Room 16
@@ -1420,3 +1424,4 @@ SceneRoots:
   - {fileID: 1243930501}
   - {fileID: 2132285581}
   - {fileID: 370551093}
+  - {fileID: 2125789405}
