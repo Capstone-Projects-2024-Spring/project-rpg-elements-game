@@ -11,8 +11,5 @@ namespace Edgegap.Editor.Api.Models
         
         /// <summary>Slower, but more reliable; works in WebGL.</summary>
         TCP,
-
-        /// <summary>Slower, but more reliable; works in WebGL.</summary>
-        WS,
     }
 }
