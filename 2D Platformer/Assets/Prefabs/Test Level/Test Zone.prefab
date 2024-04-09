@@ -588,10 +588,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skrake
       objectReference: {fileID: 0}
-    - target: {fileID: 8284024380379595164, guid: 1e7ab2c9aa6f34d75be76ecb79432f26, type: 3}
-      propertyPath: _assetId
-      value: 2018094912
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
