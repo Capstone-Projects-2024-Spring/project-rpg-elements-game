@@ -687,11 +687,11 @@ GameObject:
   - component: {fileID: 6077882256009818207}
   - component: {fileID: 3380574593020085018}
   - component: {fileID: 821054391102767121}
-  - component: {fileID: 2725964921201996180}
   - component: {fileID: 209167587323273354}
   - component: {fileID: 1583393277336031088}
   - component: {fileID: 3828707209450216748}
   - component: {fileID: 8887724719568220298}
+  - component: {fileID: 7626654899274741604}
   m_Layer: 0
   m_Name: Omar
   m_TagString: PlayerHurtbox
@@ -766,7 +766,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 16, y: 16}
+  m_Size: {x: 18, y: 18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -836,7 +836,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 18, y: 18}
-    newSize: {x: 16, y: 16}
+    newSize: {x: 18, y: 18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1090,47 +1090,6 @@ MonoBehaviour:
   hitboxes:
   - {fileID: 1723615292638173369}
   visible_hitboxes: 0
---- !u!114 &2725964921201996180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7984122117270326092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e899b10adf554458c8b1fa9db4d51b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  statSheet: {fileID: 1617113524828428380}
-  attackName: Sword Beam
-  attackDescription: Summon a beam from your sword. It will travel straight forward,
-    hitting enemies too far away for you to stab.
-  animationTrigger: swordbeam
-  power: 8
-  knockback:
-  - 3
-  - 8
-  triggerKey: 112
-  hitboxes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  visible_hitboxes: 0
-  spawnPosition: {x: 1, y: 0}
-  projectileVelocity: {x: 8, y: 0}
-  gravity: 0
-  destroyOnContact: 1
-  projectileLifetime: 2
-  collidesWithWalls: 0
-  sprite: {fileID: 21300000, guid: 1aee9d8378de5b24da2ece2811ecc8da, type: 3}
-  projectileSize: 0.8
-  projectileHitboxModifiers: {x: 4, y: 5}
 --- !u!114 &209167587323273354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1238,6 +1197,35 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &7626654899274741604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984122117270326092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc209efa48b7cfc41b83c852969bba88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  statSheet: {fileID: 1617113524828428380}
+  attackName: Hopping Haymaker
+  attackDescription: A placeholder description for attacks. Seen by the user in the
+    attack menu.
+  animationTrigger: hoppinghaymaker
+  power: 22
+  knockback:
+  - 3
+  - 11
+  triggerKey: 112
+  hitboxes:
+  - {fileID: 2517431730197761734}
+  visible_hitboxes: 1
+  burstVelocity: {x: 18, y: 5}
 --- !u!1 &8136480622574830865
 GameObject:
   m_ObjectHideFlags: 0
