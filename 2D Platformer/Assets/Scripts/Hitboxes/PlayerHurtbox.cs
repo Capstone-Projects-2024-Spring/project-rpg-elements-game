@@ -14,13 +14,13 @@ public class PlayerHurtbox : Hurtbox
             Debug.Log(body);
 
             attacked = true;
-            if (movement.getDirection() == Direction.left)
-            {
-                takenKnockback[0] = 7.0f;
-            }
-            if (movement.getDirection() == Direction.right)
+            if (this.transform.position.x < other.gameObject.transform.position.x)
             {
                 takenKnockback[0] = -7.0f;
+            }
+            else if (this.transform.position.x >= other.gameObject.transform.position.x)
+            {
+                takenKnockback[0] = 7.0f;
             }
             takenKnockback[1] = 7.0f;
             takenHitlag = 0.3f;
