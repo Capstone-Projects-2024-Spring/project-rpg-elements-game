@@ -101,7 +101,7 @@ they had beforehand is preserved for when they unfreeze
     protected virtual void Awake(){
         anim = GetComponent<Animator>();
         n_anim = GetComponent<NetworkAnimator>();
-        playerMovement = GetComponent<Movement>();
+        playerMovement = GetComponent<Movement>(); 
         body = GetComponentInParent<Rigidbody2D>();
         xKnockbackValue = Math.Abs(knockback[0]);
         hitlag = setHitlag(knockback[0], knockback[1]);
