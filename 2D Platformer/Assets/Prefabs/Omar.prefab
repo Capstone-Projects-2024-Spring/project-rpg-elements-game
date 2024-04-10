@@ -296,6 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5747580157631277398}
   - component: {fileID: 1062713190699445663}
+  - component: {fileID: 7017864577481185535}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -358,6 +359,22 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 637159835637698094}
+--- !u!114 &7017864577481185535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141585678784980787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3622bc33a3734f94f82620bc6ad616e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  smoothing: 5
 --- !u!1 &7412639723417141657
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +872,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300200637edb24c4d8c633bd7f309fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statsConfig: {fileID: 11400000, guid: dd4178480ea8f36429a64e1bb40f7847, type: 2}
   chipSpeed: 2
   frontHealthBar: {fileID: 5591114769038206365}
