@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/AccountMenu.unity
     guid: 60047d992dc6d0e4daceec3e5ee15714
-  - enabled: 1
+  - enabled: 0
     path: Assets/Levels/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -28,7 +28,7 @@ EditorBuildSettings:
     guid: 7078998ebee6e48fba2498d1090b52c9
   - enabled: 1
     path: Assets/Levels/MainMenu.unity
-    guid: 85d9051ed2ef7cf4eabcbc1d737a83ad
+    guid: 79aa973c49db4624695e69ceb228939e
   - enabled: 1
     path: Assets/Levels/AbilitiesUI.unity
     guid: 2ca1d746a96fa734094502df3e531625
