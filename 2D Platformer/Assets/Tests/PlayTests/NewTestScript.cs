@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 using Mirror;
+using UnityEngine.UI;
+using System.Runtime.CompilerServices;
 
 
 namespace Tests
@@ -19,9 +21,18 @@ namespace Tests
             //This will look for the scence
             yield return SceneManager.LoadSceneAsync("LevelGenerator");
 
-            //Find LevelSpawner Object in Scence
-            LevelSpawner levelSpawner = GameObject.FindObjectOfType<LevelSpawner>();
+            yield return new WaitForSeconds(5f);
 
+            /*GameObject levelSpawnerObject = GameObject.FindObjectOfType("LevelSpawner");
+            if(levelSpawnerObject == null)
+                Debug.LogError("LevelSpawner Object not found.");
+            levelSpawnerObject.SetActive(true);
+            LevelSpawner levelSpawner = levelSpawnerObject.GetComponent<LevelSpawner>();*/
+
+            //Find LevelSpawner Object in Scence
+            LevelSpawner levelSpawner = GameObject.FindObjectOfType<LevelSpawner>(true);
+            levelSpawner.gameObject.SetActive(true);
+            
             //This will allow rooms to spawn
             yield return new WaitForSeconds(5f);
 
