@@ -33,6 +33,8 @@ namespace Tests
             LevelSpawner levelSpawner = GameObject.FindObjectOfType<LevelSpawner>(true);
             levelSpawner.gameObject.SetActive(true);
             
+            LogAssert.Expect(LogType.Error, "[Steamworks.NET] SteamAPI_Init() failed. Refer to Valve's documentation or the comment above this line for more information.");
+            
             //This will allow rooms to spawn
             yield return new WaitForSeconds(5f);
 
