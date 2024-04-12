@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 7626654899274741604}
   m_Layer: 0
   m_Name: Omar
-  m_TagString: PlayerHurtbox
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1552,7 +1552,7 @@ GameObject:
   - component: {fileID: 3785646132916676409}
   m_Layer: 0
   m_Name: Hurtbox
-  m_TagString: Player
+  m_TagString: PlayerHurtbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
