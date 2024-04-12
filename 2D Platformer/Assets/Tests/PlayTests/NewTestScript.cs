@@ -7,6 +7,7 @@ using UnityEngine.TestTools;
 using Mirror;
 using UnityEngine.UI;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 
 namespace Tests
@@ -33,7 +34,7 @@ namespace Tests
             LevelSpawner levelSpawner = GameObject.FindObjectOfType<LevelSpawner>(true);
             levelSpawner.gameObject.SetActive(true);
             
-            LogAssert.Expect(LogType.Error, "'[Error] [Steamworks.NET] SteamAPI_Init() failed. Refer to Valve's documentation or the comment above this line for more information.'");
+            LogAssert.Expect(LogType.Error,  new Regex("SteamAPI_Init\\(\\) failed. Refer to Valve's documentation or the comment above this line for more information."));
 
             //This will allow rooms to spawn
             yield return new WaitForSeconds(5f);
