@@ -70,7 +70,7 @@ public class Hurtbox : MonoBehaviour
             + " and (" + other.GetComponent<Hitbox>().getKnockback()[0] + ", " + other.GetComponent<Hitbox>().getKnockback()[1] + ") knockback.");
         
         }
-        else if (other.tag == "Player")
+        else if (other.tag == "PlayerHurtbox")
         {
             print("I am touching a player");
             if(other.GetComponent<PlayerHurtbox>() != null) { 
