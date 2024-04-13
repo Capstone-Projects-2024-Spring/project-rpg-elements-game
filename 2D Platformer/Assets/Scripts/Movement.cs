@@ -53,6 +53,7 @@ public class Movement : NetworkBehaviour
             if (hitstunTimer <= 0f)
             {
                 hurt = false;
+                boxCollider.sharedMaterial.bounciness = 0.0f;
             }
 
             if (hurt)
@@ -138,6 +139,7 @@ public class Movement : NetworkBehaviour
 
     public void setHurtStateTrue(float _hitstunTimer, float xKnockback)
     {
+        //boxCollider.sharedMaterial.bounciness = 1f;
         hurt = true;
         hitstunTimer = _hitstunTimer;
         if ((xKnockback >= 0 && getDirection() == Direction.right) || (xKnockback < 0 && getDirection() == Direction.left))

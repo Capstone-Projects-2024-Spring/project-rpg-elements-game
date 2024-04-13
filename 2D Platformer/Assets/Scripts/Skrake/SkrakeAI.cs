@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System;
+using System.Linq;
 
 public class SkrakeAI : NetworkBehaviour
 {
 
-    private Transform player;
+    private GameObject[] players;
     [SerializeField] private float visionRange = 5;
     private Rigidbody2D rb;
     private SpriteRenderer sb;
@@ -20,6 +22,7 @@ public class SkrakeAI : NetworkBehaviour
     private bool playerIsOnLeft = false;
     private float attackDirection = 1;
     private bool running = false;
+    Transform closestPlayer;
 
     void Start()
     {
@@ -28,49 +31,65 @@ public class SkrakeAI : NetworkBehaviour
         sb = GetComponent<SpriteRenderer>();
         defaultColor = sb.color;
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
+        players = GameObject.FindGameObjectsWithTag("Player"); 
         anim.SetBool("run", running);
         anim.SetBool("hurt", inHitstun);
-        float distToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        //print(players + "=players");
+        closestPlayer = getClosestPlayer(players.ToList<GameObject>());
+        //print("closest player " + closestPlayer);
+        float distToPlayer = Vector2.Distance(transform.position, closestPlayer.transform.position);
+        //print("distance to player " + distToPlayer);
         if (distToPlayer < visionRange)
         {
             //move towards detected player
             ChasePlayer();
         }
+        
     }
 
+    private Transform getClosestPlayer(List<GameObject> players)
+    {
+        try
+        {
+            return players.OrderBy(o => Vector2.Distance(transform.position, o.transform.position)).ToList()[0].transform;
+        } catch (ArgumentOutOfRangeException ex)
+        {
+            Debug.Log(ex);
+            return transform;
+        }
+    }
 
     private void ChasePlayer()
     {
-        if ((transform.position.x < player.position.x) && (Mathf.Abs(transform.position.x - player.position.x) > 2.5) && !currentlyAttacking && !inHitstun)
+        if ((transform.position.x < closestPlayer.position.x) && (Mathf.Abs(transform.position.x - closestPlayer.position.x) > 2.5) && !currentlyAttacking && !inHitstun)
         {
             //player is on the right, move right
             running = true;
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
             playerIsOnLeft = false;
-            if (localScale.x > 0 && Mathf.Abs(transform.position.x - player.position.x) > 1) //face right if not already
+            if (localScale.x > 0 && Mathf.Abs(transform.position.x - closestPlayer.position.x) > 1) //face right if not already
             {
                 localScale.x *= -1;
             }
         }
-        else if ((transform.position.x > player.position.x) && (Mathf.Abs(transform.position.x - player.position.x) > 2.5) && !currentlyAttacking && !inHitstun)
+        else if ((transform.position.x > closestPlayer.position.x) && (Mathf.Abs(transform.position.x - closestPlayer.position.x) > 2.5) && !currentlyAttacking && !inHitstun)
         {
             //player is on the left, move left
             running = true;
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
             playerIsOnLeft = true;
-            if (localScale.x < 0 && Mathf.Abs(transform.position.x - player.position.x) > 1) //face left if not already
+            if (localScale.x < 0 && Mathf.Abs(transform.position.x - closestPlayer.position.x) > 1) //face left if not already
             {
                 print(playerIsOnLeft);
                 localScale.x *= -1;
             }
         }
-        else if ((Mathf.Abs(transform.position.x - player.position.x) < 2.5) && !currentlyAttacking && !inHitstun)
+        else if ((Mathf.Abs(transform.position.x - closestPlayer.position.x) < 2.5) && !currentlyAttacking && !inHitstun)
         {
             StartCoroutine(StartAttack());
         }

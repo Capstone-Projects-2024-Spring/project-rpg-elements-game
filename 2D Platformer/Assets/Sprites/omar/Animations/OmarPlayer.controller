@@ -214,7 +214,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: swordbeam
+    m_ConditionEvent: hoppinghaymaker
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 9165855731013060220}
@@ -1020,7 +1020,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: swordbeam
+  - m_Name: hoppinghaymaker
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1600,7 +1600,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_DogStrike
+  m_Name: Attack_StraightPunch
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1824,7 +1824,7 @@ AnimatorStateMachine:
     m_Position: {x: 410, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7515145601134240991}
-    m_Position: {x: -70, y: -150, z: 0}
+    m_Position: {x: -60, y: -160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3425269458716171331}
     m_Position: {x: -60, y: -50, z: 0}
@@ -1845,7 +1845,7 @@ AnimatorStateMachine:
     m_Position: {x: 160, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8996544048840814046}
-    m_Position: {x: 370, y: 50, z: 0}
+    m_Position: {x: 390, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1271222452800091533}
     m_Position: {x: -40, y: 160, z: 0}
@@ -1881,7 +1881,7 @@ AnimatorStateMachine:
     m_Position: {x: -90, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7600232531565929487}
-    m_Position: {x: 150, y: 260, z: 0}
+    m_Position: {x: 220, y: 200, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -7078243862229029118}
@@ -2041,7 +2041,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_SwordBeam
+  m_Name: Attack_HoppingHaymaker
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -2056,7 +2056,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 32b5a364a9435c84080a7f0ce73b1ce3, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9df4e398ed8ba2f45bd0f21aa2a78065, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
