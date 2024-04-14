@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Mirror;
 
+
 public class Movement : NetworkBehaviour
 {
     [SerializeField] private PlayerStats statSheet;
@@ -22,82 +23,74 @@ public class Movement : NetworkBehaviour
 
     private void Start()
     {
-        //Grabs references for Rigidbody, Box Collider, and Animator
+         //Grabs references for Rigidbody, Box Collider, and Animator
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
         boxCollider.sharedMaterial.friction = 1;
 
-        if (!isLocalPlayer)
-        {
-            enabled = false;
-        }
     }
 
+    [ClientCallback]
     private void Update()
     {
-        if (!isLocalPlayer)
+        if (!isOwned) { return; }
+
+
+        float horizontalInput = Input.GetAxis("Horizontal");
+        //Set animator parameters
+        anim.SetBool("run", (horizontalInput != 0));
+        anim.SetBool("grounded", isGrounded());
+        anim.SetBool("hurt", hurt);
+        anim.SetBool("sent_forwards", sentForwards);
+
+        if (hitstunTimer <= 0f)
+        {
+            hurt = false;
+            boxCollider.sharedMaterial.bounciness = 0.0f;
+        }
+
+        if (hurt)
+        {
+            hitstunTimer -= Time.deltaTime;
+            return;
+        }
+        //Debug.Log(attacking);
+        if (attacking)
         {
             return;
         }
+        //Makes the player move left/right
+        body.velocity = new Vector2(Input.GetAxis("Horizontal") * statSheet.Speed.Value, body.velocity.y);
 
-        if (isLocalPlayer)
+        //Flips sprite when turning left/right
+        if (horizontalInput > 0.01f)
         {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            //Set animator parameters
-            anim.SetBool("run", (horizontalInput != 0));
-            anim.SetBool("grounded", isGrounded());
-            anim.SetBool("hurt", hurt);
-            anim.SetBool("sent_forwards", sentForwards);
-
-            if (hitstunTimer <= 0f)
-            {
-                hurt = false;
-                boxCollider.sharedMaterial.bounciness = 0.0f;
-            }
-
-            if (hurt)
-            {
-                hitstunTimer -= Time.deltaTime;
-                return;
-            }
-            //Debug.Log(attacking);
-            if (attacking)
-            {
-                return;
-            }
-            //Makes the player move left/right
-            body.velocity = new Vector2(Input.GetAxis("Horizontal") * statSheet.Speed.Value, body.velocity.y);
-
-            //Flips sprite when turning left/right
-            if (horizontalInput > 0.01f)
-            {
-                transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
-                facing = Direction.right;
-            }
-            else if (horizontalInput < -0.01f)
-            {
-                transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
-                facing = Direction.left;
-            }
-
-            //Makes the player jump when space is pressed
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
-            {
-                Jump();
-            }
-
-            if (onWall())
-            {
-                boxCollider.sharedMaterial.friction = 0;
-                body.velocity = new Vector2(0, -1 * Math.Abs(wall_sliding_speed));
-            }
-            else
-            {
-                boxCollider.sharedMaterial.friction = friction;
-            }
-            //Debug.Log(boxCollider.sharedMaterial.friction);
+            transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+            facing = Direction.right;
         }
+        else if (horizontalInput < -0.01f)
+        {
+            transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
+            facing = Direction.left;
+        }
+
+        //Makes the player jump when space is pressed
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        {
+            Jump();
+        }
+
+        if (onWall())
+        {
+            boxCollider.sharedMaterial.friction = 0;
+            body.velocity = new Vector2(0, -1 * Math.Abs(wall_sliding_speed));
+        }
+        else
+        {
+            boxCollider.sharedMaterial.friction = friction;
+        }
+        //Debug.Log(boxCollider.sharedMaterial.friction);
     }
 
     private void Jump()
