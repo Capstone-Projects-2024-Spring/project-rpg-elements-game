@@ -35,6 +35,7 @@ public class SteamLobby : MonoBehaviour
 
     public void HostLobby()
     {
+        Debug.Log("HostLobby called");
 
         hostButton.SetActive(false);
 
