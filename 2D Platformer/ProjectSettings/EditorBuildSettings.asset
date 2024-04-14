@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/LevelGenerator.unity
     guid: 7078998ebee6e48fba2498d1090b52c9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Levels/Boss.unity
     guid: 7e3b9667f7a9e4c07b3a0aea1d8613ac
   - enabled: 1
