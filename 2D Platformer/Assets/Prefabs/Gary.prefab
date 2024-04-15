@@ -1209,6 +1209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300200637edb24c4d8c633bd7f309fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statsConfig: {fileID: 11400000, guid: dd4178480ea8f36429a64e1bb40f7847, type: 2}
   chipSpeed: 2
   frontHealthBar: {fileID: 4251616988067607085}

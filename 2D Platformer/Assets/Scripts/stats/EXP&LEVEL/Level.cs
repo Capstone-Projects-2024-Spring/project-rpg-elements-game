@@ -13,6 +13,7 @@ public class Level : MonoBehaviour
 
     public Image expBar;
     public TextMeshProUGUI expText;
+    public TextMeshProUGUI levelText;
 
     public int level;
     public int experience;
@@ -104,5 +105,6 @@ public class Level : MonoBehaviour
         if(experience != 0 && requiredExperience != 0)
             expBar.fillAmount = (float)experience / requiredExperience;
         expText.text = experience + "/" + requiredExperience;
+        levelText.text = level.ToString();
     }
 }

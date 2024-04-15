@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 135a998ee8c92e04f97002735384f5f1, type: 3}
+  m_Name: Omar
+  m_EditorClassIdentifier: 
+  characterName: Omar
+  characterPreviewPrefab: {fileID: 6554584858392232962, guid: 825d1bd4e570105459094a5025c60cd9, type: 3}
+  gameplayCharacterPrefab: {fileID: 7984122117270326092, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}

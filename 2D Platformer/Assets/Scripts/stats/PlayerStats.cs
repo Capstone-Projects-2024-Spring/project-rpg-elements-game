@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Mirror;
 
-public class PlayerStats: MonoBehaviour {
+public class PlayerStats: NetworkBehaviour {
 
     //Assignments for the player's stats.
     public StatsConfig statsConfig;
