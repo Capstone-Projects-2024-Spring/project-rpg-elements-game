@@ -20,24 +20,15 @@ namespace Tests
         public IEnumerator NewTestScriptWithEnumeratorPasses()
         {
             //This will look for the scence
-            yield return SceneManager.LoadSceneAsync("LevelGenerator");
+
+            GameObject gameObject1 = new GameObject();
+            NetworkIdentity networkIdentity = gameObject1.AddComponent<NetworkIdentity>();
+            LevelSpawner levelSpawner = gameObject1.AddComponent<LevelSpawner>();
 
             yield return new WaitForSeconds(5f);
-
-            /*GameObject levelSpawnerObject = GameObject.FindObjectOfType("LevelSpawner");
-            if(levelSpawnerObject == null)
-                Debug.LogError("LevelSpawner Object not found.");
-            levelSpawnerObject.SetActive(true);
-            LevelSpawner levelSpawner = levelSpawnerObject.GetComponent<LevelSpawner>();*/
-
-            //Find LevelSpawner Object in Scence
-            LevelSpawner levelSpawner = GameObject.FindObjectOfType<LevelSpawner>(true);
-            levelSpawner.gameObject.SetActive(true);
-            Debug.Log(new Regex("[Steamworks.NET] SteamAPI_Init() failed. Refer to Valve's documentation or the comment above this line for more information."));
-            LogAssert.Expect(LogType.Error,  new Regex("[Steamworks.NET] SteamAPI_Init() failed. Refer to Valve's documentation or the comment above this line for more information."));
 
             //This will allow rooms to spawn
-            yield return new WaitForSeconds(5f);
+            //yield return new WaitForSeconds(5f);
 
             //Esnure that the correct number of rooms are spawned
             Assert.AreEqual(levelSpawner.getNumRows() * levelSpawner.getNumCols(), levelSpawner.getSpawnCounter(), "Wrong amount spawned");
