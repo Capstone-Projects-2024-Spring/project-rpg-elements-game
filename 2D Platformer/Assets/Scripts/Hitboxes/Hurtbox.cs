@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using Mirror;
 /*
     Invisible boxes that collide with hitboxes to detect whether or not the character has been hit by something.
 */
