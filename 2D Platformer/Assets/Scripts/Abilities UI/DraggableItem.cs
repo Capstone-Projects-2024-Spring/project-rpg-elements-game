@@ -17,10 +17,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         //DontDestroyOnLoad(transform.gameObject);
         currentPlayer = GameObject.FindGameObjectWithTag("Player");
         attackScripts = currentPlayer.GetComponentsInChildren<PlayerAttack>();
-        for (int i = 0; i < attackScripts.Length; i++)
-        {
-            print("SCRIPT " + i + " IN  '" + currentPlayer.name + "': [" + attackScripts[i].attackName + "]");
-        }
+        //for (int i = 0; i < attackScripts.Length; i++)
+        //{
+        //    print("SCRIPT " + i + " IN  '" + currentPlayer.name + "': [" + attackScripts[i].attackName + "]");
+        //}
         // order attackScripts by abilityID for ease of use later
         attackScripts = attackScripts.OrderBy((attack) => (attack.abilityID)).ToArray();
 
