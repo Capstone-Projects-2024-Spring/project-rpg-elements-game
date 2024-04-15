@@ -814,15 +814,15 @@ MonoBehaviour:
   - {fileID: 663084854361109605}
   - {fileID: 7925659966150870704}
   visible_hitboxes: 0
-  spawnPosition: {x: 1, y: 0}
-  projectileVelocity: {x: 5, y: 0}
+  spawnPosition: {x: 2, y: 0}
+  projectileVelocity: {x: 6, y: 0}
   gravity: 0
   destroyOnContact: 1
   projectileLifetime: 2
-  collidesWithWalls: 0
+  collidesWithWalls: 1
   sprite: {fileID: 21300072, guid: 962e67ff7370f0c4492dca70b64f89e9, type: 3}
-  projectileSize: 0.8
-  projectileHitboxModifiers: {x: 4, y: 5}
+  projectileSize: 2
+  projectileHitboxModifiers: {x: 0.8, y: 0.8}
 --- !u!114 &4240227550731602075
 MonoBehaviour:
   m_ObjectHideFlags: 0
