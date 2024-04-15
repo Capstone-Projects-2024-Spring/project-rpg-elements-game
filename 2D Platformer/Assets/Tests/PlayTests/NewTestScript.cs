@@ -33,8 +33,8 @@ namespace Tests
             //Find LevelSpawner Object in Scence
             LevelSpawner levelSpawner = GameObject.FindObjectOfType<LevelSpawner>(true);
             levelSpawner.gameObject.SetActive(true);
-            
-            LogAssert.Expect(LogType.Error,  new Regex("SteamAPI_Init\\(\\) failed. Refer to Valve's documentation or the comment above this line for more information."));
+            Debug.Log(new Regex("[Steamworks.NET] SteamAPI_Init() failed. Refer to Valve's documentation or the comment above this line for more information."));
+            LogAssert.Expect(LogType.Error,  new Regex("[Steamworks.NET] SteamAPI_Init() failed. Refer to Valve's documentation or the comment above this line for more information."));
 
             //This will allow rooms to spawn
             yield return new WaitForSeconds(5f);
