@@ -32,7 +32,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_SweepingSteel
+  m_Name: Attack_HeavyLightBall
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -47,7 +47,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2a40bd7c34ae1874c86a39e9b1337e84, type: 2}
+  m_Motion: {fileID: 7400000, guid: a2a6c5e4ac775c449b73bb4bf1cd816d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -440,7 +440,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_SkySlash2
+  m_Name: Attack_WindyBoost2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -455,7 +455,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8df0fb889c77a2540a329b517a9fc8e6, type: 2}
+  m_Motion: {fileID: 7400000, guid: e4737c994c39b7540867985c70b6ce81, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -891,7 +891,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bca13676d28ae5d4ebb9368260437479, type: 2}
+  m_Motion: {fileID: 7400000, guid: 45eeb9b2f8e9b994498b2096328b15a4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1071,7 +1071,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: eca6775c04eeb3d44b84686cb0925d96, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4f1cbc49ebc516849b9bffbd5ffb0bf1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1100,7 +1100,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a2e7434bac712ac41a1490d13cf6cea7, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8e670887451a90449b22112cb946b505, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1293,7 +1293,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_SkySlash
+  m_Name: Attack_WindyBoost
   m_Speed: 1
   m_CycleOffset: 0.8
   m_Transitions:
@@ -1307,7 +1307,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7062bc8fc49a2bc459d6a7bd534d6ddf, type: 2}
+  m_Motion: {fileID: 7400000, guid: ebf711054b3e93141a7388c3278f1068, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1540,7 +1540,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bed051a3e6168e44fa64aa4a999fa342, type: 2}
+  m_Motion: {fileID: 7400000, guid: a588a150db976cd449c5b36a30ffa949, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1600,7 +1600,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_DogStrike
+  m_Name: Attack_Fireball 0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1615,7 +1615,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c95cc6bec836d524b8f02ed34676ceef, type: 2}
+  m_Motion: {fileID: 7400000, guid: c52f148d32a5b46438b4f817164127ae, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1670,7 +1670,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c442a4e218d9ed84b85920b7c246d901, type: 2}
+  m_Motion: {fileID: 7400000, guid: ac227ace19589454caaf98264e85c25e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1705,7 +1705,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_SharpArch
+  m_Name: Attack_LightningBeam
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1720,7 +1720,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d66465414d47e854f96e9c9818fde7a5, type: 2}
+  m_Motion: {fileID: 7400000, guid: c633bafcdc5a1c74f9e01b5bcd792ab7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1824,7 +1824,7 @@ AnimatorStateMachine:
     m_Position: {x: 410, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7515145601134240991}
-    m_Position: {x: -70, y: -150, z: 0}
+    m_Position: {x: -70, y: -230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3425269458716171331}
     m_Position: {x: -60, y: -50, z: 0}
@@ -2028,7 +2028,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0f75f0fd129c1df428d3187e6edf822f, type: 2}
+  m_Motion: {fileID: 7400000, guid: acc1e7835b88730439574a46a2de9852, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
