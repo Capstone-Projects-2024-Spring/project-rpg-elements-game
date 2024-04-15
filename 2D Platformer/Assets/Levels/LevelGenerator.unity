@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 370551093}
   - component: {fileID: 370551092}
   m_Layer: 0
-  m_Name: AbilitysUI Controller
+  m_Name: Ability UI Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f383f9bd03d11d044a87325b36963529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainUICanvas: {fileID: 7319377925628299602, guid: 20cdd195f025553449727ddaea428329, type: 3}
 --- !u!4 &370551093
 Transform:
   m_ObjectHideFlags: 0
@@ -1492,7 +1493,7 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 7984122117270326092, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
+  playerPrefab: {fileID: 7116336154021614077, guid: f9da39335d52e2849968c2b7b353e65f, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs:

@@ -59,14 +59,14 @@ public class PlayerStats: NetworkBehaviour {
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            CheckStats();
-        }
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            AddSpeed();
-        }
+        //if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    CheckStats();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Z))
+        //{
+        //    AddSpeed();
+        //}
         healTimer -= Time.deltaTime;
         if (CurrentHealth.Value < Health.Value && healTimer <= 0f)
         {
