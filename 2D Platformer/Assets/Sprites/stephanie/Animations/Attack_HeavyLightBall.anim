@@ -124,7 +124,7 @@ AnimationClip:
       value: {fileID: 21300000, guid: c4b17e33c3846f948811fe7e621522ee, type: 3}
     - time: 0.33333334
       value: {fileID: 21300000, guid: 4f158d39bfeb2d64f915b50997b5ab09, type: 3}
-    - time: 0.4
+    - time: 0.48333332
       value: {fileID: 21300000, guid: 8fe08c73572c62a40a439329dee7d62e, type: 3}
     attribute: m_Sprite
     path: 
@@ -580,14 +580,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.33333334
-    functionName: ActivateHitbox
+    functionName: ActivateProjectile
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.4
-    functionName: DeactivateHitbox
+  - time: 0.48333332
+    functionName: SetActiveFalse
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

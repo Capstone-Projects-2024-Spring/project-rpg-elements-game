@@ -576,9 +576,9 @@ GameObject:
   - component: {fileID: 3988610740993981676}
   - component: {fileID: 6187901217901282126}
   - component: {fileID: 4164335997491012672}
+  - component: {fileID: 3394443889097053489}
   - component: {fileID: 4240227550731602075}
   - component: {fileID: 4273736714750098640}
-  - component: {fileID: 7105163240117942986}
   - component: {fileID: 4002979394267338065}
   - component: {fileID: 5822377923447652326}
   - component: {fileID: 6879659781899721084}
@@ -823,6 +823,47 @@ MonoBehaviour:
   sprite: {fileID: 21300072, guid: 962e67ff7370f0c4492dca70b64f89e9, type: 3}
   projectileSize: 2
   projectileHitboxModifiers: {x: 0.8, y: 0.8}
+--- !u!114 &3394443889097053489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145877814865870549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e899b10adf554458c8b1fa9db4d51b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  statSheet: {fileID: 3988610740993981676}
+  attackName: Heavy Light Ball
+  attackDescription: A placeholder description for attacks. Seen by the user in the
+    attack menu.
+  animationTrigger: heavylightball
+  power: 15
+  knockback:
+  - 3
+  - 7
+  triggerKey: 111
+  hitboxes:
+  - {fileID: 3142857686159496768}
+  - {fileID: 8888887641603551213}
+  - {fileID: 8299964940736242966}
+  - {fileID: 663084854361109605}
+  - {fileID: 7925659966150870704}
+  visible_hitboxes: 0
+  spawnPosition: {x: 0, y: 0}
+  projectileVelocity: {x: 3, y: 7}
+  gravity: 2
+  destroyOnContact: 1
+  projectileLifetime: 2
+  collidesWithWalls: 1
+  sprite: {fileID: 21300000, guid: 4b66f21097323d44ab40669b2fb9c53d, type: 3}
+  projectileSize: 2
+  projectileHitboxModifiers: {x: 1, y: 1}
 --- !u!114 &4240227550731602075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,35 +926,6 @@ MonoBehaviour:
   - {fileID: 8380272207258655901}
   - {fileID: 3270483518911156379}
   - {fileID: 6311402894483334069}
-  - {fileID: 8746340722329525659}
-  visible_hitboxes: 1
---- !u!114 &7105163240117942986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145877814865870549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  statSheet: {fileID: 3988610740993981676}
-  attackName: Sweeping Steel
-  attackDescription: Swiftly strike at the legs of your opponent, sending them upwards
-    a little. Its low knockback makes it a great combo tool.
-  animationTrigger: sweepingsteel
-  power: 6
-  knockback:
-  - 1
-  - 8
-  triggerKey: 111
-  hitboxes:
-  - {fileID: 3270483518911156379}
   - {fileID: 8746340722329525659}
   visible_hitboxes: 1
 --- !u!114 &4002979394267338065
