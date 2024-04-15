@@ -774,7 +774,7 @@ GameObject:
   - component: {fileID: 4477158973275304152}
   m_Layer: 0
   m_Name: Stephanie
-  m_TagString: PlayerHurtbox
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1518,7 +1518,7 @@ GameObject:
   - component: {fileID: 3255746596240349195}
   m_Layer: 0
   m_Name: Hurtbox
-  m_TagString: Player
+  m_TagString: PlayerHurtbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
