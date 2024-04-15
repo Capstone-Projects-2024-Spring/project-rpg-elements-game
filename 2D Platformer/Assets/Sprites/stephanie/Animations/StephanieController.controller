@@ -728,7 +728,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_CloudStrike
+  m_Name: Attack_SummonThunder
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -743,7 +743,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 342ad1adcde633d43824cd4f059e52e7, type: 2}
+  m_Motion: {fileID: 7400000, guid: 28b03381f9bb3c2459e19a8c481b45ab, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -2041,7 +2041,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_SwordBeam
+  m_Name: Attack_FlameCharge
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -2056,7 +2056,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 32b5a364a9435c84080a7f0ce73b1ce3, type: 2}
+  m_Motion: {fileID: 7400000, guid: b08f6e677914b6b43ae55cc88ef4d50e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
