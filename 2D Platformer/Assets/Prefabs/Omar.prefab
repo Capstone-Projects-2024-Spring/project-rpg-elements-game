@@ -945,6 +945,8 @@ MonoBehaviour:
   attackName: Straight Punch
   attackDescription: Throw your fist straight forwards, sending anyone in front of
     you flying backwards. Use it to finish combos.
+  abilityID: 0
+  CurrentAbilitySlot: 1
   animationTrigger: attack
   power: 11
   knockback:
@@ -973,6 +975,8 @@ MonoBehaviour:
   attackName: Bunny Uppercut
   attackDescription: '"Deliver a fierce, quick uppercut to you opponents. While it
     lacks range, its low knockback makes it great for combos"'
+  abilityID: 0
+  CurrentAbilitySlot: 0
   animationTrigger: bunnyuppercut
   power: 5
   knockback:
@@ -1001,6 +1005,8 @@ MonoBehaviour:
   attackName: Sax Kick
   attackDescription: A very quick attack where you thrust your leg forward, striking
     a tried and true pose.
+  abilityID: 0
+  CurrentAbilitySlot: 0
   animationTrigger: saxkick
   power: 6
   knockback:
@@ -1030,6 +1036,8 @@ MonoBehaviour:
   attackName: Rabbit Rise
   attackDescription: A rising uppercut that propels you further into the air. Can't
     be used again until you hit the ground.
+  abilityID: 0
+  CurrentAbilitySlot: 0
   animationTrigger: rabbitrise
   power: 12
   knockback:
@@ -1063,6 +1071,8 @@ MonoBehaviour:
   attackName: Charging Lunge
   attackDescription: A chargeable attack that will give a sudden burst of movement
     forwards when released. How far you go depends on how long you charge.
+  abilityID: 0
+  CurrentAbilitySlot: 0
   animationTrigger: charginglunge
   power: 6
   knockback:
@@ -1099,6 +1109,8 @@ MonoBehaviour:
   attackName: Ladder Kick
   attackDescription: Lift up your sword. Great for juggling opponents already in
     the air.
+  abilityID: 0
+  CurrentAbilitySlot: 0
   animationTrigger: ladderkick
   power: 7
   knockback:
@@ -1128,6 +1140,8 @@ MonoBehaviour:
   attackDescription: A giant, massive slash that does a ton of damage, but it also
     leaves you wide open. Using it in the air will send you straight down to the
     ground.
+  abilityID: 0
+  CurrentAbilitySlot: 0
   animationTrigger: obliviondive
   power: 28
   knockback:
@@ -1234,6 +1248,8 @@ MonoBehaviour:
   attackName: Hopping Haymaker
   attackDescription: A placeholder description for attacks. Seen by the user in the
     attack menu.
+  abilityID: 0
+  CurrentAbilitySlot: 0
   animationTrigger: hoppinghaymaker
   power: 22
   knockback:
