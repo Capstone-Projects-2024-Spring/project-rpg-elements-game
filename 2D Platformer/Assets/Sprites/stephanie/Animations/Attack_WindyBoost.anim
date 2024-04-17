@@ -1134,13 +1134,6 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.28333333
-    functionName: ActivateHitbox
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.28333333
     functionName: burst
     data: 
     objectReferenceParameter: {fileID: 0}

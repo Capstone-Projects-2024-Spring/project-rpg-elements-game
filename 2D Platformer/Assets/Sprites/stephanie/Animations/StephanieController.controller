@@ -62,7 +62,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: sharparch
+    m_ConditionEvent: lightningbeam
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7915048453171137043}
@@ -523,7 +523,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: skyslash
+    m_ConditionEvent: windyboost
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3425269458716171331}
@@ -972,13 +972,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: skyslash
+  - m_Name: windyboost
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: sharparch
+  - m_Name: lightningbeam
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1833,7 +1833,7 @@ AnimatorStateMachine:
     m_Position: {x: 160, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7915048453171137043}
-    m_Position: {x: -70, y: -100, z: 0}
+    m_Position: {x: -20, y: -190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8826732268234710667}
     m_Position: {x: -60, y: 0, z: 0}

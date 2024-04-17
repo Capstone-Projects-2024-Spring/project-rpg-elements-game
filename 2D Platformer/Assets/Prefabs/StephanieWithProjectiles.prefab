@@ -577,14 +577,14 @@ GameObject:
   - component: {fileID: 6187901217901282126}
   - component: {fileID: 4164335997491012672}
   - component: {fileID: 3394443889097053489}
-  - component: {fileID: 4240227550731602075}
+  - component: {fileID: 7443085255397337175}
   - component: {fileID: 4273736714750098640}
   - component: {fileID: 4002979394267338065}
-  - component: {fileID: 5822377923447652326}
-  - component: {fileID: 6879659781899721084}
   - component: {fileID: 1888832417310307580}
   - component: {fileID: 7987340841305288691}
   - component: {fileID: 17916801111822803}
+  - component: {fileID: 6822582805048815999}
+  - component: {fileID: 2403737785225553190}
   m_Layer: 0
   m_Name: Stephanie
   m_TagString: Player
@@ -690,7 +690,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &5719807671145839654
 BoxCollider2D:
@@ -820,9 +820,9 @@ MonoBehaviour:
   destroyOnContact: 1
   projectileLifetime: 2
   collidesWithWalls: 1
-  sprite: {fileID: 21300072, guid: 962e67ff7370f0c4492dca70b64f89e9, type: 3}
-  projectileSize: 2
-  projectileHitboxModifiers: {x: 0.8, y: 0.8}
+  sprite: {fileID: 21300000, guid: 06ad5af841ce32c43993bfaa595f94a1, type: 3}
+  projectileSize: 0.6
+  projectileHitboxModifiers: {x: 2.5, y: 2}
 --- !u!114 &3394443889097053489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,15 +856,15 @@ MonoBehaviour:
   - {fileID: 7925659966150870704}
   visible_hitboxes: 0
   spawnPosition: {x: 0, y: 0}
-  projectileVelocity: {x: 3, y: 7}
+  projectileVelocity: {x: 5, y: 12}
   gravity: 2
   destroyOnContact: 1
   projectileLifetime: 2
   collidesWithWalls: 1
-  sprite: {fileID: 21300000, guid: 4b66f21097323d44ab40669b2fb9c53d, type: 3}
-  projectileSize: 2
-  projectileHitboxModifiers: {x: 1, y: 1}
---- !u!114 &4240227550731602075
+  sprite: {fileID: 21300000, guid: bb0813283a821e747908d4f4a6314f30, type: 3}
+  projectileSize: 0.35
+  projectileHitboxModifiers: {x: 6, y: 6}
+--- !u!114 &7443085255397337175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -873,30 +873,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 2145877814865870549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 243be50834efbb04abd83eeae5aa0845, type: 3}
+  m_Script: {fileID: 11500000, guid: a7e899b10adf554458c8b1fa9db4d51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
   statSheet: {fileID: 3988610740993981676}
-  attackName: Sky Slash
-  attackDescription: A sword swing that sends both you and your opponents to the
-    sky. But you can't use it again until you're back on the ground.
-  animationTrigger: skyslash
-  power: 20
+  attackName: Lightning Beam
+  attackDescription: A placeholder description for attacks. Seen by the user in the
+    attack menu.
+  animationTrigger: lightningbeam
+  power: 3
   knockback:
-  - 2
-  - 12
-  triggerKey: 107
+  - 5
+  - 2.3
+  triggerKey: 105
   hitboxes:
-  - {fileID: 8380272207258655901}
-  - {fileID: 3270483518911156379}
-  - {fileID: 6311402894483334069}
-  - {fileID: 8746340722329525659}
-  visible_hitboxes: 1
-  rising_velocity: 27.5
-  gravity_reduction: 2.5
+  - {fileID: 3142857686159496768}
+  - {fileID: 8888887641603551213}
+  - {fileID: 8299964940736242966}
+  - {fileID: 663084854361109605}
+  - {fileID: 7925659966150870704}
+  visible_hitboxes: 0
+  spawnPosition: {x: 2, y: 0}
+  projectileVelocity: {x: 12, y: 0}
+  gravity: 0
+  destroyOnContact: 0
+  projectileLifetime: 1.4
+  collidesWithWalls: 0
+  sprite: {fileID: 21300000, guid: f3387d72a0f2657459362198408f1327, type: 3}
+  projectileSize: 0.5
+  projectileHitboxModifiers: {x: 6, y: 1}
 --- !u!114 &4273736714750098640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,75 +972,6 @@ MonoBehaviour:
   maxVelocity: 10
   dashTimer: 0.34
   startingLag: 0.28
---- !u!114 &5822377923447652326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145877814865870549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e179d010af38b394f9ba874d1a6af4b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  statSheet: {fileID: 3988610740993981676}
-  attackName: Cloud Strike
-  attackDescription: Lift up your sword. Great for juggling opponents already in
-    the air.
-  animationTrigger: cloudstrike
-  power: 5
-  knockback:
-  - 1.2
-  - 6.7
-  triggerKey: 105
-  hitboxes:
-  - {fileID: 8380272207258655901}
-  visible_hitboxes: 1
---- !u!114 &6879659781899721084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145877814865870549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7e899b10adf554458c8b1fa9db4d51b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  statSheet: {fileID: 3988610740993981676}
-  attackName: Sword Beam
-  attackDescription: Summon a beam from your sword. It will travel straight forward,
-    hitting enemies too far away for you to stab.
-  animationTrigger: swordbeam
-  power: 8
-  knockback:
-  - 3
-  - 8
-  triggerKey: 112
-  hitboxes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  visible_hitboxes: 0
-  spawnPosition: {x: 1, y: 0}
-  projectileVelocity: {x: 8, y: 0}
-  gravity: 0
-  destroyOnContact: 1
-  projectileLifetime: 2
-  collidesWithWalls: 0
-  sprite: {fileID: 21300000, guid: 1aee9d8378de5b24da2ece2811ecc8da, type: 3}
-  projectileSize: 0.8
-  projectileHitboxModifiers: {x: 4, y: 5}
 --- !u!114 &1888832417310307580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1110,6 +1049,78 @@ MonoBehaviour:
   syncInterval: 0
   clientAuthority: 1
   animator: {fileID: 7987340841305288691}
+--- !u!114 &6822582805048815999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145877814865870549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc209efa48b7cfc41b83c852969bba88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  statSheet: {fileID: 3988610740993981676}
+  attackName: Flame Charge
+  attackDescription: A placeholder description for attacks. Seen by the user in the
+    attack menu.
+  animationTrigger: flamecharge
+  power: 14
+  knockback:
+  - 4
+  - 7
+  triggerKey: 112
+  hitboxes:
+  - {fileID: 8380272207258655901}
+  visible_hitboxes: 1
+  burstVelocity: {x: 16, y: 4}
+--- !u!114 &2403737785225553190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145877814865870549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 592d5b6f0715324468ba325d2ce521dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  statSheet: {fileID: 3988610740993981676}
+  attackName: Windy Boost
+  attackDescription: A placeholder description for attacks. Seen by the user in the
+    attack menu.
+  animationTrigger: windyboost
+  power: 8
+  knockback:
+  - 6
+  - 0
+  triggerKey: 107
+  hitboxes:
+  - {fileID: 3142857686159496768}
+  - {fileID: 8888887641603551213}
+  - {fileID: 8299964940736242966}
+  - {fileID: 663084854361109605}
+  - {fileID: 7925659966150870704}
+  visible_hitboxes: 0
+  rising_velocity: 18
+  gravity_reduction: 1.4
+  spawnPosition: {x: 0, y: -1}
+  projectileVelocity: {x: 0, y: -8}
+  gravity: 1
+  destroyOnContact: 0
+  projectileLifetime: 2
+  collidesWithWalls: 0
+  sprite: {fileID: 21300000, guid: 2792cb78d9ccdb847b5d23274d5fe16f, type: 3}
+  projectileSize: 0.4
+  projectileHitboxModifiers: {x: 7, y: 9}
 --- !u!1 &2162460044896572533
 GameObject:
   m_ObjectHideFlags: 0
