@@ -21,6 +21,21 @@ public class Movement : NetworkBehaviour
     private Direction facing = Direction.right;
     [SerializeField] private float friction = 1;
 
+    /*[Command]
+    public void CmdFlipSprite(){
+        float horizontalInput = Input.GetAxis("Horizontal");
+        if (horizontalInput > 0.01f)
+        {
+            transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+            facing = Direction.right;
+        }
+        else if (horizontalInput < -0.01f)
+        {
+            transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
+            facing = Direction.left;
+        }
+    }*/
+
     private void Start()
     {
          //Grabs references for Rigidbody, Box Collider, and Animator
@@ -68,11 +83,13 @@ public class Movement : NetworkBehaviour
         {
             transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
             facing = Direction.right;
+            //CmdFlipSprite();
         }
         else if (horizontalInput < -0.01f)
         {
             transform.localScale = new Vector3(-0.25f, 0.25f, 0.25f);
             facing = Direction.left;
+            //CmdFlipSprite();
         }
 
         //Makes the player jump when space is pressed
