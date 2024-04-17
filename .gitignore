@@ -104,4 +104,5 @@ octave-workspace
 *.pdf
 
 # Alex build file
-/2D Platformer/z_build
+#/2D\ Platformer/z_build
+'2D Platformer'/Assets/Firebase/Plugins/x86_64/FirebaseCppAuth.bundle
