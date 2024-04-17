@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
@@ -15,6 +16,7 @@ public class PlayerStatsTest
         StatsConfig statsConfig = UnityEditor.AssetDatabase.LoadAssetAtPath<StatsConfig>("Assets/ScriptableObjects/GaryStats.asset");
 
         GameObject gameObject = new GameObject();
+        NetworkIdentity networkIdentity = gameObject.AddComponent<NetworkIdentity>();
         PlayerStats playerStats = gameObject.AddComponent<PlayerStats>();
 
         playerStats.statsConfig = statsConfig;
@@ -34,6 +36,7 @@ public class PlayerStatsTest
         StatsConfig statsConfig = UnityEditor.AssetDatabase.LoadAssetAtPath<StatsConfig>("Assets/ScriptableObjects/GaryStats.asset");
 
         GameObject gameObject = new GameObject();
+        NetworkIdentity networkIdentity = gameObject.AddComponent<NetworkIdentity>();
         PlayerStats playerStats = gameObject.AddComponent<PlayerStats>();
 
         playerStats.statsConfig = statsConfig;
