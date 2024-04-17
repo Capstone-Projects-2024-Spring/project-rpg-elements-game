@@ -1110,7 +1110,7 @@ MonoBehaviour:
   - {fileID: 663084854361109605}
   - {fileID: 7925659966150870704}
   visible_hitboxes: 0
-  rising_velocity: 18
+  rising_velocity: 19.3
   gravity_reduction: 1.4
   spawnPosition: {x: 0, y: -1}
   projectileVelocity: {x: 0, y: -8}
