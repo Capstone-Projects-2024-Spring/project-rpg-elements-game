@@ -1654,12 +1654,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300200637edb24c4d8c633bd7f309fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   statsConfig: {fileID: 11400000, guid: dd4178480ea8f36429a64e1bb40f7847, type: 2}
   chipSpeed: 2
   frontHealthBar: {fileID: 4687620430335982577}
   backHealthBar: {fileID: 4280240802995428757}
   healthText: {fileID: 4482709293251734368}
-  levelText: {fileID: 5501464210421072637}
 --- !u!114 &25078906352904655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1714,7 +1716,7 @@ MonoBehaviour:
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
   - {fileID: 7203796366347703675}
-  visible_hitboxes: 0
+  visible_hitboxes: 1
 --- !u!114 &1705011291076420311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1745,7 +1747,7 @@ MonoBehaviour:
   - {fileID: 7203796366347703675}
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 0
+  visible_hitboxes: 1
   rising_velocity: 27.5
   gravity_reduction: 2.5
 --- !u!114 &8642590028428622123
@@ -1778,7 +1780,7 @@ MonoBehaviour:
   - {fileID: 7203796366347703675}
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 0
+  visible_hitboxes: 1
 --- !u!114 &8931284469525953300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1807,7 +1809,7 @@ MonoBehaviour:
   hitboxes:
   - {fileID: 7203796366347703675}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 0
+  visible_hitboxes: 1
 --- !u!114 &4657406595814067393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1835,7 +1837,7 @@ MonoBehaviour:
   triggerKey: 117
   hitboxes:
   - {fileID: 2057438182296233312}
-  visible_hitboxes: 0
+  visible_hitboxes: 1
   midLevelThreshold: 0.7
   maxLevelThreshold: 1.5
   midLevelMultiplier: 1.4
@@ -1871,7 +1873,7 @@ MonoBehaviour:
   triggerKey: 105
   hitboxes:
   - {fileID: 2057438182296233312}
-  visible_hitboxes: 0
+  visible_hitboxes: 1
 --- !u!114 &855483199704802766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1908,7 +1910,7 @@ MonoBehaviour:
   - {fileID: 7182483012861681041}
   - {fileID: 6074311399243791160}
   - {fileID: 4797827304653626489}
-  visible_hitboxes: 0
+  visible_hitboxes: 1
   spawnPosition: {x: 1, y: 0}
   projectileVelocity: {x: 8, y: 0}
   gravity: 0
@@ -1949,7 +1951,7 @@ MonoBehaviour:
   - {fileID: 7203796366347703675}
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 0
+  visible_hitboxes: 1
   aerialPower: 16
   aerialKnockback:
   - 15
@@ -2631,7 +2633,7 @@ GameObject:
   - component: {fileID: 5011902832087179880}
   m_Layer: 0
   m_Name: Hurtbox
-  m_TagString: Player
+  m_TagString: PlayerHurtbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3188,7 +3190,7 @@ GameObject:
   - component: {fileID: 4930653579493400442}
   m_Layer: 0
   m_Name: GaryWithProjectile
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4086,39 +4088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5501464210421072637 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1794469325500303611, guid: 141d4750741a6064396b71f3573fe799, type: 3}
-  m_PrefabInstance: {fileID: 6106349846794045958}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5639457928332128550 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1944848939884002080, guid: 141d4750741a6064396b71f3573fe799, type: 3}
-  m_PrefabInstance: {fileID: 6106349846794045958}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8064179533127249222 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4276067077823784768, guid: 141d4750741a6064396b71f3573fe799, type: 3}
-  m_PrefabInstance: {fileID: 6106349846794045958}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8161836422720601452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4170,11 +4139,11 @@ PrefabInstance:
     - target: {fileID: 6572654840103542228, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
       propertyPath: expBar
       value: 
-      objectReference: {fileID: 8064179533127249222}
+      objectReference: {fileID: 0}
     - target: {fileID: 6572654840103542228, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
       propertyPath: expText
       value: 
-      objectReference: {fileID: 5639457928332128550}
+      objectReference: {fileID: 0}
     - target: {fileID: 8893295883554712945, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
       propertyPath: m_Name
       value: Exp_Level Prefab Variant

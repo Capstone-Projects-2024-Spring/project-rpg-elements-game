@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using Mirror;
 /*
     Invisible boxes that collide with hitboxes to detect whether or not the character has been hit by something.
 */
@@ -70,7 +71,7 @@ public class Hurtbox : MonoBehaviour
             + " and (" + other.GetComponent<Hitbox>().getKnockback()[0] + ", " + other.GetComponent<Hitbox>().getKnockback()[1] + ") knockback.");
         
         }
-        else if (other.tag == "Player")
+        else if (other.tag == "PlayerHurtbox")
         {
             print("I am touching a player");
             if(other.GetComponent<PlayerHurtbox>() != null) { 
