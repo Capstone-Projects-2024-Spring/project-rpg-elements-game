@@ -34,7 +34,7 @@ public class BuildScript: MonoBehaviour
             scenes = new[] { "Assets/Levels/LevelGenerator.unity" },
             locationPathName = "Builds/Linux/Server/Server.x86_64",
             target = BuildTarget.StandaloneLinux64,
-            options = BuildOptions.CompressWithLz4HC
+            options = BuildOptions.CompressWithLz4HC | BuildOptions.EnableHeadlessMode
         };
 
         Console.WriteLine("Building Server (Linux)...");
