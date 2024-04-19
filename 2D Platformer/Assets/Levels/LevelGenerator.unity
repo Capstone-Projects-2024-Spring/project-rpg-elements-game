@@ -275,7 +275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &89863820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1090,6 +1090,7 @@ GameObject:
   m_Component:
   - component: {fileID: 370551093}
   - component: {fileID: 370551092}
+  - component: {fileID: 370551094}
   m_Layer: 0
   m_Name: Ability UI Controller
   m_TagString: Untagged
@@ -1109,6 +1110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f383f9bd03d11d044a87325b36963529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   mainUICanvas: {fileID: 7319377925628299602, guid: 20cdd195f025553449727ddaea428329, type: 3}
 --- !u!4 &370551093
 Transform:
@@ -1125,6 +1129,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &370551094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370551091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 3824988232
+  _assetId: 0
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
 --- !u!224 &377420776 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1671255000541282157, guid: 09b3a9b785c86224f9d8a84655331a68, type: 3}
@@ -3627,7 +3648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2125753447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3671,7 +3692,7 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 7116336154021614077, guid: f9da39335d52e2849968c2b7b353e65f, type: 3}
+  playerPrefab: {fileID: 7240653282723461335, guid: 44301bcafd3a85c449978ceeb651a85f, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs:
