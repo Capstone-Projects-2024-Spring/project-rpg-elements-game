@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 8828941955376564542}
-  currentCharacter: 0
   parentAfterDrag: {fileID: 0}
   abilityID: 0
   listOfSpriteImages:
@@ -109,3 +108,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9a32d7d061ca1b4408d2d2e6897857e9, type: 3}
   - {fileID: 21300000, guid: f6f079b5ff4051445a5db75ed8219c71, type: 3}
   - {fileID: 21300000, guid: 29ac6b56e0c1206459a8b3c3e19dded8, type: 3}
+  - {fileID: 21300000, guid: cf19fa491fa91204eab6c57d37c9c21f, type: 3}
+  - {fileID: 21300000, guid: f01adff029128414187c52beaa41378e, type: 3}
+  - {fileID: 21300000, guid: ac5232e902cacfe4780f7bd35b1a8988, type: 3}
+  - {fileID: 21300000, guid: 55f1bd8b7a4b11b4bbdf670756ff7fd3, type: 3}
+  - {fileID: 21300000, guid: 568a6c4c93e1ad549bd9e2578ec78fc1, type: 3}
+  - {fileID: 21300000, guid: f4d65b95c5300c24b94b4fee607e0843, type: 3}
+  - {fileID: 21300000, guid: 516f05fbc5326ba4aac5c3f67e539523, type: 3}
+  - {fileID: 21300000, guid: 38863ec8acde41f4b8f7daf531b77f67, type: 3}
+  imageSpriteToUse: 0

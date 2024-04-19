@@ -176,6 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7834340644985612607, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+    - {fileID: 3060260808306498300, guid: 325b46dda95e94240944548a07df1b81, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -196,6 +197,10 @@ PrefabInstance:
     - target: {fileID: 1325677449716479123, guid: 9f2e1feca86a0df43be454cf153494bf, type: 3}
       propertyPath: m_Name
       value: Projectile Pool
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062174304925920194, guid: 9f2e1feca86a0df43be454cf153494bf, type: 3}
+      propertyPath: _assetId
+      value: 2245804906
       objectReference: {fileID: 0}
     - target: {fileID: 6805639240563239140, guid: 9f2e1feca86a0df43be454cf153494bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -237,7 +242,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3062174304925920194, guid: 9f2e1feca86a0df43be454cf153494bf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

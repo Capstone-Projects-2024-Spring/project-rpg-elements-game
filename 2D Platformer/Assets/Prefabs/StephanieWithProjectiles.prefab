@@ -801,6 +801,8 @@ MonoBehaviour:
   attackName: Fireball
   attackDescription: Summon a beam from your sword. It will travel straight forward,
     hitting enemies too far away for you to stab.
+  abilityID: 1
+  CurrentAbilitySlot: 1
   animationTrigger: attack
   power: 6
   knockback:
@@ -842,6 +844,8 @@ MonoBehaviour:
   attackName: Heavy Light Ball
   attackDescription: A placeholder description for attacks. Seen by the user in the
     attack menu.
+  abilityID: 2
+  CurrentAbilitySlot: 0
   animationTrigger: heavylightball
   power: 15
   knockback:
@@ -883,6 +887,8 @@ MonoBehaviour:
   attackName: Lightning Beam
   attackDescription: A placeholder description for attacks. Seen by the user in the
     attack menu.
+  abilityID: 3
+  CurrentAbilitySlot: 0
   animationTrigger: lightningbeam
   power: 3
   knockback:
@@ -924,6 +930,8 @@ MonoBehaviour:
   attackName: Sharp Arch
   attackDescription: A quick upwards slash that covers a wide range and propels foes
     upwards. Great for setting up into bigger moves.
+  abilityID: 8
+  CurrentAbilitySlot: 0
   animationTrigger: sharparch
   power: 11
   knockback:
@@ -955,6 +963,8 @@ MonoBehaviour:
   attackName: Dash 'n' Slash
   attackDescription: A chargeable attack that will give a sudden burst of movement
     forwards when released. How far you go depends on how long you charge.
+  abilityID: 7
+  CurrentAbilitySlot: 0
   animationTrigger: dashnslash
   power: 10
   knockback:
@@ -992,6 +1002,8 @@ MonoBehaviour:
   attackDescription: A giant, massive slash that does a ton of damage, but it also
     leaves you wide open. Using it in the air will send you straight down to the
     ground.
+  abilityID: 6
+  CurrentAbilitySlot: 0
   animationTrigger: obliviondive
   power: 28
   knockback:
@@ -1068,6 +1080,8 @@ MonoBehaviour:
   attackName: Flame Charge
   attackDescription: A placeholder description for attacks. Seen by the user in the
     attack menu.
+  abilityID: 5
+  CurrentAbilitySlot: 0
   animationTrigger: flamecharge
   power: 14
   knockback:
@@ -1097,6 +1111,8 @@ MonoBehaviour:
   attackName: Windy Boost
   attackDescription: A placeholder description for attacks. Seen by the user in the
     attack menu.
+  abilityID: 4
+  CurrentAbilitySlot: 0
   animationTrigger: windyboost
   power: 8
   knockback:
