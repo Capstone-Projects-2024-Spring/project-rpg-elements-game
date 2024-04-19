@@ -16,7 +16,7 @@ public class RisingAttack : PlayerAttack
         Instead, the attack's hitboxes will automatically turn off when the player starts falling while
         it's active, and the attack state will be set to false as well.
     */
-    private bool falling = false;
+    protected bool falling = false;
     /*
         The attack can only be used when charged is true.
         Charged is true by default, but using the attack sets it to false.
@@ -24,26 +24,26 @@ public class RisingAttack : PlayerAttack
         (Maybe getting attacked will also recharge it, like with all Up-B moves in Smash Bros. 
         But that is not implemented yet.)
     */
-    private bool charged = true;
+    protected bool charged = true;
     /*
         Checks whether or not the player has activated the burst() function.
         Used when turning off the attack.
     */
-    private bool bursted = false;
+    protected bool bursted = false;
 /*
     Determines how high the attack goes.
 */
-    [SerializeField] float rising_velocity = 15;
+    [SerializeField] protected float rising_velocity = 15;
 /*
     Change the player's gravity to change how fast they rise.
     Gravity should only be changed when the player is RISING. When the player is falling, 
     gravity should be normal. 
 */
-    [SerializeField] float gravity_reduction = 1.0f;
+    [SerializeField] protected float gravity_reduction = 1.0f;
 /*
     Stores the player's default gravity scale.
 */
-    private float stored_gravity;
+    protected float stored_gravity;
 
     protected override void Awake(){
         base.Awake();
@@ -90,7 +90,7 @@ public class RisingAttack : PlayerAttack
         anim.SetBool("falling", falling);
     }
 //Turns off active hitboxes. Sets attack state to false. Resets everything to their default position.
-    private void Deactivate(){
+    protected virtual void Deactivate(){
         //Debug.Log("Skyslash deactivated the attack!");
         base.DeactivateHitbox();
         playerMovement.setAttackStateFalse();
@@ -116,7 +116,7 @@ public class RisingAttack : PlayerAttack
     Unfreezes the player and sends them upwards
     In hindsight, "rise" is probably a better name than burst O_O Might rename this function later lol
 */
-    private void burst(){
+    protected virtual void burst(){
         if(!active){
             return;
         }

@@ -143,9 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c13060dc1dc8154593abb8f0d6eb31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
 --- !u!1 &1313878777836689733
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,9 +363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c13060dc1dc8154593abb8f0d6eb31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
 --- !u!1 &4766757577315621775
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,9 +461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c13060dc1dc8154593abb8f0d6eb31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
 --- !u!60 &4105603668231487734
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -666,9 +657,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c13060dc1dc8154593abb8f0d6eb31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
 --- !u!1 &5726351551892386308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,9 +1467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c13060dc1dc8154593abb8f0d6eb31e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
 --- !u!1 &8292549321228511484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,9 +1638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9969687041bbcdb46a0325615d1e4e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
   statSheet: {fileID: 0}
   DamageText: {fileID: 8458354314928785234, guid: 0ca3cf36077335c4ebb9d7deb8695545, type: 3}
   DamageTextComponent: {fileID: 8863875750191080330, guid: 0ca3cf36077335c4ebb9d7deb8695545, type: 3}
