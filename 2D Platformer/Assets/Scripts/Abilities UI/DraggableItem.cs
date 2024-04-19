@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    GameObject[] currentPlayers;
     GameObject currentPlayer;
     PlayerAttack[] attackScripts;
     public Image image; 
@@ -26,7 +27,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void Awake()
     {
         //DontDestroyOnLoad(transform.gameObject);
-        currentPlayer = GameObject.FindGameObjectWithTag("Player");
+        currentPlayers = GameObject.FindGameObjectsWithTag("Player");
+        currentPlayer = currentPlayers[currentPlayers.Length-1];
         attackScripts = currentPlayer.GetComponentsInChildren<PlayerAttack>();
         //for (int i = 0; i < attackScripts.Length; i++)
         //{
@@ -43,8 +45,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             int characterChoice = (int)currentCharacter * 8; //each character has 8 attacks, offset ability count by 8 based on character choice to get correct sprite image]
             imageSpriteToUse = characterChoice + abilityID - 1;
-            print("loading image number [" + (imageSpriteToUse) + "]");
-            image.sprite = listOfSpriteImages[imageSpriteToUse];
+            //print("loading image number [" + (imageSpriteToUse) + "]");
+            image.sprite = listOfSpriteImages[imageSpriteToUse]; 
         }
     }
 
