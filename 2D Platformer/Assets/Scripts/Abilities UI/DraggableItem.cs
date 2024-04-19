@@ -96,8 +96,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             {
                 //activate ability
                 attackScripts[abilityID - 1].CurrentAbilitySlot = invSlotOfParent.activeAbilitySlotNumber;
-                print("activeAbilitySlotNumber of parent is [" + invSlotOfParent.activeAbilitySlotNumber + "]");
-                print("AbilityID of [" + abilityID + "], on the attack with abilityID of ["+attackScripts[abilityID-1].abilityID+"], has ability slot of number ["+attackScripts[abilityID-1].CurrentAbilitySlot+"]");
+                //print("activeAbilitySlotNumber of parent is [" + invSlotOfParent.activeAbilitySlotNumber + "]");
+                //print("AbilityID of [" + abilityID + "], on the attack with abilityID of ["+attackScripts[abilityID-1].abilityID+"], has ability slot of number ["+attackScripts[abilityID-1].CurrentAbilitySlot+"]");
             }
             else
             {

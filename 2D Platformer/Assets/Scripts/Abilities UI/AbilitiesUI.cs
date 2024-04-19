@@ -10,15 +10,14 @@ public class AbilitiesUI : NetworkBehaviour
     private bool isInstantiated = false;
     [SerializeField] public GameObject mainUICanvas;
     private GameObject createdCanvas;
-    public override void OnStopClient()
+    public override void OnStartClient()
     {
         print("@@@@@@@@@@@@@@@@@@@");
-        if (isOwned)
+        if (this.isLocalPlayer)
         {
             print("bruh"); 
             resetScene();
         }
-        base.OnStopClient();
     } 
     void resetScene()
     {
