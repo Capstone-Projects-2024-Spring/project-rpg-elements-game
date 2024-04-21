@@ -1706,6 +1706,8 @@ MonoBehaviour:
   statSheet: {fileID: 1856592647684295507}
   attackName: Dog Strike
   attackDescription: A fast overhead arc that covers a wide range for modest damage.
+  abilityID: 1
+  CurrentAbilitySlot: 1
   animationTrigger: attack
   power: 12
   knockback:
@@ -1717,7 +1719,7 @@ MonoBehaviour:
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
   - {fileID: 7203796366347703675}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &1705011291076420311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1737,6 +1739,8 @@ MonoBehaviour:
   attackName: Sky Slash
   attackDescription: A sword swing that sends both you and your opponents to the
     sky. But you can't use it again until you're back on the ground.
+  abilityID: 7
+  CurrentAbilitySlot: 0
   animationTrigger: skyslash
   power: 20
   knockback:
@@ -1748,7 +1752,7 @@ MonoBehaviour:
   - {fileID: 7203796366347703675}
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   rising_velocity: 27.5
   gravity_reduction: 2.5
 --- !u!114 &8642590028428622123
@@ -1770,6 +1774,8 @@ MonoBehaviour:
   attackName: Sharp Arch
   attackDescription: A quick upwards slash that covers a wide range and propels foes
     upwards. Great for setting up into bigger moves.
+  abilityID: 6
+  CurrentAbilitySlot: 0
   animationTrigger: sharparch
   power: 11
   knockback:
@@ -1781,7 +1787,7 @@ MonoBehaviour:
   - {fileID: 7203796366347703675}
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &8931284469525953300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1801,6 +1807,8 @@ MonoBehaviour:
   attackName: Sweeping Steel
   attackDescription: Swiftly strike at the legs of your opponent, sending them upwards
     a little. Its low knockback makes it a great combo tool.
+  abilityID: 2
+  CurrentAbilitySlot: 0
   animationTrigger: sweepingsteel
   power: 6
   knockback:
@@ -1810,7 +1818,7 @@ MonoBehaviour:
   hitboxes:
   - {fileID: 7203796366347703675}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &4657406595814067393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1830,6 +1838,8 @@ MonoBehaviour:
   attackName: Dash 'n' Slash
   attackDescription: A chargeable attack that will give a sudden burst of movement
     forwards when released. How far you go depends on how long you charge.
+  abilityID: 4
+  CurrentAbilitySlot: 0
   animationTrigger: dashnslash
   power: 10
   knockback:
@@ -1838,7 +1848,7 @@ MonoBehaviour:
   triggerKey: 117
   hitboxes:
   - {fileID: 2057438182296233312}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   midLevelThreshold: 0.7
   maxLevelThreshold: 1.5
   midLevelMultiplier: 1.4
@@ -1866,6 +1876,8 @@ MonoBehaviour:
   attackName: Cloud Strike
   attackDescription: Lift up your sword. Great for juggling opponents already in
     the air.
+  abilityID: 3
+  CurrentAbilitySlot: 0
   animationTrigger: cloudstrike
   power: 5
   knockback:
@@ -1874,7 +1886,7 @@ MonoBehaviour:
   triggerKey: 105
   hitboxes:
   - {fileID: 2057438182296233312}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &855483199704802766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1894,6 +1906,8 @@ MonoBehaviour:
   attackName: Sword Beam
   attackDescription: Summon a beam from your sword. It will travel straight forward,
     hitting enemies too far away for you to stab.
+  abilityID: 8
+  CurrentAbilitySlot: 0
   animationTrigger: swordbeam
   power: 8
   knockback:
@@ -1911,7 +1925,7 @@ MonoBehaviour:
   - {fileID: 7182483012861681041}
   - {fileID: 6074311399243791160}
   - {fileID: 4797827304653626489}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   spawnPosition: {x: 1, y: 0}
   projectileVelocity: {x: 8, y: 0}
   gravity: 0
@@ -1941,6 +1955,8 @@ MonoBehaviour:
   attackDescription: A giant, massive slash that does a ton of damage, but it also
     leaves you wide open. Using it in the air will send you straight down to the
     ground.
+  abilityID: 5
+  CurrentAbilitySlot: 0
   animationTrigger: obliviondive
   power: 28
   knockback:
@@ -1952,7 +1968,7 @@ MonoBehaviour:
   - {fileID: 7203796366347703675}
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   aerialPower: 16
   aerialKnockback:
   - 15
@@ -2792,7 +2808,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.9577489, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
