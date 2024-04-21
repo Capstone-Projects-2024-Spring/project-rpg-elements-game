@@ -26,10 +26,12 @@ public class EnemyStats : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            CheckStats();
-        }
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    CheckStats();
+        //}
+
+        
         if(Health.Value < baseHealth){
             currentA.a = 1f;
             currentA.r = 255f;
