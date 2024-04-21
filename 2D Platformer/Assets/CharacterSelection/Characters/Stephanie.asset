@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Stephanie
   characterPreviewPrefab: {fileID: 6554584858392232962, guid: ae7d4f58557d79d4bb89a52a65bdd0c6, type: 3}
-  gameplayCharacterPrefab: {fileID: 6554584858392232962, guid: d8d8cff353d4f2249ae417482c13ecfc, type: 3}
+  gameplayCharacterPrefab: {fileID: 7116336154021614077, guid: aced861a1ebfbc04aa7f30bfe7363525, type: 3}
