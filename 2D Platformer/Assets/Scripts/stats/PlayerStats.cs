@@ -10,6 +10,7 @@ public class PlayerStats: NetworkBehaviour {
 
     //Assignments for the player's stats.
     public StatsConfig statsConfig;
+    public GameObject statPanel;
     public CharacterStat Strength;
     public CharacterStat Speed;
     public CharacterStat Health;
@@ -22,6 +23,7 @@ public class PlayerStats: NetworkBehaviour {
     public Image frontHealthBar;
     public Image backHealthBar;
     public TextMeshProUGUI healthText;
+    public TextMeshProUGUI statValues;
     //public TextMeshProUGUI levelText;
   
 
@@ -59,14 +61,18 @@ public class PlayerStats: NetworkBehaviour {
 
     public void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.X))
-        //{
-        //    CheckStats();
-        //}
-        //if (Input.GetKeyDown(KeyCode.Z))
-        //{
-        //    AddSpeed();
-        //}
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            //CheckStats();
+        }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            //AddSpeed();
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            OpenStatUI();
+        }
         healTimer -= Time.deltaTime;
         if (CurrentHealth.Value < Health.Value && healTimer <= 0f)
         {
@@ -78,8 +84,8 @@ public class PlayerStats: NetworkBehaviour {
             
             healTimer = 5f;
         }
-
         UpdateHealthUI();
+        statValues.text = Health.Value.ToString() + "\n" + Strength.Value.ToString() + "\n" + Speed.Value.ToString();
     }
     public void CheckStats()
     {
@@ -164,6 +170,11 @@ public class PlayerStats: NetworkBehaviour {
         }
 
         healthText.text = Mathf.RoundToInt(CurrentHealth.Value) + "/" + Mathf.RoundToInt(Health.Value);
+    }
+
+    public void OpenStatUI()
+    {
+        statPanel.SetActive(!statPanel.activeSelf);
     }
 
 }
