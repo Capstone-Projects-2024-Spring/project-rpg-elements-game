@@ -70,7 +70,7 @@ MonoBehaviour:
   target: {fileID: 2175380823676596118}
   syncPosition: 1
   syncRotation: 1
-  syncScale: 0
+  syncScale: 1
   onlySyncOnChange: 1
   compressRotation: 1
   interpolatePosition: 1
@@ -174,8 +174,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8297312936399410857, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+      propertyPath: statPanel
+      value: 
+      objectReference: {fileID: 7646403581131225582}
+    - target: {fileID: 8297312936399410857, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+      propertyPath: statValues
+      value: 
+      objectReference: {fileID: 8549858250807944511}
     m_RemovedComponents:
     - {fileID: 7834340644985612607, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+    - {fileID: 3060260808306498300, guid: 325b46dda95e94240944548a07df1b81, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -185,6 +194,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4413909215928327728, guid: 325b46dda95e94240944548a07df1b81, type: 3}
   m_PrefabInstance: {fileID: 2554062563512660390}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7646403581131225582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5290781602594572360, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+  m_PrefabInstance: {fileID: 2554062563512660390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8549858250807944511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6185386882991527065, guid: 325b46dda95e94240944548a07df1b81, type: 3}
+  m_PrefabInstance: {fileID: 2554062563512660390}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4245789850195286778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,6 +221,10 @@ PrefabInstance:
     - target: {fileID: 1325677449716479123, guid: 9f2e1feca86a0df43be454cf153494bf, type: 3}
       propertyPath: m_Name
       value: Projectile Pool
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062174304925920194, guid: 9f2e1feca86a0df43be454cf153494bf, type: 3}
+      propertyPath: _assetId
+      value: 2245804906
       objectReference: {fileID: 0}
     - target: {fileID: 6805639240563239140, guid: 9f2e1feca86a0df43be454cf153494bf, type: 3}
       propertyPath: m_LocalPosition.x
