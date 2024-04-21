@@ -953,7 +953,7 @@ MonoBehaviour:
   triggerKey: 106
   hitboxes:
   - {fileID: 1723615292638173369}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &2529029297004982552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,7 +981,7 @@ MonoBehaviour:
   triggerKey: 108
   hitboxes:
   - {fileID: 1723615292638173369}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &1805790263231340635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1010,7 +1010,7 @@ MonoBehaviour:
   hitboxes:
   - {fileID: 2517431730197761734}
   - {fileID: 3831776069872821766}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &6077882256009818207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,7 +1071,7 @@ MonoBehaviour:
   triggerKey: 117
   hitboxes:
   - {fileID: 1723615292638173369}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   midLevelThreshold: 0.4
   maxLevelThreshold: 1.6
   midLevelMultiplier: 1.2
@@ -1242,7 +1242,7 @@ MonoBehaviour:
   triggerKey: 112
   hitboxes:
   - {fileID: 2517431730197761734}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   burstVelocity: {x: 18, y: 5}
 --- !u!1 &8136480622574830865
 GameObject:
@@ -1676,7 +1676,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.9577489, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

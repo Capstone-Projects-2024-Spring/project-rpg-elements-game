@@ -1717,7 +1717,7 @@ MonoBehaviour:
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
   - {fileID: 7203796366347703675}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &1705011291076420311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1748,7 +1748,7 @@ MonoBehaviour:
   - {fileID: 7203796366347703675}
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   rising_velocity: 27.5
   gravity_reduction: 2.5
 --- !u!114 &8642590028428622123
@@ -1781,7 +1781,7 @@ MonoBehaviour:
   - {fileID: 7203796366347703675}
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &8931284469525953300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1810,7 +1810,7 @@ MonoBehaviour:
   hitboxes:
   - {fileID: 7203796366347703675}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &4657406595814067393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1838,7 +1838,7 @@ MonoBehaviour:
   triggerKey: 117
   hitboxes:
   - {fileID: 2057438182296233312}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   midLevelThreshold: 0.7
   maxLevelThreshold: 1.5
   midLevelMultiplier: 1.4
@@ -1874,7 +1874,7 @@ MonoBehaviour:
   triggerKey: 105
   hitboxes:
   - {fileID: 2057438182296233312}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &855483199704802766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1911,7 +1911,7 @@ MonoBehaviour:
   - {fileID: 7182483012861681041}
   - {fileID: 6074311399243791160}
   - {fileID: 4797827304653626489}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   spawnPosition: {x: 1, y: 0}
   projectileVelocity: {x: 8, y: 0}
   gravity: 0
@@ -1952,7 +1952,7 @@ MonoBehaviour:
   - {fileID: 7203796366347703675}
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   aerialPower: 16
   aerialKnockback:
   - 15
@@ -2792,7 +2792,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.9577489, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

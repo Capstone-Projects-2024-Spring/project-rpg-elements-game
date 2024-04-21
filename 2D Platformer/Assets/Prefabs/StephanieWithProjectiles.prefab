@@ -935,7 +935,7 @@ MonoBehaviour:
   - {fileID: 3270483518911156379}
   - {fileID: 6311402894483334069}
   - {fileID: 8746340722329525659}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &4002979394267338065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,7 +963,7 @@ MonoBehaviour:
   triggerKey: 117
   hitboxes:
   - {fileID: 8380272207258655901}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   midLevelThreshold: 0.7
   maxLevelThreshold: 1.5
   midLevelMultiplier: 1.4
@@ -1076,7 +1076,7 @@ MonoBehaviour:
   triggerKey: 112
   hitboxes:
   - {fileID: 8380272207258655901}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   burstVelocity: {x: 16, y: 4}
 --- !u!114 &2403737785225553190
 MonoBehaviour:
@@ -2984,7 +2984,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.9577489, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
