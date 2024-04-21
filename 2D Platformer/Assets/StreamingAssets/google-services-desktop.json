@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "252678421314",
+    "project_id": "wildlifeodyssey-c2863",
+    "storage_bucket": "wildlifeodyssey-c2863.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252678421314:android:990476be9cc5344dd126db",
+        "android_client_info": {
+          "package_name": "com.iss.wildlifeodyssey"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPObjjM9aRR7Ia0Q2b1WHjXLbULhe0cNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
