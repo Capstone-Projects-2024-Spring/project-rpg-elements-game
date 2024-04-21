@@ -63,11 +63,11 @@ public class PlayerStats: NetworkBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            CheckStats();
+            //CheckStats();
         }
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            AddSpeed();
+            //AddSpeed();
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
