@@ -16,7 +16,9 @@ public abstract class PlayerAttack : NetworkBehaviour
     protected Movement playerMovement;
     [SerializeField] public String attackName = "strike";
     [SerializeField] public string attackDescription = "A placeholder description for attacks. Seen by the user in the attack menu.";
+    [SerializeField] public int abilityID;
 
+    public int CurrentAbilitySlot = 0; //1 = Z, 2 = X, 3 = C, 0 = disabled
 
 /*
 For the animator to know which animation to trigger. 
@@ -135,7 +137,13 @@ An attack can only be triggered if the following are true:
     - Any other constraints that should prevent the player from attacking?
 */
     protected virtual bool checkForInput(){
-        if(!Input.GetKeyDown(triggerKey)){
+        //if(!Input.GetKeyDown(triggerKey)){
+        //    return false;
+        //}
+
+        //print("Current ability slot is [" + CurrentAbilitySlot + "]");
+        if (CurrentAbilitySlot == 0)
+        {
             return false;
         }
         if (!playerMovement.canAttack()){
@@ -144,7 +152,19 @@ An attack can only be triggered if the following are true:
         if(!other_constraints){
             return false;
         }
-        return true;
+        if (CurrentAbilitySlot == 1 && Input.GetKeyDown(KeyCode.Z))
+        {
+            return true;
+        }
+        if (CurrentAbilitySlot == 2 && Input.GetKeyDown(KeyCode.X))
+        {
+            return true;
+        }
+        if (CurrentAbilitySlot == 3 && Input.GetKeyDown(KeyCode.C))
+        {
+            return true;
+        }
+        return false;
 
     }
 
