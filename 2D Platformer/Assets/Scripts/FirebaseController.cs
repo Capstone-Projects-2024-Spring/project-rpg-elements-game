@@ -11,7 +11,7 @@ public class FirebaseController : MonoBehaviour
 
     public InputField loginEmail, loginPassword, signupEmail, signupPassword, signupConfirm, signupIGN, forgetPassEmail;
 
-    public Text notif_Text;
+    public Text notif_Text, profileEmail_Text, profileIGN_Text;
 
     public Toggle rememberMe;
 
@@ -110,5 +110,12 @@ public class FirebaseController : MonoBehaviour
         notif_Text.text = "";
 
         notifPanel.SetActive(false);
+    }
+
+    public void LogOut()
+    {
+        profileEmail_Text.text = "";
+        profileIGN_Text.text = "";
+        OpenLoginPanel();
     }
 }
