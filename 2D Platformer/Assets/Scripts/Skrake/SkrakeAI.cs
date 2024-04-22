@@ -17,6 +17,7 @@ public class SkrakeAI : NetworkBehaviour
     private bool inHitstun = false;
     private Vector3 localScale;
     [SerializeField] private EnemyStats SkrakeStats;
+    [SerializeField] private Hurtbox hurtbox;
     private float moveSpeed = 1;
     private bool playerIsOnLeft = false;
     private float attackDirection = 1;
@@ -55,6 +56,7 @@ public class SkrakeAI : NetworkBehaviour
         {
             ChangeDirection();
         }
+        sendHitstunStatus();
     }
 
     private void ChangeDirection()
@@ -146,5 +148,10 @@ public class SkrakeAI : NetworkBehaviour
             localScale.x = Mathf.Abs(localScale.x) * -1;
         }
         transform.localScale = localScale;
+    }
+
+    private void sendHitstunStatus()
+    {
+        hurtbox.setHitstun(inHitstun);
     }
 }

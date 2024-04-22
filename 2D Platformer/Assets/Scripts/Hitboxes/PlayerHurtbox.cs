@@ -10,6 +10,11 @@ public class PlayerHurtbox : Hurtbox
     {
         if (other.tag == "Enemy")
         {
+            if (other.GetComponentInChildren<Hurtbox>().getHitstun())
+            {
+                Debug.Log("Skrake is hurt, not taking knockback");
+                return;
+            }
             Debug.Log("I am touching an enemy");
             Debug.Log(body);
 

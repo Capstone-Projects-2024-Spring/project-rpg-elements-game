@@ -43,6 +43,8 @@ public class Hurtbox : MonoBehaviour
 
     private string ID;
 
+    private bool inHitstun = false;
+
 /*
     When a hurtbox collides with a hitbox, the following is checked:
         - Does this have the tag I want to be hit by?
@@ -74,7 +76,11 @@ public class Hurtbox : MonoBehaviour
         else if (other.tag == "PlayerHurtbox")
         {
             print("I am touching a player");
-            if(other.GetComponent<PlayerHurtbox>() != null) { 
+            if(other.GetComponent<PlayerHurtbox>() != null) {
+                if (inHitstun)
+                {
+                    return;
+                }
                 other.GetComponent<PlayerHurtbox>().getStatSheet().takeDamage((int)statSheet.Strength.Value);
             }
 
@@ -146,6 +152,19 @@ public class Hurtbox : MonoBehaviour
     public string getName(){
         return ID;
     }
+
+    public void setHitstun(bool _hitstun)
+    {
+        inHitstun = _hitstun;
+    }
+
+    public bool getHitstun()
+    {
+        return inHitstun;
+    }
+
+
+
 
 
 }
