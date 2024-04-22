@@ -18,8 +18,6 @@ public class Door : NetworkBehaviour
             movePlayer(other.gameObject);
         }
     }
-
-    [Server]
     private void movePlayer(GameObject player)
     {
         player.transform.position = bossPosition;

@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
+    [SerializeField] public bool isActiveAbilitySlot;
+    [SerializeField] public int activeAbilitySlotNumber; 
     public void OnDrop(PointerEventData eventData)
     {
         if (transform.childCount == 0)

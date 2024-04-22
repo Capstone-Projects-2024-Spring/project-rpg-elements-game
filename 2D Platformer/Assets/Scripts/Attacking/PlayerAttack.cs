@@ -16,7 +16,9 @@ public abstract class PlayerAttack : NetworkBehaviour
     protected Movement playerMovement;
     [SerializeField] public String attackName = "strike";
     [SerializeField] public string attackDescription = "A placeholder description for attacks. Seen by the user in the attack menu.";
+    [SerializeField] public int abilityID;
 
+    public int CurrentAbilitySlot = 0; //1 = Z, 2 = X, 3 = C, 0 = disabled
 
 /*
 For the animator to know which animation to trigger. 
@@ -58,7 +60,7 @@ for testing purposes
 /*
 Used to signify that if a specific attack is being used or not. Important for making sure two attacks
 don't trigger at the same time. Shouldn't really be messed with. */
-    protected bool active;
+    [SyncVar] protected bool active;
 
     private float hitlagTimer = 0;
 /*
@@ -135,7 +137,13 @@ An attack can only be triggered if the following are true:
     - Any other constraints that should prevent the player from attacking?
 */
     protected virtual bool checkForInput(){
-        if(!Input.GetKeyDown(triggerKey)){
+        //if(!Input.GetKeyDown(triggerKey)){
+        //    return false;
+        //}
+
+        //print("Current ability slot is [" + CurrentAbilitySlot + "]");
+        if (CurrentAbilitySlot == 0)
+        {
             return false;
         }
         if (!playerMovement.canAttack()){
@@ -144,20 +152,33 @@ An attack can only be triggered if the following are true:
         if(!other_constraints){
             return false;
         }
-        return true;
+        if (CurrentAbilitySlot == 1 && Input.GetKeyDown(KeyCode.Z))
+        {
+            return true;
+        }
+        if (CurrentAbilitySlot == 2 && Input.GetKeyDown(KeyCode.X))
+        {
+            return true;
+        }
+        if (CurrentAbilitySlot == 3 && Input.GetKeyDown(KeyCode.C))
+        {
+            return true;
+        }
+        return false;
 
     }
 
+
     protected virtual void Update(){
-    /*
-        When an attack is triggered, the following are true:
-         - The attack is now "active". Only one attack can be active at a time
-         - The player is now in an "attacking" state. So they shouldn't be able to run or jump.
-         - The hitboxes in the attack are set
-         - The "attack ID" is set (more information in setAttackName())
-         - The animation for the attack triggers
-    */
-        if(checkForInput()){
+        /*
+            When an attack is triggered, the following are true:
+             - The attack is now "active". Only one attack can be active at a time
+             - The player is now in an "attacking" state. So they shouldn't be able to run or jump.
+             - The hitboxes in the attack are set
+             - The "attack ID" is set (more information in setAttackName())
+             - The animation for the attack triggers
+        */
+        if (checkForInput()){
             playerMovement.setAttackStateTrue();
             active = true;
             setHitboxes();

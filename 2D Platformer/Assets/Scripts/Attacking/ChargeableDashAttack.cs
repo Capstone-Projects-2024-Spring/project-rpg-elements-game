@@ -82,14 +82,30 @@ public class ChargeableDashAttack : PlayerAttack
     }
 //Overrides the parent function so that it detects if the button is being held down, not just pushed.
     protected override bool checkForInput(){
-        
+
+        if (CurrentAbilitySlot == 0)
+        {
+            return false;
+        }
         if (!playerMovement.canAttack()){
             return false;
         }
         if(!other_constraints){
             return false;
         }
-        if(Input.GetKey(triggerKey)){
+        if (CurrentAbilitySlot == 1 && Input.GetKey(KeyCode.Z))
+        {
+            triggerKey = KeyCode.Z;
+            return true;
+        }
+        if (CurrentAbilitySlot == 2 && Input.GetKey(KeyCode.X))
+        {
+            triggerKey = KeyCode.X;
+            return true;
+        }
+        if (CurrentAbilitySlot == 3 && Input.GetKey(KeyCode.C))
+        {
+            triggerKey = KeyCode.C;
             return true;
         }
         return false;
