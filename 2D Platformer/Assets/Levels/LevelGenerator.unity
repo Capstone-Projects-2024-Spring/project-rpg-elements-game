@@ -319,6 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetX: 0
   offsetY: 0
+  port: 7777
 --- !u!114 &89863822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,7 +342,7 @@ MonoBehaviour:
   offlineScene: 
   onlineScene: 
   transport: {fileID: 89863820}
-  networkAddress: localhost
+  networkAddress: 45.55.72.66
   maxConnections: 100
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60

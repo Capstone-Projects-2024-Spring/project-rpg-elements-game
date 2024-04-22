@@ -13,6 +13,7 @@ namespace Mirror
 
         public int offsetX;
         public int offsetY;
+        [SerializeField]ushort port;
 
         void Awake()
         {
@@ -49,6 +50,23 @@ namespace Mirror
 
         void StartButtons()
         {
+
+
+            //Runs port automatically (serialized)
+            //if (Transport.active is PortTransport)
+            //{
+            //    // Set the port
+            //    // Cast Transport.active to PortTransport and set the port
+            //    PortTransport portTransport = (PortTransport)Transport.active;
+            //    portTransport.Port = port;
+            //    Debug.Log("Port: " + portTransport.Port);
+            //    manager.StartClient();
+
+            //}
+            //else
+            //{
+            //    Debug.Log("Port failure");
+            //}
             if (!NetworkClient.active)
             {
 #if UNITY_WEBGL
