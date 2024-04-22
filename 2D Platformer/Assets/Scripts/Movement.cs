@@ -16,6 +16,7 @@ public class Movement : NetworkBehaviour
     private BoxCollider2D boxCollider;
     private bool attacking = false;
     private bool hurt = false;
+    private bool jumpcharged = false;
     private bool sentForwards = false;
     private float hitstunTimer = 0f;
     private Direction facing = Direction.right;
@@ -97,6 +98,19 @@ public class Movement : NetworkBehaviour
         {
             Jump();
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && !isGrounded() && jumpcharged)
+        {
+            jumpcharged = false;
+            Jump();
+        }
+
+        if (isGrounded())
+        {
+            jumpcharged = true;
+        }
+
+
 
         if (onWall())
         {
