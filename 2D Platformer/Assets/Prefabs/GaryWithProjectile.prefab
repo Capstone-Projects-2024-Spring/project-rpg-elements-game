@@ -1664,6 +1664,7 @@ MonoBehaviour:
   backHealthBar: {fileID: 4758301152980888399}
   healthText: {fileID: 5141793280588094906}
   statValues: {fileID: 9144256017100342381}
+  playerCanvas: {fileID: 4936847463607096878}
 --- !u!114 &25078906352904655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3864,6 +3865,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4936847463607096878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7589605152102836978, guid: 141d4750741a6064396b71f3573fe799, type: 3}
+  m_PrefabInstance: {fileID: 3301284968973909212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5141793280588094906 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7677463701434605926, guid: 141d4750741a6064396b71f3573fe799, type: 3}

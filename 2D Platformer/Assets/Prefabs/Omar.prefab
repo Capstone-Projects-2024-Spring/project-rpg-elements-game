@@ -882,6 +882,7 @@ MonoBehaviour:
   backHealthBar: {fileID: 4034131137387332601}
   healthText: {fileID: 3652327945543939340}
   statValues: {fileID: 797718996264676571}
+  playerCanvas: {fileID: 3564539499407457944}
 --- !u!114 &1997334554155446076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2036,6 +2037,11 @@ GameObject:
 --- !u!224 &2501718711688501091 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8832574322967298825, guid: 141d4750741a6064396b71f3573fe799, type: 3}
+  m_PrefabInstance: {fileID: 6351333751273280618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3564539499407457944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7589605152102836978, guid: 141d4750741a6064396b71f3573fe799, type: 3}
   m_PrefabInstance: {fileID: 6351333751273280618}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3652327945543939340 stripped

@@ -24,7 +24,21 @@ public class PlayerStats: NetworkBehaviour {
     public Image backHealthBar;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI statValues;
-    //public TextMeshProUGUI levelText;
+    public GameObject playerCanvas;
+
+    void Start()
+    {
+        if (isOwned)
+        {
+            // Activate the canvas for the local player
+            playerCanvas.SetActive(true);
+        }
+        else
+        {
+            // Disable the canvas for non-local players
+            playerCanvas.SetActive(false);
+        }
+    }
   
 
     //Basically on start, assigned these values to the ones in the config
