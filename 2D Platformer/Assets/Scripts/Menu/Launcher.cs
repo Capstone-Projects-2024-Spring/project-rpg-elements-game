@@ -77,6 +77,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         Hashtable playerCustomProperties = new Hashtable
         {
             { "PlayerId", playerId },
+            { "Port", 7777 }
         };
         PhotonNetwork.LocalPlayer.SetCustomProperties(playerCustomProperties);
 
@@ -131,27 +132,25 @@ public class Launcher : MonoBehaviourPunCallbacks
         foreach (Player player in PhotonNetwork.PlayerList)
         {
             // Access player properties
-            object playerId, port;
+            //object playerId, port;
 
-            player.CustomProperties.TryAdd("Port", setPort);
-            if (player.CustomProperties.TryGetValue("PlayerId", out playerId))
+            Hashtable playerCustomProperties = new Hashtable
             {
-                Debug.Log("Player ID: " + playerId);
-            }
-            else
-            {
-                Debug.LogWarning("Player ID not found for player: " + player.NickName);
-            }
+                { "Port", setPort }
+            };
+            player.SetCustomProperties(playerCustomProperties);
 
-            //Debug.Log("Lobby Port: " + player.CustomProperties.TryGetValue("Port");
-            if (player.CustomProperties.TryGetValue("Port", out port))
-            {
-                Debug.Log("Port: " + port);
-            }
-            else
-            {
-                Debug.LogWarning("Player ID not found for player: " + player.NickName);
-            }
+            //Debug.Log("Lobby Port: " + player.CustomProperties.TryGetValue("Port");   //TEST LINE
+
+
+            //if (player.CustomProperties.TryGetValue("Port", out port))
+            //{
+            //    Debug.Log("Port: " + port);
+            //}
+            //else
+            //{
+            //    Debug.LogWarning("Player ID not found for player: " + player.NickName);
+            //}
 
 
         }
