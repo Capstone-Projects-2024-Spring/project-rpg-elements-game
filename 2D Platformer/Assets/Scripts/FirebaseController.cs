@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEditor.VersionControl;
+using Firebase.Database;
+using System;
 
 public class FirebaseController : MonoBehaviour
 {
+
     public GameObject loginPanel, signupPanel, profilePanel, forgotPassPanel, notifPanel;
 
     public InputField loginEmail, loginPassword, signupEmail, signupPassword, signupConfirm, signupIGN, forgetPassEmail;
@@ -14,6 +17,28 @@ public class FirebaseController : MonoBehaviour
     public Text notif_Text, profileEmail_Text, profileIGN_Text;
 
     public Toggle rememberMe;
+
+    private string userID;
+    private DatabaseReference dbReference;
+
+    void Start()
+    {
+        userID = SystemInfo.deviceUniqueIdentifier;
+        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
+    }
+
+    public void CreateUser()
+    {
+        User newUser = new User(signupIGN.text, signupEmail.text);
+        string json = JsonUtility.ToJson(newUser);
+
+        dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json);
+    }
+
+    // public IEnumerator GetName(Action<string> onCallBack)
+    // {
+    //     var userNameData = dbReference.Child("Users").;
+    // }
 
     public void OpenLoginPanel()
     {
