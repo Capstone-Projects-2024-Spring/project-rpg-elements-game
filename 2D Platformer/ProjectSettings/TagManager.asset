@@ -13,6 +13,7 @@ TagManager:
   - EnemySpawnPoint
   - Wall
   - PlayerSpawnPoint
+  - FlyingEnemySpawnPoint
   layers:
   - Default
   - TransparentFX
