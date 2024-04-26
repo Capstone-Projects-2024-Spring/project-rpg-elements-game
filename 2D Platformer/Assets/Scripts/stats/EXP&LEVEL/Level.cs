@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Mirror;
 
-public class Level : MonoBehaviour
+public class Level : NetworkBehaviour
 {
     public static Level Instance;
     public delegate void LevelChangeHandler(int level);
@@ -15,8 +16,11 @@ public class Level : MonoBehaviour
     public TextMeshProUGUI expText;
     public TextMeshProUGUI levelText;
 
+    [SyncVar]
     public int level;
+    [SyncVar]
     public int experience;
+    [SyncVar]
     public int requiredExperience;
 
     public LevelConfig levelConfig;

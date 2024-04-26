@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class ExperienceManager : MonoBehaviour
+public class ExperienceManager : NetworkBehaviour
 {
     public static ExperienceManager Instance;
     public delegate void ExperienceChangeHandler(int amount);
