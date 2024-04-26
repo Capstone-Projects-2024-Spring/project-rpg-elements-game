@@ -1453,6 +1453,7 @@ GameObject:
   - component: {fileID: 855483199704802766}
   - component: {fileID: 4960282406022493547}
   - component: {fileID: 6539399558672669449}
+  - component: {fileID: 5383019903079315504}
   m_Layer: 0
   m_Name: Gary
   m_TagString: Player
@@ -2012,6 +2013,19 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &5383019903079315504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977140929544706213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d9064584ec1394b8097398e88ffe80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCollider: {fileID: 793852877517032673}
 --- !u!1 &3100146468838108512
 GameObject:
   m_ObjectHideFlags: 0
