@@ -105,13 +105,4 @@ octave-workspace
 
 # Alex build file
 /2D Platformer/z_build
-/2D Platformer/Assets/Editor Default Resources/Firebase
-2D Platformer/Assets/Firebase/Plugins/x86_64/FirebaseCppDatabase.so
-2D Platformer/Assets/Firebase/Plugins/x86_64/FirebaseCppDatabase.bundle
-2D Platformer/Assets/Firebase/Plugins/x86_64/FirebaseCppAuth.so
-2D Platformer/Assets/Firebase/Plugins/x86_64/FirebaseCppAuth.bundle
-2D Platformer/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-11_9_0.so
-2D Platformer/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-11_9_0.bundle
-/2D Platformer/Assets/Plugins/tvOS/Firebase
-/2D Platformer/Assets/Plugins/iOS/Firebase
-/2D Platformer/Assets/Firebase/Plugins/iOS
+/2D Platformer/z_linux_build

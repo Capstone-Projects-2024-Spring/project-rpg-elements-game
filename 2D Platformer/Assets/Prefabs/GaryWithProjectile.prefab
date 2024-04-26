@@ -1478,7 +1478,6 @@ Transform:
   - {fileID: 4657491289348183608}
   - {fileID: 8323348201548471894}
   - {fileID: 6390305279167691048}
-  - {fileID: 2663526397166189174}
   m_Father: {fileID: 4363755752670415915}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5273328983154574773
@@ -1659,10 +1658,13 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   statsConfig: {fileID: 11400000, guid: dd4178480ea8f36429a64e1bb40f7847, type: 2}
+  statPanel: {fileID: 7087721517470898364}
   chipSpeed: 2
   frontHealthBar: {fileID: 4063192542712630571}
   backHealthBar: {fileID: 4758301152980888399}
   healthText: {fileID: 5141793280588094906}
+  statValues: {fileID: 9144256017100342381}
+  playerCanvas: {fileID: 4936847463607096878}
 --- !u!114 &25078906352904655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1706,6 +1708,8 @@ MonoBehaviour:
   statSheet: {fileID: 1856592647684295507}
   attackName: Dog Strike
   attackDescription: A fast overhead arc that covers a wide range for modest damage.
+  abilityID: 1
+  CurrentAbilitySlot: 1
   animationTrigger: attack
   power: 12
   knockback:
@@ -1717,7 +1721,7 @@ MonoBehaviour:
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
   - {fileID: 7203796366347703675}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &1705011291076420311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1737,6 +1741,8 @@ MonoBehaviour:
   attackName: Sky Slash
   attackDescription: A sword swing that sends both you and your opponents to the
     sky. But you can't use it again until you're back on the ground.
+  abilityID: 7
+  CurrentAbilitySlot: 0
   animationTrigger: skyslash
   power: 20
   knockback:
@@ -1748,7 +1754,7 @@ MonoBehaviour:
   - {fileID: 7203796366347703675}
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   rising_velocity: 27.5
   gravity_reduction: 2.5
 --- !u!114 &8642590028428622123
@@ -1770,6 +1776,8 @@ MonoBehaviour:
   attackName: Sharp Arch
   attackDescription: A quick upwards slash that covers a wide range and propels foes
     upwards. Great for setting up into bigger moves.
+  abilityID: 6
+  CurrentAbilitySlot: 0
   animationTrigger: sharparch
   power: 11
   knockback:
@@ -1781,7 +1789,7 @@ MonoBehaviour:
   - {fileID: 7203796366347703675}
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &8931284469525953300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1801,6 +1809,8 @@ MonoBehaviour:
   attackName: Sweeping Steel
   attackDescription: Swiftly strike at the legs of your opponent, sending them upwards
     a little. Its low knockback makes it a great combo tool.
+  abilityID: 2
+  CurrentAbilitySlot: 0
   animationTrigger: sweepingsteel
   power: 6
   knockback:
@@ -1810,7 +1820,7 @@ MonoBehaviour:
   hitboxes:
   - {fileID: 7203796366347703675}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &4657406595814067393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1830,6 +1840,8 @@ MonoBehaviour:
   attackName: Dash 'n' Slash
   attackDescription: A chargeable attack that will give a sudden burst of movement
     forwards when released. How far you go depends on how long you charge.
+  abilityID: 4
+  CurrentAbilitySlot: 0
   animationTrigger: dashnslash
   power: 10
   knockback:
@@ -1838,7 +1850,7 @@ MonoBehaviour:
   triggerKey: 117
   hitboxes:
   - {fileID: 2057438182296233312}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   midLevelThreshold: 0.7
   maxLevelThreshold: 1.5
   midLevelMultiplier: 1.4
@@ -1866,6 +1878,8 @@ MonoBehaviour:
   attackName: Cloud Strike
   attackDescription: Lift up your sword. Great for juggling opponents already in
     the air.
+  abilityID: 3
+  CurrentAbilitySlot: 0
   animationTrigger: cloudstrike
   power: 5
   knockback:
@@ -1874,7 +1888,7 @@ MonoBehaviour:
   triggerKey: 105
   hitboxes:
   - {fileID: 2057438182296233312}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
 --- !u!114 &855483199704802766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1894,6 +1908,8 @@ MonoBehaviour:
   attackName: Sword Beam
   attackDescription: Summon a beam from your sword. It will travel straight forward,
     hitting enemies too far away for you to stab.
+  abilityID: 8
+  CurrentAbilitySlot: 0
   animationTrigger: swordbeam
   power: 8
   knockback:
@@ -1911,7 +1927,7 @@ MonoBehaviour:
   - {fileID: 7182483012861681041}
   - {fileID: 6074311399243791160}
   - {fileID: 4797827304653626489}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   spawnPosition: {x: 1, y: 0}
   projectileVelocity: {x: 8, y: 0}
   gravity: 0
@@ -1941,6 +1957,8 @@ MonoBehaviour:
   attackDescription: A giant, massive slash that does a ton of damage, but it also
     leaves you wide open. Using it in the air will send you straight down to the
     ground.
+  abilityID: 5
+  CurrentAbilitySlot: 0
   animationTrigger: obliviondive
   power: 28
   knockback:
@@ -1952,7 +1970,7 @@ MonoBehaviour:
   - {fileID: 7203796366347703675}
   - {fileID: 2143727803062329262}
   - {fileID: 4632066820946148625}
-  visible_hitboxes: 1
+  visible_hitboxes: 0
   aerialPower: 16
   aerialKnockback:
   - 15
@@ -2792,7 +2810,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.9577489, a: 0.5882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3732,6 +3750,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5432824586808806921}
     m_Modifications:
+    - target: {fileID: 5731991725094233184, guid: 141d4750741a6064396b71f3573fe799, type: 3}
+      propertyPath: m_Name
+      value: StatPanel
+      objectReference: {fileID: 0}
     - target: {fileID: 7589605152102836978, guid: 141d4750741a6064396b71f3573fe799, type: 3}
       propertyPath: m_Name
       value: PlayerUI
@@ -3843,6 +3865,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4936847463607096878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7589605152102836978, guid: 141d4750741a6064396b71f3573fe799, type: 3}
+  m_PrefabInstance: {fileID: 3301284968973909212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5141793280588094906 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7677463701434605926, guid: 141d4750741a6064396b71f3573fe799, type: 3}
@@ -3859,73 +3886,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8832574322967298825, guid: 141d4750741a6064396b71f3573fe799, type: 3}
   m_PrefabInstance: {fileID: 3301284968973909212}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &8161836422720601452
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5432824586808806921}
-    m_Modifications:
-    - target: {fileID: 6175022085592336154, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.11809
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175022085592336154, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.19123256
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175022085592336154, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.10360651
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175022085592336154, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175022085592336154, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175022085592336154, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175022085592336154, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175022085592336154, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175022085592336154, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6175022085592336154, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6572654840103542228, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: expBar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6572654840103542228, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: expText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8893295883554712945, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-      propertyPath: m_Name
-      value: Exp_Level Prefab Variant
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
---- !u!4 &2663526397166189174 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6175022085592336154, guid: 774a71edb9e16fd4f902866b26ad7957, type: 3}
-  m_PrefabInstance: {fileID: 8161836422720601452}
+--- !u!1 &7087721517470898364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5731991725094233184, guid: 141d4750741a6064396b71f3573fe799, type: 3}
+  m_PrefabInstance: {fileID: 3301284968973909212}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9144256017100342381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5996095772053485745, guid: 141d4750741a6064396b71f3573fe799, type: 3}
+  m_PrefabInstance: {fileID: 3301284968973909212}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
