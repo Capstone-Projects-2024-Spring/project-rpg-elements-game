@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetX: 0
+  offsetX: -1000
   offsetY: 0
   port: 7777
 --- !u!114 &89863822
@@ -342,7 +342,7 @@ MonoBehaviour:
   offlineScene: 
   onlineScene: 
   transport: {fileID: 89863820}
-  networkAddress: 45.55.72.66
+  networkAddress: 134.209.175.127
   maxConnections: 100
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
