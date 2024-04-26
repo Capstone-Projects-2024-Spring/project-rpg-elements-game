@@ -433,6 +433,8 @@ MonoBehaviour:
   signupIGN: {fileID: 1411990894}
   forgetPassEmail: {fileID: 368483309}
   notif_Text: {fileID: 569149230}
+  profileEmail_Text: {fileID: 0}
+  profileIGN_Text: {fileID: 0}
   rememberMe: {fileID: 1546456227}
 --- !u!4 &180307676
 Transform:
@@ -679,7 +681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &242290491
 RectTransform:
   m_ObjectHideFlags: 0
@@ -834,7 +836,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 180307675}
         m_TargetAssemblyTypeName: FirebaseController, Scripts
-        m_MethodName: SignUp
+        m_MethodName: CreateUser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8023,7 +8025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1935560643
 RectTransform:
   m_ObjectHideFlags: 0
