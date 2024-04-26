@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "536612260007",
+    "firebase_url": "https://wildlife-odyssey-f09c2-default-rtdb.firebaseio.com",
+    "project_id": "wildlife-odyssey-f09c2",
+    "storage_bucket": "wildlife-odyssey-f09c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536612260007:android:f222ee8a88528fdf4af382",
+        "android_client_info": {
+          "package_name": "com.co.wildlifeodyssey"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU-X3_7oOv966RHKO9MrM2mxUOT06PgVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,12 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.VersionControl;
+using Firebase.Database;
+using System;
 
 public class FirebaseController : MonoBehaviour
 {
-    public GameObject loginPanel, signupPanel, profilePanel, forgotPassPanel;
 
-    public InputField loginEmail, loginPassword, signupEmail, signupPassword, signupConfirm, signupIGN, forgetPassEmail, notifPanel;
+    public GameObject loginPanel, signupPanel, profilePanel, forgotPassPanel, notifPanel;
+
+    public InputField loginEmail, loginPassword, signupEmail, signupPassword, signupConfirm, signupIGN, forgetPassEmail;
+
+    public Text notif_Text, profileEmail_Text, profileIGN_Text;
+
+    public Toggle rememberMe;
+
+    private string userID;
+    private DatabaseReference dbReference;
+
+    void Start()
+    {
+        userID = SystemInfo.deviceUniqueIdentifier;
+        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
+    }
+
+    public void CreateUser()
+    {
+        User newUser = new User(signupIGN.text, signupEmail.text);
+        string json = JsonUtility.ToJson(newUser);
+
+        dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json);
+    }
+
+    // public IEnumerator GetName(Action<string> onCallBack)
+    // {
+    //     var userNameData = dbReference.Child("Users").;
+    // }
 
     public void OpenLoginPanel()
     {
@@ -17,6 +47,7 @@ public class FirebaseController : MonoBehaviour
         signupPanel.SetActive(false);
         profilePanel.SetActive(false);
         forgotPassPanel.SetActive(false);
+        notifPanel.SetActive(false);
     }
 
     public void OpenSignupPanel()
@@ -26,6 +57,7 @@ public class FirebaseController : MonoBehaviour
         signupPanel.SetActive(true);
         profilePanel.SetActive(false);
         forgotPassPanel.SetActive(false);
+        notifPanel.SetActive(false);
     }
 
     public void OpenProfilePanel()
@@ -35,6 +67,7 @@ public class FirebaseController : MonoBehaviour
         signupPanel.SetActive(false);
         profilePanel.SetActive(true);
         forgotPassPanel.SetActive(false);
+        notifPanel.SetActive(false);
     }
 
     public void OpenForgotPassPanel()
@@ -44,6 +77,8 @@ public class FirebaseController : MonoBehaviour
         signupPanel.SetActive(false);
         profilePanel.SetActive(false);
         forgotPassPanel.SetActive(true);
+        notifPanel.SetActive(false);
+        notifPanel.SetActive(false);
     }
 
     public void LastScene()
@@ -60,16 +95,18 @@ public class FirebaseController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(loginEmail.text) && string.IsNullOrEmpty(loginPassword.text))
         {
+            ShowNotif("One or more fields are empty, please enter your account email and password");
             return;
         }
 
         // login code here
     }
 
-    public void Signup()
+    public void SignUp()
     {
         if (string.IsNullOrEmpty(signupEmail.text) && string.IsNullOrEmpty(signupPassword.text) && string.IsNullOrEmpty(signupConfirm.text) && string.IsNullOrEmpty(signupIGN.text))
         {
+            ShowNotif("One or more fields are empty, please enter an email address, new password, and in-game name");
             return;
         }
 
@@ -77,11 +114,33 @@ public class FirebaseController : MonoBehaviour
 
     }
 
-    public void forgotPassword()
+    public void ForgotPassword()
     {
         if (string.IsNullOrEmpty(forgetPassEmail.text))
         {
+            ShowNotif("No email entered");
             return;
         }
+    }
+
+    public void ShowNotif(string message)
+    {
+        notif_Text.text = "" + message;
+
+        notifPanel.SetActive(true);
+    }
+
+    public void CloseNotif()
+    {
+        notif_Text.text = "";
+
+        notifPanel.SetActive(false);
+    }
+
+    public void LogOut()
+    {
+        profileEmail_Text.text = "";
+        profileIGN_Text.text = "";
+        OpenLoginPanel();
     }
 }

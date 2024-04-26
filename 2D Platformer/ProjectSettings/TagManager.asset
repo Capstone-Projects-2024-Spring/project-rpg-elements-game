@@ -14,6 +14,7 @@ TagManager:
   - Wall
   - PlayerSpawnPoint
   - FlyingEnemySpawnPoint
+  - SemiSolidPlatform
   layers:
   - Default
   - TransparentFX
