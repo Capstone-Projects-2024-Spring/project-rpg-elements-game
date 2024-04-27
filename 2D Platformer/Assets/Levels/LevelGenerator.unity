@@ -1663,6 +1663,7 @@ MonoBehaviour:
   characterSelectDisplay: {fileID: 335861996}
   characterPreviewParent: {fileID: 715718916}
   characterNameText: {fileID: 218383785}
+  playerNameInput: {fileID: 2058931558}
   characters:
   - {fileID: 11400000, guid: fcbde6414c3acce439d86ffd2577fd04, type: 2}
   - {fileID: 11400000, guid: a209de22d695fb2449326f6b45d06b17, type: 2}
