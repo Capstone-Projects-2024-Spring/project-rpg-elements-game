@@ -916,7 +916,7 @@ AnimatorController:
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: grounded
     m_Type: 4
@@ -1854,7 +1854,7 @@ AnimatorStateMachine:
     m_Position: {x: 180, y: -260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1183937823827650438}
-    m_Position: {x: 180, y: -220, z: 0}
+    m_Position: {x: 140, y: -210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7623507320894935627}
     m_Position: {x: 410, y: -220, z: 0}
