@@ -35,36 +35,38 @@ public class SkrakeAI : NetworkBehaviour
         defaultColor = sb.color;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+    }
+    void Update()
+    {
+        // Update animations on all clients
+        anim.SetBool("run", running);
+        anim.SetBool("hurt", inHitstun);
+
         if (isServer)
         {
-            StartCoroutine(ServerUpdate());
+            ServerUpdate();
         }
     }
 
     [Server]
-    IEnumerator ServerUpdate()
+    void ServerUpdate()
     {
 
-        while (true)
+        // Your server-specific logic here
+        players = GameObject.FindGameObjectsWithTag("Player");
+        closestPlayer = getClosestPlayer(players.ToList<GameObject>());
+        float distToPlayer = Vector2.Distance(transform.position, closestPlayer.transform.position);
+
+        if (distToPlayer < visionRange)
         {
-            // Your server-specific logic here
-            players = GameObject.FindGameObjectsWithTag("Player");
-            closestPlayer = getClosestPlayer(players.ToList<GameObject>());
-            float distToPlayer = Vector2.Distance(transform.position, closestPlayer.transform.position);
-
-            if (distToPlayer < visionRange)
-            {
-                ChasePlayer();
-            }
-
-            if (running)
-            {
-                ChangeDirection();
-            }
-            sendHitstunStatus();
-
-            yield return null; // Optionally, you can yield for a specific time interval
+            ChasePlayer();
         }
+
+        if (running)
+        {
+            ChangeDirection();
+        }
+        sendHitstunStatus();
 
         //old code that would run on client
 
