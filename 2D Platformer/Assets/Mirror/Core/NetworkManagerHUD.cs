@@ -58,21 +58,23 @@ namespace Mirror
             foreach (Player player in PhotonNetwork.PlayerList)
             {
                 // Access player properties
-                object playerId, port;
+                object port;
 
-                if (player.CustomProperties.TryGetValue("PlayerId", out playerId))
-                {
-                    Debug.Log("Player ID: " + playerId);
-                    // Pass playerId to Mirror for network communication
-                    // Pass playerId to Mirror for network communication
-                    // Example: MirrorPlayerManager.Instance.AddPlayer(playerId);
-                }
-                else
-                {
-                    Debug.LogWarning("Player ID not found for player: " + player.NickName);
-                }
+                //if (player.CustomProperties.TryGetValue("PlayerId", out playerId))
+                //{
+                //    Debug.Log("Player ID: " + playerId);
+                //    // Pass playerId to Mirror for network communication
+                //    // Pass playerId to Mirror for network communication
+                //    // Example: MirrorPlayerManager.Instance.AddPlayer(playerId);
+                //}
+                //else
+                //{
+                //    Debug.LogWarning("Player ID not found for player: " + player.NickName);
+                //}
 
                 //Debug.Log("Lobby Port: " + player.CustomProperties.TryGetValue("Port");
+
+                //get player port 
                 if (player.CustomProperties.TryGetValue("Port", out port))
                 {
                     int portInt = (int)port;

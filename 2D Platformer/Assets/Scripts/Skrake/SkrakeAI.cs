@@ -35,28 +35,56 @@ public class SkrakeAI : NetworkBehaviour
         defaultColor = sb.color;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        if (isServer)
+        {
+            StartCoroutine(ServerUpdate());
+        }
     }
 
     [Server]
-    void Update()
+    IEnumerator ServerUpdate()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
-        anim.SetBool("run", running);
-        anim.SetBool("hurt", inHitstun);
 
-        closestPlayer = getClosestPlayer(players.ToList<GameObject>());
-        float distToPlayer = Vector2.Distance(transform.position, closestPlayer.transform.position);
-
-        if (distToPlayer < visionRange)
+        while (true)
         {
-            ChasePlayer();
+            // Your server-specific logic here
+            players = GameObject.FindGameObjectsWithTag("Player");
+            closestPlayer = getClosestPlayer(players.ToList<GameObject>());
+            float distToPlayer = Vector2.Distance(transform.position, closestPlayer.transform.position);
+
+            if (distToPlayer < visionRange)
+            {
+                ChasePlayer();
+            }
+
+            if (running)
+            {
+                ChangeDirection();
+            }
+            sendHitstunStatus();
+
+            yield return null; // Optionally, you can yield for a specific time interval
         }
 
-        if (running)
-        {
-            ChangeDirection();
-        }
-        sendHitstunStatus();
+        //old code that would run on client
+
+        //players = GameObject.FindGameObjectsWithTag("Player");
+        //anim.SetBool("run", running);
+        //anim.SetBool("hurt", inHitstun);
+
+        //closestPlayer = getClosestPlayer(players.ToList<GameObject>());
+        //float distToPlayer = Vector2.Distance(transform.position, closestPlayer.transform.position);
+
+        //if (distToPlayer < visionRange)
+        //{
+        //    ChasePlayer();
+        //}
+
+        //if (running)
+        //{
+        //    ChangeDirection();
+        //}
+        //sendHitstunStatus();
     }
 
     private void ChangeDirection()

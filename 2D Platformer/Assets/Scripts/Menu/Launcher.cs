@@ -126,7 +126,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public void StartGame()
     {
-        int setPort = Random.Range(7777, 7782);
+        int setPort = Random.Range(7777, 7796);
 
         // Iterate through the list of players
         foreach (Player player in PhotonNetwork.PlayerList)
