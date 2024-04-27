@@ -13,7 +13,10 @@ public class NameTagController : MonoBehaviour
         {
             // Update the position of the name tag relative to the player's position
             transform.position = playerTransform.position + offset;
-            thisTransform.localScale = new Vector3(playerTransform.localScale.x, thisTransform.localScale.y, thisTransform.localScale.z);
+            Vector3 playerScale = playerTransform.localScale;
+            float aspectRatio = playerScale.x / playerScale.y;
+
+            thisTransform.localScale = new Vector3(aspectRatio, 1f, 1f);
         }
     }
 }
