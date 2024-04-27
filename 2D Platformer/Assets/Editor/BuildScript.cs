@@ -15,8 +15,8 @@ public class BuildScript: MonoBehaviour
     public static void BuildWindowsClient()
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
-        buildPlayerOptions.scenes = new[] { "Assets/Levels/LevelGenerator.unity" };
-        buildPlayerOptions.locationPathName = "Builds/Windows/Client/Client.exe";
+        buildPlayerOptions.scenes = new[] { "Assets/Levels/MainMenu/MainMenu", "Assets/Levels/LevelGenerator.unity" };
+        buildPlayerOptions.locationPathName = "Builds/Windows/Client/Wildlife Odyssey.exe";
         buildPlayerOptions.target = BuildTarget.StandaloneWindows64;
         buildPlayerOptions.options = BuildOptions.CompressWithLz4HC;
 
