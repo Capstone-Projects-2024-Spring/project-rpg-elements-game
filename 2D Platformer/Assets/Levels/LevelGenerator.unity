@@ -266,9 +266,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 89863823}
-  - component: {fileID: 89863822}
-  - component: {fileID: 89863821}
   - component: {fileID: 89863820}
+  - component: {fileID: 89863825}
+  - component: {fileID: 89863824}
   m_Layer: 0
   m_Name: Network Manager
   m_TagString: Untagged
@@ -305,7 +305,22 @@ MonoBehaviour:
   debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
---- !u!114 &89863821
+--- !u!4 &89863823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89863819}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &89863824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -320,7 +335,7 @@ MonoBehaviour:
   offsetX: 0
   offsetY: 0
   port: 7777
---- !u!114 &89863822
+--- !u!114 &89863825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -329,7 +344,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 89863819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dff2f67644f40f49a809cb91e47d4ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 1
@@ -342,7 +357,7 @@ MonoBehaviour:
   offlineScene: 
   onlineScene: 
   transport: {fileID: 89863820}
-  networkAddress: 45.55.72.66
+  networkAddress: localhost
   maxConnections: 100
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
@@ -354,6 +369,7 @@ MonoBehaviour:
   - {fileID: 6749484314320138859, guid: 34482814083dd254687d04bea7c52375, type: 3}
   - {fileID: 6554584858392232962, guid: 325b46dda95e94240944548a07df1b81, type: 3}
   - {fileID: 7116336154021614077, guid: f9da39335d52e2849968c2b7b353e65f, type: 3}
+  - {fileID: 7240653282723461335, guid: 44301bcafd3a85c449978ceeb651a85f, type: 3}
   - {fileID: 7984122117270326092, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
   - {fileID: 1325677449716479123, guid: 9f2e1feca86a0df43be454cf153494bf, type: 3}
   - {fileID: 8715419012732498495, guid: 003df1088ac3e4ac2b47c2b652db38e0, type: 3}
@@ -391,21 +407,6 @@ MonoBehaviour:
   evaluationMethod: 0
   evaluationInterval: 3
   timeInterpolationGui: 0
---- !u!4 &89863823
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 89863819}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &132956290
 GameObject:
   m_ObjectHideFlags: 0
