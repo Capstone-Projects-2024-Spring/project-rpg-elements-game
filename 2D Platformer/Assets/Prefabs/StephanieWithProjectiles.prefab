@@ -3531,6 +3531,7 @@ GameObject:
   - component: {fileID: 4363755752670415915}
   - component: {fileID: 7084845797179021163}
   - component: {fileID: 4930653579493400442}
+  - component: {fileID: 3713588986092967894}
   m_Layer: 0
   m_Name: StephanieWithProjectiles
   m_TagString: Player
@@ -3606,6 +3607,22 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &3713588986092967894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116336154021614077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631276003b088b7428423c56beddd61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  playerNameText: {fileID: 71263652926055524}
 --- !u!1 &7590410898503534519
 GameObject:
   m_ObjectHideFlags: 0
