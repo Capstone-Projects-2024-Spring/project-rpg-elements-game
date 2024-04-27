@@ -4,7 +4,7 @@ public class NameTagController : MonoBehaviour
 {
     public Transform playerTransform; // Reference to the player's transform
     public Transform thisTransform;
-    public Vector3 offset = new Vector3(0f, 2f, 0f); // Offset to position the name tag above the player
+    public Vector3 offset = new Vector3(0f, 0f, 0f); // Offset to position the name tag above the player
 
     void Update()
     {
