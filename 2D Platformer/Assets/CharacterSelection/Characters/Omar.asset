@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Omar
   characterPreviewPrefab: {fileID: 6554584858392232962, guid: 825d1bd4e570105459094a5025c60cd9, type: 3}
-  gameplayCharacterPrefab: {fileID: 7116336154021614077, guid: 7fa058d29264d6c478833e5d77804ab5, type: 3}
+  gameplayCharacterPrefab: {fileID: 4887738640141045449, guid: 7fa058d29264d6c478833e5d77804ab5, type: 3}
