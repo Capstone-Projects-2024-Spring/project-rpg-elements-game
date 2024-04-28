@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_OblivionDiveAir 3
+  m_Name: Attack_SmashdownAir3
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -137,7 +137,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 37105b3b3acb777449662e8f95308823, type: 3}
+      value: {fileID: 21300000, guid: f4581cd3879abcf40812af8067e9ba99, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -232,7 +232,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 37105b3b3acb777449662e8f95308823, type: 3}
+    - {fileID: 21300000, guid: f4581cd3879abcf40812af8067e9ba99, type: 3}
     - {fileID: 21300000, guid: 37105b3b3acb777449662e8f95308823, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2

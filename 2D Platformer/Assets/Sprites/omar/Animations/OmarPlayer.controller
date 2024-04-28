@@ -157,7 +157,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_Oblivion Dive Air
+  m_Name: Attack_SmashdownAir
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -171,7 +171,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9027f74c47d1be3418e5ec89e40e5643, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5355f135dba1977469b3b710b764939e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -292,7 +292,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: obliviondiveground
+    m_ConditionEvent: smashdownground
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3924457467230863320}
@@ -387,7 +387,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_OblivionDiveGround
+  m_Name: Attack_SmashdownGround
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -402,7 +402,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c5f50181bca8c0c4dbee542a939cc9ea, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9543b096753a7454c816d08f858d4713, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -623,7 +623,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_OblivionDiveAir 2
+  m_Name: Attack_SmashdownAir2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -637,7 +637,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 69a86acdc1c3df44a96b5b42bbc0514e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1b7a7864ad0dd584ca7d9ab1c1c31b09, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1026,13 +1026,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: obliviondiveground
+  - m_Name: smashdownground
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: obliviondiveair
+  - m_Name: smashdownair
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1322,7 +1322,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: obliviondiveair
+    m_ConditionEvent: smashdownair
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6116220437966925803}
@@ -1628,7 +1628,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack_OblivionDiveAir 3
+  m_Name: Attack_SmashdownAir3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1643,7 +1643,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c7eb5528d45286b4f9fce0385d13f9a4, type: 2}
+  m_Motion: {fileID: 7400000, guid: e528cc0a935da8447940681b1b78818f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1872,7 +1872,7 @@ AnimatorStateMachine:
     m_Position: {x: -50, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3924457467230863320}
-    m_Position: {x: -30, y: 210, z: 0}
+    m_Position: {x: -20, y: 220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6116220437966925803}
     m_Position: {x: -310, y: 270, z: 0}
@@ -1881,7 +1881,7 @@ AnimatorStateMachine:
     m_Position: {x: -90, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7600232531565929487}
-    m_Position: {x: 220, y: 200, z: 0}
+    m_Position: {x: 170, y: 270, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -7078243862229029118}

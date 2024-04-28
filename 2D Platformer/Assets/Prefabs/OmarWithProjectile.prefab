@@ -2700,31 +2700,28 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   statSheet: {fileID: 5989074332913292088}
-  attackName: Oblivion Dive
+  attackName: Smash Down
   attackDescription: A giant, massive slash that does a ton of damage, but it also
     leaves you wide open. Using it in the air will send you straight down to the
     ground.
   abilityID: 8
   CurrentAbilitySlot: 0
-  animationTrigger: obliviondive
-  power: 28
+  animationTrigger: smashdown
+  power: 20
   knockback:
-  - 14
-  - 10
+  - 3
+  - 6
   triggerKey: 59
   hitboxes:
   - {fileID: 7521335916718330262}
-  - {fileID: 7041203207914775773}
-  - {fileID: 228824983309777198}
-  - {fileID: 4705371679203608728}
-  visible_hitboxes: 0
-  aerialPower: 16
+  visible_hitboxes: 1
+  aerialPower: 14
   aerialKnockback:
   - 15
   - -10
   aerialHitboxes:
   - {fileID: 7521335916718330262}
-  fallingVelocity: {x: 3, y: -20}
+  fallingVelocity: {x: 2, y: -14}
 --- !u!114 &5142493710843162022
 MonoBehaviour:
   m_ObjectHideFlags: 0
