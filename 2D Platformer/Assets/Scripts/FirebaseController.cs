@@ -15,7 +15,7 @@ public class FirebaseController : MonoBehaviour
 
     public InputField loginEmail, loginPassword, signupEmail, signupPassword, signupConfirm, signupIGN, forgetPassEmail;
 
-    public Text notif_Text, profileEmail_Text, profileIGN_Text;
+    public Text notif_Text, profileEmail_Text, profileIGN_Text, loginEmailInput, loginPasswordInput, signupEmailInput, signupPasswordInput;
 
     public Toggle rememberMe;
 
@@ -43,18 +43,40 @@ public class FirebaseController : MonoBehaviour
 
     public void Login()
     {
-        if (string.IsNullOrEmpty(loginEmail.text) || string.IsNullOrEmpty(loginPassword.text))
-        {
-            ShowNotif("One or more fields are empty");
-            return;
-        }
-
-        // FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(loginEmail.text, loginPassword.text)
-        // .ContinueWith((task =>
+        // if (string.IsNullOrEmpty(loginEmail.text) || string.IsNullOrEmpty(loginPassword.text))
         // {
+        //     ShowNotif("One or more fields are empty");
+        //     return;
+        // }
 
-        // }));
-    }
+        FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(loginEmailInput.text, loginPasswordInput.text)
+        .ContinueWith((task =>
+        {
+
+            if (task.IsCanceled)
+            {
+                Firebase.FirebaseException e = task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
+
+                GetErrorMessage((AuthError)e.ErrorCode);
+
+                return;
+            }
+
+            if (task.IsFaulted)
+            {
+                Firebase.FirebaseException e = task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
+
+                GetErrorMessage((AuthError)e.ErrorCode);
+
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                print("Log-in Complete!");
+            }
+        }));
+    } // login
 
     public void Anonymous()
     {
@@ -69,7 +91,34 @@ public class FirebaseController : MonoBehaviour
             return;
         }
 
-        // signup code here
+        FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(signupEmailInput.text, signupPasswordInput.text)
+        .ContinueWith((task => 
+        {
+            if(task.IsCanceled) 
+            {
+                Firebase.FirebaseException e = task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
+
+                GetErrorMessage((AuthError)e.ErrorCode);
+
+                return;
+            }
+
+            if(task.IsFaulted)
+            {
+                Firebase.FirebaseException e = task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
+
+                GetErrorMessage((AuthError)e.ErrorCode);
+
+                return;
+            }
+
+            if(task.IsCompleted)
+            {
+                print("Registration Complete!");
+                //ShowNotif("Account created! Please login to play!");
+                //return;
+            }
+        }));
 
     }
 
@@ -78,6 +127,32 @@ public class FirebaseController : MonoBehaviour
         profileEmail_Text.text = "";
         profileIGN_Text.text = "";
         //OpenLoginPanel();
+    }
+
+    void GetErrorMessage(AuthError errorCode)
+    {
+
+        string msg = "";
+        msg = errorCode.ToString();
+
+        switch(errorCode)
+        {
+            case AuthError.AccountExistsWithDifferentCredentials:
+                break;
+            
+            case AuthError.MissingPassword:
+                break;
+            
+            case AuthError.WrongPassword:
+                break;
+
+            case AuthError.InvalidEmail:
+                break;
+
+            case AuthError.EmailAlreadyInUse:
+                break;
+        }
+        print(msg);
     }
 
     public void ForgotPassword()
@@ -103,8 +178,8 @@ public class FirebaseController : MonoBehaviour
         notifPanel.SetActive(false);
     }
 
-    
-    
+
+
     // public void OpenLoginPanel()
     // {
 
@@ -145,7 +220,7 @@ public class FirebaseController : MonoBehaviour
     //     notifPanel.SetActive(false);
     //     notifPanel.SetActive(false);
     // }
-    
+
     // public void LastScene()
     // {
     //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
