@@ -174,7 +174,7 @@ public class LevelSpawner : NetworkBehaviour
 
     public void SpawnEnemies(GameObject room, int roomType)
     {
-        if (roomType == 8)
+        if (roomType == 8 || roomType == 9 || roomType == 10 || roomType == 11 || roomType == 12 || roomType == 14)
         {
             Transform[] enemySpawnPoints = room.GetComponentsInChildren<Transform>().Where(t => t.CompareTag("EnemySpawnPoint")).ToArray();
             int randEnemy = Random.Range(0, enemyPrefabs.Length);
@@ -186,7 +186,7 @@ public class LevelSpawner : NetworkBehaviour
 
     public void SpawnFlyingEnemies(GameObject room, int roomType)
     {
-        if (roomType == 0 || roomType == 6)
+        if (roomType == 0 || roomType == 2 || roomType == 4 || roomType == 6)
         {
             Transform[] flyingEnemySpawnPoints = room.GetComponentsInChildren<Transform>().Where(t => t.CompareTag("FlyingEnemySpawnPoint")).ToArray();
             int randFlyingEnemy = Random.Range(0, flyingEnemyPrefabs.Length);
