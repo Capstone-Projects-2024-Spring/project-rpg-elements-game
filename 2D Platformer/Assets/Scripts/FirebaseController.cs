@@ -27,13 +27,13 @@ public class FirebaseController : MonoBehaviour
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
-    public void CreateUser()
-    {
-        User newUser = new User(signupIGN.text, signupEmail.text);
-        string json = JsonUtility.ToJson(newUser);
+    // public void CreateUser()
+    // {
+    //     User newUser = new User(signupIGN.text, signupEmail.text);
+    //     string json = JsonUtility.ToJson(newUser);
 
-        dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json);
-    }
+    //     dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json);
+    // }
 
     // public IEnumerator GetName(Action<string> onCallBack)
     // {
@@ -93,9 +93,9 @@ public class FirebaseController : MonoBehaviour
 
     public void Login()
     {
-        if (string.IsNullOrEmpty(loginEmail.text) && string.IsNullOrEmpty(loginPassword.text))
+        if (string.IsNullOrEmpty(loginEmail.text) || string.IsNullOrEmpty(loginPassword.text))
         {
-            ShowNotif("One or more fields are empty, please enter your account email and password");
+            ShowNotif("One or more fields are empty");
             return;
         }
 
@@ -104,9 +104,9 @@ public class FirebaseController : MonoBehaviour
 
     public void SignUp()
     {
-        if (string.IsNullOrEmpty(signupEmail.text) && string.IsNullOrEmpty(signupPassword.text) && string.IsNullOrEmpty(signupConfirm.text) && string.IsNullOrEmpty(signupIGN.text))
+        if (string.IsNullOrEmpty(signupEmail.text) || string.IsNullOrEmpty(signupPassword.text) || string.IsNullOrEmpty(signupConfirm.text) || string.IsNullOrEmpty(signupIGN.text))
         {
-            ShowNotif("One or more fields are empty, please enter an email address, new password, and in-game name");
+            ShowNotif("One or more fields are empty");
             return;
         }
 
