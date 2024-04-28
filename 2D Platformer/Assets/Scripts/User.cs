@@ -5,12 +5,12 @@ using Firebase.Database;
 
 public class User
 {
-    public string ign;
+    public string password;
     public string email;
 
-    public User(string ign, string email)
+    public User(string password, string email)
     {
-        this.ign = ign;
+        this.password = password;
         this.email = email;
     }
 }

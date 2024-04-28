@@ -27,13 +27,13 @@ public class FirebaseController : MonoBehaviour
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
-    // public void CreateUser()
-    // {
-    //     User newUser = new User(signupIGN.text, signupEmail.text);
-    //     string json = JsonUtility.ToJson(newUser);
+    public void CreateUser()
+    {
+        User newUser = new User(signupPassword.text, signupEmail.text);
+        string json = JsonUtility.ToJson(newUser);
 
-    //     dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json);
-    // }
+        dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json);
+    }
 
     // public IEnumerator GetName(Action<string> onCallBack)
     // {
