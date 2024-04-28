@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 8284024380379595164}
   - component: {fileID: 8636981495194475519}
   - component: {fileID: 7279808403944912361}
+  - component: {fileID: 8991133156998797240}
   m_Layer: 8
   m_Name: Skrake
   m_TagString: Enemy
@@ -597,3 +598,20 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &8991133156998797240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6749484314320138859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 1
+  syncInterval: 0
+  clientAuthority: 1
+  animator: {fileID: 8636981495194475519}
