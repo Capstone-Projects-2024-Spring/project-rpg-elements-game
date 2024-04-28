@@ -2268,6 +2268,7 @@ GameObject:
   - component: {fileID: 5142493710843162022}
   - component: {fileID: 5279941502613359553}
   - component: {fileID: 3444410938913995613}
+  - component: {fileID: 7355249059300294389}
   m_Layer: 0
   m_Name: Omar
   m_TagString: Player
@@ -2806,6 +2807,19 @@ MonoBehaviour:
   - {fileID: 7041203207914775773}
   visible_hitboxes: 0
   burstVelocity: {x: 18, y: 5}
+--- !u!114 &7355249059300294389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4345301552485037242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d9064584ec1394b8097398e88ffe80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCollider: {fileID: 5985266139452582981}
 --- !u!1 &4887738640141045449
 GameObject:
   m_ObjectHideFlags: 0
