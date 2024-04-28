@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor.VersionControl;
 using Firebase.Database;
 using System;
+using Firebase.Auth;
 
 public class FirebaseController : MonoBehaviour
 {
@@ -18,78 +19,27 @@ public class FirebaseController : MonoBehaviour
 
     public Toggle rememberMe;
 
-    private string userID;
-    private DatabaseReference dbReference;
+    // private string userID;
+    // private DatabaseReference dbReference;
 
-    void Start()
-    {
-        userID = SystemInfo.deviceUniqueIdentifier;
-        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
-    }
+    // void Start()
+    // {
+    //     userID = SystemInfo.deviceUniqueIdentifier;
+    //     dbReference = FirebaseDatabase.DefaultInstance.RootReference;
+    // }
 
-    public void CreateUser()
-    {
-        User newUser = new User(signupPassword.text, signupEmail.text);
-        string json = JsonUtility.ToJson(newUser);
+    // public void CreateUser()
+    // {
+    //     User newUser = new User(signupPassword.text, signupEmail.text);
+    //     string json = JsonUtility.ToJson(newUser);
 
-        dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json);
-    }
+    //     dbReference.Child("users").Child(userID).SetRawJsonValueAsync(json);
+    // }
 
     // public IEnumerator GetName(Action<string> onCallBack)
     // {
     //     var userNameData = dbReference.Child("Users").;
     // }
-
-    public void OpenLoginPanel()
-    {
-
-        loginPanel.SetActive(true);
-        signupPanel.SetActive(false);
-        profilePanel.SetActive(false);
-        forgotPassPanel.SetActive(false);
-        notifPanel.SetActive(false);
-    }
-
-    public void OpenSignupPanel()
-    {
-
-        loginPanel.SetActive(false);
-        signupPanel.SetActive(true);
-        profilePanel.SetActive(false);
-        forgotPassPanel.SetActive(false);
-        notifPanel.SetActive(false);
-    }
-
-    public void OpenProfilePanel()
-    {
-
-        loginPanel.SetActive(false);
-        signupPanel.SetActive(false);
-        profilePanel.SetActive(true);
-        forgotPassPanel.SetActive(false);
-        notifPanel.SetActive(false);
-    }
-
-    public void OpenForgotPassPanel()
-    {
-
-        loginPanel.SetActive(false);
-        signupPanel.SetActive(false);
-        profilePanel.SetActive(false);
-        forgotPassPanel.SetActive(true);
-        notifPanel.SetActive(false);
-        notifPanel.SetActive(false);
-    }
-
-    public void LastScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    }
-
-    public void NextScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
 
     public void Login()
     {
@@ -99,7 +49,16 @@ public class FirebaseController : MonoBehaviour
             return;
         }
 
-        // login code here
+        // FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(loginEmail.text, loginPassword.text)
+        // .ContinueWith((task =>
+        // {
+
+        // }));
+    }
+
+    public void Anonymous()
+    {
+
     }
 
     public void SignUp()
@@ -112,6 +71,13 @@ public class FirebaseController : MonoBehaviour
 
         // signup code here
 
+    }
+
+    public void LogOut()
+    {
+        profileEmail_Text.text = "";
+        profileIGN_Text.text = "";
+        //OpenLoginPanel();
     }
 
     public void ForgotPassword()
@@ -137,10 +103,56 @@ public class FirebaseController : MonoBehaviour
         notifPanel.SetActive(false);
     }
 
-    public void LogOut()
-    {
-        profileEmail_Text.text = "";
-        profileIGN_Text.text = "";
-        OpenLoginPanel();
-    }
+    
+    
+    // public void OpenLoginPanel()
+    // {
+
+    //     loginPanel.SetActive(true);
+    //     signupPanel.SetActive(false);
+    //     profilePanel.SetActive(false);
+    //     forgotPassPanel.SetActive(false);
+    //     notifPanel.SetActive(false);
+    // }
+
+    // public void OpenSignupPanel()
+    // {
+
+    //     loginPanel.SetActive(false);
+    //     signupPanel.SetActive(true);
+    //     profilePanel.SetActive(false);
+    //     forgotPassPanel.SetActive(false);
+    //     notifPanel.SetActive(false);
+    // }
+
+    // public void OpenProfilePanel()
+    // {
+
+    //     loginPanel.SetActive(false);
+    //     signupPanel.SetActive(false);
+    //     profilePanel.SetActive(true);
+    //     forgotPassPanel.SetActive(false);
+    //     notifPanel.SetActive(false);
+    // }
+
+    // public void OpenForgotPassPanel()
+    // {
+
+    //     loginPanel.SetActive(false);
+    //     signupPanel.SetActive(false);
+    //     profilePanel.SetActive(false);
+    //     forgotPassPanel.SetActive(true);
+    //     notifPanel.SetActive(false);
+    //     notifPanel.SetActive(false);
+    // }
+    
+    // public void LastScene()
+    // {
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    // }
+
+    // public void NextScene()
+    // {
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    // }
 }
