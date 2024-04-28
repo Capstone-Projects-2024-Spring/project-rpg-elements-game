@@ -35,6 +35,7 @@ namespace WildLife.Mirror.CharacterSelection
         public void Select()
         {
             CmdSelect(currentCharacterIndex, playerNameInput.text);
+            DraggableItem.setCharacterSelected(currentCharacterIndex);
             characterSelectDisplay.SetActive(false);
         }
 
