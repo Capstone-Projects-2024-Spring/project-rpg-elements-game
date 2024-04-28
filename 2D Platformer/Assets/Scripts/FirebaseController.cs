@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.VersionControl;
-using Firebase.Database;
-using System;
+    using Firebase.Database;
 
 public class FirebaseController : MonoBehaviour
 {
