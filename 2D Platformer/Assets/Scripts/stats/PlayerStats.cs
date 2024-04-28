@@ -25,6 +25,8 @@ public class PlayerStats: NetworkBehaviour {
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI statValues;
     public GameObject playerCanvas;
+    private bool dead = false;
+    private Movement move;
 
     void Start()
     {
@@ -44,6 +46,7 @@ public class PlayerStats: NetworkBehaviour {
     //Basically on start, assigned these values to the ones in the config
     public void Awake()
     {
+        move = GetComponent<Movement>();
         Strength = new CharacterStat(statsConfig.baseStrength);
         Speed = new CharacterStat(statsConfig.baseSpeed);
         Health = new CharacterStat(statsConfig.baseHealth);
@@ -75,6 +78,7 @@ public class PlayerStats: NetworkBehaviour {
 
     public void Update()
     {
+        //Debug.Log(CurrentHealth.Value.ToString());
         if (Input.GetKeyDown(KeyCode.X))
         {
             //CheckStats();
@@ -114,21 +118,28 @@ public class PlayerStats: NetworkBehaviour {
         CurrentHealth.DecreaseStat(damageTaken);
         lerpTimer = 0f;
         print("Player [" + this.gameObject.name + "] took [" + damageTaken + "] damage and is now at [" + CurrentHealth.Value + "] health.");
-        if (Health.Value <= 0)
+        if (CurrentHealth.Value <= 0)
         {
+            //Debug.Log("dead :((((");
             die();
         }
     }
     public void heal(int amountHealed)
     {
+        if (dead)
+        {
+            return;
+        }
         CurrentHealth.IncreaseStat(amountHealed);
         lerpTimer = 0f;
         print("Player [" + this.gameObject.name + "] healed [" + amountHealed + "] damage and is now at [" + CurrentHealth.Value + "] health.");
     }
     public void die()
     {
+        dead = true;
+        move.setDeath(dead);
         this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-        print(this.gameObject.name + " is dead");
+        Debug.Log(this.gameObject.name + " is dead");
     }
 
     //Currently passes the level (although not actually necessary)

@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetX: 0
+  offsetX: -1000
   offsetY: 0
   port: 7777
 --- !u!114 &89863822
@@ -354,7 +354,6 @@ MonoBehaviour:
   - {fileID: 6749484314320138859, guid: 34482814083dd254687d04bea7c52375, type: 3}
   - {fileID: 6554584858392232962, guid: 325b46dda95e94240944548a07df1b81, type: 3}
   - {fileID: 7116336154021614077, guid: f9da39335d52e2849968c2b7b353e65f, type: 3}
-  - {fileID: 7240653282723461335, guid: 44301bcafd3a85c449978ceeb651a85f, type: 3}
   - {fileID: 7984122117270326092, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
   - {fileID: 1325677449716479123, guid: 9f2e1feca86a0df43be454cf153494bf, type: 3}
   - {fileID: 8715419012732498495, guid: 003df1088ac3e4ac2b47c2b652db38e0, type: 3}
