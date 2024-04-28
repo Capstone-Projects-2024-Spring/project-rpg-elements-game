@@ -89,7 +89,6 @@ public class SkrakeAI : NetworkBehaviour
         //sendHitstunStatus();
     }
 
-    [Server] 
     void DestroyGameObject()
     {
         Destroy(gameObject);
