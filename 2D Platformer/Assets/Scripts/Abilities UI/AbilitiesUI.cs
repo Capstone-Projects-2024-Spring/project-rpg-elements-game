@@ -12,10 +12,8 @@ public class AbilitiesUI : NetworkBehaviour
     private GameObject createdCanvas;
     public override void OnStartClient()
     {
-        print("@@@@@@@@@@@@@@@@@@@");
         if (this.isLocalPlayer)
         {
-            print("bruh"); 
             resetScene();
         }
     } 
