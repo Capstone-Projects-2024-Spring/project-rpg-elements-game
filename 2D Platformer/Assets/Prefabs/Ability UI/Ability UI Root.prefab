@@ -733,9 +733,21 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a2202dab68962724dad096058c4d07c2, type: 3}
+    - target: {fileID: 1671486245005254950, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671486245005254950, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3181097008822437116, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
       propertyPath: m_Name
       value: Ability Slot 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352886225577295536, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -82.8
       objectReference: {fileID: 0}
     - target: {fileID: 5751578396717944198, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
       propertyPath: m_Pivot.x
@@ -815,6 +827,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5751578396717944198, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464224841866446914, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464224841866446914, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464224841866446914, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464224841866446914, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464224841866446914, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464224841866446914, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6464224841866446914, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
+      propertyPath: m_SpriteSortPoint
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6908355090390163956, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
@@ -1107,7 +1147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8974881341568244878, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.78
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8974881341568244878, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
       propertyPath: m_Pivot.y
@@ -2098,7 +2138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8974881341568244878, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
       propertyPath: m_Pivot.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8974881341568244878, guid: 1d9512a5ae6d78244ac59a2db7e8cb58, type: 3}
       propertyPath: m_Pivot.y

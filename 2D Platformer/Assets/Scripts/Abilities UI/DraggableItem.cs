@@ -17,6 +17,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [SerializeField] public int abilityID;
     [SerializeField] public Sprite[] listOfSpriteImages;
     public int imageSpriteToUse = 0;
+    private int playerLevel;
+    private int requiredLevel;
+    private bool isLocked = true;
+    public Sprite lockSprite; 
 
     public enum CharacterList
     {
@@ -24,11 +28,23 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         Omar,
         Stephanie
     }
-    public void Awake()
+    public void LateUpdate()
     {
-        //DontDestroyOnLoad(transform.gameObject);
+        playerLevel = Level.Instance.level;
+        if (playerLevel >= requiredLevel) //if meet requirement to use ability
+        {
+            isLocked = false;
+        } else
+        {
+            isLocked = true;
+        }
+        AssignSelfImage();
+    }
+    public void Awake() 
+    {
         currentPlayers = GameObject.FindGameObjectsWithTag("Player");
         currentPlayer = currentPlayers[currentPlayers.Length-1];
+        playerLevel = Level.Instance.level;
         attackScripts = currentPlayer.GetComponentsInChildren<PlayerAttack>();
         //for (int i = 0; i < attackScripts.Length; i++)
         //{
@@ -41,13 +57,18 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     }
     public void AssignSelfImage()
     {
-        if (abilityID != 0)
+        if (isLocked)
+        {
+            image.sprite = lockSprite;
+        }
+        else if (abilityID != 0)
         {
             int characterChoice = (int)currentCharacter * 8; //each character has 8 attacks, offset ability count by 8 based on character choice to get correct sprite image]
             imageSpriteToUse = characterChoice + abilityID - 1;
             //print("loading image number [" + (imageSpriteToUse) + "]");
-            image.sprite = listOfSpriteImages[imageSpriteToUse]; 
+            image.sprite = listOfSpriteImages[imageSpriteToUse];
         }
+        requiredLevel = abilityID * 4 - 4;
     }
 
     public static void setCharacterSelected(int currentCharacterIndex)
@@ -68,46 +89,65 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (transform.childCount == 0)
+        playerLevel = Level.Instance.level;
+        Debug.Log("playerlevel = "+playerLevel+"//requiredlevel = "+requiredLevel);
+        Debug.Log("isLocked=" + isLocked);
+        if (playerLevel >= requiredLevel) //if meet requirement to use ability
         {
-            //Debug.Log("Begin Drag");
-            parentAfterDrag = transform.parent;
-            transform.SetParent(transform.root.GetChild(0));
-            transform.SetAsLastSibling();
-            image.raycastTarget = false;
+            isLocked = false;
+            if (transform.childCount == 0)
+            {
+                //Debug.Log("Begin Drag");
+                parentAfterDrag = transform.parent;
+                transform.SetParent(transform.root.GetChild(0));
+                transform.SetAsLastSibling();
+                image.raycastTarget = false;
+            }
+        }
+        else
+        {
+            isLocked = true;
+            eventData.dragging = false;
+            eventData.Reset();
         }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //Debug.Log("Dragging");
-        transform.position = Input.mousePosition;
+        if (!isLocked) //if meet requirement to use ability
+        {
+            //Debug.Log("Dragging");
+            transform.position = Input.mousePosition;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        try
+        if (!isLocked) //if meet requirement to use ability
         {
-            //Debug.Log("End Drag");
-            transform.SetParent(parentAfterDrag);
-            image.raycastTarget = true;
-            InventorySlot invSlotOfParent = parentAfterDrag.GetComponent<InventorySlot>();
-            if (invSlotOfParent.isActiveAbilitySlot)
+            try
             {
-                //activate ability
-                attackScripts[abilityID - 1].CurrentAbilitySlot = invSlotOfParent.activeAbilitySlotNumber;
-                //print("activeAbilitySlotNumber of parent is [" + invSlotOfParent.activeAbilitySlotNumber + "]");
-                //print("AbilityID of [" + abilityID + "], on the attack with abilityID of ["+attackScripts[abilityID-1].abilityID+"], has ability slot of number ["+attackScripts[abilityID-1].CurrentAbilitySlot+"]");
+                //Debug.Log("End Drag");
+                transform.SetParent(parentAfterDrag);
+                image.raycastTarget = true;
+                InventorySlot invSlotOfParent = parentAfterDrag.GetComponent<InventorySlot>();
+                if (invSlotOfParent.isActiveAbilitySlot)
+                {
+                    //activate ability
+                    attackScripts[abilityID - 1].CurrentAbilitySlot = invSlotOfParent.activeAbilitySlotNumber;
+                    //print("activeAbilitySlotNumber of parent is [" + invSlotOfParent.activeAbilitySlotNumber + "]");
+                    //print("AbilityID of [" + abilityID + "], on the attack with abilityID of ["+attackScripts[abilityID-1].abilityID+"], has ability slot of number ["+attackScripts[abilityID-1].CurrentAbilitySlot+"]");
+                }
+                else
+                {
+                    //deactivate ability
+                    attackScripts[abilityID - 1].CurrentAbilitySlot = 0;
+                }
             }
-            else
+            catch (System.NullReferenceException ex)
             {
-                //deactivate ability
-                attackScripts[abilityID - 1].CurrentAbilitySlot = 0;
+                Debug.Log(ex + ": Did not drag any ability");
             }
-        }
-        catch (System.NullReferenceException ex)
-        {
-            Debug.Log(ex + ": Did not drag any ability");
         }
     }
 
