@@ -103,7 +103,6 @@ public class SkrakeAI : NetworkBehaviour
         }
         catch (ArgumentOutOfRangeException)
         {
-            Debug.Log(ex);
             return transform;
         }
     }
