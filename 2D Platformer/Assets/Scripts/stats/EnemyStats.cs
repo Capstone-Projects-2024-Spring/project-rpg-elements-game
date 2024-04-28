@@ -36,7 +36,7 @@ public class EnemyStats : MonoBehaviour
         } else {
             currentA.a = 0f;
         }
-    healthTransform.localScale = new Vector3(skrakeTransform.localScale.x, healthTransform.localScale.y, healthTransform.localScale.z);
+    healthTransform.localScale = new Vector3(skrakeTransform.localScale.x / skrakeTransform.localScale.y, healthTransform.localScale.y, healthTransform.localScale.z);
     healthBar.color = currentA;
     }
     public void CheckStats()
