@@ -53,7 +53,7 @@ namespace Mirror
         void StartButtons()
         {
 
-            ushort setPort = 0;
+            ushort setPort = 7777;
 
             foreach (Player player in PhotonNetwork.PlayerList)
             {
