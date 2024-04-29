@@ -203,5 +203,21 @@ public class Movement : NetworkBehaviour
     public void setDeath(bool _dead)
     {
         dead = _dead;
+        if (dead)
+        {
+            Invoke("RespawnPlayer", 3f);
+        }
+    }
+
+    private void RespawnPlayer()
+    {
+        Vector3 respawnPosition = new Vector3(0, 2, 0);
+
+        transform.position = respawnPosition; 
+        body.velocity = Vector2.zero; 
+        dead = false; 
+
+        anim.SetBool("dead", false);
+
     }
 }
