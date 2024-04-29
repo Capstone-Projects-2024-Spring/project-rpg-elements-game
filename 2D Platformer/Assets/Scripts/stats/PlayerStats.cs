@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Mirror;
-using log4net.DateFormatter;
 using System;
 using Random = UnityEngine.Random;
 
