@@ -68,7 +68,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             //print("loading image number [" + (imageSpriteToUse) + "]");
             image.sprite = listOfSpriteImages[imageSpriteToUse];
         }
-        requiredLevel = abilityID * 4 - 4;
+        requiredLevel = abilityID * 2 - 2;
         //requiredLevel = 0;
     }
 
