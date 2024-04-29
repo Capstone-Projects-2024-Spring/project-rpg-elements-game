@@ -1114,13 +1114,13 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   statSheet: {fileID: 3988610740993981676}
-  attackName: Dash 'n' Slash
+  attackName: Ice Hurricane
   attackDescription: A chargeable attack that will give a sudden burst of movement
     forwards when released. How far you go depends on how long you charge.
   abilityID: 7
   CurrentAbilitySlot: 0
-  animationTrigger: dashnslash
-  power: 10
+  animationTrigger: icehurricane
+  power: 14
   knockback:
   - 4
   - 12
@@ -1128,14 +1128,14 @@ MonoBehaviour:
   hitboxes:
   - {fileID: 8380272207258655901}
   visible_hitboxes: 0
-  midLevelThreshold: 0.7
-  maxLevelThreshold: 1.5
-  midLevelMultiplier: 1.4
-  maxLevelMultiplier: 1.8
-  dashAcceleration: 4
-  maxVelocity: 10
-  dashTimer: 0.34
-  startingLag: 0.28
+  midLevelThreshold: 0.55
+  maxLevelThreshold: 1.3
+  midLevelMultiplier: 1.3
+  maxLevelMultiplier: 1.6
+  dashAcceleration: 0
+  maxVelocity: 0
+  dashTimer: 0.27
+  startingLag: 0.34
 --- !u!114 &1888832417310307580
 MonoBehaviour:
   m_ObjectHideFlags: 0
