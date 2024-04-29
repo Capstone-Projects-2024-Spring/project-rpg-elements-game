@@ -21,6 +21,7 @@ public class Movement : NetworkBehaviour
     private float hitstunTimer = 0f;
     private Direction facing = Direction.right;
     [SerializeField] private float friction = 1;
+    private bool dead = false;
 
     /*[Command]
     public void CmdFlipSprite(){
@@ -60,6 +61,9 @@ public class Movement : NetworkBehaviour
         anim.SetBool("hurt", hurt);
         anim.SetBool("sent_forwards", sentForwards);
 
+        anim.SetBool("dead", dead);
+   
+
         if (hitstunTimer <= 0f)
         {
             hurt = false;
@@ -71,6 +75,11 @@ public class Movement : NetworkBehaviour
             hitstunTimer -= Time.deltaTime;
             return;
         }
+        if (dead)
+        {
+            return;
+        }
+
         //Debug.Log(attacking);
         if (attacking)
         {
@@ -189,5 +198,10 @@ public class Movement : NetworkBehaviour
     public void setFriction(float _friction)
     {
         boxCollider.sharedMaterial.friction = _friction;
+    }
+
+    public void setDeath(bool _dead)
+    {
+        dead = _dead;
     }
 }

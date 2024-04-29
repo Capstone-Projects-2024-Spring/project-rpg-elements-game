@@ -13,6 +13,8 @@ TagManager:
   - EnemySpawnPoint
   - Wall
   - PlayerSpawnPoint
+  - FlyingEnemySpawnPoint
+  - SemiSolidPlatform
   layers:
   - Default
   - TransparentFX
@@ -47,6 +49,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: New Layer 1
+    uniqueID: 3428929459
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

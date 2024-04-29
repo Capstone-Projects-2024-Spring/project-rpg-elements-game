@@ -34,6 +34,7 @@ public class LevelSpawner : NetworkBehaviour
     public GameObject player1; // Player 1 spawn
     public GameObject doorPrefab;
     public GameObject[] enemyPrefabs;
+    public GameObject[] flyingEnemyPrefabs;
     public float spawnPlayerRoom = 100; // Spawn Player room
     public int roomCounter = 0; // Room Counter for Spawning
     public int finalBossRoom = 1; // Final Boss Spawn Room
@@ -92,6 +93,7 @@ public class LevelSpawner : NetworkBehaviour
                     GameObject room = Instantiate(rooms[roomType], newPos, Quaternion.identity);
                     roomCounter++;
                     NetworkServer.Spawn(room);
+                    SpawnFlyingEnemies(room, roomType);
                     SpawnEnemies(room, roomType);
                     if (roomCounter == spawnPlayerRoom)
                     {
@@ -105,7 +107,7 @@ public class LevelSpawner : NetworkBehaviour
                             CinemachineVirtualCamera virtualCamera = player.GetComponentInChildren<CinemachineVirtualCamera>();
 
                             if (virtualCamera != null)
-                            { 
+                            {
                                 virtualCamera.enabled = true;
                             }
                         }
@@ -172,13 +174,25 @@ public class LevelSpawner : NetworkBehaviour
 
     public void SpawnEnemies(GameObject room, int roomType)
     {
-        if (roomType == 8)
+        if (roomType == 8 || roomType == 9 || roomType == 10 || roomType == 11 || roomType == 12 || roomType == 14)
         {
             Transform[] enemySpawnPoints = room.GetComponentsInChildren<Transform>().Where(t => t.CompareTag("EnemySpawnPoint")).ToArray();
             int randEnemy = Random.Range(0, enemyPrefabs.Length);
             int randSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
             GameObject enemy = Instantiate(enemyPrefabs[randEnemy], enemySpawnPoints[randSpawnPoint].position, Quaternion.identity);
             NetworkServer.Spawn(enemy);
+        }
+    }
+
+    public void SpawnFlyingEnemies(GameObject room, int roomType)
+    {
+        if (roomType == 0 || roomType == 2 || roomType == 4 || roomType == 6)
+        {
+            Transform[] flyingEnemySpawnPoints = room.GetComponentsInChildren<Transform>().Where(t => t.CompareTag("FlyingEnemySpawnPoint")).ToArray();
+            int randFlyingEnemy = Random.Range(0, flyingEnemyPrefabs.Length);
+            int randSpawnPoint = Random.Range(0, flyingEnemySpawnPoints.Length);
+            GameObject flyingEnemy = Instantiate(flyingEnemyPrefabs[randFlyingEnemy], flyingEnemySpawnPoints[randSpawnPoint].position, Quaternion.identity);
+            NetworkServer.Spawn(flyingEnemy);
         }
     }
 
@@ -192,7 +206,7 @@ public class LevelSpawner : NetworkBehaviour
 
     private Vector2 GetSpawnPosition(Vector2 newPos, out bool isLocal)
     {
-        Vector2 spawnPos = newPos; 
+        Vector2 spawnPos = newPos;
         isLocal = isLocalPlayer && roomCounter == spawnPlayerRoom;
         return spawnPos;
     }

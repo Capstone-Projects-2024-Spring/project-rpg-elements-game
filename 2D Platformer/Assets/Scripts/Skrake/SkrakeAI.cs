@@ -36,14 +36,24 @@ public class SkrakeAI : NetworkBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
-
-    [Server]
     void Update()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
+        // Update animations on all clients
         anim.SetBool("run", running);
         anim.SetBool("hurt", inHitstun);
 
+        if (isServer)
+        {
+            ServerUpdate();
+        }
+    }
+
+    [Server]
+    void ServerUpdate()
+    {
+
+        // Your server-specific logic here
+        players = GameObject.FindGameObjectsWithTag("Player");
         closestPlayer = getClosestPlayer(players.ToList<GameObject>());
         float distToPlayer = Vector2.Distance(transform.position, closestPlayer.transform.position);
 
@@ -57,8 +67,32 @@ public class SkrakeAI : NetworkBehaviour
             ChangeDirection();
         }
         sendHitstunStatus();
+
+        //old code that would run on client
+
+        //players = GameObject.FindGameObjectsWithTag("Player");
+        //anim.SetBool("run", running);
+        //anim.SetBool("hurt", inHitstun);
+
+        //closestPlayer = getClosestPlayer(players.ToList<GameObject>());
+        //float distToPlayer = Vector2.Distance(transform.position, closestPlayer.transform.position);
+
+        //if (distToPlayer < visionRange)
+        //{
+        //    ChasePlayer();
+        //}
+
+        //if (running)
+        //{
+        //    ChangeDirection();
+        //}
+        //sendHitstunStatus();
     }
 
+    void DestroyGameObject()
+    {
+        Destroy(gameObject);
+    }
     private void ChangeDirection()
     {
         facingDirection = Mathf.Sign(rb.velocity.x);
@@ -71,9 +105,8 @@ public class SkrakeAI : NetworkBehaviour
         {
             return players.OrderBy(o => Vector2.Distance(transform.position, o.transform.position)).ToList()[0].transform;
         }
-        catch (ArgumentOutOfRangeException ex)
+        catch (ArgumentOutOfRangeException)
         {
-            //Debug.Log(ex);
             return transform;
         }
     }

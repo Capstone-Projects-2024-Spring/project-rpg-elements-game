@@ -31,6 +31,8 @@ public class Hurtbox : MonoBehaviour
 
     public GameObject DamageText;
     public TMP_Text DamageTextComponent;
+    private NetworkAnimator n_anim;
+    private Animator anim;
 
 
 /*
@@ -89,6 +91,8 @@ public class Hurtbox : MonoBehaviour
 
     protected virtual void Awake(){
         body = GetComponentInParent<Rigidbody2D>();
+        n_anim = GetComponentInParent<NetworkAnimator>();
+        anim = GetComponentInParent<Animator>();
     }
     protected virtual void Update(){
         //Debug.Log("Hurtbox ID: " + previousReceivedAttack + " " + attacked);
@@ -138,6 +142,7 @@ public class Hurtbox : MonoBehaviour
         if (statSheet.Health.Value <= 0)
         {
             this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            anim.SetTrigger("dead");
             print("I died");
             ExperienceManager.Instance.AddExperience(500);
         }

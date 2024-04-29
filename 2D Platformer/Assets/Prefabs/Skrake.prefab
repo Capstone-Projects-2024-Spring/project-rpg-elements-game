@@ -136,8 +136,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 12, y: 0.3058}
+  m_AnchoredPosition: {x: -0.0014038086, y: 0}
+  m_SizeDelta: {x: 4.5986, y: 0.3058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2987798933903640234
 CanvasRenderer:
@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 8284024380379595164}
   - component: {fileID: 8636981495194475519}
   - component: {fileID: 7279808403944912361}
+  - component: {fileID: 8991133156998797240}
   m_Layer: 8
   m_Name: Skrake
   m_TagString: Enemy
@@ -494,7 +495,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5632441, y: -1.6339877}
+  m_Offset: {x: -0.4136958, y: -1.6100602}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -505,7 +506,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.37649, y: 2.4559083}
+  m_Size: {x: 4.0773935, y: 2.4080534}
   m_EdgeRadius: 0
 --- !u!114 &4647809476444413583
 MonoBehaviour:
@@ -597,3 +598,20 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &8991133156998797240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6749484314320138859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6f3bf89aa97405989c802ba270f815, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 1
+  syncInterval: 0
+  clientAuthority: 1
+  animator: {fileID: 8636981495194475519}

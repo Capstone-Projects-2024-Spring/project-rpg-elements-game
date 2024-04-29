@@ -1,3 +1,5 @@
+using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 
 namespace Mirror
@@ -51,22 +53,64 @@ namespace Mirror
         void StartButtons()
         {
 
+            ushort setPort = 7777;
 
-            //Runs port automatically (serialized)
-            //if (Transport.active is PortTransport)
-            //{
-            //    // Set the port
-            //    // Cast Transport.active to PortTransport and set the port
-            //    PortTransport portTransport = (PortTransport)Transport.active;
-            //    portTransport.Port = port;
-            //    Debug.Log("Port: " + portTransport.Port);
-            //    manager.StartClient();
+            foreach (Player player in PhotonNetwork.PlayerList)
+            {
+                // Access player properties
+                object port;
 
-            //}
-            //else
-            //{
-            //    Debug.Log("Port failure");
-            //}
+                //if (player.CustomProperties.TryGetValue("PlayerId", out playerId))
+                //{
+                //    Debug.Log("Player ID: " + playerId);
+                //    // Pass playerId to Mirror for network communication
+                //    // Pass playerId to Mirror for network communication
+                //    // Example: MirrorPlayerManager.Instance.AddPlayer(playerId);
+                //}
+                //else
+                //{
+                //    Debug.LogWarning("Player ID not found for player: " + player.NickName);
+                //}
+
+                //Debug.Log("Lobby Port: " + player.CustomProperties.TryGetValue("Port");
+
+                //get player port 
+                if (player.CustomProperties.TryGetValue("Port", out port))
+                {
+                    int portInt = (int)port;
+                    setPort = (ushort)portInt;
+                    Debug.Log("Port: " + setPort);
+
+                    // Pass playerId to Mirror for network communication
+                    // Pass playerId to Mirror for network communication
+                    // Example: MirrorPlayerManager.Instance.AddPlayer(playerId);
+                }
+                else
+                {
+                    Debug.LogWarning("Player ID not found for player: " + player.NickName);
+
+                }
+
+
+            }
+
+            //Runs port automatically(serialized)
+            if (Transport.active is PortTransport)
+            {
+                // Set the port
+                // Cast Transport.active to PortTransport and set the port
+                PortTransport portTransport = (PortTransport)Transport.active;
+                portTransport.Port = setPort;
+                Debug.Log("Port: " + portTransport.Port);
+                manager.StartClient();
+
+            }
+            else
+            {
+                Debug.Log("Port failure");
+            }
+
+
             if (!NetworkClient.active)
             {
 #if UNITY_WEBGL

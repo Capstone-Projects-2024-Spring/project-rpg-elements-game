@@ -1,4 +1,5 @@
 using ExitGames.Client.Photon;
+using ExitGames.Client.Photon.StructWrapping;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections.Generic;
@@ -71,10 +72,12 @@ public class Launcher : MonoBehaviourPunCallbacks
         //generate a random ID
         string playerId = GeneratePlayerId();
 
+
         // Set the player ID as a custom property for the local player
         Hashtable playerCustomProperties = new Hashtable
         {
-            { "PlayerId", playerId }
+            { "PlayerId", playerId },
+            { "Port", 7777 }
         };
         PhotonNetwork.LocalPlayer.SetCustomProperties(playerCustomProperties);
 
@@ -123,22 +126,35 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public void StartGame()
     {
+        int setPort = Random.Range(7777, 7796);
+
         // Iterate through the list of players
         foreach (Player player in PhotonNetwork.PlayerList)
         {
             // Access player properties
-            object playerId;
-            if (player.CustomProperties.TryGetValue("PlayerId", out playerId))
+            //object playerId, port;
+
+            Hashtable playerCustomProperties = new Hashtable
             {
-                Debug.Log("Player ID: " + playerId);
-                // Pass playerId to Mirror for network communication
-                // Example: MirrorPlayerManager.Instance.AddPlayer(playerId);
-            }
-            else
-            {
-                Debug.LogWarning("Player ID not found for player: " + player.NickName);
-            }
+                { "Port", setPort }
+            };
+            player.SetCustomProperties(playerCustomProperties);
+
+            //Debug.Log("Lobby Port: " + player.CustomProperties.TryGetValue("Port");   //TEST LINE
+
+
+            //if (player.CustomProperties.TryGetValue("Port", out port))
+            //{
+            //    Debug.Log("Port: " + port);
+            //}
+            //else
+            //{
+            //    Debug.LogWarning("Player ID not found for player: " + player.NickName);
+            //}
+
+
         }
+
         PhotonNetwork.LoadLevel("LevelGenerator");
     }
 
@@ -176,6 +192,10 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
 
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 }
