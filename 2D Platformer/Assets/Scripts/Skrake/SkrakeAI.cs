@@ -89,6 +89,10 @@ public class SkrakeAI : NetworkBehaviour
         //sendHitstunStatus();
     }
 
+    void DestroyGameObject()
+    {
+        Destroy(gameObject);
+    }
     private void ChangeDirection()
     {
         facingDirection = Mathf.Sign(rb.velocity.x);
