@@ -369,7 +369,6 @@ MonoBehaviour:
   - {fileID: 6749484314320138859, guid: 34482814083dd254687d04bea7c52375, type: 3}
   - {fileID: 6554584858392232962, guid: 325b46dda95e94240944548a07df1b81, type: 3}
   - {fileID: 7116336154021614077, guid: f9da39335d52e2849968c2b7b353e65f, type: 3}
-  - {fileID: 7240653282723461335, guid: 44301bcafd3a85c449978ceeb651a85f, type: 3}
   - {fileID: 7984122117270326092, guid: 12e7ced334fa5f04ab608267140cd847, type: 3}
   - {fileID: 4887738640141045449, guid: 7fa058d29264d6c478833e5d77804ab5, type: 3}
   - {fileID: 1325677449716479123, guid: 9f2e1feca86a0df43be454cf153494bf, type: 3}
@@ -1450,7 +1449,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3021200168299637348, guid: 09b3a9b785c86224f9d8a84655331a68, type: 3}
   m_PrefabInstance: {fileID: 1477396087}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1850664743}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -2573,6 +2572,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1091993667 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1865054297299318826, guid: 85bc4aae75b19ac4f872b8b5ff39c381, type: 3}
+  m_PrefabInstance: {fileID: 1819807097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1114645504
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,6 +3321,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1091993667}
+        m_TargetAssemblyTypeName: WildLife.Mirror.CharacterSelection.CharacterSelect,
+          Scripts
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1850664743}
+        m_TargetAssemblyTypeName: WildLife.Mirror.CharacterSelection.CharacterSelect,
+          Scripts
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1704015173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3456,6 +3486,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85bc4aae75b19ac4f872b8b5ff39c381, type: 3}
+--- !u!1 &1850664743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2648786238407890874, guid: 09b3a9b785c86224f9d8a84655331a68, type: 3}
+  m_PrefabInstance: {fileID: 1477396087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1854709797
 GameObject:
   m_ObjectHideFlags: 0
@@ -4155,7 +4190,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2157273871125353229, guid: 85bc4aae75b19ac4f872b8b5ff39c381, type: 3}
   m_PrefabInstance: {fileID: 1819807097}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1091993667}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
