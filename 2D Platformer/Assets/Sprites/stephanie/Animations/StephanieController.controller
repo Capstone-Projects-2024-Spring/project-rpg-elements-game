@@ -932,7 +932,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: cloudstrike
+  - m_Name: summonthunder
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1318,7 +1318,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: cloudstrike
+    m_ConditionEvent: summonthunder
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1271222452800091533}
@@ -1665,7 +1665,7 @@ AnimatorStateMachine:
     m_Position: {x: -50, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3924457467230863320}
-    m_Position: {x: -30, y: 210, z: 0}
+    m_Position: {x: -110, y: 210, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -7078243862229029118}
