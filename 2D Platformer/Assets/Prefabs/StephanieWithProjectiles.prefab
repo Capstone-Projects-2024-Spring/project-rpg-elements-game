@@ -1081,22 +1081,19 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   statSheet: {fileID: 3988610740993981676}
-  attackName: Sharp Arch
+  attackName: Vine Growth
   attackDescription: A quick upwards slash that covers a wide range and propels foes
     upwards. Great for setting up into bigger moves.
   abilityID: 8
   CurrentAbilitySlot: 0
-  animationTrigger: sharparch
-  power: 11
+  animationTrigger: vinegrowth
+  power: 18
   knockback:
-  - 4
-  - 7
+  - 2
+  - 8
   triggerKey: 108
   hitboxes:
   - {fileID: 8380272207258655901}
-  - {fileID: 3270483518911156379}
-  - {fileID: 6311402894483334069}
-  - {fileID: 8746340722329525659}
   visible_hitboxes: 0
 --- !u!114 &4002979394267338065
 MonoBehaviour:
