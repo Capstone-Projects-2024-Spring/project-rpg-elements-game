@@ -2706,25 +2706,22 @@ MonoBehaviour:
     ground.
   abilityID: 8
   CurrentAbilitySlot: 0
-  animationTrigger: obliviondive
-  power: 28
+  animationTrigger: smashdown
+  power: 20
   knockback:
-  - 14
-  - 10
+  - 6
+  - 4
   triggerKey: 59
   hitboxes:
   - {fileID: 7521335916718330262}
-  - {fileID: 7041203207914775773}
-  - {fileID: 228824983309777198}
-  - {fileID: 4705371679203608728}
   visible_hitboxes: 0
-  aerialPower: 16
+  aerialPower: 14
   aerialKnockback:
   - 15
   - -10
   aerialHitboxes:
   - {fileID: 7521335916718330262}
-  fallingVelocity: {x: 3, y: -20}
+  fallingVelocity: {x: 1, y: -17}
 --- !u!114 &5142493710843162022
 MonoBehaviour:
   m_ObjectHideFlags: 0
