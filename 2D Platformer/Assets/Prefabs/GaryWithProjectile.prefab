@@ -4068,10 +4068,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5432824586808806921}
     m_Modifications:
-    - target: {fileID: 1602447847594944597, guid: 141d4750741a6064396b71f3573fe799, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fd531707adb7fc6488841836807d6eb0, type: 3}
     - target: {fileID: 5731991725094233184, guid: 141d4750741a6064396b71f3573fe799, type: 3}
       propertyPath: m_Name
       value: StatPanel

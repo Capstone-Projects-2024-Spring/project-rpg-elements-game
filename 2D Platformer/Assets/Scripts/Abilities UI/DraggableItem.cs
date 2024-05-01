@@ -69,6 +69,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             image.sprite = listOfSpriteImages[imageSpriteToUse];
         }
         requiredLevel = abilityID * 2 - 2;
+        //requiredLevel = 0;
     }
 
     public static void setCharacterSelected(int currentCharacterIndex)

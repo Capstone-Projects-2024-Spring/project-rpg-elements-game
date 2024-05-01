@@ -40,7 +40,7 @@ public class Movement : NetworkBehaviour
 
     private void Start()
     {
-        //Grabs references for Rigidbody, Box Collider, and Animator
+         //Grabs references for Rigidbody, Box Collider, and Animator
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
@@ -62,7 +62,7 @@ public class Movement : NetworkBehaviour
         anim.SetBool("sent_forwards", sentForwards);
 
         anim.SetBool("dead", dead);
-
+   
 
         if (hitstunTimer <= 0f)
         {
@@ -172,7 +172,6 @@ public class Movement : NetworkBehaviour
 
     public void setHurtStateTrue(float _hitstunTimer, float xKnockback)
     {
-
         //boxCollider.sharedMaterial.bounciness = 1f;
         hurt = true;
         hitstunTimer = _hitstunTimer;
@@ -204,18 +203,5 @@ public class Movement : NetworkBehaviour
     public void setDeath(bool _dead)
     {
         dead = _dead;
-    }
-
-    public void RespawnPlayer()
-    {
-        Vector3 respawnPosition = new Vector3(0, 2, 0);
-
-
-        transform.position = respawnPosition;
-        body.velocity = Vector2.zero;
-        dead = false;
-
-        new WaitForSeconds(3);
-        anim.SetBool("dead", dead);
     }
 }
