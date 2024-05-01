@@ -1,9 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Mirror;
-using System;
-using Random = UnityEngine.Random;
 
 public class PlayerStats: NetworkBehaviour {
 
@@ -117,7 +118,7 @@ public class PlayerStats: NetworkBehaviour {
         CurrentHealth.DecreaseStat(damageTaken);
         lerpTimer = 0f;
         print("Player [" + this.gameObject.name + "] took [" + damageTaken + "] damage and is now at [" + CurrentHealth.Value + "] health.");
-        if (CurrentHealth.Value <= 0 && dead == false)
+        if (CurrentHealth.Value <= 0)
         {
             //Debug.Log("dead :((((");
             die();
@@ -139,16 +140,6 @@ public class PlayerStats: NetworkBehaviour {
         move.setDeath(dead);
         this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         Debug.Log(this.gameObject.name + " is dead");
-        Invoke("respawn", 3f);
-
-    }
-
-    public void respawn()
-    {
-        dead = false;
-        move.RespawnPlayer();
-        this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        CurrentHealth.IncreaseStat((int)Math.Abs(CurrentHealth.Value)+(int)Health.Value);
     }
 
     //Currently passes the level (although not actually necessary)

@@ -145,7 +145,6 @@ public class Hurtbox : MonoBehaviour
             anim.SetTrigger("dead");
             print("I died");
             ExperienceManager.Instance.AddExperience(500);
-            //this.gameObject.SetActive(false);
         }
     }
 //Makes the hurtbox recoil based on the attack's knockback
