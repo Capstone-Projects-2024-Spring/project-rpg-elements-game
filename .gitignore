@@ -106,3 +106,8 @@ octave-workspace
 # Alex build file
 /2D Platformer/z_build
 /2D Platformer/z_linux_build
+/2D Platformer/Assets/Editor Default Resources/Firebase
+/2D Platformer/Assets/Firebase/Plugins/iOS
+/2D Platformer/Assets/Firebase/Plugins/x86_64
+/2D Platformer/Assets/Plugins/iOS/Firebase
+/2D Platformer/Assets/Plugins/tvOS/Firebase
