@@ -4,7 +4,8 @@ sidebar_position: 3
 
 # System Block Diagram
 
-![SystemBlockDiagram_Updated](https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/assets/95385730/acc1a432-92b3-4690-b6de-8f765427bc1c)
+![Wildlife Odyssey](https://github.com/Capstone-Projects-2024-Spring/project-rpg-elements-game/assets/95385730/26593187-0517-458e-9beb-272a044979e4)
+
 
 *Figure 1. High level design of the Wildlife Odyssey architecture*
 
